@@ -1,12 +1,10 @@
 package Personajes;
 
-public class Vacio extends Personaje{
-	
-	
+public class Suciedad extends Personaje {
+
 	public boolean transitable ()
 	{
 		return true;
 	}
-	
 	
 }
