@@ -1,5 +1,7 @@
 package Main;
 
+import Personajes.Personaje;
+
 public class Mapa {
 	
 	private Personaje[] personajes;

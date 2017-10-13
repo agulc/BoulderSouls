@@ -1,4 +1,4 @@
-package Main;
+package Personajes;
 
 public class Ameba extends Enemigo{
 	

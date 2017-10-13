@@ -1,7 +1,9 @@
-package Main;
+package Personajes;
 
 import java.util.Collections;
 import java.util.List;
+
+import Main.Posicion;
 
 public abstract class Personaje {
 	private Posicion pos;
