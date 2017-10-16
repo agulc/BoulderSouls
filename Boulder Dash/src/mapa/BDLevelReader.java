@@ -79,7 +79,7 @@ public class BDLevelReader {
 																// method
 																// getElementsByTagName,
 																// we'll get the
-																// root leve of
+																// root level of
 																// the tree
 		Node n = nlist.item(0); // the root element
 		nlist = n.getChildNodes(); // ask for its children, this is the
@@ -148,19 +148,47 @@ public class BDLevelReader {
 			levelReader.setCurrentLevel(nivelElegido);
 
 			StringBuilder sb = new StringBuilder();
-			sb.append("NIVELES DISPONIBLES:");
+			sb.append("NIVELES DISPONIBLES: ");
 			sb.append(levels);
 			sb.append("\n");
 			sb.append("DIAMANTES NECESARIOS DEL NIVEL ");
 			sb.append(nivelElegido);
-			sb.append(":");
+			sb.append(": ");
 			sb.append(levelReader.getDiamondsNeeded());
 			
 			System.out.println(sb);
-
 			
+			//Horrendo, pero el recorrido funcionando
 			levelReader.imprimirMapa();
-
+			levelReader.mover("down");
+			levelReader.imprimirMapa();
+			for(int i=0;i<7;i++){
+				levelReader.imprimirMapa();
+				levelReader.mover("right");
+			}
+			levelReader.imprimirMapa();
+			levelReader.mover("up");
+			levelReader.imprimirMapa();
+			levelReader.mover("up");
+			levelReader.imprimirMapa();
+			levelReader.mover("right");
+			levelReader.imprimirMapa();
+			levelReader.mover("down");
+			levelReader.imprimirMapa();
+			levelReader.mover("down");
+			levelReader.imprimirMapa();
+			for(int i=0;i<8;i++){
+				levelReader.mover("right");
+				levelReader.imprimirMapa();
+			}
+			levelReader.imprimirMapa();
+			levelReader.mover("down");
+			levelReader.imprimirMapa();
+			levelReader.mover("down");
+			for(int i=0;i<5;i++){
+				levelReader.mover("right");
+				levelReader.imprimirMapa();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -181,7 +209,77 @@ public class BDLevelReader {
 
 		}
 		System.out.println("..............................................................");
+		System.out.println("Se necesitan " + diamondsNeeded + " diamantes mas");
 
 	}
 
+private int[] getPosicionRockford(){
+	int[] pos = new int[2];
+	for (int y = 0; y < ROW; y++) {
+		for (int x = 0; x < COLUMN; x++) {
+			if(field[x][y] == BDTile.PLAYER){
+				pos[0]=x;
+				pos[1]=y;
+				break;
+			}
+		}
+
+	}
+	return pos;
+}
+
+public boolean permitirMovimiento(String mov){
+	int[] pos = new int[2];
+	pos = this.getPosicionRockford();
+	int x = pos[0];
+	int y = pos[1];
+	switch (mov) {
+		case "up": return field[x][y-1].getRun();
+		case "down": return field[x][y+1].getRun();		
+		case "left": return field[x-1][y].getRun();		
+		case "right": return field[x+1][y].getRun();
+		default: return false;
+	}
+}
+
+void mover(String paraDonde){
+	int[] pos = new int[2];
+	pos = this.getPosicionRockford();
+	if(this.permitirMovimiento(paraDonde)){
+		switch (paraDonde) { //Cabe destacar que arriba y abajo se manejan al revez en este caso
+			case "up": {
+				field[pos[0]][pos[1]]=BDTile.EMPTY;
+				if(field[pos[0]][pos[1]-1] == BDTile.DIAMOND){
+					diamondsNeeded--;
+				}
+				field[pos[0]][pos[1]-1]=BDTile.PLAYER;
+				break;
+			}
+			case "down": {
+				field[pos[0]][pos[1]]=BDTile.EMPTY;
+				if(field[pos[0]][pos[1]+1] == BDTile.DIAMOND){
+					diamondsNeeded--;
+				}
+				field[pos[0]][pos[1]+1]=BDTile.PLAYER;
+				break;
+			}		
+			case "left": {
+				field[pos[0]][pos[1]]=BDTile.EMPTY;
+				if(field[pos[0]-1][pos[1]] == BDTile.DIAMOND){
+					diamondsNeeded--;
+				}
+				field[pos[0]-1][pos[1]]=BDTile.PLAYER;
+				break;
+			}	
+			case "right": {
+				field[pos[0]][pos[1]]=BDTile.EMPTY;
+				if(field[pos[0]+1][pos[1]] == BDTile.DIAMOND){
+					diamondsNeeded--;
+				}
+				field[pos[0]+1][pos[1]]=BDTile.PLAYER;
+				break;
+			}
+	}
+	}
+}
 }
