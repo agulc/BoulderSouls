@@ -24,12 +24,30 @@ public abstract class Personaje {
 		return pos.getPos(donde);
 	}
 	
+	public void movimiento(int[] pos, int x, int y) throws Exception{
+		if(Mapa.getInstancia().mapa[pos[0]+x][pos[1]+y] instanceof Diamante){
+			if(Mapa.getInstancia().mapa[pos[0]][pos[1]] instanceof Rockford){
+				Mapa.diamantesRestantes--;
+			}
+			else{
+				return;
+			}
+		}
+		Mapa.getInstancia().mapa[pos[0]+x][pos[1]+y]=Mapa.getInstancia().mapa[pos[0]][pos[1]];
+		Mapa.getInstancia().mapa[pos[0]+x][pos[1]+y].pos.setY(pos[1]+y);//Tambien debo actualizar su posicion en la instancia pos
+		Mapa.getInstancia().mapa[pos[0]+x][pos[1]+y].pos.setX(pos[0]+x);//Tambien debo actualizar su posicion en la instancia pos
+		Mapa.getInstancia().mapa[pos[0]][pos[1]]=new Vacio(pos[0],pos[1]);
+	}
 	public void mover(paraDonde donde) throws Exception{
 		int[] pos = this.pos.getPos();
+<<<<<<< HEAD
 		if(this.permitirMovimiento(donde,pos)){
+=======
+>>>>>>> 387e251d9f96b177a1542e7ea1e60a50abeb4c31
 			switch (donde) { //Cabe destacar que arriba y abajo se manejan al revez en este caso
 				case ARRIBA: {
-					if(Mapa.getInstancia().mapa[pos[0]][pos[1]-1] instanceof Diamante){
+					this.movimiento(pos, 0, -1);
+					/*if(Mapa.getInstancia().mapa[pos[0]][pos[1]-1] instanceof Diamante){
 						if(Mapa.getInstancia().mapa[pos[0]][pos[1]] instanceof Rockford){
 							Mapa.diamantesRestantes--;
 						}
@@ -40,9 +58,10 @@ public abstract class Personaje {
 					Mapa.getInstancia().mapa[pos[0]][pos[1]-1]=Mapa.getInstancia().mapa[pos[0]][pos[1]];
 					Mapa.getInstancia().mapa[pos[0]][pos[1]-1].pos.setY(pos[1]-1);//Tambien debo actualizar su posicion en la instancia pos
 					Mapa.getInstancia().mapa[pos[0]][pos[1]]=new Vacio(pos[0],pos[1]);
-					break;
+					break;*/
 				}
 				case ABAJO: {
+					this.movimiento(pos, 0, +1);/*
 					if(Mapa.getInstancia().mapa[pos[0]][pos[1]+1] instanceof Diamante){
 						if(Mapa.getInstancia().mapa[pos[0]][pos[1]] instanceof Rockford){
 							Mapa.diamantesRestantes--;
@@ -54,9 +73,10 @@ public abstract class Personaje {
 					Mapa.getInstancia().mapa[pos[0]][pos[1]+1]=Mapa.getInstancia().mapa[pos[0]][pos[1]];
 					Mapa.getInstancia().mapa[pos[0]][pos[1]+1].pos.setY(pos[1]+1);//Tambien debo actualizar su posicion en la instancia pos
 					Mapa.getInstancia().mapa[pos[0]][pos[1]]=new Vacio(pos[0],pos[1]);
-					break;
+					break;*/
 				}		
 				case IZQUIERDA: {
+					this.movimiento(pos, -1, 0);/*
 					if(Mapa.getInstancia().mapa[pos[0]-1][pos[1]] instanceof Diamante){
 						if(Mapa.getInstancia().mapa[pos[0]][pos[1]] instanceof Rockford){
 							Mapa.diamantesRestantes--;
@@ -68,9 +88,11 @@ public abstract class Personaje {
 					Mapa.getInstancia().mapa[pos[0]-1][pos[1]]=Mapa.getInstancia().mapa[pos[0]][pos[1]];
 					Mapa.getInstancia().mapa[pos[0]-1][pos[1]].pos.setX(pos[0]-1);//Tambien debo actualizar su posicion en la instancia pos
 					Mapa.getInstancia().mapa[pos[0]][pos[1]]=new Vacio(pos[0],pos[1]);
-					break;
+					break;*/
 				}	
 				case DERECHA: {
+					this.movimiento(pos, 1, 0);
+					/*
 					if(Mapa.getInstancia().mapa[pos[0]+1][pos[1]] instanceof Diamante){
 						if(Mapa.getInstancia().mapa[pos[0]][pos[1]] instanceof Rockford){
 							Mapa.diamantesRestantes--;
@@ -82,11 +104,11 @@ public abstract class Personaje {
 					Mapa.getInstancia().mapa[pos[0]+1][pos[1]]=Mapa.getInstancia().mapa[pos[0]][pos[1]];
 					Mapa.getInstancia().mapa[pos[0]+1][pos[1]].pos.setX(pos[0]+1);//Tambien debo actualizar su posicion en la instancia pos
 					Mapa.getInstancia().mapa[pos[0]][pos[1]]=new Vacio(pos[0],pos[1]);
-					break;
+					break;*/
 				}
 		}
 		}
-	}
+	
 	
 	public abstract String getGraficos();
 	
