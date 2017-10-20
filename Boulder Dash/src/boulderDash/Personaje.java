@@ -46,6 +46,7 @@ public abstract class Personaje {
 			switch (donde) { //Cabe destacar que arriba y abajo se manejan al revez en este caso
 				case ARRIBA: {
 					this.movimiento(pos, 0, -1);
+					break;
 					/*if(Mapa.getInstancia().mapa[pos[0]][pos[1]-1] instanceof Diamante){
 						if(Mapa.getInstancia().mapa[pos[0]][pos[1]] instanceof Rockford){
 							Mapa.diamantesRestantes--;
@@ -60,7 +61,9 @@ public abstract class Personaje {
 					break;*/
 				}
 				case ABAJO: {
-					this.movimiento(pos, 0, +1);/*
+					this.movimiento(pos, 0, +1);
+					break;
+					/*
 					if(Mapa.getInstancia().mapa[pos[0]][pos[1]+1] instanceof Diamante){
 						if(Mapa.getInstancia().mapa[pos[0]][pos[1]] instanceof Rockford){
 							Mapa.diamantesRestantes--;
@@ -75,7 +78,9 @@ public abstract class Personaje {
 					break;*/
 				}		
 				case IZQUIERDA: {
-					this.movimiento(pos, -1, 0);/*
+					this.movimiento(pos, -1, 0);
+					break;
+					/*
 					if(Mapa.getInstancia().mapa[pos[0]-1][pos[1]] instanceof Diamante){
 						if(Mapa.getInstancia().mapa[pos[0]][pos[1]] instanceof Rockford){
 							Mapa.diamantesRestantes--;
@@ -91,6 +96,7 @@ public abstract class Personaje {
 				}	
 				case DERECHA: {
 					this.movimiento(pos, 1, 0);
+					break;
 					/*
 					if(Mapa.getInstancia().mapa[pos[0]+1][pos[1]] instanceof Diamante){
 						if(Mapa.getInstancia().mapa[pos[0]][pos[1]] instanceof Rockford){
