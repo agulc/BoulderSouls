@@ -40,10 +40,9 @@ public abstract class Personaje {
 	}
 	public void mover(paraDonde donde) throws Exception{
 		int[] pos = this.pos.getPos();
-<<<<<<< HEAD
+
 		if(this.permitirMovimiento(donde,pos)){
-=======
->>>>>>> 387e251d9f96b177a1542e7ea1e60a50abeb4c31
+
 			switch (donde) { //Cabe destacar que arriba y abajo se manejan al revez en este caso
 				case ARRIBA: {
 					this.movimiento(pos, 0, -1);
@@ -106,8 +105,9 @@ public abstract class Personaje {
 					Mapa.getInstancia().mapa[pos[0]][pos[1]]=new Vacio(pos[0],pos[1]);
 					break;*/
 				}
+			}
 		}
-		}
+	}
 	
 	
 	public abstract String getGraficos();
@@ -144,7 +144,10 @@ public abstract class Personaje {
 		//No hace nada por defecto
 	}
 	
-	public void recibeExplosion (){
-		//No hace nada por defecto
+	public void recibeExplosion() throws Exception{ //Por defecto, el personaje es reemplazado por una explosion
+		
+		Explosion exp = new Explosion(this.getPos().getX(), this.getPos().getY());
+		Mapa.getInstancia().setPersonaje((Personaje)exp); 
+		
 	}
 }

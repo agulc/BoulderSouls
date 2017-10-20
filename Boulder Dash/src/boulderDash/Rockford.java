@@ -44,5 +44,13 @@ public class Rockford extends Personaje{
 		}
 	}
 	
+	@Override
+	public void recibeExplosion() throws Exception{ 
+		
+		/*Rockford muere, todavia no se como*/
+
+	}
+
+	
 	
 }
