@@ -10,8 +10,8 @@ public class Roca extends ObjetoNewton{
 		return false;
 	}
 	
-	public void activarIA() throws Exception{	
-		super.activarIA();
+	public void moverPersonajes() throws Exception{	
+		super.moverPersonajes();
 	}
 	
 	public String getGraficos(){

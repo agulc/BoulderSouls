@@ -2,7 +2,11 @@ package boulderDash;
 
 public class Vacio extends Personaje{
 	
-	Vacio(int x,int y){
+	Vacio(Posicion pos){
+		super(pos);
+	}
+	
+	Vacio(int x, int y){
 		super(x,y);
 	}
 	
@@ -17,4 +21,9 @@ public class Vacio extends Personaje{
 		return "Vacio";
 	}
 	
+	@Override
+	public void meCaeAlgoEncima(Posicion pos) throws Exception{
+		Mapa.getInstancia().getPersonaje(pos).mover(paraDonde.ABAJO);
+		System.out.println(Mapa.getInstancia().getPersonaje(pos).getGraficos() + " en la posicion x=" + pos.getX() + " y=" + pos.getY() + " acaba de caer");
+	}
 }

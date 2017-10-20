@@ -1,10 +1,15 @@
 package boulderDash;
 
 public abstract class Personaje {
-	public Posicion pos;
+	private Posicion pos;
 	
 	Personaje(int x,int y){
 		pos = new Posicion(x,y);
+	}
+	
+	Personaje(Posicion pos2){
+		pos = new Posicion();
+		pos = pos2;
 	}
 	
 	Personaje(){
@@ -14,12 +19,6 @@ public abstract class Personaje {
 	public Posicion getPos(){
 		return pos;
 	}
-	
-	/*public void mover2(paraDonde donde){
-		Mapa.mapa[pos[0]][pos[1]-1]=Mapa.mapa[pos[0]][pos[1]];
-		Mapa.mapa[pos[0]][pos[1]-1].pos.setY(pos[1]-1);//Tambien debo actualizar su posicion en la instancia pos
-		Mapa.getInstancia().getPersonaje(this.pos)=new Vacio(pos[0],pos[1]);
-	}*/
 	
 	public void mover(paraDonde donde) throws Exception{
 		int[] pos = this.pos.getPos();
@@ -85,10 +84,6 @@ public abstract class Personaje {
 		}
 	}
 	
-	public void actualizarPosiciones(){
-		
-	}
-	
 	public abstract String getGraficos();
 	
 	public boolean permitirMovimiento(paraDonde donde,int[] pos) throws Exception{
@@ -111,5 +106,15 @@ public abstract class Personaje {
 	
 	public abstract boolean getRun();
 	
-	public abstract void activarIA() throws Exception;
+	public void moverPersonajes() throws Exception{
+		//No hago nada por defecto
+	}
+	
+	public void actualizarEstadoObjeto(int x,int y) throws Exception{
+		//No hago nada por defecto
+	}
+	
+	public void meCaeAlgoEncima(Posicion pos) throws Exception{
+		//No hace nada por defecto
+	}
 }

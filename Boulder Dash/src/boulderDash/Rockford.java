@@ -16,8 +16,8 @@ public class Rockford extends Personaje{
 	
 	public Personaje setPosicion(int x, int y){//Lo hacemos asi porque sino no seria un singleton
 		if(rock!=null){
-			rock.pos.setX(x);
-			rock.pos.setY(y);
+			rock.getPos().setX(x);
+			rock.getPos().setY(y);
 		}
 		return rock;
 	}
@@ -31,5 +31,16 @@ public class Rockford extends Personaje{
 	
 	public String getGraficos(){
 		return "Rockford";
+	}
+	
+	public void meCaeAlgoEncima(Posicion pos) throws Exception{
+		if(Mapa.getInstancia().getPersonaje(pos) instanceof Roca){
+			/*Rockford muere, todavia no se como*/
+		}
+		else{//Si no es una roca, me elimino a mi mismo y los diamantes restantes pasan a ser uno menos
+			Mapa.diamantesRestantes--;
+			Mapa.getInstancia().setPersonaje((Personaje) new Vacio(pos));
+			System.out.println(Mapa.getInstancia().getPersonaje(pos).getGraficos() + " en la posicion x=" + pos.getX() + " y=" + pos.getY() + " cayo encima de rockford");
+		}
 	}
 }

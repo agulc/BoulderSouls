@@ -92,4 +92,15 @@ public class Mapa {
 	public Personaje getPersonaje(Posicion pos){
 		return this.mapa[pos.getX()][pos.getY()];
 	}
+	
+	public void setPersonaje(Personaje pers){
+		mapa[pers.getPos().getX()][pers.getPos().getY()] = pers;
+	}
+	
+	public void informarAlDeAbajo(Posicion pos) throws Exception{
+		Posicion posis = new Posicion(pos.getX(),pos.getY()+1);
+		getPersonaje(posis).meCaeAlgoEncima(pos);
+	}
+	
+	
 }

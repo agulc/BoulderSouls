@@ -16,5 +16,4 @@ public class Suciedad extends Personaje {
 	public String getGraficos(){
 		return "Suciedad";
 	}
-	
 }

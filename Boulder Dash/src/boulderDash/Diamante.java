@@ -10,8 +10,8 @@ public class Diamante extends ObjetoNewton{
 		return true;
 	}
 	
-	public void activarIA() throws Exception{	
-		super.activarIA();
+	public void moverPersonajes() throws Exception{	
+		super.moverPersonajes();
 	}
 	
 	public String getGraficos(){
