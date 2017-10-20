@@ -16,4 +16,11 @@ public class Luciernaga extends EnemigoMovil{
 	public String getGraficos(){
 		return "Luciernaga";
 	}
+	
+	public void meCaeAlgoEncima() throws Exception{
+		if(Mapa.getInstancia().getPersonaje(super.getPos(paraDonde.ARRIBA)) instanceof Roca){
+			//La luciernaga explota, tampoco se como
+		}
+	}
+			
 }

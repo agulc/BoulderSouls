@@ -17,4 +17,10 @@ public class Mariposa extends EnemigoMovil{
 	public String getGraficos(){
 		return "Mariposa";
 	}
+	
+	public void meCaeAlgoEncima() throws Exception{
+		if(Mapa.getInstancia().getPersonaje(super.getPos(paraDonde.ARRIBA)) instanceof Roca){
+			//La mariposa explota, tampoco se como
+		}
+	}
 }

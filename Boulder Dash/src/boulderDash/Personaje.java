@@ -20,6 +20,10 @@ public abstract class Personaje {
 		return pos;
 	}
 	
+	public Posicion getPos(paraDonde donde){
+		return pos.getPos(donde);
+	}
+	
 	public void mover(paraDonde donde) throws Exception{
 		int[] pos = this.pos.getPos();
 		if(this.permitirMovimiento(donde,pos)){
@@ -114,7 +118,7 @@ public abstract class Personaje {
 		//No hago nada por defecto
 	}
 	
-	public void meCaeAlgoEncima(Posicion pos) throws Exception{
+	public void meCaeAlgoEncima() throws Exception{
 		//No hace nada por defecto
 	}
 }

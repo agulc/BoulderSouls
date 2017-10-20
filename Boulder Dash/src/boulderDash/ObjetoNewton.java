@@ -19,29 +19,8 @@ public abstract class ObjetoNewton extends Personaje{
 	}
 	
 	public void moverPersonajes() throws Exception{
-		Posicion pos = super.getPos();
 		if(stat == State.Cayendo){
-			Mapa.getInstancia().informarAlDeAbajo(pos);
-			/*String tipo = Mapa.getInstancia().mapa[x][y+1].getClass().getSimpleName();
-			switch(tipo){
-				case "Vacio":{
-					this.mover(paraDonde.ABAJO);
-					System.out.println(Mapa.getInstancia().mapa[x][y].getClass().getSimpleName() + " en la posicion x=" + x + " y=" + y + " acaba de caer");
-					this.chequearObjetoDebajo(x, y+1);
-				}
-				case "Rockford":{
-					if(this instanceof Roca){
-						/*Rockford muere, todavia no se como*/
-					/*}
-					else{//Si no es una roca, me elimino a mi mismo y los diamantes restantes pasan a ser uno menos
-						Mapa.diamantesRestantes--;
-						Mapa.getInstancia().mapa[x][y] = new Vacio(x,y);
-						System.out.println(Mapa.getInstancia().mapa[x][y].getClass().getSimpleName() + " en la posicion x=" + x + " y=" + y + " cayo encima de rockford");
-					}
-				}
-				case "Luciernaga":{if(this instanceof Roca){/*La luciernaga explota, tampoco se como}}
-				case "Mariposa":{if(this instanceof Roca){/*La mariposa explota, tampoco se como}}
-			}*/
+			Mapa.getInstancia().getPersonaje(super.getPos(paraDonde.ABAJO)).meCaeAlgoEncima();;//Le informo al de abajo mio que voy a caer encima de el, enviandole mi posicion
 		}
 	}
 	
