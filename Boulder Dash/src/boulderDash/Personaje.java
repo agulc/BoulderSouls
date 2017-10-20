@@ -1,10 +1,14 @@
 package boulderDash;
 
 public abstract class Personaje {
-	public Posicion pos;
+	private Posicion pos;
 	
 	Personaje(int x,int y){
 		pos = new Posicion(x,y);
+	}
+	
+	public Posicion getPos(){
+		return pos;
 	}
 	
 	public void mover(String paraDonde){

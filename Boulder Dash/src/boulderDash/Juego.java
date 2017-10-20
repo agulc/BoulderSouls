@@ -5,15 +5,11 @@ import java.util.Scanner;
 public class Juego {
 	
 	public static void main(String args[]) throws Exception{
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Ingrese el nivel que desea: ");
-		int NivelElegido = scanner.nextInt();
-		Mapa mapita = new Mapa(NivelElegido);
-		mapita.graficarMapa();
+		Comportamiento.inicializar();
 		mapita.moverARockford("down");
 		mapita.graficarMapa();
 		for(int i=0;i<7;i++){
-			mapita.moverARockford("right");
+			mapita.moverARockford("right");//Hacerlo con un enumerativo, comportamiento del programa entero en una clase aparte, modelar movimiento en una clase aparte, que devuelva una posicion en vez de un vector
 			mapita.graficarMapa();
 		}
 		for(int i=0;i<2;i++){

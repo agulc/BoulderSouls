@@ -11,5 +11,6 @@ public class Mariposa extends EnemigoMovil{
 	}
 	
 	public void activarIA(){	
+			
 	}
 }

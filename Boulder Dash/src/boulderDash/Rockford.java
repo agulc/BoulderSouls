@@ -10,6 +10,6 @@ public class Rockford extends Personaje{
 		return false;
 	}
 	
-	public void activarIA(){	
+	public void activarIA(){
 	}
 }

@@ -76,11 +76,11 @@ public class Mapa {
 		}
 	}
 	
-	int[] getPosicionRockford(){
+	Posicion getPosicionRockford(){
 		for (int x = 0; x < 40; x++) {
 			for (int y = 0; y < 22; y++) {
 				if(Mapa.mapa[x][y] instanceof Rockford){
-					return Mapa.mapa[x][y].pos.getPos();
+					return Mapa.mapa[x][y].getPos();
 				}
 			}
 		}
@@ -88,15 +88,18 @@ public class Mapa {
 	}
 	
 	public void moverARockford(String paraDonde){
-		int[] pos = getPosicionRockford();
-		mapa[pos[0]][pos[1]].mover(paraDonde);
+		getObjeto(getPosicionRockford()).mover(paraDonde);
+	}
+	
+	public Personaje getObjeto(Posicion pos){
+		return this.mapa[pos.getX()][pos.getY()];
 	}
 	
 	public void graficarMapa(){
 		activarIA();//Solo se actualiza al graficar, ya que en esta etapa el juego funciona por "turnos"
 		for (int y = 0; y < 22; y++)  {
 			for (int x = 0; x < 40; x++) {
-				System.out.print(mapa[x][y].getClass().getName()+",");
+				System.out.print(mapa[x][y].getClass().getSimpleName()+",");
 			}
 			System.out.println();
 		}
