@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class Mapa {
 	
-	public static Personaje[][] mapa; //Sera estatico para poder ser accedido por otros metodos o clases
 	private int puntuacion;
 	private int vidas;
+	public Personaje[][] mapa; //Sera estatico para poder ser accedido por otros metodos o clases	
 	public static int diamantesRestantes;
 	private static Mapa instancia = null; 
 	
@@ -81,7 +81,7 @@ public class Mapa {
 						break;
 					}
 					case PLAYER:{
-						mapa[x][y]=new Rockford(x,y);
+						mapa[x][y]=Rockford.getInstancia().setPosicion(x,y);
 						break;
 					}
 				}
@@ -89,42 +89,7 @@ public class Mapa {
 		}
 	}
 	
-	Posicion getPosicionRockford(){
-		for (int x = 0; x < 40; x++) {
-			for (int y = 0; y < 22; y++) {
-				if(Mapa.mapa[x][y] instanceof Rockford){
-					return Mapa.mapa[x][y].getPos();
-				}
-			}
-		}
-	return null;
-	}
-	
-	public void moverARockford(paraDonde donde){
-		getPersonaje(getPosicionRockford()).mover(donde);
-	}
-	
 	public Personaje getPersonaje(Posicion pos){
 		return this.mapa[pos.getX()][pos.getY()];
-	}
-	
-	public void graficarMapa(){
-		activarIA();//Solo se actualiza al graficar, ya que en esta etapa el juego funciona por "turnos"
-		for (int y = 0; y < 22; y++)  {
-			for (int x = 0; x < 40; x++) {
-				System.out.print(mapa[x][y].getClass().getSimpleName()+",");
-			}
-			System.out.println();
-		}
-		System.out.println("Faltan " + diamantesRestantes + " diamantes para poder escapar!!!!");
-		System.out.println();
-	}
-	
-	private void activarIA(){
-		for (int y = 0; y < 22; y++)  {
-			for (int x = 0; x < 40; x++) {
-				mapa[x][y].activarIA();
-			}
-		}
 	}
 }

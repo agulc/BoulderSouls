@@ -18,15 +18,15 @@ public abstract class ObjetoNewton extends Personaje{
 		}
 	}
 	
-	public void activarIA(){
+	public void activarIA() throws Exception{
 		int x = super.pos.getX();
 		int y = super.pos.getY();
 		if(stat == State.Cayendo){
-			String tipo = Mapa.mapa[x][y+1].getClass().getSimpleName();
+			String tipo = Mapa.getInstancia().mapa[x][y+1].getClass().getSimpleName();
 			switch(tipo){
 				case "Vacio":{
 					this.mover(paraDonde.ABAJO);
-					System.out.println(Mapa.mapa[x][y].getClass().getSimpleName() + " en la posicion x=" + x + " y=" + y + " acaba de caer");
+					System.out.println(Mapa.getInstancia().mapa[x][y].getClass().getSimpleName() + " en la posicion x=" + x + " y=" + y + " acaba de caer");
 					this.chequearObjetoDebajo(x, y+1);
 				}
 				case "Rockford":{
@@ -35,8 +35,8 @@ public abstract class ObjetoNewton extends Personaje{
 					}
 					else{//Si no es una roca, me elimino a mi mismo y los diamantes restantes pasan a ser uno menos
 						Mapa.diamantesRestantes--;
-						Mapa.mapa[x][y] = new Vacio(x,y);
-						System.out.println(Mapa.mapa[x][y].getClass().getSimpleName() + " en la posicion x=" + x + " y=" + y + " cayo encima de rockford");
+						Mapa.getInstancia().mapa[x][y] = new Vacio(x,y);
+						System.out.println(Mapa.getInstancia().mapa[x][y].getClass().getSimpleName() + " en la posicion x=" + x + " y=" + y + " cayo encima de rockford");
 					}
 				}
 				case "Luciernaga":{if(this instanceof Roca){/*La luciernaga explota, tampoco se como*/}}
@@ -49,20 +49,20 @@ public abstract class ObjetoNewton extends Personaje{
 		}
 	}
 	
-	public void chequearObjetoDebajo(int x, int y){
-		if((Mapa.mapa[x][y+1] instanceof Vacio)||(Mapa.mapa[x][y+1] instanceof Rockford)){/*Podriamos reemplazarlo por el chequear objeto debajo y actualizar dependiendo de eso*/
+	public void chequearObjetoDebajo(int x, int y) throws Exception{
+		if((Mapa.getInstancia().mapa[x][y+1] instanceof Vacio)||(Mapa.getInstancia().mapa[x][y+1] instanceof Rockford)){/*Podriamos reemplazarlo por el chequear objeto debajo y actualizar dependiendo de eso*/
 	 		this.stat = State.Cayendo;
-	 		System.out.println(Mapa.mapa[x][y].getClass().getSimpleName() + " en la posicion x=" + x + " y=" + y + " esta cayendo");
+	 		System.out.println(Mapa.getInstancia().mapa[x][y].getClass().getSimpleName() + " en la posicion x=" + x + " y=" + y + " esta cayendo");
  		}
 	 	else{
-	 		if((Mapa.mapa[x-1][y] instanceof Vacio)&&((Mapa.mapa[x-1][y+1] instanceof Vacio)||(Mapa.mapa[x-1][y+1] instanceof Rockford))){
+	 		if((Mapa.getInstancia().mapa[x-1][y] instanceof Vacio)&&((Mapa.getInstancia().mapa[x-1][y+1] instanceof Vacio)||(Mapa.getInstancia().mapa[x-1][y+1] instanceof Rockford))){
 	 			super.mover(paraDonde.IZQUIERDA);
 	 			this.stat = State.Cayendo;
-	 			System.out.println(Mapa.mapa[x][y].getClass().getSimpleName() + " en la posicion x=" + x + " y=" + y + " esta cayendo");
+	 			System.out.println(Mapa.getInstancia().mapa[x][y].getClass().getSimpleName() + " en la posicion x=" + x + " y=" + y + " esta cayendo");
 	 		}
 	 		else{
 	 			this.stat = State.Estacionario;
-	 			System.out.println(Mapa.mapa[x][y].getClass().getSimpleName() + " en la posicion x=" + x + " y=" + y + " esta estacionari@");
+	 			System.out.println(Mapa.getInstancia().mapa[x][y].getClass().getSimpleName() + " en la posicion x=" + x + " y=" + y + " esta estacionari@");
 	 		}
 	 	}
 	}

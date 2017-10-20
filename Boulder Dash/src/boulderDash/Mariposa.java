@@ -13,4 +13,8 @@ public class Mariposa extends EnemigoMovil{
 	public void activarIA(){	
 			
 	}
+	
+	public String getGraficos(){
+		return "Mariposa";
+	}
 }

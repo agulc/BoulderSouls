@@ -13,5 +13,8 @@ public class Vacio extends Personaje{
 	public void activarIA(){	
 	}
 	
+	public String getGraficos(){
+		return "Vacio";
+	}
 	
 }

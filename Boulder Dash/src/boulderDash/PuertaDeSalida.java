@@ -19,4 +19,8 @@ public class PuertaDeSalida extends Personaje{
 			System.out.println("Ahora la puerta esta abierta!!!!! ESCAPAA!!");
 		}
 	}
+	
+	public String getGraficos(){
+		return "PuertaDeSalida";
+	}
 }

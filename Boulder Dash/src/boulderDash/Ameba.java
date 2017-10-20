@@ -18,4 +18,8 @@ public class Ameba extends Enemigo{
 		
 	}
 	
+	public String getGraficos(){
+		return "Ameba";
+	}
+	
 }

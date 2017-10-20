@@ -12,5 +12,9 @@ public class MuroMagico extends Muro{
 	
 	public void activarIA(){	
 	}
+	
+	public String getGraficos(){
+		return "MuroMagico";
+	}
 
 }

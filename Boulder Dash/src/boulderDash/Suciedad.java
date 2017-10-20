@@ -13,4 +13,8 @@ public class Suciedad extends Personaje {
 	public void activarIA(){	
 	}
 	
+	public String getGraficos(){
+		return "Suciedad";
+	}
+	
 }

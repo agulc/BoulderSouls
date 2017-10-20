@@ -12,4 +12,8 @@ public class Luciernaga extends EnemigoMovil{
 
 	public void activarIA(){	
 	}
+	
+	public String getGraficos(){
+		return "Luciernaga";
+	}
 }
