@@ -17,9 +17,6 @@ public class Explosion extends Personaje{
 		return true;
 	}
 	
-	public void activarIA(){	
-	}
-	
 	public String getGraficos(){
 		return "Explosion";
 	}

@@ -24,7 +24,7 @@ public abstract class ObjetoNewton extends Personaje{
 		}
 	}
 	
-	public void actualizarEstadoObjeto(int x, int y) throws Exception{
+	public void actualizarEstadoObjeto() throws Exception{
 		if((Mapa.getInstancia().mapa[x][y+1] instanceof Vacio)||(Mapa.getInstancia().mapa[x][y+1] instanceof Rockford)){/*Podriamos reemplazarlo por el chequear objeto debajo y actualizar dependiendo de eso*/
 	 		this.stat = State.Cayendo;
 	 		System.out.println(Mapa.getInstancia().mapa[x][y].getClass().getSimpleName() + " en la posicion x=" + x + " y=" + y + " esta cayendo");

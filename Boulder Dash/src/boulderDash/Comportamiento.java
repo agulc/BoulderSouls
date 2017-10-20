@@ -35,7 +35,7 @@ public class Comportamiento {
 	private static void actualizarEstadoObjeto() throws Exception{
 		for (int y = 0; y < 22; y++)  {
 			for (int x = 0; x < 40; x++) {
-				Mapa.getInstancia().mapa[x][y].actualizarEstadoObjeto(x,y);
+				Mapa.getInstancia().mapa[x][y].actualizarEstadoObjeto();
 			}
 		}
 	}

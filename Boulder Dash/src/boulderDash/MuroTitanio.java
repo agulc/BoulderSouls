@@ -10,9 +10,6 @@ public class MuroTitanio extends Muro {
 		return false;
 	}
 	
-	public void activarIA(){	
-	}
-	
 	public String getGraficos(){
 		return "MuroTitanio";
 	}

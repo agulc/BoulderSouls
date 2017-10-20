@@ -13,7 +13,7 @@ public class PuertaDeSalida extends Personaje{
 		return transitable;
 	}
 	
-	public void activarIA(){
+	public void actualizarEstadoObjeto(){
 		if(Mapa.diamantesRestantes<=0){
 			this.transitable=true;
 			System.out.println("Ahora la puerta esta abierta!!!!! ESCAPAA!!");

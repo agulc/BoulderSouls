@@ -6,16 +6,8 @@ public class Ameba extends Enemigo{
 		super(x,y);
 	}
 	
-	public void mitosis(){
-		
-	}
-	
 	public boolean getRun(){
 		return false;
-	}
-	
-	public void activarIA(){
-		
 	}
 	
 	public String getGraficos(){
