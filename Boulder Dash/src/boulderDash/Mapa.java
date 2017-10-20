@@ -1,14 +1,27 @@
 package boulderDash;
 
+import java.util.Scanner;
+
 public class Mapa {
 	
 	public static Personaje[][] mapa; //Sera estatico para poder ser accedido por otros metodos o clases
 	private int puntuacion;
 	private int vidas;
 	public static int diamantesRestantes;
+	private static Mapa instancia = null; 
 	
-	public Mapa (int NivelElegido) throws Exception
+	public static Mapa getInstancia() throws Exception{
+		if(instancia == null){
+			instancia = new Mapa();
+		}
+		return instancia;
+	}
+	
+	private Mapa () throws Exception
 	{
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Ingrese el nivel que desea: ");
+		int NivelElegido = scanner.nextInt();
 		this.vidas = 4;
 		this.puntuacion = 0;
 		BDLevelReader lectorNiveles = new BDLevelReader();
@@ -87,11 +100,11 @@ public class Mapa {
 	return null;
 	}
 	
-	public void moverARockford(String paraDonde){
-		getObjeto(getPosicionRockford()).mover(paraDonde);
+	public void moverARockford(paraDonde donde){
+		getPersonaje(getPosicionRockford()).mover(donde);
 	}
 	
-	public Personaje getObjeto(Posicion pos){
+	public Personaje getPersonaje(Posicion pos){
 		return this.mapa[pos.getX()][pos.getY()];
 	}
 	

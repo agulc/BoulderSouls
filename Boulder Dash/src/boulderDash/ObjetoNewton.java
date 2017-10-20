@@ -25,7 +25,7 @@ public abstract class ObjetoNewton extends Personaje{
 			String tipo = Mapa.mapa[x][y+1].getClass().getSimpleName();
 			switch(tipo){
 				case "Vacio":{
-					this.mover("down");
+					this.mover(paraDonde.ABAJO);
 					System.out.println(Mapa.mapa[x][y].getClass().getSimpleName() + " en la posicion x=" + x + " y=" + y + " acaba de caer");
 					this.chequearObjetoDebajo(x, y+1);
 				}
@@ -56,7 +56,7 @@ public abstract class ObjetoNewton extends Personaje{
  		}
 	 	else{
 	 		if((Mapa.mapa[x-1][y] instanceof Vacio)&&((Mapa.mapa[x-1][y+1] instanceof Vacio)||(Mapa.mapa[x-1][y+1] instanceof Rockford))){
-	 			super.mover("left");
+	 			super.mover(paraDonde.IZQUIERDA);
 	 			this.stat = State.Cayendo;
 	 			System.out.println(Mapa.mapa[x][y].getClass().getSimpleName() + " en la posicion x=" + x + " y=" + y + " esta cayendo");
 	 		}

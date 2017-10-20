@@ -18,10 +18,5 @@ public class Explosion extends Personaje{
 	}
 	
 	public void activarIA(){	
-		if(tiempo == 0){
-			int[] pos = super.pos.getPos();
-			Mapa.mapa[1][2] = new Vacio(pos[0]);
-			
-		}
 	}
 }
