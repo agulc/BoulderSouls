@@ -20,4 +20,16 @@ public class Explosion extends Personaje{
 	public String getGraficos(){
 		return "Explosion";
 	}
+	
+	public void actualizarEstadoObjeto() throws Exception{
+		tiempo--; //disminuye el tiempo restante
+		
+		if (tiempo <= 0) //Si se termina el tiempo
+		{
+			Vacio vacio = new Vacio(this.getPos().getX(), this.getPos().getY());
+			Mapa.getInstancia().setPersonaje((Personaje)vacio); //Sobreescribo la explosion con un personaje vacio
+		}
+		
+	}
+	
 }

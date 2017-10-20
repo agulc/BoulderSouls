@@ -25,7 +25,7 @@ public abstract class Personaje {
 	}
 	
 	public void mover(paraDonde donde) throws Exception{
-		int[] pos = this.pos.getPos();jajajajjanoandaaaaLOLHay que cambiar esto por la posicion
+		int[] pos = this.pos.getPos();
 		if(this.permitirMovimiento(donde,pos)){
 			switch (donde) { //Cabe destacar que arriba y abajo se manejan al revez en este caso
 				case ARRIBA: {
@@ -119,6 +119,10 @@ public abstract class Personaje {
 	}
 	
 	public void meCaeAlgoEncima() throws Exception{
+		//No hace nada por defecto
+	}
+	
+	public void recibeExplosion (){
 		//No hace nada por defecto
 	}
 }

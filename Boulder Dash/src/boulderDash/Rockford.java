@@ -43,4 +43,6 @@ public class Rockford extends Personaje{
 			System.out.println("Diamante" + " en la posicion x=" + super.getPos(paraDonde.ARRIBA).getX() + " y=" + super.getPos(paraDonde.ARRIBA).getY() + " cayo encima de rockford");
 		}
 	}
+	
+	
 }
