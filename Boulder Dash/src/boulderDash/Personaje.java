@@ -38,6 +38,7 @@ public abstract class Personaje {
 		Mapa.getInstancia().mapa[pos[0]+x][pos[1]+y].pos.setX(pos[0]+x);//Tambien debo actualizar su posicion en la instancia pos
 		Mapa.getInstancia().mapa[pos[0]][pos[1]]=new Vacio(pos[0],pos[1]);
 	}
+	
 	public void mover(paraDonde donde) throws Exception{
 		int[] pos = this.pos.getPos();
 
@@ -47,6 +48,7 @@ public abstract class Personaje {
 				case ARRIBA: {
 					this.movimiento(pos, 0, -1);
 					break;
+					
 					/*if(Mapa.getInstancia().mapa[pos[0]][pos[1]-1] instanceof Diamante){
 						if(Mapa.getInstancia().mapa[pos[0]][pos[1]] instanceof Rockford){
 							Mapa.diamantesRestantes--;
@@ -63,8 +65,8 @@ public abstract class Personaje {
 				case ABAJO: {
 					this.movimiento(pos, 0, +1);
 					break;
-					/*
-					if(Mapa.getInstancia().mapa[pos[0]][pos[1]+1] instanceof Diamante){
+					
+					/*if(Mapa.getInstancia().mapa[pos[0]][pos[1]+1] instanceof Diamante){
 						if(Mapa.getInstancia().mapa[pos[0]][pos[1]] instanceof Rockford){
 							Mapa.diamantesRestantes--;
 						}
@@ -80,8 +82,8 @@ public abstract class Personaje {
 				case IZQUIERDA: {
 					this.movimiento(pos, -1, 0);
 					break;
-					/*
-					if(Mapa.getInstancia().mapa[pos[0]-1][pos[1]] instanceof Diamante){
+					
+					/*if(Mapa.getInstancia().mapa[pos[0]-1][pos[1]] instanceof Diamante){
 						if(Mapa.getInstancia().mapa[pos[0]][pos[1]] instanceof Rockford){
 							Mapa.diamantesRestantes--;
 						}
@@ -97,8 +99,8 @@ public abstract class Personaje {
 				case DERECHA: {
 					this.movimiento(pos, 1, 0);
 					break;
-					/*
-					if(Mapa.getInstancia().mapa[pos[0]+1][pos[1]] instanceof Diamante){
+					
+					/*if(Mapa.getInstancia().mapa[pos[0]+1][pos[1]] instanceof Diamante){
 						if(Mapa.getInstancia().mapa[pos[0]][pos[1]] instanceof Rockford){
 							Mapa.diamantesRestantes--;
 						}
