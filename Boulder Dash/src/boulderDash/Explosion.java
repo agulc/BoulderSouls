@@ -8,7 +8,10 @@ public class Explosion extends Personaje{
 	}
 	
 	private int tiempo;
-	
+	/**
+	 * Hace referencia a la cantidad de "turnos" que debe durar una explosion
+	 * @return
+	 */
 	public int tiempoRestante(){
 		return tiempo;
 	}
@@ -20,7 +23,9 @@ public class Explosion extends Personaje{
 	public String getGraficos(){
 		return "Explosion";
 	}
-	
+	/**
+	 * Comportamiento de la explosion
+	 */
 	public void actualizarEstadoObjeto() throws Exception{
 		tiempo--; //disminuye el tiempo restante
 		

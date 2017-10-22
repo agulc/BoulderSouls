@@ -16,7 +16,10 @@ public class Mapa {
 		}
 		return instancia;
 	}
-	
+	/**
+	 * Escencia del juego. Crea el nivel solicitado
+	 * @throws Exception
+	 */
 	private Mapa () throws Exception
 	{
 		Scanner scanner = new Scanner(System.in);
@@ -87,6 +90,7 @@ public class Mapa {
 				}
 			}
 		}
+		scanner.close();
 	}
 	
 	public Personaje getPersonaje(Posicion pos){

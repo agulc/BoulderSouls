@@ -7,7 +7,12 @@ public abstract class ObjetoNewton extends Personaje{
 	public enum State{
 		Estacionario, Cayendo;
 	}
-	
+	/**
+	 * Verifica si el objeto deve moverse hacia abajo "devido a la gravedad".
+	 * @param cae
+	 * @param x
+	 * @param y
+	 */
 	public ObjetoNewton(boolean cae,int x, int y){
 		super(x,y);
 		if(cae){

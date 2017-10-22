@@ -23,7 +23,13 @@ public abstract class Personaje {
 	public Posicion getPos(paraDonde donde){
 		return pos.getPos(donde);
 	}
-	
+	/**
+	 * Se encarga de realizar el movimiento del objeto que se debe actualizar.
+	 * @param pos
+	 * @param x
+	 * @param y
+	 * @throws Exception
+	 */
 	public void movimiento(int[] pos, int x, int y) throws Exception{
 		if(Mapa.getInstancia().mapa[pos[0]+x][pos[1]+y] instanceof Diamante){
 			if(Mapa.getInstancia().mapa[pos[0]][pos[1]] instanceof Rockford){
@@ -38,7 +44,11 @@ public abstract class Personaje {
 		Mapa.getInstancia().mapa[pos[0]+x][pos[1]+y].pos.setX(pos[0]+x);//Tambien debo actualizar su posicion en la instancia pos
 		Mapa.getInstancia().mapa[pos[0]][pos[1]]=new Vacio(pos[0],pos[1]);
 	}
-	
+	/**
+	 * Permite seleccionar al objeto la dirección hacia donde debe desplazarse.
+	 * @param donde
+	 * @throws Exception
+	 */
 	public void mover(paraDonde donde) throws Exception{
 		int[] pos = this.pos.getPos();
 
@@ -48,70 +58,22 @@ public abstract class Personaje {
 				case ARRIBA: {
 					this.movimiento(pos, 0, -1);
 					break;
-					
-					/*if(Mapa.getInstancia().mapa[pos[0]][pos[1]-1] instanceof Diamante){
-						if(Mapa.getInstancia().mapa[pos[0]][pos[1]] instanceof Rockford){
-							Mapa.diamantesRestantes--;
-						}
-						else{
-							break;
-						}
-					}
-					Mapa.getInstancia().mapa[pos[0]][pos[1]-1]=Mapa.getInstancia().mapa[pos[0]][pos[1]];
-					Mapa.getInstancia().mapa[pos[0]][pos[1]-1].pos.setY(pos[1]-1);//Tambien debo actualizar su posicion en la instancia pos
-					Mapa.getInstancia().mapa[pos[0]][pos[1]]=new Vacio(pos[0],pos[1]);
-					break;*/
+
 				}
 				case ABAJO: {
 					this.movimiento(pos, 0, +1);
 					break;
-					
-					/*if(Mapa.getInstancia().mapa[pos[0]][pos[1]+1] instanceof Diamante){
-						if(Mapa.getInstancia().mapa[pos[0]][pos[1]] instanceof Rockford){
-							Mapa.diamantesRestantes--;
-						}
-						else{
-							break;
-						}
-					}
-					Mapa.getInstancia().mapa[pos[0]][pos[1]+1]=Mapa.getInstancia().mapa[pos[0]][pos[1]];
-					Mapa.getInstancia().mapa[pos[0]][pos[1]+1].pos.setY(pos[1]+1);//Tambien debo actualizar su posicion en la instancia pos
-					Mapa.getInstancia().mapa[pos[0]][pos[1]]=new Vacio(pos[0],pos[1]);
-					break;*/
+
 				}		
 				case IZQUIERDA: {
 					this.movimiento(pos, -1, 0);
 					break;
-					
-					/*if(Mapa.getInstancia().mapa[pos[0]-1][pos[1]] instanceof Diamante){
-						if(Mapa.getInstancia().mapa[pos[0]][pos[1]] instanceof Rockford){
-							Mapa.diamantesRestantes--;
-						}
-						else{
-							break;
-						}
-					}
-					Mapa.getInstancia().mapa[pos[0]-1][pos[1]]=Mapa.getInstancia().mapa[pos[0]][pos[1]];
-					Mapa.getInstancia().mapa[pos[0]-1][pos[1]].pos.setX(pos[0]-1);//Tambien debo actualizar su posicion en la instancia pos
-					Mapa.getInstancia().mapa[pos[0]][pos[1]]=new Vacio(pos[0],pos[1]);
-					break;*/
+
 				}	
 				case DERECHA: {
 					this.movimiento(pos, 1, 0);
 					break;
-					
-					/*if(Mapa.getInstancia().mapa[pos[0]+1][pos[1]] instanceof Diamante){
-						if(Mapa.getInstancia().mapa[pos[0]][pos[1]] instanceof Rockford){
-							Mapa.diamantesRestantes--;
-						}
-						else{
-							break;
-						}
-					}
-					Mapa.getInstancia().mapa[pos[0]+1][pos[1]]=Mapa.getInstancia().mapa[pos[0]][pos[1]];
-					Mapa.getInstancia().mapa[pos[0]+1][pos[1]].pos.setX(pos[0]+1);//Tambien debo actualizar su posicion en la instancia pos
-					Mapa.getInstancia().mapa[pos[0]][pos[1]]=new Vacio(pos[0],pos[1]);
-					break;*/
+
 				}
 			}
 		}
@@ -120,6 +82,13 @@ public abstract class Personaje {
 	
 	public abstract String getGraficos();
 	
+	/**
+	 * Verifica si el objeto que decea moverse puede hacerlo en la dirección que solicita.
+	 * @param donde
+	 * @param pos
+	 * @return
+	 * @throws Exception
+	 */
 	public boolean permitirMovimiento(paraDonde donde,int[] pos) throws Exception{
 		int x = pos[0];
 		int y = pos[1];
@@ -147,12 +116,20 @@ public abstract class Personaje {
 	public void actualizarEstadoObjeto() throws Exception{
 		//No hago nada por defecto
 	}
-	
+	/**
+	 * Define, dependiendo de la subclase del objeto, el comportamiento que deve realizar
+	 * al caerle un ObjetoNewton encima.
+	 * @throws Exception
+	 */
 	public void meCaeAlgoEncima() throws Exception{
 		//No hace nada por defecto
 	}
 	
-	public void recibeExplosion() throws Exception{ //Por defecto, el personaje es reemplazado por una explosion
+	/**
+	 * El personaje es reemplazado por una explosion
+	 * @throws Exception
+	 */
+	public void recibeExplosion() throws Exception{ 
 		
 		Explosion exp = new Explosion(this.getPos().getX(), this.getPos().getY());
 		Mapa.getInstancia().setPersonaje((Personaje)exp); 

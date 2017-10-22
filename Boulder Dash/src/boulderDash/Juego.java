@@ -3,7 +3,12 @@ package boulderDash;
 import java.util.Scanner;
 
 public class Juego {
-	
+	/**
+	 * Programa principal con los movimientos que Rockford realizará en el nivel 1
+	 * 
+	 * @param args
+	 * @throws Exception
+	 */
 	public static void main(String args[]) throws Exception{
 		Comportamiento.Inicializar();
 		Comportamiento.comportamientoNormal(paraDonde.ABAJO);
