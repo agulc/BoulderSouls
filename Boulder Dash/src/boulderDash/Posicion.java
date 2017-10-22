@@ -35,7 +35,7 @@ public class Posicion {
 		return pos;
 	}
 	
-	public Posicion getPos(paraDonde donde){
+	public Posicion getPos(ParaDonde donde){
 		Posicion pos = new Posicion();
 		switch(donde){
 			case ARRIBA:{

@@ -20,7 +20,7 @@ public abstract class Personaje {
 		return pos;
 	}
 	
-	public Posicion getPos(paraDonde donde){
+	public Posicion getPos(ParaDonde donde){
 		return pos.getPos(donde);
 	}
 	/**
@@ -49,7 +49,7 @@ public abstract class Personaje {
 	 * @param donde
 	 * @throws Exception
 	 */
-	public void mover(paraDonde donde) throws Exception{
+	public void mover(ParaDonde donde) throws Exception{
 		int[] pos = this.pos.getPos();
 
 		if(this.permitirMovimiento(donde,pos)){
@@ -89,7 +89,7 @@ public abstract class Personaje {
 	 * @return
 	 * @throws Exception
 	 */
-	public boolean permitirMovimiento(paraDonde donde,int[] pos) throws Exception{
+	public boolean permitirMovimiento(ParaDonde donde,int[] pos) throws Exception{
 		int x = pos[0];
 		int y = pos[1];
 		if((x>=0)&&(x<40)&&((y>=0)&&(y<22))){

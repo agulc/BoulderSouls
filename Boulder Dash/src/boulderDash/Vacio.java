@@ -23,7 +23,7 @@ public class Vacio extends Personaje{
 	
 	@Override
 	public void meCaeAlgoEncima() throws Exception{
-		System.out.println(Mapa.getInstancia().getPersonaje(super.getPos(paraDonde.ARRIBA)).getGraficos() + " en la posicion x=" + super.getPos(paraDonde.ARRIBA).getX() + " y=" + super.getPos(paraDonde.ARRIBA).getY() + " acaba de caer");
-		Mapa.getInstancia().getPersonaje(super.getPos(paraDonde.ARRIBA)).mover(paraDonde.ABAJO);
+		System.out.println(Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).getGraficos() + " en la posicion x=" + super.getPos(ParaDonde.ARRIBA).getX() + " y=" + super.getPos(ParaDonde.ARRIBA).getY() + " acaba de caer");
+		Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).mover(ParaDonde.ABAJO);
 	}
 }

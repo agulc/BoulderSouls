@@ -1,6 +1,6 @@
 package boulderDash;
 
-public enum paraDonde {
+public enum ParaDonde {
    ARRIBA,
    ABAJO,
    DERECHA,

@@ -16,7 +16,7 @@ public class Comportamiento {
 	 * @param donde
 	 * @throws Exception
 	 */
-	public static void comportamientoNormal(paraDonde donde) throws Exception{
+	public static void comportamientoNormal(ParaDonde donde) throws Exception{
 		moverPersonajes();
 		moverARockford(donde);
 		graficarMapa();
@@ -60,7 +60,7 @@ public class Comportamiento {
 		}
 	}
 	
-	public static void moverARockford(paraDonde donde) throws Exception{
+	public static void moverARockford(ParaDonde donde) throws Exception{
 		Rockford.getInstancia().mover(donde);
 	}
 }

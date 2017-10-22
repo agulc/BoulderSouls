@@ -34,13 +34,13 @@ public class Rockford extends Personaje{
 	}
 	
 	public void meCaeAlgoEncima() throws Exception{
-		if(Mapa.getInstancia().getPersonaje(super.getPos(paraDonde.ARRIBA)) instanceof Roca){
+		if(Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)) instanceof Roca){
 			/*Rockford muere, todavia no se como*/
 		}
 		else{//Si no es una roca, me elimino a mi mismo y los diamantes restantes pasan a ser uno menos
 			Mapa.diamantesRestantes--;
-			Mapa.getInstancia().setPersonaje((Personaje) new Vacio(super.getPos(paraDonde.ARRIBA)));
-			System.out.println("Diamante" + " en la posicion x=" + super.getPos(paraDonde.ARRIBA).getX() + " y=" + super.getPos(paraDonde.ARRIBA).getY() + " cayo encima de rockford");
+			Mapa.getInstancia().setPersonaje((Personaje) new Vacio(super.getPos(ParaDonde.ARRIBA)));
+			System.out.println("Diamante" + " en la posicion x=" + super.getPos(ParaDonde.ARRIBA).getX() + " y=" + super.getPos(ParaDonde.ARRIBA).getY() + " cayo encima de rockford");
 		}
 	}
 	

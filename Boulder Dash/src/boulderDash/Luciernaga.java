@@ -19,7 +19,7 @@ public class Luciernaga extends EnemigoMovil{
 	}
 	
 	public void meCaeAlgoEncima() throws Exception{
-		if(Mapa.getInstancia().getPersonaje(super.getPos(paraDonde.ARRIBA)) instanceof Roca){
+		if(Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)) instanceof Roca){
 			this.explotar();
 			
 		}
