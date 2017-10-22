@@ -12,6 +12,7 @@ public class Juego {
 	public static void main(String args[]) throws Exception{
 		Comportamiento.Inicializar();
 		Comportamiento.comportamientoNormal(ParaDonde.ABAJO);
+
 		for(int i=0;i<7;i++){
 			//Hacerlo con un enumerativo, comportamiento del programa entero en una clase aparte, modelar movimiento en una clase aparte, que devuelva una posicion en vez de un vector
 			Comportamiento.comportamientoNormal(ParaDonde.DERECHA);

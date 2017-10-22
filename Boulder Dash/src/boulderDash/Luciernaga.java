@@ -11,7 +11,7 @@ public class Luciernaga extends EnemigoMovil{
 		return false;
 	}
 
-	public void activarIA(){	
+	public void actualizarEstadoObjeto(){	
 		
 		//IMPLEMENTAR MOVIMIENTO
 	}

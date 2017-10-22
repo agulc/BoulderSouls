@@ -23,16 +23,18 @@ public class Ameba extends Enemigo{
 		{
 			Ameba hijo = new Ameba(pos.getX(),pos.getY());
 			Mapa.getInstancia().setPersonaje(hijo);
+			
+			System.out.println("Una ameba se expande a ("+pos.getX()+","+pos.getY()+")"); //Notifica en consola
 		}
 	}
 	
-	public void activarIA()throws Exception{	
+	public void actualizarEstadoObjeto()throws Exception{	
 		
-		int expandirse = 1 + generador.nextInt(1000); //Genera un numero del 1 al 1000
+		int expandirse = 1 + generador.nextInt(100); //Genera un numero del 1 al 100
 		int adyacente = 1 + generador.nextInt(8); //Determina en que cuadro adyacente intentara expandirse
 	
-		
-		if (expandirse == 1000) //Tiene una probabilidad de 1 en 1000 de intentar expandirse
+
+		if (expandirse == 100) //Tiene una probabilidad de 1 en 100 de intentar expandirse
 		{
 			switch (adyacente)
 			{
