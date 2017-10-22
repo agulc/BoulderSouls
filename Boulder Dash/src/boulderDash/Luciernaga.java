@@ -12,6 +12,8 @@ public class Luciernaga extends EnemigoMovil{
 	}
 
 	public void activarIA(){	
+		
+		//IMPLEMENTAR MOVIMIENTO
 	}
 	
 	public String getGraficos(){
