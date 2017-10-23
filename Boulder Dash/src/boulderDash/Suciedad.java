@@ -6,7 +6,7 @@ public class Suciedad extends Personaje {
 		super(x,y);
 	}
 	
-	public boolean getRun(){
+	public boolean getRun(ParaDonde donde){
 		return true;
 	}
 	

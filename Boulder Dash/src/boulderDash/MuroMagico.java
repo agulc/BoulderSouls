@@ -6,7 +6,7 @@ public class MuroMagico extends Muro{
 		super(x,y);
 	}
 	
-	public boolean getRun(){
+	public boolean getRun(ParaDonde donde){
 		return false;
 	}
 	

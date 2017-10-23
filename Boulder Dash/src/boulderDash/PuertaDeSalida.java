@@ -9,7 +9,7 @@ public class PuertaDeSalida extends Personaje{
 	
 	private boolean transitable;
 	
-	public boolean getRun(){
+	public boolean getRun(ParaDonde donde){
 		return transitable;
 	}
 	

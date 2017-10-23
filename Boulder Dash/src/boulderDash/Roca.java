@@ -7,17 +7,20 @@ public class Roca extends ObjetoNewton{
 	}
 	
 	public boolean rockfordCaminaSobreMi(ParaDonde dir) throws Exception{
-		if (Mapa.getInstancia().getPersonaje(this.getPos(dir)).chequearSiSoy(BDTile.EMPTY))
-		{
-			this.mover(dir);
-			return true;
-		}
-		return false;
+		
+		this.mover(dir);
+		return true;
+		
 				
 	}
 	
-	public boolean getRun(){
-		return false;
+	public boolean getRun(ParaDonde donde) throws Exception{
+		if(Mapa.getInstancia().getPersonaje(this.getPos(donde)).chequearSiSoy(BDTile.EMPTY))
+		{
+			return true;
+		}
+		else
+			return false;
 	}
 	
 	public void moverPersonajes() throws Exception{	

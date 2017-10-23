@@ -22,7 +22,7 @@ public class Rockford extends Personaje{
 		return rock;
 	}
 	
-	public boolean getRun(){
+	public boolean getRun(ParaDonde donde){
 		return false;
 	}
 	

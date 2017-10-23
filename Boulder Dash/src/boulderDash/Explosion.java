@@ -16,7 +16,7 @@ public class Explosion extends Personaje{
 		return tiempo;
 	}
 	
-	public boolean getRun(){
+	public boolean getRun(ParaDonde donde){
 		return true;
 	}
 	

@@ -12,6 +12,7 @@ public class Comportamiento {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Ingrese el nivel que desea: ");
 		int nivel = scanner.nextInt();
+		scanner.close();
 		//Mapa.getInstancia().setNivelActual(nivel);
 		Mapa.getInstancia();
 		graficarMapa();
@@ -35,9 +36,12 @@ public class Comportamiento {
 	 * @throws Exception
 	 */
 	public static void graficarMapa() throws Exception{
+		Posicion pos = new Posicion();
 		for (int y = 0; y < 22; y++)  {
 			for (int x = 0; x < 40; x++) {
-				System.out.print(Mapa.getInstancia().mapa[x][y].getClass().getName()+",");
+				pos.setX(x);
+				pos.setY(y);
+				System.out.print(Mapa.getInstancia().getPersonaje(pos).getClass().getName()+",");
 			}
 			System.out.println();
 		}
@@ -49,9 +53,12 @@ public class Comportamiento {
 	 * @throws Exception
 	 */
 	private static void moverPersonajes() throws Exception{
+		Posicion pos = new Posicion();
 		for (int y = 0; y < 22; y++)  {
 			for (int x = 0; x < 40; x++) {
-				Mapa.getInstancia().mapa[x][y].moverPersonajes();
+				pos.setX(x);
+				pos.setY(y);
+				Mapa.getInstancia().getPersonaje(pos).moverPersonajes();
 			}
 		}
 	}
@@ -61,9 +68,12 @@ public class Comportamiento {
 	 * @throws Exception
 	 */
 	private static void actualizarEstadoObjeto() throws Exception{
+		Posicion pos = new Posicion();
 		for (int y = 0; y < 22; y++)  {
 			for (int x = 0; x < 40; x++) {
-				Mapa.getInstancia().mapa[x][y].actualizarEstadoObjeto();
+				pos.setX(x);
+				pos.setY(y);
+				Mapa.getInstancia().getPersonaje(pos).actualizarEstadoObjeto();
 			}
 		}
 	}

@@ -96,15 +96,17 @@ public abstract class Personaje {
 	 * @return
 	 * @throws Exception
 	 */
+	
+	
 	public boolean permitirMovimiento(ParaDonde donde) throws Exception{
 		 
-		return (Mapa.getInstancia().getPersonaje(this.pos.getPos(donde)).getRun());
+		return (Mapa.getInstancia().getPersonaje(this.pos.getPos(donde)).getRun(donde));
 	}
 	
 	
 	//public abstract String getGrafico();
 	
-	public abstract boolean getRun();
+	public abstract boolean getRun(ParaDonde donde) throws Exception;
 	
 	public void moverPersonajes() throws Exception{
 		//No hago nada por defecto

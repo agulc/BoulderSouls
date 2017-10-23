@@ -7,7 +7,7 @@ public class Luciernaga extends EnemigoMovil{
 		super(x,y);
 	}
 	
-	public boolean getRun(){
+	public boolean getRun(ParaDonde donde){
 		return false;
 	}
 
@@ -45,23 +45,24 @@ public class Luciernaga extends EnemigoMovil{
 		}
 		
 		int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda
-		int b = this.getPos().getY() - 1;
-		Posicion pos = new Posicion();
-		
-		for (int i = a; a <= (a+3); a++) //Recorre los personajes adyacentes
-		{
-			for (int j = b; b <= (b+3); b++)
-			{
-				pos.setX(i);
-				pos.setY(j);
-				if (Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.PLAYER)){ //Si el jugador es adyacente, la luciernaga explota 
-					
-					this.explotar();
-					
-				}
-				
-			}
-		}
+		  int b = this.getPos().getY() - 1;
+		  Posicion posAux = new Posicion();
+		  int aAux = a+3;
+		  int bAux = b+3;
+		  
+		  for (int i = a; a <=aAux; a++) //Recorre los personajes adyacentes
+		  {
+			   for (int j = b; b <=bAux; b++)
+			   {
+				    posAux.setX(i);
+				    posAux.setY(j);
+				    if (Mapa.getInstancia().getPersonaje(posAux).chequearSiSoy(BDTile.PLAYER)){ //Si el jugador es adyacente, la luciernaga explota 
+					     this.explotar();
+					     break;
+				    }
+		    
+			   }
+		  }
 		
 	}
 

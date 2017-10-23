@@ -11,7 +11,7 @@ public class Juego {
 	 */
 	public static void main(String args[]) throws Exception{
 		Comportamiento.Inicializar();
-		/*
+		
 		Comportamiento.comportamientoNormal(ParaDonde.ABAJO);
 
 		
@@ -42,7 +42,7 @@ public class Juego {
 		
 		Mapa.getInstancia().setNivelActual(2); //Aumenta el nivel
 		Mapa.getInstancia().reconstruirMapa(); //Reconstruye el mapa
-		*/
+		
 		for(int i=0;i<1;i++){
 			Comportamiento.comportamientoNormal(ParaDonde.DERECHA);
 		}

@@ -10,7 +10,7 @@ public class Vacio extends Personaje{
 		super(x,y);
 	}
 	
-	public boolean getRun(){
+	public boolean getRun(ParaDonde donde){
 		return true;
 	}
 	

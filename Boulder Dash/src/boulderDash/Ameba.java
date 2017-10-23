@@ -9,7 +9,7 @@ public class Ameba extends Enemigo{
 		super(x,y);
 	}
 	
-	public boolean getRun(){
+	public boolean getRun(ParaDonde donde){
 		return false;
 	}
 	

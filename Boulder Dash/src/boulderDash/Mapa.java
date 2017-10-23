@@ -7,7 +7,7 @@ public class Mapa {
 	private static int nivelActual = 1;
 	private static int puntuacion = 0;
 	private static int vidas = 4;
-	public Personaje[][] mapa; //Sera estatico para poder ser accedido por otros metodos o clases	
+	public Personaje[][] mapa; 
 	public static int diamantesRestantes;
 	private static Mapa instancia = null; 
 

@@ -6,7 +6,7 @@ public class Diamante extends ObjetoNewton{
 		super(cae,x,y);
 	}
 	
-	public boolean getRun(){
+	public boolean getRun(ParaDonde donde){
 		return true;
 	}
 	
