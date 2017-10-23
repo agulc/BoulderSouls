@@ -34,7 +34,7 @@ public class Comportamiento {
 			for (int x = 0; x < 40; x++) {
 				pos.setX(x);
 				pos.setY(y);
-				System.out.print(Mapa.getInstancia().getPersonaje(pos).getGraficos()+",");
+				System.out.print(Mapa.getInstancia().getPersonaje(pos).getClass().getName()+",");
 			}
 			System.out.println();
 		}

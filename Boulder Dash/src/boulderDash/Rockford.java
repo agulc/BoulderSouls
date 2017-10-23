@@ -52,12 +52,6 @@ public class Rockford extends Personaje{
 			System.out.println("ROCA" + " en la posicion x=" + super.getPos(ParaDonde.ARRIBA).getX() + " y=" + super.getPos(ParaDonde.ARRIBA).getY() + " cayo encima de rockford");
 			this.muerte();
 		}
-		else{//Si no es una roca, me elimino a mi mismo y los diamantes restantes pasan a ser uno menos
-			Mapa.diamantesRestantes--;
-			Mapa.incrementarPuntaje();
-			Mapa.getInstancia().setPersonaje(new Vacio(super.getPos(ParaDonde.ARRIBA)) , super.getPos(ParaDonde.ARRIBA));
-			System.out.println("Diamante" + " en la posicion x=" + super.getPos(ParaDonde.ARRIBA).getX() + " y=" + super.getPos(ParaDonde.ARRIBA).getY() + " cayo encima de rockford");
-		}
 	}
 	
 	@Override
