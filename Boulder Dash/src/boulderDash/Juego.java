@@ -53,5 +53,6 @@ public class Juego {
 		
 		Comportamiento.comportamientoNormal(ParaDonde.ARRIBA);
 		System.out.println("Nivel 2 terminado, tu puntaje actual es: "+Mapa.getPuntaje());
+		
 	}
 }
