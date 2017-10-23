@@ -65,6 +65,8 @@ public class Luciernaga extends EnemigoMovil{
 		  }
 		
 	}
+	
+	
 
 	
 	public String getGraficos(){

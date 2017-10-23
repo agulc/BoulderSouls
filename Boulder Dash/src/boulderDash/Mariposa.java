@@ -65,6 +65,29 @@ public class Mariposa extends EnemigoMovil{
 		
 	}
 	
+	@Override
+	public void explotar() throws Exception{
+		
+		int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda
+		int b = this.getPos().getY() - 1;
+		Posicion pos = new Posicion();
+		
+		for (int i = a; a <= (a+3); a++) //Recorre los personajes adyacentes
+		{
+			for (int j = b; b <= (b+3); b++)
+			{
+				pos.setX(i);
+				pos.setY(j);
+				if (!Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.WALL)) //Si no es una pared
+				{
+					Mapa.getInstancia().setPersonaje(new Diamante(false,pos.getX(),pos.getY()), pos); //Transforma el personaje en diamante
+				}
+				
+				
+			}
+		}
+	}
+	
 	public String getGraficos(){
 		return "Mariposa";
 	}
