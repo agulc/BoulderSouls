@@ -14,6 +14,7 @@ public class Luciernaga extends EnemigoMovil{
 	public void actualizarEstadoObjeto(){	
 		
 		//IMPLEMENTAR MOVIMIENTO
+		//Si el jugador es adyacente, la luciernaga explota 
 	}
 	
 	public String getGraficos(){

@@ -71,10 +71,7 @@ public class Ameba extends Enemigo{
 				break;				
 			}
 		}
-		
-		//IMPLEMENTAR EXPANSION/REPRODUCCION
-		
-		
+	
 	}
 	
 	public String getGraficos(){

@@ -122,7 +122,7 @@ public abstract class Personaje {
 	 * @throws Exception
 	 */
 	public void meCaeAlgoEncima() throws Exception{
-		//No hace nada por defecto
+		//No hago nada por defecto
 	}
 	
 	/**

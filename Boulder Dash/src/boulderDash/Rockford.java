@@ -33,6 +33,12 @@ public class Rockford extends Personaje{
 		return "Rockford";
 	}
 	
+	public void muerte(){
+		
+		//IMPLEMENTAR MUERTE
+		
+	}
+	
 	public void meCaeAlgoEncima() throws Exception{
 		if(Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)) instanceof Roca){
 			/*Rockford muere, todavia no se como*/
