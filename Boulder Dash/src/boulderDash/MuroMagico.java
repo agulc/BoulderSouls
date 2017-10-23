@@ -13,5 +13,7 @@ public class MuroMagico extends Muro{
 	public String getGraficos(){
 		return "MuroMagico";
 	}
+	
+
 
 }

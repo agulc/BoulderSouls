@@ -27,13 +27,7 @@ public class Posicion {
 	public void setY(int y){
 		this.coordY = y;
 	}
-	
-	public int[] getPos(){
-		int[] pos = new int[2];
-		pos[0] = this.coordX;
-		pos[1] = this.coordY;
-		return pos;
-	}
+
 	
 	public Posicion getPos(ParaDonde donde){
 		Posicion pos = new Posicion();

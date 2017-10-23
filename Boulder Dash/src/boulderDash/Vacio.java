@@ -26,4 +26,14 @@ public class Vacio extends Personaje{
 		System.out.println(Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).getGraficos() + " en la posicion x=" + super.getPos(ParaDonde.ARRIBA).getX() + " y=" + super.getPos(ParaDonde.ARRIBA).getY() + " acaba de caer");
 		Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).mover(ParaDonde.ABAJO);
 	}
+	
+	public boolean soyVacio(){ //Hacemos este metodo, dado que es necesario hacer esta comparacion muy seguido
+		
+		return true;
+	}
+	
+	public boolean chequearSiSoy (BDTile tile){
+
+		return (tile == BDTile.EMPTY);
+	}
 }

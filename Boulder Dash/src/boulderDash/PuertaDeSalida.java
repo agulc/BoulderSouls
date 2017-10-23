@@ -23,12 +23,23 @@ public class PuertaDeSalida extends Personaje{
 	public String getGraficos(){
 		return "PuertaDeSalida";
 	}
+	
 	/**
 	 * De haber una explosion, este no se inmuta.
 	 */
 	@Override
 	public void recibeExplosion() throws Exception{ //Si recibe una explosion, No hace nada (A diferencia del resto de personajes)
 
+	}
+	
+	public boolean chequearSiSoy (BDTile tile){
+
+		return (tile == BDTile.EXIT);
+	}
+	
+	public void llegadaALaSalida(){
+		//IMPLEMENTAR
+		//SI se llega a la salida y esta abierta, se aumenta el nivel, y se reconstruye el mapa
 	}
 
 }

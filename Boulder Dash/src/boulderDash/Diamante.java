@@ -10,11 +10,23 @@ public class Diamante extends ObjetoNewton{
 		return true;
 	}
 	
+	public boolean rockfordCaminaSobreMi (ParaDonde dir){
+		
+		Mapa.diamantesRestantes--;
+		
+		return true;
+	}
+	
 	public void moverPersonajes() throws Exception{	
 		super.moverPersonajes();
 	}
 	
 	public String getGraficos(){
 		return "Diamante";
+	}
+	
+	public boolean chequearSiSoy (BDTile tile){
+
+		return (tile == BDTile.DIAMOND);
 	}
 }

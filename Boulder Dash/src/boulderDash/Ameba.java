@@ -19,10 +19,10 @@ public class Ameba extends Enemigo{
 		pos.setX(this.getPos().getX() + offsetX);
 		pos.setY(this.getPos().getY() + offsetY);
 		
-		if (Mapa.getInstancia().getPersonaje(pos) instanceof Suciedad || Mapa.getInstancia().getPersonaje(pos) instanceof Vacio)
+		if (Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.DIRT) || Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.EMPTY))
 		{
 			Ameba hijo = new Ameba(pos.getX(),pos.getY());
-			Mapa.getInstancia().setPersonaje(hijo);
+			Mapa.getInstancia().setPersonaje(hijo, this.getPos());
 			
 			System.out.println("Una ameba se expande a ("+pos.getX()+","+pos.getY()+")"); //Notifica en consola
 		}
@@ -78,5 +78,9 @@ public class Ameba extends Enemigo{
 		return "Ameba";
 	}
  
+	public boolean chequearSiSoy (BDTile tile){
+
+		return (tile == BDTile.AMOEBA);
+	}
 
 }

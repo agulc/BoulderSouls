@@ -14,7 +14,6 @@ public class Juego {
 		Comportamiento.comportamientoNormal(ParaDonde.ABAJO);
 
 		for(int i=0;i<7;i++){
-			//Hacerlo con un enumerativo, comportamiento del programa entero en una clase aparte, modelar movimiento en una clase aparte, que devuelva una posicion en vez de un vector
 			Comportamiento.comportamientoNormal(ParaDonde.DERECHA);
 		}
 		for(int i=0;i<2;i++){
@@ -33,6 +32,28 @@ public class Juego {
 		for(int i=0;i<5;i++){
 			Comportamiento.comportamientoNormal(ParaDonde.DERECHA);
 		}
-		System.out.println("Supuestamente esta todo terminado");
+		System.out.println("Nivel 1 terminado");
+		
+		Mapa.getInstancia().setNivelActual(2); //Aumenta el nivel
+		Mapa.getInstancia().reconstruirMapa(); //Reconstruye el mapa
+		
+		for(int i=0;i<1;i++){
+			Comportamiento.comportamientoNormal(ParaDonde.DERECHA);
+		}
+
+		for(int i=0;i<3;i++){
+			Comportamiento.comportamientoNormal(ParaDonde.ARRIBA);
+		}
+
+		for(int i=0;i<14;i++){
+			Comportamiento.comportamientoNormal(ParaDonde.IZQUIERDA);
+		}
+
+		for(int i=0;i<1;i++){
+			Comportamiento.comportamientoNormal(ParaDonde.ARRIBA);
+		}
+		System.out.println("Nivel 2 terminado");
+		
+		
 	}
 }

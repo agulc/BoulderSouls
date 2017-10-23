@@ -31,10 +31,14 @@ public class Explosion extends Personaje{
 		
 		if (tiempo <= 0) //Si se termina el tiempo
 		{
-			Vacio vacio = new Vacio(this.getPos().getX(), this.getPos().getY());
-			Mapa.getInstancia().setPersonaje((Personaje)vacio); //Sobreescribo la explosion con un personaje vacio
+			Mapa.getInstancia().setPersonaje(new Vacio(this.getPos()), this.getPos()); //Sobreescribo la explosion con un personaje vacio
 		}
 		
+	}
+	
+	public boolean chequearSiSoy (BDTile tile){
+
+		return false;
 	}
 	
 }
