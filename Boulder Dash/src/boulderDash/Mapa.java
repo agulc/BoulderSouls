@@ -19,7 +19,7 @@ public class Mapa {
 	
 	/**
 	 * Escencia del juego. Crea el nivel solicitado
-	 * @throws Exception
+	 * @throws Exception .
 	 */
 	private Mapa () throws Exception
 	{

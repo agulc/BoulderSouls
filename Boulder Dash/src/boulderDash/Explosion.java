@@ -10,7 +10,7 @@ public class Explosion extends Personaje{
 	private int tiempo;
 	/**
 	 * Hace referencia a la cantidad de "turnos" que debe durar una explosion
-	 * @return
+	 * @return Tiempo restante.
 	 */
 	public int tiempoRestante(){
 		return tiempo;

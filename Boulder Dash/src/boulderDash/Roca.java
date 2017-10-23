@@ -6,6 +6,9 @@ public class Roca extends ObjetoNewton{
 		super(cae,x,y);
 	}
 	
+	/**
+	 * Permite a Rockford mover las rocas.
+	 */
 	public boolean rockfordCaminaSobreMi(ParaDonde dir) throws Exception{
 		
 		this.mover(dir);

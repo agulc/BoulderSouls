@@ -3,7 +3,7 @@ package boulderDash;
 public class Comportamiento {
 	/**
 	 * Crea el mapa del nivel seleccionado.
-	 * @throws Exception
+	 * @throws Exception .
 	 */
 	
 	public static void Inicializar() throws Exception{
@@ -14,8 +14,8 @@ public class Comportamiento {
 	/**
 	 * Ciclio normal del juego una vez que fué inicializado.
 	 * Solo se actualiza al graficar, ya que en esta etapa el juego funciona por "turnos".
-	 * @param donde
-	 * @throws Exception
+	 * @param donde Dirección
+	 * @throws Exception .
 	 */
 	public static void comportamientoNormal(ParaDonde donde) throws Exception{
 		
@@ -26,7 +26,7 @@ public class Comportamiento {
 	}
 	/**
 	 * Refrezca la posición en el mapa de todos los objetos una vez que se termina el turno.
-	 * @throws Exception
+	 * @throws Exception .
 	 */
 	public static void graficarMapa() throws Exception{
 		Posicion pos = new Posicion();
@@ -43,7 +43,7 @@ public class Comportamiento {
 	}
 	/**
 	 * Se encarga de modificar la posición de cada objeto (salvo Rockford) del nivel en cada turno.
-	 * @throws Exception
+	 * @throws Exception .
 	 */
 	private static void moverPersonajes() throws Exception{
 		Posicion pos = new Posicion();
@@ -58,7 +58,7 @@ public class Comportamiento {
 	/**
 	 * Actualiza el estado de cada objeto respecto a que deve realizar en ese turno. 
 	 * El resultado final dependerá del objeto que se esté actualizando.
-	 * @throws Exception
+	 * @throws Exception .
 	 */
 	private static void actualizarEstadoObjeto() throws Exception{
 		Posicion pos = new Posicion();

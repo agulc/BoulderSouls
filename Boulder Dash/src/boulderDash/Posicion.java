@@ -28,7 +28,12 @@ public class Posicion {
 		this.coordY = y;
 	}
 
-	
+	/**
+	 * Determina el comportamiento que el objeto debe tomar
+	 * dependiendo de la dirección de desplazamiento seleccionada.
+	 * @param donde Dirección.
+	 * @return Nueva posición,
+	 */
 	public Posicion getPos(ParaDonde donde){
 		Posicion pos = new Posicion();
 		switch(donde){

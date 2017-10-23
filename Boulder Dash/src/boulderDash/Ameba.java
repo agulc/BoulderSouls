@@ -12,8 +12,13 @@ public class Ameba extends Enemigo{
 	public boolean getRun(ParaDonde donde){
 		return false;
 	}
-	
-	private void expandirse (int offsetX, int offsetY) throws Exception//Crea una ameba en la posicion con el offset recibido, si esta es Suciedad o Vacio
+	/**
+	 * Crea una ameba en la posicion con el offset recibido, si esta es Suciedad o Vacio.
+	 * @param offsetX Coordenada a expandirse en X.
+	 * @param offsetY Coordenada a expandirse en Y.
+	 * @throws Exception .
+	 */
+	private void expandirse (int offsetX, int offsetY) throws Exception
 	{
 		Posicion pos = new Posicion();
 		pos.setX(this.getPos().getX() + offsetX);
@@ -27,7 +32,10 @@ public class Ameba extends Enemigo{
 			System.out.println("Una ameba se expande a ("+pos.getX()+","+pos.getY()+")"); //Notifica en consola
 		}
 	}
-	
+	/**
+	 * Para la repriducción de la Ameba, se han utilizado valores aleatorios con el fin
+	 * de lograr el efecto solicitado. 
+	 */
 	public void actualizarEstadoObjeto()throws Exception{	
 		
 		int expandirse = 1 + generador.nextInt(100); //Genera un numero del 1 al 100

@@ -27,7 +27,10 @@ public abstract class EnemigoMovil extends Enemigo {
 		}
 	}
 	
-
+	/**
+	 * Forma en la que se expande una explosión al ocurrir dentro del mapa.
+	 * @throws Exception . 
+	 */
 	public void explotar() throws Exception{
 		
 		int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda

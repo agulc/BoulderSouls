@@ -17,8 +17,8 @@ public class MuroTitanio extends Muro {
 	 * De haber una explosion, este no se inmuta.
 	 */
 	@Override
-	public void recibeExplosion() throws Exception{ //Si recibe una explosion, No hace nada (A diferencia del resto de personajes)
-
+	public void recibeExplosion() throws Exception{ 
+		//Si recibe una explosion, No hace nada (A diferencia del resto de personajes)
 	}
 
 }

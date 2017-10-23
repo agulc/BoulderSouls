@@ -2,10 +2,10 @@ package boulderDash;
 
 public class Juego {
 	/**
-	 * Programa principal con los movimientos que Rockford realizará en el nivel 1
-	 * 
-	 * @param args
-	 * @throws Exception
+	 * Programa principal con los movimientos que Rockford
+	 * realizará en los niveles 1 y 2
+	 * @param args .
+	 * @throws Exception .
 	 */
 	public static void main(String args[]) throws Exception{
 		Comportamiento.Inicializar();
