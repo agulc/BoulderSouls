@@ -42,10 +42,8 @@ public class Juego {
 		
 		Mapa.getInstancia().setNivelActual(2); //Aumenta el nivel
 		Mapa.getInstancia().reconstruirMapa(); //Reconstruye el mapa
-		
-		for(int i=0;i<1;i++){
-			Comportamiento.comportamientoNormal(ParaDonde.DERECHA);
-		}
+	
+		Comportamiento.comportamientoNormal(ParaDonde.DERECHA);
 
 		for(int i=0;i<3;i++){
 			Comportamiento.comportamientoNormal(ParaDonde.ARRIBA);
@@ -54,10 +52,8 @@ public class Juego {
 		for(int i=0;i<14;i++){
 			Comportamiento.comportamientoNormal(ParaDonde.IZQUIERDA);
 		}
-
-		for(int i=0;i<1;i++){
-			Comportamiento.comportamientoNormal(ParaDonde.ARRIBA);
-		}
+		
+		Comportamiento.comportamientoNormal(ParaDonde.ARRIBA);
 		System.out.println("Nivel 2 terminado");
 		
 		

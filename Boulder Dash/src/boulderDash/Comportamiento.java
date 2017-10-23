@@ -9,11 +9,11 @@ public class Comportamiento {
 	 */
 	
 	public static void Inicializar() throws Exception{
-		Scanner scanner = new Scanner(System.in);
+		/*Scanner scanner = new Scanner(System.in);
 		System.out.println("Ingrese el nivel que desea: ");
 		int nivel = scanner.nextInt();
 		scanner.close();
-		//Mapa.getInstancia().setNivelActual(nivel);
+		Mapa.getInstancia().setNivelActual(nivel);*/
 		Mapa.getInstancia();
 		graficarMapa();
 		actualizarEstadoObjeto();
