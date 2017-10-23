@@ -22,7 +22,7 @@ public class Diamante extends ObjetoNewton{
 	}
 	
 	public String getGraficos(){
-		return "Diamante";
+		return "D";
 	}
 	
 	public boolean chequearSiSoy (BDTile tile){

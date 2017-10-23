@@ -8,10 +8,10 @@ public abstract class ObjetoNewton extends Personaje{
 		Estacionario, Cayendo;
 	}
 	/**
-	 * Verifica si el objeto deve moverse hacia abajo "devido a la gravedad".
+	 * Constructor de la clase ObjetoNewton que tambien recibe si esta cayendo o no.
 	 * @param cae Estado de movimiento del objeto.
-	 * @param x Coordenada en X.
-	 * @param y Coordenada en Y.
+	 * @param x Coordenada en X del nuevo objeto.
+	 * @param y Coordenada en Y del nuevo objeto.
 	 */
 	public ObjetoNewton(boolean cae,int x, int y){
 		super(x,y);

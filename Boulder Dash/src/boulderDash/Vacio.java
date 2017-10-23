@@ -18,7 +18,7 @@ public class Vacio extends Personaje{
 	}
 	
 	public String getGraficos(){
-		return "Vacio";
+		return " ";
 	}
 	
 	@Override

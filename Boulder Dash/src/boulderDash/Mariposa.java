@@ -93,7 +93,7 @@ public class Mariposa extends EnemigoMovil{
 	}
 	
 	public String getGraficos(){
-		return "Mariposa";
+		return "%";
 	}
 	
 	

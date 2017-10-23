@@ -73,7 +73,7 @@ public class Luciernaga extends EnemigoMovil{
 
 	
 	public String getGraficos(){
-		return "Luciernaga";
+		return "<";
 	}
 	
 	

@@ -28,7 +28,7 @@ public class Rockford extends Personaje{
 	}
 	
 	public String getGraficos(){
-		return "Rockford";
+		return "®";
 	}
 	
 	public void muerte() throws Exception{

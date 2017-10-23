@@ -21,7 +21,7 @@ public class PuertaDeSalida extends Personaje{
 	}
 	
 	public String getGraficos(){
-		return "PuertaDeSalida";
+		return "@";
 	}
 	
 	/**

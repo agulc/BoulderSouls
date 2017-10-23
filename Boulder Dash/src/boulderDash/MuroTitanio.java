@@ -11,7 +11,7 @@ public class MuroTitanio extends Muro {
 	}
 	
 	public String getGraficos(){
-		return "MuroTitanio";
+		return "#";
 	}
 	/**
 	 * De haber una explosion, este no se inmuta.

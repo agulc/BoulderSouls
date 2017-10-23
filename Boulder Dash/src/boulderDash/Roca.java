@@ -31,7 +31,7 @@ public class Roca extends ObjetoNewton{
 	}
 	
 	public String getGraficos(){
-		return "Roca";
+		return "R";
 	}
 	
 	public boolean chequearSiSoy (BDTile tile){
