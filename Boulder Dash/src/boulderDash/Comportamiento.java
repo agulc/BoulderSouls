@@ -12,7 +12,7 @@ public class Comportamiento {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Ingrese el nivel que desea: ");
 		int nivel = scanner.nextInt();
-		Mapa.getInstancia().setNivelActual(nivel);
+		//Mapa.getInstancia().setNivelActual(nivel);
 		Mapa.getInstancia();
 		graficarMapa();
 		actualizarEstadoObjeto();
@@ -24,6 +24,7 @@ public class Comportamiento {
 	 * @throws Exception
 	 */
 	public static void comportamientoNormal(ParaDonde donde) throws Exception{
+		
 		moverPersonajes();
 		moverARockford(donde);
 		graficarMapa();
@@ -69,6 +70,7 @@ public class Comportamiento {
 	
 	public static void moverARockford(ParaDonde donde) throws Exception{
 		Rockford.getInstancia().mover(donde);
+		
 	}
 	
 }

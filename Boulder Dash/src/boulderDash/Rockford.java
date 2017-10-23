@@ -45,12 +45,13 @@ public class Rockford extends Personaje{
 			Mapa.getInstancia().reconstruirMapa();
 		}
 		
-		//
+		
 		
 	}
 	
 	public void meCaeAlgoEncima() throws Exception{
 		if(Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).chequearSiSoy(BDTile.ROCK)){
+			System.out.println("ROCA" + " en la posicion x=" + super.getPos(ParaDonde.ARRIBA).getX() + " y=" + super.getPos(ParaDonde.ARRIBA).getY() + " cayo encima de rockford");
 			this.muerte();
 		}
 		else{//Si no es una roca, me elimino a mi mismo y los diamantes restantes pasan a ser uno menos
@@ -77,7 +78,7 @@ public class Rockford extends Personaje{
 		if (Mapa.getInstancia().getPersonaje(super.getPos(dir)).rockfordCaminaSobreMi(dir)){ //Si se pudo mover
 				
 			Mapa.getInstancia().setPersonaje(this.getInstancia(),super.getPos(dir)); //Se mueve al siguiente casillero
-			Mapa.getInstancia().setPersonaje(new Vacio(this.getPos()), this.getPos());
+			Mapa.getInstancia().setPersonaje(new Vacio(this.getPos()), this.getPos()); //Vacia el cacillero anterior
 			super.setPos(super.getPos(dir)); //Actualizo mi posicion
 				
 		}

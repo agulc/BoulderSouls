@@ -11,14 +11,17 @@ public class Juego {
 	 */
 	public static void main(String args[]) throws Exception{
 		Comportamiento.Inicializar();
+		/*
 		Comportamiento.comportamientoNormal(ParaDonde.ABAJO);
 
+		
 		for(int i=0;i<7;i++){
 			Comportamiento.comportamientoNormal(ParaDonde.DERECHA);
 		}
 		for(int i=0;i<2;i++){
 			Comportamiento.comportamientoNormal(ParaDonde.ARRIBA);
 		}
+		
 		Comportamiento.comportamientoNormal(ParaDonde.DERECHA);
 		for(int i=0;i<2;i++){
 			Comportamiento.comportamientoNormal(ParaDonde.ABAJO);
@@ -32,11 +35,14 @@ public class Juego {
 		for(int i=0;i<5;i++){
 			Comportamiento.comportamientoNormal(ParaDonde.DERECHA);
 		}
+		
 		System.out.println("Nivel 1 terminado");
+		
+		
 		
 		Mapa.getInstancia().setNivelActual(2); //Aumenta el nivel
 		Mapa.getInstancia().reconstruirMapa(); //Reconstruye el mapa
-		
+		*/
 		for(int i=0;i<1;i++){
 			Comportamiento.comportamientoNormal(ParaDonde.DERECHA);
 		}

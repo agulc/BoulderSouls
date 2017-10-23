@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class Mapa {
 	
-	private int nivelActual = 1;
-	private int puntuacion = 0;
-	private int vidas = 4;
+	private static int nivelActual = 1;
+	private static int puntuacion = 0;
+	private static int vidas = 4;
 	public Personaje[][] mapa; //Sera estatico para poder ser accedido por otros metodos o clases	
 	public static int diamantesRestantes;
 	private static Mapa instancia = null; 
