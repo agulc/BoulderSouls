@@ -14,6 +14,7 @@ public class Rockford extends Personaje{
 	private Rockford(){
 	}
 	
+
 	public Personaje setPosicion(int x, int y){//Lo hacemos asi porque sino no seria un singleton
 		if(rock!=null){
 			rock.getPos().setX(x);
@@ -24,9 +25,6 @@ public class Rockford extends Personaje{
 	
 	public boolean getRun(ParaDonde donde){
 		return false;
-	}
-	
-	public void activarIA(){
 	}
 	
 	public String getGraficos(){

@@ -37,9 +37,10 @@ public class PuertaDeSalida extends Personaje{
 		return (tile == BDTile.EXIT);
 	}
 	
-	public void llegadaALaSalida(){
+	public boolean rockfordCaminaSobreMi (ParaDonde donde) throws Exception{
 		//IMPLEMENTAR
 		//SI se llega a la salida y esta abierta, se aumenta el nivel, y se reconstruye el mapa
+		return this.transitable;
 	}
 
 }
