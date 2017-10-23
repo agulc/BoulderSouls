@@ -1,7 +1,5 @@
 package boulderDash;
 
-import java.util.Scanner;
-
 public class Mapa {
 	
 	private static int nivelActual = 1;
@@ -105,16 +103,24 @@ public class Mapa {
 	}
 	
 	public void setNivelActual(int nivel){
-		this.nivelActual = nivel;
+		Mapa.nivelActual = nivel;
 	}
 	
 	public void setVidas(int vidas){
-		this.vidas = vidas;
+		Mapa.vidas = vidas;
 		
 	}
 	
 	public int getVidas(){
-		return this.vidas;
+		return Mapa.vidas;
 		
+	}
+	
+	public static void incrementarPuntaje(){
+		Mapa.puntuacion = Mapa.puntuacion + 100;
+	}
+	
+	public static int getPuntaje(){
+		return Mapa.puntuacion;
 	}
 }

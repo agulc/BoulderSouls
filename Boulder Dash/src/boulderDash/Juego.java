@@ -1,7 +1,5 @@
 package boulderDash;
 
-import java.util.Scanner;
-
 public class Juego {
 	/**
 	 * Programa principal con los movimientos que Rockford realizará en el nivel 1
@@ -36,7 +34,7 @@ public class Juego {
 			Comportamiento.comportamientoNormal(ParaDonde.DERECHA);
 		}
 		
-		System.out.println("Nivel 1 terminado");
+		System.out.println("Nivel 1 terminado, tu puntaje actual es: "+Mapa.getPuntaje());
 		
 		
 		
@@ -54,8 +52,6 @@ public class Juego {
 		}
 		
 		Comportamiento.comportamientoNormal(ParaDonde.ARRIBA);
-		System.out.println("Nivel 2 terminado");
-		
-		
+		System.out.println("Nivel 2 terminado, tu puntaje actual es: "+Mapa.getPuntaje());
 	}
 }

@@ -99,7 +99,6 @@ public abstract class Personaje {
 	
 	
 	public boolean permitirMovimiento(ParaDonde donde) throws Exception{
-		 
 		return (Mapa.getInstancia().getPersonaje(this.pos.getPos(donde)).getRun(donde));
 	}
 	

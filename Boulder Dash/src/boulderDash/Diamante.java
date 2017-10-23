@@ -13,7 +13,7 @@ public class Diamante extends ObjetoNewton{
 	public boolean rockfordCaminaSobreMi (ParaDonde dir){
 		
 		Mapa.diamantesRestantes--;
-		
+		Mapa.incrementarPuntaje();
 		return true;
 	}
 	

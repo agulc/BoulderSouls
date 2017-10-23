@@ -1,7 +1,5 @@
 package boulderDash;
 
-import java.util.Scanner;
-
 public class Comportamiento {
 	/**
 	 * Crea el mapa del nivel seleccionado.
@@ -9,11 +7,6 @@ public class Comportamiento {
 	 */
 	
 	public static void Inicializar() throws Exception{
-		/*Scanner scanner = new Scanner(System.in);
-		System.out.println("Ingrese el nivel que desea: ");
-		int nivel = scanner.nextInt();
-		scanner.close();
-		Mapa.getInstancia().setNivelActual(nivel);*/
 		Mapa.getInstancia();
 		graficarMapa();
 		actualizarEstadoObjeto();
@@ -41,7 +34,7 @@ public class Comportamiento {
 			for (int x = 0; x < 40; x++) {
 				pos.setX(x);
 				pos.setY(y);
-				System.out.print(Mapa.getInstancia().getPersonaje(pos).getClass().getName()+",");
+				System.out.print(Mapa.getInstancia().getPersonaje(pos).getGraficos()+",");
 			}
 			System.out.println();
 		}
@@ -80,7 +73,6 @@ public class Comportamiento {
 	
 	public static void moverARockford(ParaDonde donde) throws Exception{
 		Rockford.getInstancia().mover(donde);
-		
 	}
 	
 }
