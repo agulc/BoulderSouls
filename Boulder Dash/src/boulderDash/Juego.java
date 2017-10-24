@@ -34,6 +34,7 @@ public class Juego {
 			Comportamiento.comportamientoNormal(ParaDonde.DERECHA);
 		}
 		
+		
 		System.out.println("Nivel 1 terminado, tu puntaje actual es: "+Mapa.getPuntaje());
 		
 		

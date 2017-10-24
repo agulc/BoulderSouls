@@ -42,6 +42,7 @@ public class Rockford extends Personaje{
 		{
 			System.out.println("Rockford exploto!"+" Te quedan "+Mapa.getInstancia().getVidas()+" vidas.");
 			Mapa.getInstancia().reconstruirMapa();
+			
 		}
 		
 		
@@ -58,7 +59,10 @@ public class Rockford extends Personaje{
 	@Override
 	public void recibeExplosion() throws Exception{ 
 		
+		Explosion exp = new Explosion(this.getPos().getX(), this.getPos().getY());
+		Mapa.getInstancia().setPersonaje(exp, this.getPos());
 		this.muerte();
+		
 
 	}
 
