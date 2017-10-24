@@ -40,7 +40,8 @@ public class Rockford extends Personaje{
 		}
 		else
 		{
-			System.out.println("Rockford exploto!!!! Intenta de nuevo");
+			Mapa.getInstancia().setVidas(Mapa.getInstancia().getVidas() - 1);
+			System.out.println("Rockford exploto!"+" Te quedan "+Mapa.getInstancia().getVidas()+" vidas.");
 			Mapa.getInstancia().reconstruirMapa();
 		}
 		

@@ -53,9 +53,9 @@ public class Luciernaga extends EnemigoMovil{
 		  int aAux = a+3;
 		  int bAux = b+3;
 		  
-		  for (int i = a; i <=aAux; i++) //Recorre los personajes adyacentes
+		  for (int i = a; i < aAux; i++) //Recorre los personajes adyacentes
 		  {
-			   for (int j = b; j<=bAux; j++)
+			   for (int j = b; j< bAux; j++)
 			   {
 				    posAux.setX(i);
 				    posAux.setY(j);
