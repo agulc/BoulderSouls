@@ -6,7 +6,7 @@ public abstract class EnemigoMovil extends Enemigo {
 	
 	EnemigoMovil(int x,int y){
 		super(x,y);
-		this.direccionActual = ParaDonde.ARRIBA; //Por defecto empieza hacia arriba
+		this.direccionActual = ParaDonde.ARRIBA; //Por defecto empieza hacia arriba aunque despues se chequea para donde debe ir al inicializar el juego
 	}
 	
 	public ParaDonde getDireccionActual(){
@@ -36,10 +36,12 @@ public abstract class EnemigoMovil extends Enemigo {
 		int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda
 		int b = this.getPos().getY() - 1;
 		Posicion pos = new Posicion();
+		int aAux = a+3;
+		int bAux = b+3;
 		
-		for (int i = a; a <= (a+3); a++) //Recorre los personajes adyacentes
+		for (int i = a; i<=aAux; i++) //Recorre los personajes adyacentes
 		{
-			for (int j = b; b <= (b+3); b++)
+			for (int j = b; j<=bAux; j++)
 			{
 				pos.setX(i);
 				pos.setY(j);
@@ -47,6 +49,7 @@ public abstract class EnemigoMovil extends Enemigo {
 				
 			}
 		}
+		System.out.println(this.getClass().getSimpleName() + " en la posicion x=" + this.getPos().getX() +" y=" + this.getPos().getY() + "acaba de explotar");
 	}
 	
 	

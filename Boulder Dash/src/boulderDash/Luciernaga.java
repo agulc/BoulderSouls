@@ -16,7 +16,6 @@ public class Luciernaga extends EnemigoMovil{
 	 */
 	public void actualizarEstadoObjeto() throws Exception{	
 		
-		//IMPLEMENTAR MOVIMIENTO
 		switch (super.getDireccionActual()){
 		
 		case ABAJO:
@@ -46,21 +45,22 @@ public class Luciernaga extends EnemigoMovil{
 			break;
 		
 		}
+		 System.out.println("La luciernaga en la posicion x=" + this.getPos().getX() +" y=" + this.getPos().getY() + " ahora se intentara mover hacia " + super.getDireccionActual().toString());
 		
-		int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda
+		  int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda
 		  int b = this.getPos().getY() - 1;
 		  Posicion posAux = new Posicion();
 		  int aAux = a+3;
 		  int bAux = b+3;
 		  
-		  for (int i = a; a <=aAux; a++) //Recorre los personajes adyacentes
+		  for (int i = a; i <=aAux; i++) //Recorre los personajes adyacentes
 		  {
-			   for (int j = b; b <=bAux; b++)
+			   for (int j = b; j<=bAux; j++)
 			   {
 				    posAux.setX(i);
 				    posAux.setY(j);
 				    if (Mapa.getInstancia().getPersonaje(posAux).chequearSiSoy(BDTile.PLAYER)){ //Si el jugador es adyacente, la luciernaga explota 
-					     this.explotar();
+				    	 super.explotar();
 					     break;
 				    }
 		    

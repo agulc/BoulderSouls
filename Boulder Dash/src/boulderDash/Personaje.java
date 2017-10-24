@@ -89,6 +89,7 @@ public abstract class Personaje {
 				}
 			}
 		}
+		System.out.println(this.getClass().getSimpleName() + " se movio de (" + this.getPos().getX() + "," + this.getPos().getY() + ") a (" + this.getPos(donde).getX() + "," + this.getPos(donde).getY() + ")");
 	}
 	
 	
@@ -134,7 +135,8 @@ public abstract class Personaje {
 	public void recibeExplosion() throws Exception{ 
 		
 		Explosion exp = new Explosion(this.getPos().getX(), this.getPos().getY());
-		Mapa.getInstancia().setPersonaje(exp, this.getPos()); 
+		Mapa.getInstancia().setPersonaje(exp, this.getPos());
+		System.out.println(this.getClass().getSimpleName() + " en la posicion x=" + this.getPos().getX() +" y=" + this.getPos().getY() + " EXPLOTO!!!");
 		
 	}
 	/**

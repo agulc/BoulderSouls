@@ -37,7 +37,7 @@ public abstract class ObjetoNewton extends Personaje{
 			//
 		if((Mapa.getInstancia().mapa[x][y+1].chequearSiSoy(BDTile.EMPTY))){/*Podriamos reemplazarlo por el chequear objeto debajo y actualizar dependiendo de eso*/
 	 		this.stat = State.Cayendo;
-	 		System.out.println(Mapa.getInstancia().mapa[x][y].getGraficos() + " en la posicion x=" + x + " y=" + y + " esta cayendo");
+	 		System.out.println(Mapa.getInstancia().mapa[x][y].getClass().getSimpleName() + " en la posicion x=" + x + " y=" + y + " esta cayendo");
  		}
 	 	else{
 	 		if ((((Mapa.getInstancia().mapa[x-1][y].chequearSiSoy(BDTile.EMPTY)) && (Mapa.getInstancia().mapa[x-1][y+1].chequearSiSoy(BDTile.EMPTY))) && 
@@ -46,13 +46,13 @@ public abstract class ObjetoNewton extends Personaje{
 	 		{
 	 			super.mover(ParaDonde.IZQUIERDA);
 	 			this.stat = State.Cayendo;
-	 			System.out.println(Mapa.getInstancia().mapa[x][y].getGraficos() + " en la posicion x=" + x + " y=" + y + " esta cayendo");
+	 			System.out.println(Mapa.getInstancia().mapa[x][y].getClass().getSimpleName() + " en la posicion x=" + x + " y=" + y + " esta cayendo");
 	 			
 	 		}
 	 		else
 	 		{
 	 			this.stat = State.Estacionario;
-	 			System.out.println(Mapa.getInstancia().mapa[x][y].getGraficos() + " en la posicion x=" + x + " y=" + y + " esta estacionari@");
+	 			System.out.println(Mapa.getInstancia().mapa[x][y].getClass().getSimpleName() + " en la posicion x=" + x + " y=" + y + " esta estacionari@");
 	 		}
 	 	}
 	}
