@@ -39,9 +39,9 @@ public abstract class EnemigoMovil extends Enemigo {
 		int aAux = a+3;
 		int bAux = b+3;
 		
-		for (int i = a; i<=aAux; i++) //Recorre los personajes adyacentes
+		for (int i = a; i<aAux; i++) //Recorre los personajes adyacentes
 		{
-			for (int j = b; j<=bAux; j++)
+			for (int j = b; j<bAux; j++)
 			{
 				pos.setX(i);
 				pos.setY(j);
@@ -49,7 +49,7 @@ public abstract class EnemigoMovil extends Enemigo {
 				
 			}
 		}
-		System.out.println(this.getClass().getSimpleName() + " en la posicion x=" + this.getPos().getX() +" y=" + this.getPos().getY() + "acaba de explotar");
+		System.out.println(this.getClass().getSimpleName() + " en la posicion x=" + this.getPos().getX() +" y=" + this.getPos().getY() + " acaba de explotar");
 	}
 	
 	

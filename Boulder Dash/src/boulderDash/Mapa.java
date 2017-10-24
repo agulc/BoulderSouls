@@ -99,6 +99,7 @@ public class Mapa {
 	public void reconstruirMapa () throws Exception{
 		
 		instancia = new Mapa();
+		System.out.println("El mapa se acaba de reconstruir");
 		
 	}
 	

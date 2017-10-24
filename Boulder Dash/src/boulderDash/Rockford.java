@@ -40,7 +40,6 @@ public class Rockford extends Personaje{
 		}
 		else
 		{
-			Mapa.getInstancia().setVidas(Mapa.getInstancia().getVidas() - 1);
 			System.out.println("Rockford exploto!"+" Te quedan "+Mapa.getInstancia().getVidas()+" vidas.");
 			Mapa.getInstancia().reconstruirMapa();
 		}
@@ -88,9 +87,9 @@ public class Rockford extends Personaje{
 		int aAux = a+3;
 		int bAux = b+3;
 		
-		for (int i = a; i<=aAux; i++) //Recorre los personajes adyacentes
+		for (int i = a; i<aAux; i++) //Recorre los personajes adyacentes
 		{
-			for (int j = b; j<=bAux; j++)
+			for (int j = b; j<bAux; j++)
 			{
 				pos.setX(i);
 				pos.setY(j);
@@ -98,7 +97,7 @@ public class Rockford extends Personaje{
 				
 			}
 		}
-		System.out.println(this.getClass().getSimpleName() + " en la posicion x=" + this.getPos().getX() +" y=" + this.getPos().getY() + "acaba de explotar");
+		System.out.println(this.getClass().getSimpleName() + " en la posicion x=" + this.getPos().getX() +" y=" + this.getPos().getY() + " acaba de explotar");
 	}
 	
 }
