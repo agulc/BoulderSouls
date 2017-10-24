@@ -12,7 +12,7 @@ public class Comportamiento {
 		actualizarEstadoObjeto();
 	}
 	/**
-	 * Ciclio normal del juego una vez que fué inicializado.
+	 * Ciclo normal del juego una vez que fue inicializado.
 	 * Solo se actualiza al graficar, ya que en esta etapa el juego funciona por "turnos".
 	 * @param donde Dirección
 	 * @throws Exception .
@@ -25,7 +25,7 @@ public class Comportamiento {
 		actualizarEstadoObjeto();
 	}
 	/**
-	 * Refrezca la posición en el mapa de todos los objetos una vez que se termina el turno.
+	 * Grafica la posición en el mapa de todos los objetos una vez que se termina el turno.
 	 * @throws Exception .
 	 */
 	public static void graficarMapa() throws Exception{
@@ -56,7 +56,7 @@ public class Comportamiento {
 		}
 	}
 	/**
-	 * Actualiza el estado de cada objeto respecto a que deve realizar en ese turno. 
+	 * Actualiza el estado de cada objeto respecto a que debe realizar en ese turno. 
 	 * El resultado final dependerá del objeto que se esté actualizando.
 	 * @throws Exception .
 	 */

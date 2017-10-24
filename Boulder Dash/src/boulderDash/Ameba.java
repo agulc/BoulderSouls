@@ -13,7 +13,7 @@ public class Ameba extends Enemigo{
 		return false;
 	}
 	/**
-	 * Crea una ameba en la posicion con el offset recibido, si esta es Suciedad o Vacio.
+	 * Crea una ameba en la posición con el offset recibido, si esta es Suciedad o Vacío.
 	 * @param offsetX Coordenada a expandirse en X.
 	 * @param offsetY Coordenada a expandirse en Y.
 	 * @throws Exception .
@@ -33,8 +33,8 @@ public class Ameba extends Enemigo{
 		}
 	}
 	/**
-	 * Para la repriducción de la Ameba, se han utilizado valores aleatorios con el fin
-	 * de lograr el efecto solicitado. 
+	 * Para la reproducción de la Ameba, se han utilizado valores aleatorios con el fin
+	 * de lograr el efecto solicitado.
 	 */
 	public void actualizarEstadoObjeto()throws Exception{	
 		

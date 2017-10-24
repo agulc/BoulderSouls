@@ -11,7 +11,7 @@ public class Mariposa extends EnemigoMovil{
 	}
 	
 	/**
- 	 * Comportamiento movil de la mariposa. Permite elegir la dirección a la cual se debe desplazar
+ 	 * Comportamiento móvil de la mariposa. Permite elegir la dirección a la cual se debe desplazar
 	 * y que comportamiento tomar en caso de no poder moverse en dicha dirección.
 	 */
 	public void actualizarEstadoObjeto() throws Exception{	

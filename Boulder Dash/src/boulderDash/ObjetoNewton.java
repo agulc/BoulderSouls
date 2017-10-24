@@ -8,7 +8,7 @@ public abstract class ObjetoNewton extends Personaje{
 		Estacionario, Cayendo;
 	}
 	/**
-	 * Constructor de la clase ObjetoNewton que tambien recibe si esta cayendo o no.
+	 * Constructor de la clase ObjetoNewton que también recibe si está cayendo o no.
 	 * @param cae Estado de movimiento del objeto.
 	 * @param x Coordenada en X del nuevo objeto.
 	 * @param y Coordenada en Y del nuevo objeto.

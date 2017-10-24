@@ -14,7 +14,7 @@ public class MuroTitanio extends Muro {
 		return "#";
 	}
 	/**
-	 * De haber una explosion, este no se inmuta.
+	 *De haber una explosión, este no se inmuta.
 	 */
 	@Override
 	public void recibeExplosion() throws Exception{ 

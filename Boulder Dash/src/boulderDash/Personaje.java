@@ -141,7 +141,7 @@ public abstract class Personaje {
 	}
 	/**
 	 * Verifica que el enumerativo que representa a la instancia del objeto en cuestión, concuerda
-	 * con el enumerativo recivido por parametro. 
+	 * con el enumerativo recibido por parámetro.
 	 * @param tile Nombre el cual se desea saber si corresponde al del objeto
 	 * @return Si es ese tipo de objeto o no.
 	 */

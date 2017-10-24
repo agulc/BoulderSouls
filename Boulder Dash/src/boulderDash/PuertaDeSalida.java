@@ -25,7 +25,7 @@ public class PuertaDeSalida extends Personaje{
 	}
 	
 	/**
-	 * De haber una explosion, este no se inmuta.
+	 * De haber una explosión, este no se inmuta.
 	 */
 	@Override
 	public void recibeExplosion() throws Exception{ //Si recibe una explosion, No hace nada (A diferencia del resto de personajes)

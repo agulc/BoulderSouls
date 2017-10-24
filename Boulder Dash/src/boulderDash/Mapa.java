@@ -18,7 +18,7 @@ public class Mapa {
 
 	
 	/**
-	 * Escencia del juego. Crea el nivel solicitado
+	 * Esencia del juego. Crea el nivel solicitado.
 	 * @throws Exception .
 	 */
 	private Mapa () throws Exception

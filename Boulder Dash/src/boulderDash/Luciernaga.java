@@ -11,8 +11,8 @@ public class Luciernaga extends EnemigoMovil{
 		return false;
 	}
 	/**
-	 * Comportamiento movil de la luciernaga. Permite elegir la dirección a la cual se debe desplazar
-	 * y que comportamiento tomar en caso de no poder moverse en dicha dirección. 
+	 * Comportamiento móvil de la luciérnaga. Permite elegir la dirección a la cual se debe desplazar
+	 * y que comportamiento tomar en caso de no poder moverse en dicha dirección.
 	 */
 	public void actualizarEstadoObjeto() throws Exception{	
 		
