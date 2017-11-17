@@ -50,8 +50,8 @@ public class Comportamiento {
 	 */
 	private static void moverPersonajes(){
 		Posicion pos = new Posicion();
-		for (int y = 0; y < 22; y++)  {
-			for (int x = 0; x < 40; x++) {
+		for (int y = 21; y > 0; y--)  {
+			for (int x = 39; x > 0; x--) {
 				pos.setX(x);
 				pos.setY(y);
 				Mapa.getInstancia().getPersonaje(pos).moverPersonajes();

@@ -13,42 +13,16 @@ public class Juego {
 	 * @throws Exception .
 	 */
 	public static void main(String args[]){
+		Comportamiento.Inicializar();
 		JFrame hola = new JFrame();
 		hola.addKeyListener(new MiTeclaEscucha());
 		hola.setSize(100, 100);
 		hola.setVisible(true);
-		/*Comportamiento.Inicializar();
-		
-		Comportamiento.comportamientoNormal(ParaDonde.ABAJO);
-
-		
-		for(int i=0;i<7;i++){
-			Comportamiento.comportamientoNormal(ParaDonde.DERECHA);
-		}
-		for(int i=0;i<2;i++){
-			Comportamiento.comportamientoNormal(ParaDonde.ARRIBA);
-		}
-		
-		Comportamiento.comportamientoNormal(ParaDonde.DERECHA);
-		for(int i=0;i<2;i++){
-			Comportamiento.comportamientoNormal(ParaDonde.ABAJO);
-		}
-		for(int i=0;i<8;i++){
-			Comportamiento.comportamientoNormal(ParaDonde.DERECHA);
-		}
-		for(int i=0;i<2;i++){
-			Comportamiento.comportamientoNormal(ParaDonde.ABAJO);
-		}
-		for(int i=0;i<5;i++){
-			Comportamiento.comportamientoNormal(ParaDonde.DERECHA);
-		}
-		
-		
 		System.out.println("Nivel 1 terminado, tu puntaje actual es: "+Mapa.getPuntaje());
 		
 		
 		
-		Mapa.getInstancia().setNivelActual(2); //Aumenta el nivel
+		/*Mapa.getInstancia().setNivelActual(2); //Aumenta el nivel
 		Mapa.getInstancia().reconstruirMapa(); //Reconstruye el mapa
 	
 		Comportamiento.comportamientoNormal(ParaDonde.DERECHA);
