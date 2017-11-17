@@ -1,6 +1,9 @@
 package com.boulderdash.principal;
 
 import com.boulderdash.enumerativos.ParaDonde;
+import com.boulderdash.teclaescucha.MiTeclaEscucha;
+
+import javax.swing.*;
 
 public class Juego {
 	/**
@@ -10,7 +13,11 @@ public class Juego {
 	 * @throws Exception .
 	 */
 	public static void main(String args[]){
-		Comportamiento.Inicializar();
+		JFrame hola = new JFrame();
+		hola.addKeyListener(new MiTeclaEscucha());
+		hola.setSize(100, 100);
+		hola.setVisible(true);
+		/*Comportamiento.Inicializar();
 		
 		Comportamiento.comportamientoNormal(ParaDonde.ABAJO);
 
@@ -55,7 +62,7 @@ public class Juego {
 		}
 		
 		Comportamiento.comportamientoNormal(ParaDonde.ARRIBA);
-		System.out.println("Nivel 2 terminado, tu puntaje actual es: "+Mapa.getPuntaje());
+		System.out.println("Nivel 2 terminado, tu puntaje actual es: "+Mapa.getPuntaje());*/
 		
 	}
 }
