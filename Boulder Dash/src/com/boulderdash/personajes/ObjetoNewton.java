@@ -31,6 +31,21 @@ public abstract class ObjetoNewton extends Personaje{
 		}
 	}
 	
+	private boolean chequearSiResbalo(ParaDonde donde, int x, int y)
+	{
+		if (donde == ParaDonde.IZQUIERDA)
+			{
+			return (((Mapa.getInstancia().getMapa()[x-1][y].chequearSiSoy(BDTile.EMPTY)) && (Mapa.getInstancia().getMapa()[x-1][y+1].chequearSiSoy(BDTile.EMPTY))) && 
+		 	 		   (((( Mapa.getInstancia().getMapa()[x][y+1].chequearSiSoy(BDTile.DIAMOND) || (Mapa.getInstancia().getMapa()[x][y+1].chequearSiSoy(BDTile.WALL))||
+		 		 	 		   ((Mapa.getInstancia().getMapa()[x][y+1].chequearSiSoy(BDTile.ROCK))))))));
+			}
+		else
+		{
+			return ((((Mapa.getInstancia().getMapa()[x+1][y].chequearSiSoy(BDTile.EMPTY)) && (Mapa.getInstancia().getMapa()[x+1][y+1].chequearSiSoy(BDTile.EMPTY))) && 
+	 		 		   (((( Mapa.getInstancia().getMapa()[x][y+1].chequearSiSoy(BDTile.DIAMOND) || (Mapa.getInstancia().getMapa()[x][y+1].chequearSiSoy(BDTile.WALL))||
+	 		 		   ((Mapa.getInstancia().getMapa()[x][y+1].chequearSiSoy(BDTile.ROCK)))))))));
+		}
+	}
 
 	public void actualizarEstadoObjeto(){
 
@@ -41,18 +56,22 @@ public abstract class ObjetoNewton extends Personaje{
 	 		this.stat = Estado.CAYENDO;
  		}
 	 	else{
-	 		if ((((Mapa.getInstancia().getMapa()[x-1][y].chequearSiSoy(BDTile.EMPTY)) && (Mapa.getInstancia().getMapa()[x-1][y+1].chequearSiSoy(BDTile.EMPTY))) && 
-	 		   (((( Mapa.getInstancia().getMapa()[x][y+1].chequearSiSoy(BDTile.DIAMOND) || (Mapa.getInstancia().getMapa()[x][y+1].chequearSiSoy(BDTile.WALL))||
-	 		   ((Mapa.getInstancia().getMapa()[x][y+1].chequearSiSoy(BDTile.ROCK)))))))))
-	 		{
-	 			super.mover(ParaDonde.IZQUIERDA);
-	 			this.stat = Estado.CAYENDO;
-	 			
-	 		}
+	 		if (chequearSiResbalo(ParaDonde.IZQUIERDA,x,y))
+	 	 		{
+	 	 			super.mover(ParaDonde.IZQUIERDA);
+	 	 			this.stat = Estado.CAYENDO;
+	 	 		}
 	 		else
-	 		{
-	 			this.stat = Estado.ESTACIONARIO;
-	 		}
+	 			if (chequearSiResbalo(ParaDonde.DERECHA,x,y))
+	 		 		{
+	 		 			super.mover(ParaDonde.DERECHA);
+	 		 			this.stat = Estado.CAYENDO;
+	 		 			
+	 		 		}
+		 		else
+			 		{
+			 			this.stat = Estado.ESTACIONARIO;
+			 		}
 	 	}
 	}
 
