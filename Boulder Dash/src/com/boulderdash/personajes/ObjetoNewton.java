@@ -52,8 +52,9 @@ public abstract class ObjetoNewton extends Personaje{
 		int x = this.getPos().getX();
 		int y = this.getPos().getY();
 			//
-		if((Mapa.getInstancia().getMapa()[x][y+1].chequearSiSoy(BDTile.EMPTY))){/*Podriamos reemplazarlo por el chequear objeto debajo y actualizar dependiendo de eso*/
-	 		this.stat = Estado.CAYENDO;
+		if((Mapa.getInstancia().getMapa()[x][y+1].chequearSiSoy(BDTile.EMPTY))) /*Podriamos reemplazarlo por el chequear objeto debajo y actualizar dependiendo de eso*/
+		{
+			this.stat = Estado.CAYENDO;
  		}
 	 	else{
 	 		if (chequearSiResbalo(ParaDonde.IZQUIERDA,x,y))
@@ -69,6 +70,11 @@ public abstract class ObjetoNewton extends Personaje{
 	 		 			
 	 		 		}
 		 		else
+		 			if((Mapa.getInstancia().getMapa()[x][y+1].chequearSiSoy(BDTile.PLAYER)) && this.stat == Estado.CAYENDO) /*Podriamos reemplazarlo por el chequear objeto debajo y actualizar dependiendo de eso*/
+		 			{
+		 				this.stat = Estado.CAYENDO;
+		 	 		}
+		 			else
 			 		{
 			 			this.stat = Estado.ESTACIONARIO;
 			 		}

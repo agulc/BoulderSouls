@@ -2,6 +2,7 @@ package com.boulderdash.personajes;
 
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
+import com.boulderdash.principal.Comportamiento;
 import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
 
@@ -42,11 +43,12 @@ public class Rockford extends Personaje{
 		
 		if (Mapa.getInstancia().getVidas() == 0){
 			System.out.println("HAS MUERTO");
+			Comportamiento.setRockfordMuerto (true);
 		}
 		else
 		{
 			System.out.println("Rockford exploto!"+" Te quedan "+Mapa.getInstancia().getVidas()+" vidas.");
-			Mapa.getInstancia().reconstruirMapa();
+			Comportamiento.setRockfordMuerto (true);
 			
 		}
 		

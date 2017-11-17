@@ -1,10 +1,10 @@
 package com.boulderdash.principal;
 
 import com.boulderdash.teclaescucha.MiTeclaEscucha;
+import javax.swing.JFrame;
 
-import javax.swing.*;
 
-public class Juego {
+public class Juego{
 	/**
 	 * Programa principal con los movimientos que Rockford
 	 * realizará en los niveles 1 y 2.
@@ -12,10 +12,10 @@ public class Juego {
 	 */
 	public static void main(String args[]){
 		Comportamiento.Inicializar();
-		JFrame hola = new JFrame();
-		hola.addKeyListener(new MiTeclaEscucha());
-		hola.setSize(100, 100);
-		hola.setVisible(true);
-		System.out.println("Nivel 1 terminado, tu puntaje actual es: "+Mapa.getPuntaje());
+		JFrame marco = new JFrame();
+		marco.addKeyListener(new MiTeclaEscucha());
+		marco.setSize(100, 100);
+		marco.setVisible(true);
+		marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }

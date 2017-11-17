@@ -9,6 +9,13 @@ public class Comportamiento {
 	 * @throws Exception .
 	 */
 	
+	private static boolean rockfordMuerto = false;
+	
+	public static void setRockfordMuerto (boolean bool)
+	{
+		rockfordMuerto = bool; //Para dejar de actualizar objetos al morir
+	}
+	
 	public static void Inicializar(){
 		Mapa.getInstancia();
 		graficarMapa();
@@ -50,12 +57,17 @@ public class Comportamiento {
 	 */
 	private static void moverPersonajes(){
 		Posicion pos = new Posicion();
-		for (int y = 21; y > 0; y--)  {
-			for (int x = 39; x > 0; x--) {
+		for (int y = 21; y >= 0 && !rockfordMuerto; y--)  {
+			for (int x = 39; x >= 0 && !rockfordMuerto; x--) {
 				pos.setX(x);
 				pos.setY(y);
 				Mapa.getInstancia().getPersonaje(pos).moverPersonajes();
 			}
+		}
+		if (rockfordMuerto)
+		{
+			Mapa.getInstancia().reconstruirMapa();
+			setRockfordMuerto(false);
 		}
 	}
 	/**
