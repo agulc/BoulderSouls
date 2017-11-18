@@ -16,28 +16,28 @@ public class MiTeclaEscucha extends KeyAdapter{
 		case KeyEvent.VK_LEFT:
 		{
 			System.out.println("LEFT");
-			Comportamiento.comportamientoNormal(ParaDonde.IZQUIERDA);
+			Comportamiento.moverARockford(ParaDonde.IZQUIERDA);
 		}
 		break;
 		
 		case KeyEvent.VK_RIGHT:
 		{
 			System.out.println("RIGHT");
-			Comportamiento.comportamientoNormal(ParaDonde.DERECHA);
+			Comportamiento.moverARockford(ParaDonde.DERECHA);
 		}
 		break;
 		
 		case KeyEvent.VK_DOWN:
 		{
 			System.out.println("DOWN");
-			Comportamiento.comportamientoNormal(ParaDonde.ABAJO);
+			Comportamiento.moverARockford(ParaDonde.ABAJO);
 		}
 		break;
 		
 		case KeyEvent.VK_UP:
 		{
 			System.out.println("UP");
-			Comportamiento.comportamientoNormal(ParaDonde.ARRIBA);
+			Comportamiento.moverARockford(ParaDonde.ARRIBA);
 		}
 		break;
 			

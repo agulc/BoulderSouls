@@ -20,6 +20,7 @@ public class Comportamiento {
 		Mapa.getInstancia();
 		graficarMapa();
 		actualizarEstadoObjeto();
+		Temporizador.iniciarTemporizador();
 	}
 	/**
 	 * Ciclo normal del juego una vez que fue inicializado.
@@ -27,10 +28,9 @@ public class Comportamiento {
 	 * @param donde Dirección
 	 * @throws Exception .
 	 */
-	public static void comportamientoNormal(ParaDonde donde){
+	public static void comportamientoNormal(){
 		
 		moverPersonajes();
-		moverARockford(donde);
 		graficarMapa();
 		actualizarEstadoObjeto();
 	}
@@ -66,8 +66,13 @@ public class Comportamiento {
 		}
 		if (rockfordMuerto)
 		{
+			if (Mapa.getInstancia().getVidas() == 0) {
+				Temporizador.detenerTemporizador();
+			}
+			else {
 			Mapa.getInstancia().reconstruirMapa();
 			setRockfordMuerto(false);
+			}
 		}
 	}
 	/**

@@ -17,5 +17,6 @@ public class Juego{
 		marco.setSize(100, 100);
 		marco.setVisible(true);
 		marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 	}
 }
