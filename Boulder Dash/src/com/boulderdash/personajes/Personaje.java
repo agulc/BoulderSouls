@@ -94,7 +94,6 @@ public abstract class Personaje {
 				}
 			}
 		}
-		System.out.println(this.getClass().getSimpleName() + " se movio de (" + this.getPos().getX() + "," + this.getPos().getY() + ") a (" + this.getPos(donde).getX() + "," + this.getPos(donde).getY() + ")");
 	}
 	
 	

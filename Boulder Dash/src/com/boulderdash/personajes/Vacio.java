@@ -28,7 +28,6 @@ public class Vacio extends Personaje{
 	
 	@Override
 	public void meCaeAlgoEncima(){
-		System.out.println(Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).getClass().getSimpleName() + " en la posicion x=" + super.getPos(ParaDonde.ARRIBA).getX() + " y=" + super.getPos(ParaDonde.ARRIBA).getY() + " acaba de caer");
 		Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).mover(ParaDonde.ABAJO);
 	}
 

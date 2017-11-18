@@ -49,7 +49,6 @@ public class Luciernaga extends EnemigoMovil{
 			break;
 		
 		}
-		 System.out.println("La luciernaga en la posicion x=" + this.getPos().getX() +" y=" + this.getPos().getY() + " ahora se intentara mover hacia " + super.getDireccionActual().toString());
 		
 		  int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda
 		  int b = this.getPos().getY() - 1;
