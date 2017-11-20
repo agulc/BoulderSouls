@@ -18,7 +18,8 @@ public class Comportamiento {
 	
 	public static void Inicializar(){
 		Mapa.getInstancia();
-		graficarMapa();
+		//graficarMapa();
+
 		actualizarEstadoObjeto();
 		CoordinadorDeEventos.iniciarTemporizador();
 	}
@@ -31,7 +32,7 @@ public class Comportamiento {
 	public static void comportamientoNormal(){
 		
 		moverPersonajes();
-		graficarMapa();
+		//graficarMapa();
 		actualizarEstadoObjeto();
 	}
 	/**
