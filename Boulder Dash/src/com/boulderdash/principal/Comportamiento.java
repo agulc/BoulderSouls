@@ -20,7 +20,7 @@ public class Comportamiento {
 		Mapa.getInstancia();
 		graficarMapa();
 		actualizarEstadoObjeto();
-		Temporizador.iniciarTemporizador();
+		CoordinadorDeEventos.iniciarTemporizador();
 	}
 	/**
 	 * Ciclo normal del juego una vez que fue inicializado.
@@ -67,7 +67,7 @@ public class Comportamiento {
 		if (rockfordMuerto)
 		{
 			if (Mapa.getInstancia().getVidas() == 0) {
-				Temporizador.detenerTemporizador();
+				CoordinadorDeEventos.detenerTemporizador();
 			}
 			else {
 			Mapa.getInstancia().reconstruirMapa();
