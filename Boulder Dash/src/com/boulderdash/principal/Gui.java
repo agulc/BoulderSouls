@@ -10,7 +10,7 @@ import com.boulderdash.teclaescucha.MiTeclaEscucha;
 
 public class Gui extends JFrame{
 
-	private JLabel matriz [][]; //Matriz de JLabels para mostrar las imagenes
+	private static JLabel matriz [][]; //Matriz de JLabels para mostrar las imagenes
 	
 	public Gui()
 	{
@@ -37,20 +37,29 @@ public class Gui extends JFrame{
 				//cont.add(new JLabel(new ImageIcon(getClass().getResource("/Texturas/img.jpg"))));
 			}
 		}
-	
+
+		
 		pack();
 		setVisible(true);
+		
+		
 
 	}
 	
-	public void actualizarMatriz()
+	public static void actualizarMatriz()
 	{
+		Posicion pos = new Posicion();
 		for (int i = 0; i < 40;  i++)
 		{
 			for (int y = 0; y < 22;  y++)
 			{
+				pos.setX(i);
+				pos.setY(y);
+				
 
-				matriz[i][y].setIcon(new ImageIcon(getClass().getResource("/Texturas/img.jpg")));
+				matriz[i][y].setIcon(new ImageIcon(Gui.class.getClassLoader().getResource("/Texturas/img.jpg")));
+
+				//matriz[i][y].setIcon(new ImageIcon(Gui.class.getClassLoader().getResource(Mapa.getInstancia().getPersonaje(pos).getGraficos())));
 
 			}
 		}

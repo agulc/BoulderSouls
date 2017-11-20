@@ -19,7 +19,7 @@ public class Comportamiento {
 	public static void Inicializar(){
 		Mapa.getInstancia();
 		//graficarMapa();
-
+		Gui.actualizarMatriz();
 		actualizarEstadoObjeto();
 		CoordinadorDeEventos.iniciarTemporizador();
 	}

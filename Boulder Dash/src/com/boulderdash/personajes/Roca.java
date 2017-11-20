@@ -1,10 +1,13 @@
 package com.boulderdash.personajes;
 
+import javax.swing.ImageIcon;
+
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
 
 public class Roca extends ObjetoNewton{
+
 	
 	public Roca(boolean cae,int x,int y){
 		super(cae,x,y);
@@ -48,5 +51,6 @@ public class Roca extends ObjetoNewton{
 
 		return (tile == BDTile.ROCK);
 	}
+
 
 }

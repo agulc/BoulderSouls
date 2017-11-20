@@ -1,5 +1,7 @@
 package com.boulderdash.personajes;
 
+import javax.swing.ImageIcon;
+
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Comportamiento;
@@ -110,5 +112,7 @@ public class Rockford extends Personaje{
 		}
 		System.out.println(this.getClass().getSimpleName() + " en la posicion x=" + this.getPos().getX() +" y=" + this.getPos().getY() + " acaba de explotar");
 	}
+	
+
 	
 }
