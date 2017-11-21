@@ -116,4 +116,32 @@ public class Mariposa extends EnemigoMovil{
 		return icono;
 	}
 	
+	public void explotarDiamantes(){
+		  
+		  int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda
+		  int b = this.getPos().getY() - 1;
+		  Posicion pos = new Posicion();
+		  int aAux = a+3;
+		  int bAux = b+3;
+		  
+		  for (int i = a; i<aAux; i++) //Recorre los personajes adyacentes
+		  {
+		   for (int j = b; j<bAux; j++)
+		   {
+		    pos.setX(i);
+		    pos.setY(j);
+		    if (!Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.WALL) && !Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.PLAYER) && !Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.EXIT)) 
+		     Mapa.getInstancia().setPersonaje(new Diamante(false,pos.getX(),pos.getY()), pos);
+
+		    
+		   }
+		  }
+	}
+	
+	public void meCaeAlgoEncima(){
+		if(Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).chequearSiSoy(BDTile.ROCK)){
+			this.explotarDiamantes();
+		}
+	}
+	
 }

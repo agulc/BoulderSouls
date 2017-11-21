@@ -11,7 +11,7 @@ public class Explosion extends Personaje{
 	
 	Explosion(int x,int y){
 		super(x,y);
-		tiempo = 1;
+		tiempo = 5;
 	}
 	
 	private int tiempo;
