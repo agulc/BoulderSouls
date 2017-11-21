@@ -4,8 +4,11 @@ import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
+import javax.swing.*;
 
 public class Mariposa extends EnemigoMovil{
+	
+	private static ImageIcon icono = new ImageIcon("butterfly.gif");
 	
 	public Mariposa(int x,int y){
 		super(x,y);
@@ -105,6 +108,12 @@ public class Mariposa extends EnemigoMovil{
 	public boolean chequearSiSoy (BDTile tile){
 
 		return (tile == BDTile.BUTTERFLY);
+	}
+
+	@Override
+	public ImageIcon getIcono() {
+		// TODO Auto-generated method stub
+		return icono;
 	}
 	
 }

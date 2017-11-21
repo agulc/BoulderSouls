@@ -1,11 +1,12 @@
 package com.boulderdash.personajes;
 
-import javax.swing.ImageIcon;
-
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
+import javax.swing.*;
 
 public class Suciedad extends Personaje {
+	
+	private static ImageIcon icono = new ImageIcon("dirt.gif");
 	
 	public Suciedad(int x,int y){
 		super(x,y);
@@ -26,7 +27,10 @@ public class Suciedad extends Personaje {
 
 		return (tile == BDTile.DIRT);
 	}
-	
 
-
+	@Override
+	public ImageIcon getIcono() {
+		// TODO Auto-generated method stub
+		return icono;
+	}
 }

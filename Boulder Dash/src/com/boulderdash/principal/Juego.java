@@ -1,5 +1,9 @@
 package com.boulderdash.principal;
 
+import com.boulderdash.teclaescucha.MiTeclaEscucha;
+import javax.swing.JFrame;
+
+
 public class Juego{
 	/**
 	 * Programa principal con los movimientos que Rockford
@@ -7,12 +11,13 @@ public class Juego{
 	 * @param args .
 	 */
 	public static void main(String args[]){
-		
+
 		Comportamiento.Inicializar();
-		
-		Gui gui = new Gui();
+		GUI interfaz = new GUI();
 
 		
 	}
 
+
+	
 }

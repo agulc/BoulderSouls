@@ -3,8 +3,11 @@ package com.boulderdash.personajes;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
+import javax.swing.*;
 
 public class Diamante extends ObjetoNewton{
+	
+	private static ImageIcon icono = new ImageIcon("diamond.gif");
 	
 	public Diamante(boolean cae,int x,int y){
 		super(cae,x,y);
@@ -32,5 +35,11 @@ public class Diamante extends ObjetoNewton{
 	public boolean chequearSiSoy (BDTile tile){
 
 		return (tile == BDTile.DIAMOND);
+	}
+
+	@Override
+	public ImageIcon getIcono() {
+		// TODO Auto-generated method stub
+		return icono;
 	}
 }

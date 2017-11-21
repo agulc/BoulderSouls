@@ -1,8 +1,11 @@
 package com.boulderdash.personajes;
 
 import com.boulderdash.enumerativos.ParaDonde;
+import javax.swing.*;
 
 public class MuroMagico extends Muro{
+	
+	private static ImageIcon icono = new ImageIcon("magic.gif");
 	
 	public MuroMagico(int x,int y){
 		super(x,y);
@@ -14,6 +17,12 @@ public class MuroMagico extends Muro{
 	
 	public String getGraficos(){
 		return "M";
+	}
+
+	@Override
+	public ImageIcon getIcono() {
+		// TODO Auto-generated method stub
+		return icono;
 	}
 	
 

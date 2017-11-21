@@ -3,8 +3,11 @@ package com.boulderdash.personajes;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
+import javax.swing.*;
 
 public class Explosion extends Personaje{
+	
+	private static ImageIcon icono = new ImageIcon("rockford.gif");
 	
 	Explosion(int x,int y){
 		super(x,y);
@@ -43,6 +46,12 @@ public class Explosion extends Personaje{
 	public boolean chequearSiSoy (BDTile tile){
 
 		return false;
+	}
+
+	@Override
+	public ImageIcon getIcono() {
+		// TODO Auto-generated method stub
+		return icono;
 	}
 	
 }

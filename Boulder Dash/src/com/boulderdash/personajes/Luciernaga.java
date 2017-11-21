@@ -4,8 +4,11 @@ import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
+import javax.swing.*;
 
 public class Luciernaga extends EnemigoMovil{
+	
+	private static ImageIcon icono = new ImageIcon("firefly.gif");
 	
 	public Luciernaga(int x,int y){
 		super(x,y);
@@ -83,6 +86,12 @@ public class Luciernaga extends EnemigoMovil{
 	public boolean chequearSiSoy (BDTile tile){
 
 		return (tile == BDTile.FIREFLY);
+	}
+
+	@Override
+	public ImageIcon getIcono() {
+		// TODO Auto-generated method stub
+		return icono;
 	}
 	
 			

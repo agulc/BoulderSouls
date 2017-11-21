@@ -1,12 +1,13 @@
 package com.boulderdash.personajes;
 
-import javax.swing.ImageIcon;
-
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
+import javax.swing.*;
 
 public class PuertaDeSalida extends Personaje{
+	
+	private static ImageIcon icono = new ImageIcon("exit.gif");
 	
 	public PuertaDeSalida(int x,int y){
 		super(x,y);
@@ -47,6 +48,12 @@ public class PuertaDeSalida extends Personaje{
 		//IMPLEMENTAR
 		//SI se llega a la salida y esta abierta, se aumenta el nivel, y se reconstruye el mapa
 		return this.transitable;
+	}
+
+	@Override
+	public ImageIcon getIcono() {
+		// TODO Auto-generated method stub
+		return icono;
 	}
 
 }

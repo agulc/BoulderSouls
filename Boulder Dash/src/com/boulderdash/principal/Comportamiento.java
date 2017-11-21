@@ -10,6 +10,7 @@ public class Comportamiento {
 	 */
 	
 	private static boolean rockfordMuerto = false;
+
 	
 	public static void setRockfordMuerto (boolean bool)
 	{
@@ -18,8 +19,7 @@ public class Comportamiento {
 	
 	public static void Inicializar(){
 		Mapa.getInstancia();
-		//graficarMapa();
-		Gui.actualizarMatriz();
+		graficarMapa();
 		actualizarEstadoObjeto();
 		CoordinadorDeEventos.iniciarTemporizador();
 	}
@@ -32,7 +32,7 @@ public class Comportamiento {
 	public static void comportamientoNormal(){
 		
 		moverPersonajes();
-		//graficarMapa();
+		graficarMapa();
 		actualizarEstadoObjeto();
 	}
 	/**
@@ -46,6 +46,7 @@ public class Comportamiento {
 				pos.setX(x);
 				pos.setY(y);
 				System.out.print(Mapa.getInstancia().getPersonaje(pos).getGraficos()+" ");
+				
 			}
 			System.out.println();
 		}

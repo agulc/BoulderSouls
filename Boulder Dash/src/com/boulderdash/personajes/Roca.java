@@ -1,13 +1,13 @@
 package com.boulderdash.personajes;
 
-import javax.swing.ImageIcon;
-
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
+import javax.swing.*;
 
 public class Roca extends ObjetoNewton{
-
+	
+	private static ImageIcon icono = new ImageIcon("boulder.gif");
 	
 	public Roca(boolean cae,int x,int y){
 		super(cae,x,y);
@@ -52,5 +52,10 @@ public class Roca extends ObjetoNewton{
 		return (tile == BDTile.ROCK);
 	}
 
+	@Override
+	public ImageIcon getIcono() {
+		// TODO Auto-generated method stub
+		return icono;
+	}
 
 }

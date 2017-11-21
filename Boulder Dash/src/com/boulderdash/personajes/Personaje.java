@@ -1,11 +1,10 @@
 package com.boulderdash.personajes;
 
-import javax.swing.ImageIcon;
-
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
+import javax.swing.ImageIcon;
 
 public abstract class Personaje {
 	private Posicion pos;
@@ -100,8 +99,9 @@ public abstract class Personaje {
 	
 	
 	public abstract String getGraficos();
-
-
+	
+	public abstract ImageIcon getIcono();
+	
 
 	/**
 	 * Permite saber si el casillero en la dirección hacia 

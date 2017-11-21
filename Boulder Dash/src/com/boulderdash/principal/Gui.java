@@ -1,68 +1,54 @@
 package com.boulderdash.principal;
 
-import java.awt.Container;
-import java.awt.GridLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import java.awt.*;
+import javax.swing.*;
 
 import com.boulderdash.teclaescucha.MiTeclaEscucha;
 
-public class Gui extends JFrame{
-
-	private static JLabel matriz [][]; //Matriz de JLabels para mostrar las imagenes
+public class GUI extends JFrame{
 	
-	public Gui()
-	{
-		addKeyListener(new MiTeclaEscucha());
+	
+	private static JLabel labels[] = new JLabel[880];
+	private static JPanel panel = new JPanel(new GridLayout(22,40,0,0));
+	private static ImageIcon icono = new ImageIcon("steel.gif");
+
+	
+	public GUI() {
+		
 		setSize(1206, 579);
-		//setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		Container cont = getContentPane();
-		cont.setLayout(new GridLayout(22,40));
-		
-		JLabel label = new JLabel();
-		//ImageIcon img = 
-		
-		matriz = new JLabel[40][22];
-				
-		for (int i = 0; i < 40;  i++)
-		{
-			for (int y = 0; y < 22;  y++)
-			{
-				matriz[i][y] = new JLabel();
-				//matriz[i][y].setIcon(new ImageIcon(getClass().getResource("/Texturas/img.jpg")));
-				cont.add(matriz[i][y]);
-				//cont.add(new JLabel(new ImageIcon(getClass().getResource("/Texturas/img.jpg"))));
-			}
+	    
+
+		addKeyListener(new MiTeclaEscucha());
+		for (int i = 0; i < 880; i++) {
+			labels[i] = new JLabel(icono);
+			panel.add(labels[i], i);
+		}
+		icono = new ImageIcon("diamond.gif");
+		for (int x = 0; x < 880; x=x+2) {
+			labels[x] = new JLabel(icono);
+			panel.remove(x);
+			panel.add(labels[x], x);
 		}
 
-		
+		add(panel);
+		pack();
+		setVisible(true);
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	public void cargarImagenes(Posicion pos) {
+		int x = pos.getX()*40 + pos.getY();
+		labels[(x)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
+		panel.remove((x));
+		panel.add(labels[(x)], (x));
+		add(panel);
 		pack();
 		setVisible(true);
 		
-		
-
 	}
 	
-	public static void actualizarMatriz()
-	{
-		Posicion pos = new Posicion();
-		for (int i = 0; i < 40;  i++)
-		{
-			for (int y = 0; y < 22;  y++)
-			{
-				pos.setX(i);
-				pos.setY(y);
-				
+	private  void actualizar() {
 
-				matriz[i][y].setIcon(new ImageIcon(Gui.class.getClassLoader().getResource("/Texturas/img.jpg")));
-
-				//matriz[i][y].setIcon(new ImageIcon(Gui.class.getClassLoader().getResource(Mapa.getInstancia().getPersonaje(pos).getGraficos())));
-
-			}
-		}
 	}
-	
 }

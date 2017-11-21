@@ -4,8 +4,11 @@ import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
+import javax.swing.*;
 
 public class Vacio extends Personaje{
+	
+	private static ImageIcon icono = new ImageIcon("amoeba.gif");
 	
 	Vacio(Posicion pos){
 		super(pos);
@@ -35,5 +38,11 @@ public class Vacio extends Personaje{
 	public boolean chequearSiSoy (BDTile tile){
 
 		return (tile == BDTile.EMPTY);
+	}
+
+	@Override
+	public ImageIcon getIcono() {
+		// TODO Auto-generated method stub
+		return icono;
 	}
 }

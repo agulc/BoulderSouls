@@ -1,10 +1,11 @@
 package com.boulderdash.personajes;
 
-import javax.swing.ImageIcon;
-
 import com.boulderdash.enumerativos.ParaDonde;
+import javax.swing.*;
 
 public class MuroTitanio extends Muro {
+	
+	private static ImageIcon icono = new ImageIcon("steel.gif");
 	
 	public MuroTitanio(int x,int y){
 		super(x,y);
@@ -25,5 +26,10 @@ public class MuroTitanio extends Muro {
 		//Si recibe una explosion, No hace nada (A diferencia del resto de personajes)
 	}
 
+	@Override
+	public ImageIcon getIcono() {
+		// TODO Auto-generated method stub
+		return icono;
+	}
 
 }

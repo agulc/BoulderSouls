@@ -5,8 +5,11 @@ import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
+import javax.swing.*;
 
 public class Ameba extends Enemigo{
+	
+	private static ImageIcon icono = new ImageIcon("amoeba.gif");
 	
 	Random generador = new Random();
 	
@@ -93,6 +96,11 @@ public class Ameba extends Enemigo{
 	public boolean chequearSiSoy (BDTile tile){
 
 		return (tile == BDTile.AMOEBA);
+	}
+
+	@Override
+	public ImageIcon getIcono() {
+		return icono;
 	}
 
 }
