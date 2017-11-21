@@ -53,7 +53,7 @@ public class Luciernaga extends EnemigoMovil{
 		
 		}
 		
-		  int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda
+		int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda
 		  int b = this.getPos().getY() - 1;
 		  Posicion posAux = new Posicion();
 		  int aAux = a+3;

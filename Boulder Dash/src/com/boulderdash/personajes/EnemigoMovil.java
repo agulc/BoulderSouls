@@ -36,26 +36,6 @@ public abstract class EnemigoMovil extends Enemigo {
 	 * Forma en la que se expande una explosión al ocurrir dentro del mapa.
 	 * @throws Exception . 
 	 */
-	public void explotar(){
-		
-		int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda
-		int b = this.getPos().getY() - 1;
-		Posicion pos = new Posicion();
-		int aAux = a+3;
-		int bAux = b+3;
-		
-		for (int i = a; i<aAux; i++) //Recorre los personajes adyacentes
-		{
-			for (int j = b; j<bAux; j++)
-			{
-				pos.setX(i);
-				pos.setY(j);
-				Mapa.getInstancia().getPersonaje(pos).recibeExplosion(); //Envia la explosion al personaje
-				
-			}
-		}
-		System.out.println(this.getClass().getSimpleName() + " en la posicion x=" + this.getPos().getX() +" y=" + this.getPos().getY() + " acaba de explotar");
-	}
 	
 	
 	@Override

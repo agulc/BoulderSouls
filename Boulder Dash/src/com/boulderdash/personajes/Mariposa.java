@@ -2,6 +2,7 @@ package com.boulderdash.personajes;
 
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
+import com.boulderdash.principal.Gui;
 import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
 import javax.swing.*;
@@ -56,49 +57,27 @@ public class Mariposa extends EnemigoMovil{
 		}
 		
 		int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda
-		  int b = this.getPos().getY() - 1;
-		  Posicion posAux = new Posicion();
-		  int aAux = a+3;
-		  int bAux = b+3;
+		int b = this.getPos().getY() - 1;
+		Posicion posAux = new Posicion();
+		int aAux = a+3;
+		int bAux = b+3;
 		  
-		  for (int i = a; a <=aAux; a++) //Recorre los personajes adyacentes
-		  {
-			   for (int j = b; b <=bAux; b++)
-			   {
-				    posAux.setX(i);
-				    posAux.setY(j);
-				    if (Mapa.getInstancia().getPersonaje(posAux).chequearSiSoy(BDTile.PLAYER)){ //Si el jugador es adyacente, la luciernaga explota 
-					     this.explotar();
-					     break;
-				    }
+		for (int i = a; i < aAux; i++) //Recorre los personajes adyacentes
+		{
+			for (int j = b; j < bAux; j++)
+			{
+				posAux.setX(i);
+				posAux.setY(j);
+				if (Mapa.getInstancia().getPersonaje(posAux).chequearSiSoy(BDTile.PLAYER)){ //Si el jugador es adyacente, la luciernaga explota 
+				     super.explotar();
+					 break;
+				}
 		    
-			   }
-		  }
+			}
+		}
 		
 	}
 	
-	@Override
-	public void explotar(){
-		
-		int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda
-		int b = this.getPos().getY() - 1;
-		Posicion pos = new Posicion();
-		
-		for (int i = a; a <= (a+3); a++) //Recorre los personajes adyacentes
-		{
-			for (int j = b; b <= (b+3); b++)
-			{
-				pos.setX(i);
-				pos.setY(j);
-				if (!Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.WALL)) //Si no es una pared
-				{
-					Mapa.getInstancia().setPersonaje(new Diamante(false,pos.getX(),pos.getY()), pos); //Transforma el personaje en diamante
-				}
-				
-				
-			}
-		}
-	}
 	
 	public String getGraficos(){
 		return "%";
@@ -116,8 +95,8 @@ public class Mariposa extends EnemigoMovil{
 		return icono;
 	}
 	
-	public void explotarDiamantes(){
-		  
+	public void explotarDiamantes()
+	{
 		  int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda
 		  int b = this.getPos().getY() - 1;
 		  Posicion pos = new Posicion();
@@ -126,16 +105,19 @@ public class Mariposa extends EnemigoMovil{
 		  
 		  for (int i = a; i<aAux; i++) //Recorre los personajes adyacentes
 		  {
-		   for (int j = b; j<bAux; j++)
-		   {
-		    pos.setX(i);
-		    pos.setY(j);
-		    if (!Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.WALL) && !Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.PLAYER) && !Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.EXIT)) 
-		     Mapa.getInstancia().setPersonaje(new Diamante(false,pos.getX(),pos.getY()), pos);
+			  for (int j = b; j<bAux; j++)
+			  {
+				  pos.setX(i);
+				  pos.setY(j);
+				  if (!Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.WALL) && !Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.PLAYER) && !Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.EXIT)) 
+					  Mapa.getInstancia().setPersonaje(new Diamante(false,pos.getX(),pos.getY()), pos);
 
-		    
-		   }
+				  Gui.getInstancia().actualizarImagenes(pos);
+			  }
 		  }
+		  
+		
+		  
 	}
 	
 	public void meCaeAlgoEncima(){
