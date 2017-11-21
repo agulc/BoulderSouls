@@ -11,15 +11,18 @@ import com.boulderdash.teclaescucha.MiTeclaEscucha;
 public class Gui extends JFrame{
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static JLabel labels[] = new JLabel[880];
 	public static JPanel panel = new JPanel(new GridLayout(22,40,0,0));
 	private static Gui instancia = null;
 	private static JButton botonParaEmpezar;
-	private static JList<String> nivelAElegir = new JList<String>();
-	private static DefaultListModel<String> modelo = new DefaultListModel<String>();
+	private static JComboBox<String> nivelAElegir = new JComboBox<String>();
 	
-	private Gui() {
-		
+	private Gui(){
+		super("Boulder Dash");
 		this.setLayout(new FlowLayout());
 		setSize(1206, 579);
 	    setResizable(true);
@@ -32,12 +35,8 @@ public class Gui extends JFrame{
 			}
 		});
 		this.add(botonParaEmpezar);
-		String[] items = {"1","2","3","4"};
-		for(String item:items){
-			modelo.addElement(item);
-		}
-		nivelAElegir.setModel(modelo);
-		nivelAElegir.setVisibleRowCount(4);
+		String[] items = {"1","2","3","4","5","6","7","8","9","10"};
+		nivelAElegir = new JComboBox<String>(items);
 		this.add(nivelAElegir);
 		setVisible(true);
 	}

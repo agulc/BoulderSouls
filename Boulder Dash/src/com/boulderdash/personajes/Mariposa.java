@@ -121,7 +121,7 @@ public class Mariposa extends EnemigoMovil{
 	}
 	
 	public void meCaeAlgoEncima(){
-		if(Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).chequearSiSoy(BDTile.ROCK)){
+		if(Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).chequearSiSoy(BDTile.ROCK)||Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).chequearSiSoy(BDTile.DIAMOND)){
 			this.explotarDiamantes();
 		}
 	}

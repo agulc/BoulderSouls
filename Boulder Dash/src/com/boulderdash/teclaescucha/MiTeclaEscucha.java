@@ -3,10 +3,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 import com.boulderdash.enumerativos.ParaDonde;
-import com.boulderdash.personajes.Rockford;
 import com.boulderdash.principal.Comportamiento;
-import com.boulderdash.principal.Mapa;
-import com.boulderdash.principal.Posicion;
 
 
 
@@ -14,6 +11,8 @@ public class MiTeclaEscucha extends KeyAdapter{
 
 	public void keyPressed(KeyEvent e)
 	{
+		
+		
 		switch (e.getKeyCode())
 		{
 		case KeyEvent.VK_LEFT:
@@ -39,10 +38,6 @@ public class MiTeclaEscucha extends KeyAdapter{
 			Comportamiento.moverARockford(ParaDonde.ARRIBA);
 		}
 		break;
-		
-			
-		}
-
-		
+		}	
 	}
 }

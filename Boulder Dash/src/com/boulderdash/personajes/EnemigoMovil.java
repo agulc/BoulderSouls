@@ -3,7 +3,6 @@ package com.boulderdash.personajes;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
-import com.boulderdash.principal.Posicion;
 
 public abstract class EnemigoMovil extends Enemigo {
 	
@@ -25,7 +24,7 @@ public abstract class EnemigoMovil extends Enemigo {
 	}
 	
 	public void meCaeAlgoEncima(){
-		if(Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).chequearSiSoy(BDTile.ROCK)){
+		if(Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).chequearSiSoy(BDTile.ROCK)||Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).chequearSiSoy(BDTile.DIAMOND)){
 			
 			this.explotar();
 			

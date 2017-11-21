@@ -1,9 +1,5 @@
 package com.boulderdash.principal;
 
-import com.boulderdash.teclaescucha.MiTeclaEscucha;
-import javax.swing.JFrame;
-
-
 public class Juego{
 	/**
 	 * Programa principal con los movimientos que Rockford

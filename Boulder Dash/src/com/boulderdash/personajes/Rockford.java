@@ -3,9 +3,7 @@ package com.boulderdash.personajes;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Comportamiento;
-import com.boulderdash.principal.CoordinadorDeEventos;
 import com.boulderdash.principal.Mapa;
-import com.boulderdash.principal.Posicion;
 import javax.swing.*;
 
 public class Rockford extends Personaje{
@@ -61,7 +59,7 @@ public class Rockford extends Personaje{
 	}
 	
 	public void meCaeAlgoEncima(){
-		if(Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).chequearSiSoy(BDTile.ROCK)){
+		if(Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).chequearSiSoy(BDTile.ROCK)||Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).chequearSiSoy(BDTile.DIAMOND)){
 			System.out.println("Roca" + " en la posicion x=" + super.getPos(ParaDonde.ARRIBA).getX() + " y=" + super.getPos(ParaDonde.ARRIBA).getY() + " cayo encima de rockford");
 			this.explotar();
 		}
