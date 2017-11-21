@@ -1,5 +1,6 @@
 package com.boulderdash.personajes;
 
+import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Comportamiento;
@@ -46,6 +47,7 @@ public class Rockford extends Personaje{
 		if (Mapa.getInstancia().getVidas() == 0){
 			System.out.println("HAS MUERTO");
 			Comportamiento.setRockfordMuerto(true);
+			Audio.muerte();
 		}
 		else
 		{

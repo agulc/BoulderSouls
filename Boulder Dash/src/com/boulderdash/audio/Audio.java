@@ -101,4 +101,19 @@ public class Audio {
 			   System.err.println(e.getMessage());
 		}
 	}
+	
+	public static void muerte() //Solo para la muerte definitiva
+	{
+		try 
+		{
+			   File fileExp = new File("./Audio/Death.wav");
+			   Clip clipExp = AudioSystem.getClip();
+			   clipExp.open(AudioSystem.getAudioInputStream(fileExp));
+			   clipExp.start();
+		} 
+		catch (Exception e) 
+		{
+			   System.err.println(e.getMessage());
+		}
+	}
 }
