@@ -31,5 +31,12 @@ public class MuroTitanio extends Muro {
 		// TODO Auto-generated method stub
 		return icono;
 	}
+	
+	@Override
+	public void explotar() { //No puede explotar
+		
+	}
+	
+	
 
 }

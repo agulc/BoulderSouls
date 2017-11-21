@@ -22,7 +22,7 @@ public class Comportamiento {
 		//graficarMapa();
 		actualizarEstadoObjeto();
 		CoordinadorDeEventos.iniciarTemporizador();
-		Mapa.getInstancia().setNivelActual(4);
+		Mapa.getInstancia().setNivelActual(10);
 		Mapa.getInstancia().reconstruirMapa();
 	}
 	/**

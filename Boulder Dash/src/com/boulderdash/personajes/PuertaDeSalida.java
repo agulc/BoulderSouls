@@ -55,5 +55,10 @@ public class PuertaDeSalida extends Personaje{
 		// TODO Auto-generated method stub
 		return icono;
 	}
+	
+	@Override
+	public void explotar() { //No puede explotar
+		
+	}
 
 }

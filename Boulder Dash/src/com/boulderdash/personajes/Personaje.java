@@ -51,12 +51,11 @@ public abstract class Personaje {
 	 * Verifica si es posible realizar el movimiento en la dirección deseada.
 	 * Si es posible, lo realiza.
 	 * @param dir Dirección a desplazarse.
-	 * @throws Exception .
 	 */
 	public void movimiento(ParaDonde dir){
 
 		if (Mapa.getInstancia().getPersonaje(this.getPos(dir)).chequearSiSoy(BDTile.EMPTY)){
-			
+
 			Mapa.getInstancia().setPersonaje(this , getPos(dir)); //Se mueve al siguiente casillero
 			Mapa.getInstancia().setPersonaje(new Vacio(this.getPos()), this.getPos());
 			setPos(getPos(dir)); //Actualizo mi posicion
@@ -125,7 +124,7 @@ public abstract class Personaje {
 	
 	//public abstract String getGrafico();
 	
-	public abstract boolean esTransitable(ParaDonde donde) throws Exception;
+	public abstract boolean esTransitable(ParaDonde donde);
 	
 	public void moverPersonajes(){
 		//No hago nada por defecto
@@ -178,6 +177,7 @@ public abstract class Personaje {
 				pos.setY(j);
 				Mapa.getInstancia().getPersonaje(pos).recibeExplosion(); //Envia la explosion al personaje
 				
+			    Gui.getInstancia().actualizarImagenes(pos);
 			}
 		}
 		//System.out.println(this.getClass().getSimpleName() + " en la posicion x=" + this.getPos().getX() +" y=" + this.getPos().getY() + " acaba de explotar");
