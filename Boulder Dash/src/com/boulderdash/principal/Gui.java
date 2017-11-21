@@ -39,18 +39,25 @@ public class Gui extends JFrame{
 		return instancia;
 	}
 	
-	public void cargarImagenes() {
-		Posicion pos = new Posicion();
-		for (int i = 0; i < 880; i++) {
-			pos.setX(i%40);
-			pos.setY(i/40);
-			if(!(labels[(i)].equals(Mapa.getInstancia().getPersonaje(pos).getIcono()))){
-				labels[(i)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
-				panel.remove(i);
-				panel.add(labels[(i)], (i));
-			}
-		}
+	public void actualizarImagenes(Posicion pos) {
+		int i = pos.getY()*40 + pos.getX();
+		labels[(i)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
+		panel.remove(i);
+		panel.add(labels[(i)], (i));
 		pack();
 		this.repaint();
-	}	
+	}
+	
+	public void reconstruir() {
+		  Posicion pos = new Posicion();
+		  for (int i = 0; i < 880; i++) {
+		  pos.setX(i%40);
+		  pos.setY(i/40);
+		  labels[(i)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
+		  panel.remove(i);
+		  panel.add(labels[(i)], (i));
+		  }
+	}
+	
+	
 }

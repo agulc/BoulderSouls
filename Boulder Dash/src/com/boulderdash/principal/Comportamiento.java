@@ -34,7 +34,6 @@ public class Comportamiento {
 		moverPersonajes();
 		//graficarMapa();
 		actualizarEstadoObjeto();
-		Gui.getInstancia().cargarImagenes();;
 	}
 	/**
 	 * Grafica la posición en el mapa de todos los objetos una vez que se termina el turno.

@@ -2,6 +2,7 @@ package com.boulderdash.personajes;
 
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
+import com.boulderdash.principal.Gui;
 import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
 import javax.swing.ImageIcon;
@@ -27,7 +28,9 @@ public abstract class Personaje {
 	}
 	
 	public void setPos(Posicion posAux){
+		Gui.getInstancia().actualizarImagenes(pos);
 		this.pos = posAux;
+		Gui.getInstancia().actualizarImagenes(pos);
 	}
 	
 	public Posicion getPos(ParaDonde donde){
