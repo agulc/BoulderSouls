@@ -11,6 +11,6 @@ public class Juego{
 	public static void main(String args[]){
 		Gui.getInstancia();
 		Audio.titulo();
-		Audio.musica();
+		Audio.musicaMenu();
 	}	
 }

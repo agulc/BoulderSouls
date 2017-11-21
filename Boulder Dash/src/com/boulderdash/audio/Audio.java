@@ -28,7 +28,31 @@ public class Audio {
             InputStream test = new FileInputStream("./Audio/Levels/Level " + Mapa.getInstancia().getNivelActual() + ".wav");
             BGM = new AudioStream(test);
             AudioPlayer.player.start(BGM);
-            loop = new ContinuousAudioDataStream(BGM.getData());
+            //loop = new ContinuousAudioDataStream(BGM.getData());
+
+        }
+        catch(FileNotFoundException e){
+            System.out.print(e.toString());
+        }
+        catch(IOException error)
+        {
+        	System.out.print(error.toString());
+        }
+        MGP.start(loop);
+
+    }
+	
+	public static void musicaMenu() 
+    {       
+
+        AudioData MD;
+        
+        try
+        {
+            InputStream test = new FileInputStream("./Audio/Theme_song.wav");
+            BGM = new AudioStream(test);
+            AudioPlayer.player.start(BGM);
+            //loop = new ContinuousAudioDataStream(BGM.getData());
 
         }
         catch(FileNotFoundException e){
