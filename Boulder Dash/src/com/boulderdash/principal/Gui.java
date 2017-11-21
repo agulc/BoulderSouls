@@ -15,7 +15,7 @@ public class Gui extends JFrame{
 	private Gui() {
 		
 		setSize(1206, 579);
-	    
+	    setResizable(false);
 
 		addKeyListener(new MiTeclaEscucha());
 		Posicion pos = new Posicion();
