@@ -5,7 +5,6 @@ import java.io.*;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
-import com.boulderdash.principal.CoordinadorDeEventos;
 import com.boulderdash.principal.Mapa;
 
 import sun.audio.AudioData;
@@ -29,8 +28,7 @@ public class Audio {
             InputStream test = new FileInputStream("./Audio/Levels/Level " + Mapa.getInstancia().getNivelActual() + ".wav");
             BGM = new AudioStream(test);
             AudioPlayer.player.start(BGM);
-            MD = BGM.getData();
-            loop = new ContinuousAudioDataStream(MD);
+            loop = new ContinuousAudioDataStream(BGM.getData());
 
         }
         catch(FileNotFoundException e){
@@ -38,7 +36,7 @@ public class Audio {
         }
         catch(IOException error)
         {
-            System.out.print(error.toString());
+        	System.out.print(error.toString());
         }
         MGP.start(loop);
 
