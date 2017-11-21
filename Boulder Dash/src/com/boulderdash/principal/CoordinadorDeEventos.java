@@ -20,7 +20,7 @@ public class CoordinadorDeEventos extends TimerTask {
 	
 	public static void iniciarTemporizador() {
 
-		reloj.schedule(tarea, 0, 1200);
+		reloj.schedule(tarea, 1, 120);
 	}
 	
 	public static void detenerTemporizador() {

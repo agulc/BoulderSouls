@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class Explosion extends Personaje{
 	
-	private static ImageIcon icono = new ImageIcon("rockford.gif");
+	private static ImageIcon icono = new ImageIcon("explosion.gif");
 	
 	Explosion(int x,int y){
 		super(x,y);

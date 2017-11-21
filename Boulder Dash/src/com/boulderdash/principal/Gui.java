@@ -9,18 +9,19 @@ public class Gui extends JFrame{
 	
 	
 	private static JLabel labels[] = new JLabel[880];
-	private static JPanel panel = new JPanel(new GridLayout(22,40,0,0));
-
+	public static JPanel panel = new JPanel(new GridLayout(22,40,0,0));
+	private static Gui instancia = null;
 	
-	public Gui() {
+	private Gui() {
 		
 		setSize(1206, 579);
 	    
 
 		addKeyListener(new MiTeclaEscucha());
-		Posicion pos;
+		Posicion pos = new Posicion();
 		for (int i = 0; i < 880; i++) {
-			pos = new Posicion(i%40, i/40);
+			pos.setX(i%40);
+			pos.setY(i/40);
 			labels[(i)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
 			panel.add(labels[(i)], (i));
 		}
@@ -31,14 +32,25 @@ public class Gui extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
-	public void cargarImagenes(Posicion pos) {
-		int x = pos.getX()*40 + pos.getY();
-		labels[(x)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
-		panel.remove((x));
-		panel.add(labels[(x)], (x));
-		repaint();
-		
+	public static Gui getInstancia(){
+		if(instancia == null){
+			instancia = new Gui();
+		}
+		return instancia;
 	}
 	
-	
+	public void cargarImagenes() {
+		Posicion pos = new Posicion();
+		JLabel labelito = new JLabel();
+		for (int i = 0; i < 880; i++) {
+			pos.setX(i%40);
+			pos.setY(i/40);
+			if(panel.getComponents().toString() == )
+			labels[(i)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
+			panel.remove(i);
+			panel.add(labels[(i)], (i));
+		}
+		pack();
+		this.repaint();
+	}	
 }
