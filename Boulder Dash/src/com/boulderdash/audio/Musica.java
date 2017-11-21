@@ -10,7 +10,7 @@ import sun.audio.*;
 public class Musica {
 	public static void musica(){
 		try {
-			   File file = new File("hola.wav");
+			   File file = new File("./Audio/Theme_Song.wav");
 			   Clip clip = AudioSystem.getClip();
 			   clip.open(AudioSystem.getAudioInputStream(file));
 			   clip.start();
