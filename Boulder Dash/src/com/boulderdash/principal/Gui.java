@@ -5,31 +5,25 @@ import javax.swing.*;
 
 import com.boulderdash.teclaescucha.MiTeclaEscucha;
 
-public class GUI extends JFrame{
+public class Gui extends JFrame{
 	
 	
 	private static JLabel labels[] = new JLabel[880];
 	private static JPanel panel = new JPanel(new GridLayout(22,40,0,0));
-	private static ImageIcon icono = new ImageIcon("steel.gif");
 
 	
-	public GUI() {
+	public Gui() {
 		
 		setSize(1206, 579);
 	    
 
 		addKeyListener(new MiTeclaEscucha());
+		Posicion pos;
 		for (int i = 0; i < 880; i++) {
-			labels[i] = new JLabel(icono);
-			panel.add(labels[i], i);
+			pos = new Posicion(i%40, i/40);
+			labels[(i)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
+			panel.add(labels[(i)], (i));
 		}
-		icono = new ImageIcon("diamond.gif");
-		for (int x = 0; x < 880; x=x+2) {
-			labels[x] = new JLabel(icono);
-			panel.remove(x);
-			panel.add(labels[x], x);
-		}
-
 		add(panel);
 		pack();
 		setVisible(true);
@@ -42,13 +36,9 @@ public class GUI extends JFrame{
 		labels[(x)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
 		panel.remove((x));
 		panel.add(labels[(x)], (x));
-		add(panel);
-		pack();
-		setVisible(true);
+		repaint();
 		
 	}
 	
-	private  void actualizar() {
-
-	}
+	
 }

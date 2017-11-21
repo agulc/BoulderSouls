@@ -13,7 +13,7 @@ public class Juego{
 	public static void main(String args[]){
 
 		Comportamiento.Inicializar();
-		GUI interfaz = new GUI();
+		Gui interfaz = new Gui();
 
 		
 	}
