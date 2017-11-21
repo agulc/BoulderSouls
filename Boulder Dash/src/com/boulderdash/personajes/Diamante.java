@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class Diamante extends ObjetoNewton{
 	
-	private static ImageIcon icono = new ImageIcon("diamond.gif");
+	private static ImageIcon icono = new ImageIcon("Texturas/diamond.gif");
 	
 	public Diamante(boolean cae,int x,int y){
 		super(cae,x,y);

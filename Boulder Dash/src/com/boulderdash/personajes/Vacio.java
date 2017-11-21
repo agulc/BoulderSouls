@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class Vacio extends Personaje{
 	
-	private static ImageIcon icono = new ImageIcon("empty.gif");
+	private static ImageIcon icono = new ImageIcon("Texturas/empty.gif");
 	
 	Vacio(Posicion pos){
 		super(pos);

@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class Suciedad extends Personaje {
 	
-	private static ImageIcon icono = new ImageIcon("dirt.gif");
+	private static ImageIcon icono = new ImageIcon("Texturas/dirt.gif");
 	
 	public Suciedad(int x,int y){
 		super(x,y);

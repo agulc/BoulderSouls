@@ -5,7 +5,7 @@ import javax.swing.*;
 
 public class MuroTitanio extends Muro {
 	
-	private static ImageIcon icono = new ImageIcon("steel.gif");
+	private static ImageIcon icono = new ImageIcon("Texturas/steel.gif");
 	
 	public MuroTitanio(int x,int y){
 		super(x,y);
@@ -31,5 +31,12 @@ public class MuroTitanio extends Muro {
 		// TODO Auto-generated method stub
 		return icono;
 	}
+	
+	@Override
+	public void explotar() { //No puede explotar
+		
+	}
+	
+	
 
 }

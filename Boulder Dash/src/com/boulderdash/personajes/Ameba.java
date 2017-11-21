@@ -9,7 +9,7 @@ import javax.swing.*;
 
 public class Ameba extends Enemigo{
 	
-	private static ImageIcon icono = new ImageIcon("amoeba.gif");
+	private static ImageIcon icono = new ImageIcon("Texturas/amoeba.gif");
 	
 	Random generador = new Random();
 	

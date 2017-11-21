@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class Luciernaga extends EnemigoMovil{
 	
-	private static ImageIcon icono = new ImageIcon("firefly.gif");
+	private static ImageIcon icono = new ImageIcon("Texturas/firefly.gif");
 	
 	public Luciernaga(int x,int y){
 		super(x,y);
@@ -53,7 +53,7 @@ public class Luciernaga extends EnemigoMovil{
 		
 		}
 		
-		  int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda
+		int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda
 		  int b = this.getPos().getY() - 1;
 		  Posicion posAux = new Posicion();
 		  int aAux = a+3;

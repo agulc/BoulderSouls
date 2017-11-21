@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class PuertaDeSalida extends Personaje{
 	
-	private static ImageIcon icono = new ImageIcon("exit.gif");
+	private static ImageIcon icono = new ImageIcon("Texturas/exit.gif");
 	
 	public PuertaDeSalida(int x,int y){
 		super(x,y);
@@ -54,6 +54,11 @@ public class PuertaDeSalida extends Personaje{
 	public ImageIcon getIcono() {
 		// TODO Auto-generated method stub
 		return icono;
+	}
+	
+	@Override
+	public void explotar() { //No puede explotar
+		
 	}
 
 }

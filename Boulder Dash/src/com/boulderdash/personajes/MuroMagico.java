@@ -5,7 +5,7 @@ import javax.swing.*;
 
 public class MuroMagico extends Muro{
 	
-	private static ImageIcon icono = new ImageIcon("magic.gif");
+	private static ImageIcon icono = new ImageIcon("Texturas/magic.gif");
 	
 	public MuroMagico(int x,int y){
 		super(x,y);
