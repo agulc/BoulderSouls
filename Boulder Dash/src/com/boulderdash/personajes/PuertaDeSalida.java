@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class PuertaDeSalida extends Personaje{
 	
-	private static ImageIcon icono = new ImageIcon("exit.gif");
+	private static ImageIcon icono = new ImageIcon("Texturas/exit.gif");
 	
 	public PuertaDeSalida(int x,int y){
 		super(x,y);

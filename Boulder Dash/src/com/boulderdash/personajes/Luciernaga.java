@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class Luciernaga extends EnemigoMovil{
 	
-	private static ImageIcon icono = new ImageIcon("firefly.gif");
+	private static ImageIcon icono = new ImageIcon("Texturas/firefly.gif");
 	
 	public Luciernaga(int x,int y){
 		super(x,y);

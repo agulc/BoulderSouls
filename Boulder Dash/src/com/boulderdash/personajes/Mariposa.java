@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class Mariposa extends EnemigoMovil{
 	
-	private static ImageIcon icono = new ImageIcon("butterfly.gif");
+	private static ImageIcon icono = new ImageIcon("Texturas/butterfly.gif");
 	
 	public Mariposa(int x,int y){
 		super(x,y);

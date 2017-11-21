@@ -10,7 +10,7 @@ import javax.swing.*;
 
 public class Rockford extends Personaje{
 	
-	private static ImageIcon icono = new ImageIcon("rockford.gif");
+	private static ImageIcon icono = new ImageIcon("Texturas/rockford.gif");
 	
 	private static Rockford rock = null;
 	

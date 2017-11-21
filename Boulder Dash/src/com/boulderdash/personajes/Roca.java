@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class Roca extends ObjetoNewton{
 	
-	private static ImageIcon icono = new ImageIcon("boulder.gif");
+	private static ImageIcon icono = new ImageIcon("Texturas/boulder.gif");
 	
 	public Roca(boolean cae,int x,int y){
 		super(cae,x,y);
