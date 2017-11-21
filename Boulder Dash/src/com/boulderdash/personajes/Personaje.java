@@ -1,5 +1,6 @@
 package com.boulderdash.personajes;
 
+import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Gui;
@@ -180,6 +181,8 @@ public abstract class Personaje {
 			    Gui.getInstancia().actualizarImagenes(pos);
 			}
 		}
+		
+		Audio.explosion();
 		//System.out.println(this.getClass().getSimpleName() + " en la posicion x=" + this.getPos().getX() +" y=" + this.getPos().getY() + " acaba de explotar");
 	}
 

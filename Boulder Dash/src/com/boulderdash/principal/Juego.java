@@ -1,6 +1,6 @@
 package com.boulderdash.principal;
 
-import com.boulderdash.audio.Musica;
+import com.boulderdash.audio.Audio;
 
 public class Juego{
 	/**
@@ -9,7 +9,8 @@ public class Juego{
 	 * @param args .
 	 */
 	public static void main(String args[]){
-		Gui.getInstancia();	
-		Musica.musica();
+		Gui.getInstancia();
+		Audio.title();
+		Audio.musica();
 	}	
 }
