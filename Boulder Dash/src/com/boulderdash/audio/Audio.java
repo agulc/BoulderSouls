@@ -19,18 +19,13 @@ public class Audio {
 	private static AudioStream BGM;
 	
 	public static void musica() 
-    {       
-
-        AudioData MD;
-
-
+    {      
         try
         {
-            InputStream test = new FileInputStream("./Audio/Theme_Song.wav");
+            InputStream test = new FileInputStream("./Audio/theme.wav");
             BGM = new AudioStream(test);
             AudioPlayer.player.start(BGM);
-            MD = BGM.getData();
-            loop = new ContinuousAudioDataStream(MD);
+            loop = new ContinuousAudioDataStream(BGM.getData());
 
         }
         catch(FileNotFoundException e){
@@ -38,7 +33,7 @@ public class Audio {
         }
         catch(IOException error)
         {
-            System.out.print(error.toString());
+        	System.out.print(error.toString());
         }
         MGP.start(loop);
 
