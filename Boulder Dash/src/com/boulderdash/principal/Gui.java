@@ -41,14 +41,14 @@ public class Gui extends JFrame{
 	
 	public void cargarImagenes() {
 		Posicion pos = new Posicion();
-		JLabel labelito = new JLabel();
 		for (int i = 0; i < 880; i++) {
 			pos.setX(i%40);
 			pos.setY(i/40);
-			if(panel.getComponents().toString() == )
-			labels[(i)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
-			panel.remove(i);
-			panel.add(labels[(i)], (i));
+			if(!(labels[(i)].equals(Mapa.getInstancia().getPersonaje(pos).getIcono()))){
+				labels[(i)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
+				panel.remove(i);
+				panel.add(labels[(i)], (i));
+			}
 		}
 		pack();
 		this.repaint();

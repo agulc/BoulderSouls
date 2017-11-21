@@ -32,7 +32,7 @@ public class Comportamiento {
 	public static void comportamientoNormal(){
 		
 		moverPersonajes();
-		graficarMapa();
+		//graficarMapa();
 		actualizarEstadoObjeto();
 		Gui.getInstancia().cargarImagenes();;
 	}
