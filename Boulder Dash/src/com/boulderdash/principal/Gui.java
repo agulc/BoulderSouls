@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import com.boulderdash.audio.Audio;
 import com.boulderdash.teclaescucha.MiTeclaEscucha;
 
 public class Gui extends JFrame{
@@ -65,6 +66,8 @@ public class Gui extends JFrame{
 		pack();
 		repaint();
 		Comportamiento.Inicializar();
+		Audio.pararMusica();
+		Audio.musica();
 	}
 	
 	public void actualizarImagenes(Posicion pos) {

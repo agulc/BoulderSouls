@@ -6,6 +6,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
 import com.boulderdash.principal.CoordinadorDeEventos;
+import com.boulderdash.principal.Mapa;
 
 import sun.audio.AudioData;
 import sun.audio.AudioPlayer;
@@ -22,11 +23,10 @@ public class Audio {
     {       
 
         AudioData MD;
-
-
+        
         try
         {
-            InputStream test = new FileInputStream("./Audio/Theme_Song.wav");
+            InputStream test = new FileInputStream("./Audio/Levels/Level " + Mapa.getInstancia().getNivelActual() + ".wav");
             BGM = new AudioStream(test);
             AudioPlayer.player.start(BGM);
             MD = BGM.getData();

@@ -133,6 +133,10 @@ public class Mapa {
 		Mapa.nivelActual = nivel;
 	}
 	
+	public int getNivelActual(){
+		return Mapa.nivelActual;
+	}
+	
 	public void setVidas(int vidas){
 		Mapa.vidas = vidas;
 		
