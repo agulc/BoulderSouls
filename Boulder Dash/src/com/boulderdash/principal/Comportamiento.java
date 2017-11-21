@@ -34,6 +34,7 @@ public class Comportamiento {
 		moverPersonajes();
 		//graficarMapa();
 		actualizarEstadoObjeto();
+		
 	}
 	/**
 	 * Grafica la posición en el mapa de todos los objetos una vez que se termina el turno.
