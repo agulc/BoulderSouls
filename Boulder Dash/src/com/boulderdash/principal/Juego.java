@@ -11,13 +11,6 @@ public class Juego{
 	 * @param args .
 	 */
 	public static void main(String args[]){
-
-		Gui.getInstancia();
-		Comportamiento.Inicializar();
-
-		
-	}
-
-
-	
+		Gui.getInstancia();	
+	}	
 }

@@ -22,8 +22,6 @@ public class Comportamiento {
 		//graficarMapa();
 		actualizarEstadoObjeto();
 		CoordinadorDeEventos.iniciarTemporizador();
-		Mapa.getInstancia().setNivelActual(4);
-		Mapa.getInstancia().reconstruirMapa();
 	}
 	/**
 	 * Ciclo normal del juego una vez que fue inicializado.

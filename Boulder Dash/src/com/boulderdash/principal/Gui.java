@@ -1,6 +1,9 @@
 package com.boulderdash.principal;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
 import com.boulderdash.teclaescucha.MiTeclaEscucha;
@@ -11,12 +14,46 @@ public class Gui extends JFrame{
 	private static JLabel labels[] = new JLabel[880];
 	public static JPanel panel = new JPanel(new GridLayout(22,40,0,0));
 	private static Gui instancia = null;
+	private static JButton botonParaEmpezar;
+	private static JList<String> nivelAElegir = new JList<String>();
+	private static DefaultListModel<String> modelo = new DefaultListModel<String>();
 	
 	private Gui() {
 		
+		this.setLayout(new FlowLayout());
 		setSize(1206, 579);
-	    setResizable(false);
-
+	    setResizable(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		botonParaEmpezar = new JButton("Empezar!!");
+		botonParaEmpezar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Mapa.getInstancia().setNivelActual(nivelAElegir.getSelectedIndex()+1);
+				empezarAJugar();
+			}
+		});
+		this.add(botonParaEmpezar);
+		String[] items = {"1","2","3","4"};
+		for(String item:items){
+			modelo.addElement(item);
+		}
+		nivelAElegir.setModel(modelo);
+		nivelAElegir.setVisibleRowCount(4);
+		this.add(nivelAElegir);
+		setVisible(true);
+	}
+	
+	public static Gui getInstancia(){
+		if(instancia == null){
+			instancia = new Gui();
+		}
+		return instancia;
+	}
+	
+	private void empezarAJugar(){
+		this.remove(botonParaEmpezar);
+		this.remove(nivelAElegir);
+		this.setLayout(new BorderLayout());
+		Mapa.getInstancia().construirMapa();
 		addKeyListener(new MiTeclaEscucha());
 		Posicion pos = new Posicion();
 		for (int i = 0; i < 880; i++) {
@@ -27,16 +64,8 @@ public class Gui extends JFrame{
 		}
 		add(panel);
 		pack();
-		setVisible(true);
-
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-	
-	public static Gui getInstancia(){
-		if(instancia == null){
-			instancia = new Gui();
-		}
-		return instancia;
+		repaint();
+		Comportamiento.Inicializar();
 	}
 	
 	public void actualizarImagenes(Posicion pos) {

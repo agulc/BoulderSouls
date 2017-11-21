@@ -122,6 +122,12 @@ public class Mapa {
 		Gui.getInstancia().reconstruir();
 	}
 	
+	public void construirMapa (){
+		
+		instancia = new Mapa();
+		System.out.println("El mapa se acaba de construir");
+	}
+	
 	public void setNivelActual(int nivel){
 		Mapa.nivelActual = nivel;
 	}
