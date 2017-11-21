@@ -163,13 +163,13 @@ public abstract class Personaje {
 	public abstract boolean chequearSiSoy(BDTile tile);
 	
 	public void explotar(){
-		
 		int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda
 		int b = this.getPos().getY() - 1;
 		Posicion pos = new Posicion();
 		int aAux = a+3;
 		int bAux = b+3;
 		
+		Mapa.getInstancia().getPersonaje(this.getPos()).recibeExplosion();
 		for (int i = a; i<aAux; i++) //Recorre los personajes adyacentes
 		{
 			for (int j = b; j<bAux; j++)
@@ -181,10 +181,7 @@ public abstract class Personaje {
 			    Gui.getInstancia().actualizarImagenes(pos);
 			}
 		}
-
 		Audio.explosion();
-		
-		//System.out.println(this.getClass().getSimpleName() + " en la posicion x=" + this.getPos().getX() +" y=" + this.getPos().getY() + " acaba de explotar");
 	}
 
 	

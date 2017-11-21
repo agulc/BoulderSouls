@@ -25,7 +25,7 @@ public class Gui extends JFrame{
 		super("Boulder Dash");
 		this.setLayout(new FlowLayout());
 		setSize(1206, 579);
-	    setResizable(true);
+	    setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		botonParaEmpezar = new JButton("Empezar!!");
 		botonParaEmpezar.addActionListener(new ActionListener() {

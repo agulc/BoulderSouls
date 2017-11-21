@@ -1,5 +1,6 @@
 package com.boulderdash.principal;
 
+import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.BDLevelReader;
 import com.boulderdash.personajes.Ameba;
 import com.boulderdash.personajes.Diamante;

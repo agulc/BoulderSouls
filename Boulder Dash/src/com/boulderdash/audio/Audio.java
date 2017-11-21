@@ -7,22 +7,46 @@ import javax.sound.sampled.Clip;
 
 import com.boulderdash.principal.CoordinadorDeEventos;
 
+import sun.audio.AudioData;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+import sun.audio.ContinuousAudioDataStream;
+
 public class Audio {
 
-	public static void musica(){
-		try 
-		{
-			   File file = new File("./Audio/Theme_Song.wav");
-			   Clip clip = AudioSystem.getClip();
-			   clip.open(AudioSystem.getAudioInputStream(file));
-			   clip.start();
-			   
-			   Thread.sleep(clip.getMicrosecondLength());
-		} 
-		catch (Exception e) 
-		{
-			   System.err.println(e.getMessage());
-		}
+	private static AudioPlayer MGP = AudioPlayer.player;
+	private static ContinuousAudioDataStream loop = null;
+	private static AudioStream BGM;
+	
+	public static void musica() 
+    {       
+
+        AudioData MD;
+
+
+        try
+        {
+            InputStream test = new FileInputStream("./Audio/Theme_Song.wav");
+            BGM = new AudioStream(test);
+            AudioPlayer.player.start(BGM);
+            MD = BGM.getData();
+            loop = new ContinuousAudioDataStream(MD);
+
+        }
+        catch(FileNotFoundException e){
+            System.out.print(e.toString());
+        }
+        catch(IOException error)
+        {
+            System.out.print(error.toString());
+        }
+        MGP.start(loop);
+
+    }
+	
+	public static void pararMusica(){
+		AudioPlayer.player.stop(BGM);
+		AudioPlayer.player.stop(loop);
 	}
 	
 	
@@ -106,10 +130,12 @@ public class Audio {
 	{
 		try 
 		{
-			   File fileExp = new File("./Audio/Death.wav");
+			   Audio.pararMusica();
+			   File fileExp = new File("./Audio/OmaeWa.wav");
 			   Clip clipExp = AudioSystem.getClip();
 			   clipExp.open(AudioSystem.getAudioInputStream(fileExp));
 			   clipExp.start();
+			   Thread.sleep(4500);
 		} 
 		catch (Exception e) 
 		{
