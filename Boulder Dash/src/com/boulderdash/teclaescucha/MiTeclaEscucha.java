@@ -38,6 +38,7 @@ public class MiTeclaEscucha extends KeyAdapter{
 			Comportamiento.moverARockford(ParaDonde.ARRIBA);
 		}
 		break;
+		
 		}	
 	}
 }
