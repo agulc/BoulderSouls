@@ -10,7 +10,7 @@ public class Juego{
 	 */
 	public static void main(String args[]){
 		Gui.getInstancia();
-		Audio.title();
+		Audio.titulo();
 		Audio.musica();
 	}	
 }

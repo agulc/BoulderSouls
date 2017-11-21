@@ -1,5 +1,6 @@
 package com.boulderdash.personajes;
 
+import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
@@ -19,6 +20,7 @@ public class Diamante extends ObjetoNewton{
 	
 	public boolean rockfordCaminaSobreMi (ParaDonde dir){
 		
+		Audio.item();
 		Mapa.setDiamantesRestantes(Mapa.getDiamantesRestantes() - 1);
 		Mapa.incrementarPuntaje();
 		return true;

@@ -1,5 +1,6 @@
 package com.boulderdash.personajes;
 
+import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Gui;
@@ -116,6 +117,7 @@ public class Mariposa extends EnemigoMovil{
 			  }
 		  }
 		  
+		  Audio.explosion();
 		
 		  
 	}

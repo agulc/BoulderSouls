@@ -164,8 +164,6 @@ public abstract class Personaje {
 	
 	public void explotar(){
 		
-		Audio.explosion();
-		
 		int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda
 		int b = this.getPos().getY() - 1;
 		Posicion pos = new Posicion();
@@ -183,7 +181,8 @@ public abstract class Personaje {
 			    Gui.getInstancia().actualizarImagenes(pos);
 			}
 		}
-		
+
+		Audio.explosion();
 		
 		//System.out.println(this.getClass().getSimpleName() + " en la posicion x=" + this.getPos().getX() +" y=" + this.getPos().getY() + " acaba de explotar");
 	}

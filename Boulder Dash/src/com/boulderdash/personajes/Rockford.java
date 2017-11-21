@@ -49,7 +49,7 @@ public class Rockford extends Personaje{
 		}
 		else
 		{
-			System.out.println("Rockford exploto!"+" Te quedan "+Mapa.getInstancia().getVidas()+" vidas.");
+			System.out.println("Te quedan "+Mapa.getInstancia().getVidas()+" vidas.");
 			Comportamiento.setRockfordMuerto(true);
 			
 		}

@@ -1,5 +1,6 @@
 package com.boulderdash.personajes;
 
+import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
@@ -8,6 +9,8 @@ import javax.swing.*;
 public class PuertaDeSalida extends Personaje{
 	
 	private static ImageIcon icono = new ImageIcon("Texturas/exit.gif");
+	
+	private boolean abierta = false;
 	
 	public PuertaDeSalida(int x,int y){
 		super(x,y);
@@ -21,9 +24,11 @@ public class PuertaDeSalida extends Personaje{
 	}
 	
 	public void actualizarEstadoObjeto(){
-		if(Mapa.getDiamantesRestantes()<=0){
+		if(Mapa.getDiamantesRestantes()<=0 && !abierta){
 			this.transitable=true;
 			System.out.println("Ahora la puerta esta abierta!!!!! ESCAPAA!!");
+			abierta = true;
+			Audio.puertaAbierta();
 		}
 	}
 	
@@ -47,6 +52,7 @@ public class PuertaDeSalida extends Personaje{
 	public boolean rockfordCaminaSobreMi (ParaDonde donde){
 		//IMPLEMENTAR
 		//SI se llega a la salida y esta abierta, se aumenta el nivel, y se reconstruye el mapa
+		Audio.victoria();
 		return this.transitable;
 	}
 

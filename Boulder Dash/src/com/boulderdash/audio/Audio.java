@@ -31,15 +31,10 @@ public class Audio {
 	{
 		try 
 		{
-			CoordinadorDeEventos.detenerTemporizador();
-			   File fileExp = new File("./Audio/OmaeWa.wav");
+			   File fileExp = new File("./Audio/Explosion.wav");
 			   Clip clipExp = AudioSystem.getClip();
 			   clipExp.open(AudioSystem.getAudioInputStream(fileExp));
 			   clipExp.start();
-			   System.out.println("Sleeps");
-			   Thread.sleep(4100);
-			   CoordinadorDeEventos.iniciarTemporizador();
-			   clipExp.stop();
 		} 
 		catch (Exception e) 
 		{
@@ -47,11 +42,56 @@ public class Audio {
 		}
 	}
 	
-	public static void title()
+	public static void item()
+	{
+		try 
+		{
+			   File fileExp = new File("./Audio/PickUpItem.wav");
+			   Clip clipExp = AudioSystem.getClip();
+			   clipExp.open(AudioSystem.getAudioInputStream(fileExp));
+			   clipExp.start();
+		} 
+		catch (Exception e) 
+		{
+			   System.err.println(e.getMessage());
+		}
+	}
+	
+	public static void titulo()
 	{
 		try 
 		{
 			   File fileExp = new File("./Audio/Title.wav");
+			   Clip clipExp = AudioSystem.getClip();
+			   clipExp.open(AudioSystem.getAudioInputStream(fileExp));
+			   clipExp.start();
+		} 
+		catch (Exception e) 
+		{
+			   System.err.println(e.getMessage());
+		}
+	}
+	
+	public static void victoria()
+	{
+		try 
+		{
+			   File fileExp = new File("./Audio/Victory.wav");
+			   Clip clipExp = AudioSystem.getClip();
+			   clipExp.open(AudioSystem.getAudioInputStream(fileExp));
+			   clipExp.start();
+		} 
+		catch (Exception e) 
+		{
+			   System.err.println(e.getMessage());
+		}
+	}
+	
+	public static void puertaAbierta()
+	{
+		try 
+		{
+			   File fileExp = new File("./Audio/DoorOpened.wav");
 			   Clip clipExp = AudioSystem.getClip();
 			   clipExp.open(AudioSystem.getAudioInputStream(fileExp));
 			   clipExp.start();
