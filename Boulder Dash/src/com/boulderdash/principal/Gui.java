@@ -17,13 +17,11 @@ public class Gui extends JFrame{
 	 */
 	private static final long serialVersionUID = 1L;
 	private static JLabel labels[] = new JLabel[880];
-	public static JPanel panel = new JPanel(new GridLayout(22,40,0,0));
 	public static JPanel panelTitulo = new JPanel(new FlowLayout());
+	public static JPanel panel = new JPanel(new GridLayout(22,40,0,0));
 	private static Gui instancia = null;
-	private static JButton botonParaEmpezar;
-	private static JComboBox<String> nivelAElegir = new JComboBox<String>();
-	private static JLabel labelTitulo = new JLabel(new ImageIcon("./Texturas/Titulo.png"));
-	private static JLabel labelTitulo2 = new JLabel(new ImageIcon("./Texturas/TituloBonfire.gif"));
+
+	
 	private Gui(){
 		super("Boulder Dash");
 		inicializarGui();
@@ -31,14 +29,19 @@ public class Gui extends JFrame{
 	
 	private void inicializarGui(){
 
-		panelTitulo.setBackground(Color.BLACK);
+		JLabel labelTitulo = new JLabel(new ImageIcon("./Texturas/Titulo.png"));
+		JLabel labelTitulo2 = new JLabel(new ImageIcon("./Texturas/TituloBonfire.gif"));
+		JButton botonParaEmpezar;
+		String[] items = {"1","2","3","4","5","6","7","8","9","10"};
+		final JComboBox<String> nivelAElegir = new JComboBox<String>(items);
 		
+		panelTitulo.setBackground(Color.BLACK);
+
 		setSize(1206, 579);
 	    setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
 		panelTitulo.add(labelTitulo);
-		
 		
 		botonParaEmpezar = new JButton("Empezar!!");
 		botonParaEmpezar.addActionListener(new ActionListener() {
@@ -48,14 +51,16 @@ public class Gui extends JFrame{
 			}
 		});
 		panelTitulo.add(botonParaEmpezar);
-		String[] items = {"1","2","3","4","5","6","7","8","9","10"};
-		nivelAElegir = new JComboBox<String>(items);
+		//String[] items = {"1","2","3","4","5","6","7","8","9","10"};
+		//nivelAElegir = new JComboBox<String>(items);
+		
 		panelTitulo.add(nivelAElegir);
 		
 		panelTitulo.add(labelTitulo2);
 		
 		this.add(panelTitulo);
 		setVisible(true);
+		
 		
 	}
 	
@@ -91,6 +96,8 @@ public class Gui extends JFrame{
 		Comportamiento.Inicializar();
 		Audio.pararMusica();
 		Audio.musica();
+		
+		 requestFocus(); //Se centra en el JFrame para responder al key listener
 	}
 	
 	public void actualizarImagenes(Posicion pos) {
@@ -104,12 +111,13 @@ public class Gui extends JFrame{
 	
 	public void reconstruir() {
 		  Posicion pos = new Posicion();
-		  for (int i = 0; i < 880; i++) {
-		  pos.setX(i%40);
-		  pos.setY(i/40);
-		  labels[(i)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
-		  panel.remove(i);
-		  panel.add(labels[(i)], (i));
+		  for (int i = 0; i < 880; i++) 
+		  {
+			  pos.setX(i%40);
+			  pos.setY(i/40);
+			  labels[(i)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
+			  panel.remove(i);
+			  panel.add(labels[(i)], (i));
 		  }
 	}
 	
@@ -121,11 +129,11 @@ public class Gui extends JFrame{
 		ImageIcon image = new ImageIcon("./Texturas/You Died.gif");
 		JLabel etiqueta = new JLabel(image);
 
-		Panel pan = new Panel();
-		pan.setLayout(new BorderLayout());
+		Panel panelMuerte = new Panel();
+		panelMuerte.setLayout(new BorderLayout());
 		
-		pan.add(etiqueta);
-		add(pan);
+		panelMuerte.add(etiqueta);
+		add(panelMuerte);
 		
 		pack();
 		repaint();
@@ -137,8 +145,13 @@ public class Gui extends JFrame{
 			e.printStackTrace();
 		}
 		
-		remove(pan);
-		setVisible(false);
+		remove(panelMuerte);
+		
+		setSize(1206, 579);
+		add(panelTitulo);
+		
+		//repaint();
+		//setVisible(false);
 	}
 	
 }
