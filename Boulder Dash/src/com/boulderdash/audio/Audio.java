@@ -7,68 +7,43 @@ import javax.sound.sampled.Clip;
 
 import com.boulderdash.principal.Mapa;
 
-import sun.audio.AudioData;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
-import sun.audio.ContinuousAudioDataStream;
-
 public class Audio {
 
-	private static AudioPlayer MGP = AudioPlayer.player;
-	private static ContinuousAudioDataStream loop = null;
-	private static AudioStream BGM;
+	private static Clip clip = null;
 	
 	public static void musica() 
-    {       
-
-        AudioData MD;
-        
-        try
-        {
-            InputStream test = new FileInputStream("./Audio/Levels/Level " + Mapa.getInstancia().getNivelActual() + ".wav");
-            BGM = new AudioStream(test);
-            AudioPlayer.player.start(BGM);
-            //loop = new ContinuousAudioDataStream(BGM.getData());
-
-        }
-        catch(FileNotFoundException e){
-            System.out.print(e.toString());
-        }
-        catch(IOException error)
-        {
-        	System.out.print(error.toString());
-        }
-        MGP.start(loop);
+    { 
+		try 
+		{
+			   File fileExp = new File("./Audio/Levels/Level " + Mapa.getInstancia().getNivelActual() + ".wav");
+			   clip = AudioSystem.getClip();
+			   clip.open(AudioSystem.getAudioInputStream(fileExp));
+			   clip.start();
+		} 
+		catch (Exception e) 
+		{
+			   System.err.println(e.getMessage());
+		}
 
     }
 	
 	public static void musicaMenu() 
-    {       
-
-        AudioData MD;
-        
-        try
-        {
-            InputStream test = new FileInputStream("./Audio/Theme_song.wav");
-            BGM = new AudioStream(test);
-            AudioPlayer.player.start(BGM);
-            //loop = new ContinuousAudioDataStream(BGM.getData());
-
-        }
-        catch(FileNotFoundException e){
-            System.out.print(e.toString());
-        }
-        catch(IOException error)
-        {
-        	System.out.print(error.toString());
-        }
-        MGP.start(loop);
-
+    {   
+		try 
+		{
+			   File fileExp = new File("./Audio/Theme_Song.wav");
+			   clip = AudioSystem.getClip();
+			   clip.open(AudioSystem.getAudioInputStream(fileExp));
+			   clip.start();
+		} 
+		catch (Exception e) 
+		{
+			   System.err.println(e.getMessage());
+		}
     }
 	
 	public static void pararMusica(){
-		AudioPlayer.player.stop(BGM);
-		AudioPlayer.player.stop(loop);
+		clip.stop();
 	}
 	
 	
@@ -78,9 +53,9 @@ public class Audio {
 		try 
 		{
 			   File fileExp = new File("./Audio/Explosion.wav");
-			   Clip clipExp = AudioSystem.getClip();
-			   clipExp.open(AudioSystem.getAudioInputStream(fileExp));
-			   clipExp.start();
+			   Clip clipAux = AudioSystem.getClip();
+			   clipAux.open(AudioSystem.getAudioInputStream(fileExp));
+			   clipAux.start();
 		} 
 		catch (Exception e) 
 		{
@@ -93,9 +68,9 @@ public class Audio {
 		try 
 		{
 			   File fileExp = new File("./Audio/PickUpItem.wav");
-			   Clip clipExp = AudioSystem.getClip();
-			   clipExp.open(AudioSystem.getAudioInputStream(fileExp));
-			   clipExp.start();
+			   Clip clipAux = AudioSystem.getClip();
+			   clipAux.open(AudioSystem.getAudioInputStream(fileExp));
+			   clipAux.start();
 		} 
 		catch (Exception e) 
 		{
@@ -108,9 +83,9 @@ public class Audio {
 		try 
 		{
 			   File fileExp = new File("./Audio/Title.wav");
-			   Clip clipExp = AudioSystem.getClip();
-			   clipExp.open(AudioSystem.getAudioInputStream(fileExp));
-			   clipExp.start();
+			   Clip clipAux = AudioSystem.getClip();
+			   clipAux.open(AudioSystem.getAudioInputStream(fileExp));
+			   clipAux.start();
 		} 
 		catch (Exception e) 
 		{
@@ -123,9 +98,9 @@ public class Audio {
 		try 
 		{
 			   File fileExp = new File("./Audio/Victory.wav");
-			   Clip clipExp = AudioSystem.getClip();
-			   clipExp.open(AudioSystem.getAudioInputStream(fileExp));
-			   clipExp.start();
+			   Clip clipAux = AudioSystem.getClip();
+			   clipAux.open(AudioSystem.getAudioInputStream(fileExp));
+			   clipAux.start();
 		} 
 		catch (Exception e) 
 		{
@@ -138,9 +113,9 @@ public class Audio {
 		try 
 		{
 			   File fileExp = new File("./Audio/DoorOpened.wav");
-			   Clip clipExp = AudioSystem.getClip();
-			   clipExp.open(AudioSystem.getAudioInputStream(fileExp));
-			   clipExp.start();
+			   Clip clipAux = AudioSystem.getClip();
+			   clipAux.open(AudioSystem.getAudioInputStream(fileExp));
+			   clipAux.start();
 		} 
 		catch (Exception e) 
 		{
@@ -154,9 +129,9 @@ public class Audio {
 		{
 			   Audio.pararMusica();
 			   File fileExp = new File("./Audio/OmaeWa.wav");
-			   Clip clipExp = AudioSystem.getClip();
-			   clipExp.open(AudioSystem.getAudioInputStream(fileExp));
-			   clipExp.start();
+			   Clip clipAux = AudioSystem.getClip();
+			   clipAux.open(AudioSystem.getAudioInputStream(fileExp));
+			   clipAux.start();
 			   Thread.sleep(4500);
 		} 
 		catch (Exception e) 
@@ -171,9 +146,9 @@ public class Audio {
 		{
 			   Audio.pararMusica();
 			   File fileExp = new File("./Audio/Has Muerto.wav");
-			   Clip clipExp = AudioSystem.getClip();
-			   clipExp.open(AudioSystem.getAudioInputStream(fileExp));
-			   clipExp.start();
+			   Clip clipAux = AudioSystem.getClip();
+			   clipAux.open(AudioSystem.getAudioInputStream(fileExp));
+			   clipAux.start();
 		} 
 		catch (Exception e) 
 		{

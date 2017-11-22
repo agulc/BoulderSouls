@@ -32,9 +32,6 @@ public class PuertaDeSalida extends Personaje{
 		}
 	}
 	
-	public String getGraficos(){
-		return "@";
-	}
 	
 	/**
 	 * De haber una explosión, este no se inmuta.

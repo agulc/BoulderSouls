@@ -43,10 +43,6 @@ public class Roca extends ObjetoNewton{
 		super.moverPersonajes();
 	}
 	
-	public String getGraficos(){
-		return "R";
-	}
-	
 	public boolean chequearSiSoy (BDTile tile){
 
 		return (tile == BDTile.ROCK);

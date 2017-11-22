@@ -80,11 +80,6 @@ public class Mariposa extends EnemigoMovil{
 	}
 	
 	
-	public String getGraficos(){
-		return "%";
-	}
-	
-	
 	public boolean chequearSiSoy (BDTile tile){
 
 		return (tile == BDTile.BUTTERFLY);

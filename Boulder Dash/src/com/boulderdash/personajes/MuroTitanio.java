@@ -14,10 +14,7 @@ public class MuroTitanio extends Muro {
 	public boolean esTransitable(ParaDonde donde){
 		return false;
 	}
-	
-	public String getGraficos(){
-		return "#";
-	}
+
 	/**
 	 *De haber una explosión, este no se inmuta.
 	 */
@@ -34,7 +31,6 @@ public class MuroTitanio extends Muro {
 	
 	@Override
 	public void explotar() { //No puede explotar
-		
 	}
 	
 	

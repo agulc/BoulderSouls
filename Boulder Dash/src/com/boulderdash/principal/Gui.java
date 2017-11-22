@@ -120,9 +120,7 @@ public class Gui extends JFrame{
 		}
 		
 		remove(pan);
-		//repaint();
-		instancia = null;
-		Comportamiento.Reinicializar();
+		setVisible(false);
 	}
 	
 }

@@ -2,8 +2,6 @@ package com.boulderdash.principal;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.boulderdash.audio.Audio;
-
 
 
 public class CoordinadorDeEventos extends TimerTask {

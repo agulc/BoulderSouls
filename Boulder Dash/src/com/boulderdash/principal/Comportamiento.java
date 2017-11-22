@@ -20,15 +20,13 @@ public class Comportamiento {
 	
 	public static void Inicializar(){
 		Mapa.getInstancia();
-		//graficarMapa();
 		actualizarEstadoObjeto();
 		CoordinadorDeEventos.iniciarTemporizador();
 	}
 	
 	public static void Reinicializar(){
 		rockfordMuerto = false;
-		Mapa.getInstancia().reconstruirMapa2();
-		//graficarMapa();
+		Mapa.getInstancia().construirMapa();
 		actualizarEstadoObjeto();
 		CoordinadorDeEventos.iniciarTemporizador();
 	}
@@ -41,28 +39,10 @@ public class Comportamiento {
 	public static void comportamientoNormal(){
 		
 		moverPersonajes();
-		//graficarMapa();
 		actualizarEstadoObjeto();
 		
 	}
-	/**
-	 * Grafica la posición en el mapa de todos los objetos una vez que se termina el turno.
-	 * @throws Exception .
-	 */
-	public static void graficarMapa(){
-		Posicion pos = new Posicion();
-		for (int y = 0; y < 22; y++)  {
-			for (int x = 0; x < 40; x++) {
-				pos.setX(x);
-				pos.setY(y);
-				System.out.print(Mapa.getInstancia().getPersonaje(pos).getGraficos()+" ");
-				
-			}
-			System.out.println();
-		}
-		System.out.println("Faltan " + Mapa.getDiamantesRestantes() + " diamantes para poder escapar!!!!");
-		System.out.println();
-	}
+	
 	/**
 	 * Se encarga de modificar la posición de cada objeto (salvo Rockford) del nivel en cada turno.
 	 * @throws Exception .

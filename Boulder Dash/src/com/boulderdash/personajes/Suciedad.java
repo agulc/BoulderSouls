@@ -18,11 +18,7 @@ public class Suciedad extends Personaje {
 	
 	public void activarIA(){	
 	}
-	
-	public String getGraficos(){
-		return "S";
-	}
-	
+
 	public boolean chequearSiSoy (BDTile tile){
 
 		return (tile == BDTile.DIRT);

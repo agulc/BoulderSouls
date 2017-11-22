@@ -30,10 +30,6 @@ public class Diamante extends ObjetoNewton{
 		super.moverPersonajes();
 	}
 	
-	public String getGraficos(){
-		return "D";
-	}
-	
 	public boolean chequearSiSoy (BDTile tile){
 
 		return (tile == BDTile.DIAMOND);

@@ -100,9 +100,6 @@ public abstract class Personaje {
 		}
 	}
 	
-	
-	public abstract String getGraficos();
-	
 	public abstract ImageIcon getIcono();
 	
 

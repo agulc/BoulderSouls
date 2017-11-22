@@ -4,7 +4,6 @@ import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Comportamiento;
-import com.boulderdash.principal.Gui;
 import com.boulderdash.principal.Mapa;
 import javax.swing.*;
 
@@ -37,10 +36,6 @@ public class Rockford extends Personaje{
 		return false;
 	}
 	
-	public String getGraficos(){
-		return "®";
-	}
-	
 	public void muerte(){
 		
 		Mapa.getInstancia().setVidas(Mapa.getInstancia().getVidas() - 1); //Bajo las vidas
@@ -56,8 +51,6 @@ public class Rockford extends Personaje{
 			Comportamiento.setRockfordMuerto(true);
 			
 		}
-		
-		
 		
 	}
 	

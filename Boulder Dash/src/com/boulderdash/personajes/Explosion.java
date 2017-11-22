@@ -28,9 +28,6 @@ public class Explosion extends Personaje{
 		return true;
 	}
 	
-	public String getGraficos(){
-		return "*";
-	}
 	/**
 	 * Comportamiento de la explosion.
 	 */

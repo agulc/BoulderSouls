@@ -1,6 +1,5 @@
 package com.boulderdash.principal;
 
-import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.BDLevelReader;
 import com.boulderdash.personajes.Ameba;
 import com.boulderdash.personajes.Diamante;
@@ -123,11 +122,6 @@ public class Mapa {
 		Gui.getInstancia().reconstruir();
 	}
 	
-public void reconstruirMapa2 (){
-		
-		instancia = new Mapa();
-		System.out.println("El mapa se acaba de reconstruir");
-	}
 	
 	public void construirMapa (){
 		

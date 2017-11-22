@@ -88,13 +88,8 @@ public class Ameba extends Enemigo{
 		}
 	
 	}
-	
-	public String getGraficos(){
-		return "A";
-	}
  
 	public boolean chequearSiSoy (BDTile tile){
-
 		return (tile == BDTile.AMOEBA);
 	}
 

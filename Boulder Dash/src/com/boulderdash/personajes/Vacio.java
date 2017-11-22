@@ -24,10 +24,7 @@ public class Vacio extends Personaje{
 	
 	public void activarIA(){	
 	}
-	
-	public String getGraficos(){
-		return " ";
-	}
+
 	
 	@Override
 	public void meCaeAlgoEncima(){

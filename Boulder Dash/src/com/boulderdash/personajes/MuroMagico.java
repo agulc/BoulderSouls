@@ -14,10 +14,6 @@ public class MuroMagico extends Muro{
 	public boolean esTransitable(ParaDonde donde){
 		return false;
 	}
-	
-	public String getGraficos(){
-		return "M";
-	}
 
 	@Override
 	public ImageIcon getIcono() {
