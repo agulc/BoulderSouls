@@ -17,8 +17,10 @@ public class Gui extends JFrame{
 	 */
 	private static final long serialVersionUID = 1L;
 	private static JLabel labels[] = new JLabel[880];
-	public static JPanel panelTitulo = new JPanel(new FlowLayout());
-	public static JPanel panel;
+	public static JPanel panelTitulo = new JPanel(new BorderLayout());
+	public static JPanel panelJuego;//Contiene a la matriz del juego y su HUD correspondiente
+	public static JPanel panelMatriz;
+	
 	private static Gui instancia = null;
 	
 	private static MiTeclaEscucha teclaEscucha = new MiTeclaEscucha();
@@ -31,8 +33,6 @@ public class Gui extends JFrame{
 	}
 	
 	private void inicializarGui(){
-
-		panelTitulo = new JPanel(new BorderLayout());
 		
 		JLabel labelTitulo = new JLabel(new ImageIcon("./Texturas/Titulo.png"));
 		JLabel labelTitulo2 = new JLabel(new ImageIcon("./Texturas/TituloBonfire.gif"));
@@ -90,36 +90,55 @@ public class Gui extends JFrame{
 
 	private void empezarAJugar(){
 		
+		panelJuego = new JPanel(new BorderLayout()); 
+		panelJuego.setBackground(Color.WHITE);
 		Comportamiento.setRockfordMuerto(false);
-		panel = new JPanel(new GridLayout(22,40,0,0));
-		this.setLayout(new BorderLayout());
+		
+		//HUD
+		Container hud = new Container();
+		hud.setLayout(new FlowLayout());
+		JLabel vidas = new JLabel();
+		vidas.setText("Vidas: ");
+		JLabel diamantesRestantes = new JLabel();
+		vidas.setText("Diamantes Restantes: ");
+		
+		panelMatriz = new JPanel(new GridLayout(22,40,0,0));
+		panelMatriz.addKeyListener(teclaEscucha);
+		panelMatriz.setBackground(Color.black);
+		
+		//setLayout(new BorderLayout());
 		Mapa.getInstancia().construirMapa();
-		addKeyListener(teclaEscucha);
 		Posicion pos = new Posicion();
 		for (int i = 0; i < 880; i++) {
 			pos.setX(i%40);
 			pos.setY(i/40);
 			labels[(i)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
-			panel.add(labels[(i)], (i));
+			panelMatriz.add(labels[(i)], (i));
 		}
-		panel.setBackground(Color.black);
-		add(panel);
+		
+		
+		panelJuego.add(panelMatriz, BorderLayout.SOUTH); //La matriz del juego va debajo
+		panelJuego.add(hud, BorderLayout.NORTH);
+		
+		add(panelJuego);
+		
 		pack();
 		repaint();
 		Comportamiento.Inicializar();
 		Audio.pararMusica();
 		Audio.musica();
 		
-		 requestFocus(); //Se centra en el JFrame para responder al key listener
+		panelMatriz.requestFocus(); //Se centra en el juego para responder al key listener
 	}
 	
-	public void actualizarImagenes(Posicion pos) {
+	public void actualizarImagenes(Posicion pos) 
+	{
 		int i = pos.getY()*40 + pos.getX();
 		labels[(i)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
-		panel.remove(i);
-		panel.add(labels[(i)], (i));
+		panelMatriz.remove(i);
+		panelMatriz.add(labels[(i)], (i));
 		pack();
-		this.repaint();
+		panelMatriz.repaint();
 	}
 	
 	public void reconstruir() {
@@ -129,16 +148,16 @@ public class Gui extends JFrame{
 			  pos.setX(i%40);
 			  pos.setY(i/40);
 			  labels[(i)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
-			  panel.remove(i);
-			  panel.add(labels[(i)], (i));
+			  panelMatriz.remove(i);
+			  panelMatriz.add(labels[(i)], (i));
 		  }
 	}
 	
 	
 	public void hasMuerto()
 	{
-		removeKeyListener(teclaEscucha);
-		remove(panel);
+		panelMatriz.removeKeyListener(teclaEscucha);
+		remove(panelJuego);
 		
 		ImageIcon image = new ImageIcon("./Texturas/You Died.gif");
 		JLabel etiqueta = new JLabel(image);
