@@ -42,7 +42,7 @@ public class Gui extends JFrame{
 		
 		panelTitulo.setBackground(Color.BLACK);
 
-		setSize(1206, 579);
+		//setSize(1206, 579);
 	    setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
@@ -67,9 +67,9 @@ public class Gui extends JFrame{
 		panelTitulo.add(container, BorderLayout.PAGE_END);
 		
 		
-		
-		
 		this.add(panelTitulo);
+		
+		pack();
 		setVisible(true);
 		
 		
