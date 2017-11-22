@@ -24,6 +24,10 @@ public class Gui extends JFrame{
 	
 	private Gui(){
 		super("Boulder Dash");
+		inicializarGui();
+	}
+	
+	private void inicializarGui(){
 		this.setLayout(new FlowLayout());
 		setSize(1206, 579);
 	    setResizable(false);
@@ -116,8 +120,9 @@ public class Gui extends JFrame{
 		}
 		
 		remove(pan);
-		repaint();
-		
+		//repaint();
+		instancia = null;
+		Comportamiento.Reinicializar();
 	}
 	
 }
