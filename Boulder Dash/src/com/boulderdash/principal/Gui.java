@@ -54,7 +54,7 @@ public class Gui extends JFrame{
 		botonParaEmpezar.setBorderPainted(false);
 		botonParaEmpezar.setFocusPainted(false);
 		botonParaEmpezar.setIcon(new ImageIcon("./Texturas/botonNewGameInerte.png"));
-		botonParaEmpezar.setRolloverIcon(new ImageIcon("./Texturas/botonNewGameSeleccionado.png"));
+		botonParaEmpezar.setRolloverIcon(new ImageIcon("./Texturas/botonNewGameSeleccionado.gif"));
 		botonParaEmpezar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Mapa.getInstancia().setNivelActual(nivelAElegir.getSelectedIndex()+1);
