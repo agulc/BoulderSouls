@@ -20,6 +20,7 @@ public class Gui extends JFrame{
 	public static JPanel panelTitulo = new JPanel(new BorderLayout());
 	public static JPanel panelJuego;//Contiene a la matriz del juego y su HUD correspondiente
 	public static JPanel panelMatriz;
+	public static JPanel panelHud;
 	
 	private static Gui instancia = null;
 	
@@ -95,12 +96,23 @@ public class Gui extends JFrame{
 		Comportamiento.setRockfordMuerto(false);
 		
 		//HUD
-		Container hud = new Container();
-		hud.setLayout(new FlowLayout());
-		JLabel vidas = new JLabel();
+		panelHud = new JPanel(new GridLayout());
+		panelHud.setBackground(Color.BLACK);
+		Font fuente = new Font("Serif", Font.BOLD, 20);
+		JLabel vidas = new JLabel(new ImageIcon("./Texturas/heart.png"));
 		vidas.setText("Vidas: ");
+		vidas.setFont(fuente);
+		vidas.setForeground(Color.WHITE);
+		
 		JLabel diamantesRestantes = new JLabel();
-		vidas.setText("Diamantes Restantes: ");
+		diamantesRestantes.setText("Diamantes Restantes: ");
+		diamantesRestantes.setFont(fuente);
+		diamantesRestantes.setForeground(Color.WHITE);
+		panelHud.add(vidas);
+		panelHud.add(diamantesRestantes);
+		
+		//fin HUD
+
 		
 		panelMatriz = new JPanel(new GridLayout(22,40,0,0));
 		panelMatriz.addKeyListener(teclaEscucha);
@@ -109,18 +121,20 @@ public class Gui extends JFrame{
 		//setLayout(new BorderLayout());
 		Mapa.getInstancia().construirMapa();
 		Posicion pos = new Posicion();
-		for (int i = 0; i < 880; i++) {
+		for (int i = 0; i < 880; i++) 
+		{
 			pos.setX(i%40);
 			pos.setY(i/40);
 			labels[(i)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
 			panelMatriz.add(labels[(i)], (i));
 		}
 		
-		
+		actualizarHud ();
+		panelJuego.add(panelHud, BorderLayout.NORTH);
 		panelJuego.add(panelMatriz, BorderLayout.SOUTH); //La matriz del juego va debajo
-		panelJuego.add(hud, BorderLayout.NORTH);
 		
-		add(panelJuego);
+		
+		add(panelJuego); 		
 		
 		pack();
 		repaint();
@@ -133,6 +147,7 @@ public class Gui extends JFrame{
 	
 	public void actualizarImagenes(Posicion pos) 
 	{
+		actualizarHud ();
 		int i = pos.getY()*40 + pos.getX();
 		labels[(i)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
 		panelMatriz.remove(i);
@@ -191,6 +206,13 @@ public class Gui extends JFrame{
 		Audio.musicaMenu();
 		
 		repaint();
+	}
+	
+	public void actualizarHud ()
+	{
+		((JLabel)(panelHud.getComponent(0))).setText("Vidas: " + Mapa.getInstancia().getVidas()); //Actualiza Las Vidas
+		((JLabel)(panelHud.getComponent(1))).setText("Diamantes restantes: " + Mapa.getDiamantesRestantes()); //Actualiza Los diamantes restantes
+		
 	}
 	
 }

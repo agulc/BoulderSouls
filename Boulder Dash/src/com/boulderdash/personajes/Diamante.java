@@ -21,7 +21,8 @@ public class Diamante extends ObjetoNewton{
 	public boolean rockfordCaminaSobreMi (ParaDonde dir){
 		
 		Audio.item();
-		Mapa.setDiamantesRestantes(Mapa.getDiamantesRestantes() - 1);
+		if (Mapa.getDiamantesRestantes() > 0)
+			Mapa.setDiamantesRestantes(Mapa.getDiamantesRestantes() - 1);
 		Mapa.incrementarPuntaje();
 		return true;
 	}
