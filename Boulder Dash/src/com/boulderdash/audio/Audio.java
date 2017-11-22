@@ -164,4 +164,20 @@ public class Audio {
 			   System.err.println(e.getMessage());
 		}
 	}
+	
+	public static void hasMuerto() //Para la ventana con el mensaje
+	{
+		try 
+		{
+			   Audio.pararMusica();
+			   File fileExp = new File("./Audio/Has Muerto.wav");
+			   Clip clipExp = AudioSystem.getClip();
+			   clipExp.open(AudioSystem.getAudioInputStream(fileExp));
+			   clipExp.start();
+		} 
+		catch (Exception e) 
+		{
+			   System.err.println(e.getMessage());
+		}
+	}
 }

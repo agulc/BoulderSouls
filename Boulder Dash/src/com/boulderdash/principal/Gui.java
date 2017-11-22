@@ -91,4 +91,32 @@ public class Gui extends JFrame{
 	}
 	
 	
+	public void hasMuerto()
+	{
+		remove(panel);
+		
+		ImageIcon image = new ImageIcon("./Texturas/You Died.gif");
+		JLabel etiqueta = new JLabel(image);
+
+		Panel pan = new Panel();
+		pan.setLayout(new BorderLayout());
+		
+		pan.add(etiqueta);
+		add(pan);
+		
+		pack();
+		repaint();
+		
+		Audio.hasMuerto();
+		try {
+			Thread.sleep(2850);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		remove(pan);
+		repaint();
+		
+	}
+	
 }

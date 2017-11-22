@@ -4,6 +4,7 @@ import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Comportamiento;
+import com.boulderdash.principal.Gui;
 import com.boulderdash.principal.Mapa;
 import javax.swing.*;
 
@@ -48,6 +49,7 @@ public class Rockford extends Personaje{
 			System.out.println("HAS MUERTO");
 			Comportamiento.setRockfordMuerto(true);
 			Audio.muerte();
+			Gui.getInstancia().hasMuerto();
 		}
 		else
 		{
