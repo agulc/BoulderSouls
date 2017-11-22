@@ -23,7 +23,7 @@ public class Gui extends JFrame{
 	private static JButton botonParaEmpezar;
 	private static JComboBox<String> nivelAElegir = new JComboBox<String>();
 	private static JLabel labelTitulo = new JLabel(new ImageIcon("./Texturas/Titulo.png"));
-	
+	private static JLabel labelTitulo2 = new JLabel(new ImageIcon("./Texturas/TituloBonfire.gif"));
 	private Gui(){
 		super("Boulder Dash");
 		inicializarGui();
@@ -52,6 +52,8 @@ public class Gui extends JFrame{
 		nivelAElegir = new JComboBox<String>(items);
 		panelTitulo.add(nivelAElegir);
 		
+		panelTitulo.add(labelTitulo2);
+		
 		this.add(panelTitulo);
 		setVisible(true);
 		
@@ -68,7 +70,8 @@ public class Gui extends JFrame{
 		
 		/*panelTitulo.remove(botonParaEmpezar);
 		panelTitulo.remove(nivelAElegir);
-		panelTitulo.remove(labelTitulo);*/
+		panelTitulo.remove(labelTitulo);
+		panelTitulo.remo(labelTitulo2);*/
 		remove(panelTitulo);
 		
 		this.setLayout(new BorderLayout());
