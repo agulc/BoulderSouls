@@ -157,11 +157,15 @@ public class Gui extends JFrame{
 		
 		this.reconstruir(); //Reconstruye el panel del mapa
 		
+		volverAlTitulo();
+	}
+	
+	public void volverAlTitulo()
+	{
 		add(panelTitulo);
 		Audio.musicaMenu();
 		
 		repaint();
-		
 	}
 	
 }

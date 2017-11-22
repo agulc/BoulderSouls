@@ -3,12 +3,14 @@ package com.boulderdash.personajes;
 import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
+import com.boulderdash.principal.Gui;
 import com.boulderdash.principal.Mapa;
 import javax.swing.*;
 
 public class PuertaDeSalida extends Personaje{
 	
-	private static ImageIcon icono = new ImageIcon("Texturas/exit.gif");
+	private static ImageIcon iconoAbierta = new ImageIcon("Texturas/exit.gif");
+	private static ImageIcon iconoCerrada = new ImageIcon("Texturas/exitClosed.png");
 	
 	private boolean abierta = false;
 	
@@ -28,6 +30,7 @@ public class PuertaDeSalida extends Personaje{
 			this.transitable=true;
 			System.out.println("Ahora la puerta esta abierta!!!!! ESCAPAA!!");
 			abierta = true;
+			Gui.getInstancia().actualizarImagenes(this.getPos());
 			Audio.puertaAbierta();
 		}
 	}
@@ -50,13 +53,21 @@ public class PuertaDeSalida extends Personaje{
 		//IMPLEMENTAR
 		//SI se llega a la salida y esta abierta, se aumenta el nivel, y se reconstruye el mapa
 		Audio.victoria();
+		
 		return this.transitable;
 	}
 
 	@Override
 	public ImageIcon getIcono() {
-		// TODO Auto-generated method stub
-		return icono;
+		if (this.abierta)
+		{
+			return iconoAbierta;
+		}
+		else
+		{
+			return iconoCerrada;
+		}
+		
 	}
 	
 	@Override
