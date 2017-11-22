@@ -18,6 +18,7 @@ public class Gui extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private static JLabel labels[] = new JLabel[880];
 	public static JPanel panel = new JPanel(new GridLayout(22,40,0,0));
+	public static JPanel panelTitulo = new JPanel(new FlowLayout());
 	private static Gui instancia = null;
 	private static JButton botonParaEmpezar;
 	private static JComboBox<String> nivelAElegir = new JComboBox<String>();
@@ -29,12 +30,15 @@ public class Gui extends JFrame{
 	}
 	
 	private void inicializarGui(){
-		this.setLayout(new FlowLayout());
 
+		panelTitulo.setBackground(Color.BLACK);
+		
 		setSize(1206, 579);
 	    setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.add(labelTitulo);
+	
+		panelTitulo.add(labelTitulo);
+		
 		
 		botonParaEmpezar = new JButton("Empezar!!");
 		botonParaEmpezar.addActionListener(new ActionListener() {
@@ -43,12 +47,14 @@ public class Gui extends JFrame{
 				empezarAJugar();
 			}
 		});
-		this.add(botonParaEmpezar);
+		panelTitulo.add(botonParaEmpezar);
 		String[] items = {"1","2","3","4","5","6","7","8","9","10"};
 		nivelAElegir = new JComboBox<String>(items);
-		this.add(nivelAElegir);
+		panelTitulo.add(nivelAElegir);
 		
+		this.add(panelTitulo);
 		setVisible(true);
+		
 	}
 	
 	public static Gui getInstancia(){
@@ -59,9 +65,11 @@ public class Gui extends JFrame{
 	}
 	
 	private void empezarAJugar(){
-		this.remove(botonParaEmpezar);
-		this.remove(nivelAElegir);
-		this.remove(labelTitulo);
+		
+		/*panelTitulo.remove(botonParaEmpezar);
+		panelTitulo.remove(nivelAElegir);
+		panelTitulo.remove(labelTitulo);*/
+		remove(panelTitulo);
 		
 		this.setLayout(new BorderLayout());
 		Mapa.getInstancia().construirMapa();
