@@ -66,6 +66,7 @@ public class Luciernaga extends EnemigoMovil{
 				    posAux.setX(i);
 				    posAux.setY(j);
 				    if (Mapa.getInstancia().getPersonaje(posAux).chequearSiSoy(BDTile.PLAYER)){ //Si el jugador es adyacente, la luciernaga explota 
+				    	 Mapa.getInstancia().getPersonaje(posAux).recibeExplosion();;
 				    	 super.explotar();
 					     break;
 				    }

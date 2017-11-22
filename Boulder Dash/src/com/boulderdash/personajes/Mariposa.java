@@ -70,7 +70,8 @@ public class Mariposa extends EnemigoMovil{
 				posAux.setX(i);
 				posAux.setY(j);
 				if (Mapa.getInstancia().getPersonaje(posAux).chequearSiSoy(BDTile.PLAYER)){ //Si el jugador es adyacente, la luciernaga explota 
-				     super.explotar();
+					 Mapa.getInstancia().getPersonaje(posAux).recibeExplosion();
+					 super.explotar();
 					 break;
 				}
 		    
