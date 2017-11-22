@@ -42,13 +42,19 @@ public class Gui extends JFrame{
 		
 		panelTitulo.setBackground(Color.BLACK);
 
-		//setSize(1206, 579);
+	    setSize(1024, 720);
 	    setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
 		panelTitulo.add(labelTitulo, BorderLayout.PAGE_START);
 		
-		botonParaEmpezar = new JButton("Empezar!!");
+		botonParaEmpezar = new JButton();
+		botonParaEmpezar.setOpaque(false);
+		botonParaEmpezar.setContentAreaFilled(false);
+		botonParaEmpezar.setBorderPainted(false);
+		botonParaEmpezar.setFocusPainted(false);
+		botonParaEmpezar.setIcon(new ImageIcon("./Texturas/botonNewGameInerte.png"));
+		botonParaEmpezar.setRolloverIcon(new ImageIcon("./Texturas/botonNewGameSeleccionado.png"));
 		botonParaEmpezar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Mapa.getInstancia().setNivelActual(nivelAElegir.getSelectedIndex()+1);
@@ -68,8 +74,8 @@ public class Gui extends JFrame{
 		
 		
 		this.add(panelTitulo);
-		
 		pack();
+		
 		setVisible(true);
 		
 		
