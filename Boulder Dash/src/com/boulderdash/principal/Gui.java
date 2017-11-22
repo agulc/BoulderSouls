@@ -62,6 +62,7 @@ public class Gui extends JFrame{
 			labels[(i)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
 			panel.add(labels[(i)], (i));
 		}
+		panel.setBackground(Color.black);
 		add(panel);
 		pack();
 		repaint();
