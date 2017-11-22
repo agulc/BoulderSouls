@@ -40,6 +40,30 @@ public class MiTeclaEscucha extends KeyAdapter{
 		}
 		break;
 		
+		case KeyEvent.VK_A:
+		{
+			Comportamiento.moverARockford(ParaDonde.IZQUIERDA);
+		}
+		break;
+		
+		case KeyEvent.VK_D:
+		{
+			Comportamiento.moverARockford(ParaDonde.DERECHA);
+		}
+		break;
+		
+		case KeyEvent.VK_S:
+		{
+			Comportamiento.moverARockford(ParaDonde.ABAJO);
+		}
+		break;
+		
+		case KeyEvent.VK_W:
+		{
+			Comportamiento.moverARockford(ParaDonde.ARRIBA);
+		}
+		break;
+		
 		case KeyEvent.VK_SPACE:
 		{
 			Rockford.getInstancia().muerte();
