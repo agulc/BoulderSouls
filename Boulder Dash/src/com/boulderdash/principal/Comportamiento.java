@@ -18,6 +18,10 @@ public class Comportamiento {
 		rockfordMuerto = bool; //Para dejar de actualizar objetos al morir
 	}
 	
+	public static boolean getRockfordMuerto() {
+		return rockfordMuerto;
+	}
+	
 	public static void Inicializar(){
 		Mapa.getInstancia();
 		actualizarEstadoObjeto();
@@ -92,7 +96,9 @@ public class Comportamiento {
 	}
 	
 	public static void moverARockford(ParaDonde donde){
-		Rockford.getInstancia().mover(donde);
+		if(!rockfordMuerto) {
+			Rockford.getInstancia().mover(donde);
+		}
 	}
 	
 }
