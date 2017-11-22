@@ -21,6 +21,7 @@ public class Gui extends JFrame{
 	private static Gui instancia = null;
 	private static JButton botonParaEmpezar;
 	private static JComboBox<String> nivelAElegir = new JComboBox<String>();
+	private static JLabel labelTitulo = new JLabel(new ImageIcon("./Texturas/Titulo.png"));
 	
 	private Gui(){
 		super("Boulder Dash");
@@ -29,9 +30,12 @@ public class Gui extends JFrame{
 	
 	private void inicializarGui(){
 		this.setLayout(new FlowLayout());
+
 		setSize(1206, 579);
 	    setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.add(labelTitulo);
+		
 		botonParaEmpezar = new JButton("Empezar!!");
 		botonParaEmpezar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -43,6 +47,7 @@ public class Gui extends JFrame{
 		String[] items = {"1","2","3","4","5","6","7","8","9","10"};
 		nivelAElegir = new JComboBox<String>(items);
 		this.add(nivelAElegir);
+		
 		setVisible(true);
 	}
 	
@@ -56,6 +61,8 @@ public class Gui extends JFrame{
 	private void empezarAJugar(){
 		this.remove(botonParaEmpezar);
 		this.remove(nivelAElegir);
+		this.remove(labelTitulo);
+		
 		this.setLayout(new BorderLayout());
 		Mapa.getInstancia().construirMapa();
 		addKeyListener(new MiTeclaEscucha());
