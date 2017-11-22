@@ -18,8 +18,11 @@ public class Gui extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private static JLabel labels[] = new JLabel[880];
 	public static JPanel panelTitulo = new JPanel(new FlowLayout());
-	public static JPanel panel = new JPanel(new GridLayout(22,40,0,0));
+	public static JPanel panel;
 	private static Gui instancia = null;
+	
+	private static MiTeclaEscucha teclaEscucha = new MiTeclaEscucha();
+	
 
 	
 	private Gui(){
@@ -29,6 +32,8 @@ public class Gui extends JFrame{
 	
 	private void inicializarGui(){
 
+		panelTitulo = new JPanel(new FlowLayout());
+		
 		JLabel labelTitulo = new JLabel(new ImageIcon("./Texturas/Titulo.png"));
 		JLabel labelTitulo2 = new JLabel(new ImageIcon("./Texturas/TituloBonfire.gif"));
 		JButton botonParaEmpezar;
@@ -47,6 +52,7 @@ public class Gui extends JFrame{
 		botonParaEmpezar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Mapa.getInstancia().setNivelActual(nivelAElegir.getSelectedIndex()+1);
+				remove(panelTitulo);
 				empezarAJugar();
 			}
 		});
@@ -70,18 +76,14 @@ public class Gui extends JFrame{
 		}
 		return instancia;
 	}
-	
+
 	private void empezarAJugar(){
 		
-		/*panelTitulo.remove(botonParaEmpezar);
-		panelTitulo.remove(nivelAElegir);
-		panelTitulo.remove(labelTitulo);
-		panelTitulo.remo(labelTitulo2);*/
-		remove(panelTitulo);
-		
+		Comportamiento.setRockfordMuerto(false);
+		panel = new JPanel(new GridLayout(22,40,0,0));
 		this.setLayout(new BorderLayout());
 		Mapa.getInstancia().construirMapa();
-		addKeyListener(new MiTeclaEscucha());
+		addKeyListener(teclaEscucha);
 		Posicion pos = new Posicion();
 		for (int i = 0; i < 880; i++) {
 			pos.setX(i%40);
@@ -124,6 +126,7 @@ public class Gui extends JFrame{
 	
 	public void hasMuerto()
 	{
+		removeKeyListener(teclaEscucha);
 		remove(panel);
 		
 		ImageIcon image = new ImageIcon("./Texturas/You Died.gif");
@@ -147,10 +150,14 @@ public class Gui extends JFrame{
 		
 		remove(panelMuerte);
 		
+		this.reconstruir(); //Reconstruye el panel del mapa
+		
 		setSize(1206, 579);
 		add(panelTitulo);
 		
-		//repaint();
+		
+		
+		repaint();
 		//setVisible(false);
 	}
 	
