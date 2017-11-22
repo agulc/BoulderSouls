@@ -92,7 +92,9 @@ public class Comportamiento {
 	}
 	
 	public static void moverARockford(ParaDonde donde){
-		Rockford.getInstancia().mover(donde);
+		if(!rockfordMuerto) {
+			Rockford.getInstancia().mover(donde);
+		}
 	}
 	
 }
