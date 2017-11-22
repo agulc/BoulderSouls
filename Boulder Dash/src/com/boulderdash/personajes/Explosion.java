@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class Explosion extends Personaje{
 	
-	private static ImageIcon icono = new ImageIcon("Texturas/exp.png");
+	private static ImageIcon icono = new ImageIcon("Texturas/explosion.png");
 	
 	Explosion(int x,int y){
 		super(x,y);
