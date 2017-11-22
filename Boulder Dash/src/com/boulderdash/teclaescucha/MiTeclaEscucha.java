@@ -66,7 +66,7 @@ public class MiTeclaEscucha extends KeyAdapter{
 		
 		case KeyEvent.VK_SPACE:
 		{
-			Rockford.getInstancia().muerte();
+			Rockford.getInstancia().explotar();
 		}
 		break;
 		

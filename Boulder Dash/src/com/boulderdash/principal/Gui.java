@@ -32,7 +32,7 @@ public class Gui extends JFrame{
 	
 	private void inicializarGui(){
 
-		panelTitulo = new JPanel(new FlowLayout());
+		panelTitulo = new JPanel(new BorderLayout());
 		
 		JLabel labelTitulo = new JLabel(new ImageIcon("./Texturas/Titulo.png"));
 		JLabel labelTitulo2 = new JLabel(new ImageIcon("./Texturas/TituloBonfire.gif"));
@@ -46,7 +46,7 @@ public class Gui extends JFrame{
 	    setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
-		panelTitulo.add(labelTitulo);
+		panelTitulo.add(labelTitulo, BorderLayout.PAGE_START);
 		
 		botonParaEmpezar = new JButton("Empezar!!");
 		botonParaEmpezar.addActionListener(new ActionListener() {
@@ -56,13 +56,18 @@ public class Gui extends JFrame{
 				empezarAJugar();
 			}
 		});
-		panelTitulo.add(botonParaEmpezar);
-		//String[] items = {"1","2","3","4","5","6","7","8","9","10"};
-		//nivelAElegir = new JComboBox<String>(items);
 		
-		panelTitulo.add(nivelAElegir);
+		panelTitulo.add(labelTitulo2, BorderLayout.CENTER);
 		
-		panelTitulo.add(labelTitulo2);
+		Container container = new Container();
+		container.setLayout(new FlowLayout());
+		container.add(botonParaEmpezar);
+		container.add(nivelAElegir);
+		
+		panelTitulo.add(container, BorderLayout.PAGE_END);
+		
+		
+		
 		
 		this.add(panelTitulo);
 		setVisible(true);
@@ -152,13 +157,11 @@ public class Gui extends JFrame{
 		
 		this.reconstruir(); //Reconstruye el panel del mapa
 		
-		setSize(1206, 579);
 		add(panelTitulo);
-		
-		
+		Audio.musicaMenu();
 		
 		repaint();
-		//setVisible(false);
+		
 	}
 	
 }
