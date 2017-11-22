@@ -49,7 +49,6 @@ public class Rockford extends Personaje{
 			System.out.println("HAS MUERTO");
 			Comportamiento.setRockfordMuerto(true);
 			Audio.muerte();
-			Gui.getInstancia().hasMuerto();
 		}
 		else
 		{

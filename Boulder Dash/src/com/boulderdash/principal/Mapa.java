@@ -123,6 +123,12 @@ public class Mapa {
 		Gui.getInstancia().reconstruir();
 	}
 	
+public void reconstruirMapa2 (){
+		
+		instancia = new Mapa();
+		System.out.println("El mapa se acaba de reconstruir");
+	}
+	
 	public void construirMapa (){
 		
 		instancia = new Mapa();

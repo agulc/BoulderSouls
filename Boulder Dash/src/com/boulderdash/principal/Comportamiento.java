@@ -1,5 +1,6 @@
 package com.boulderdash.principal;
 
+import com.boulderdash.audio.Audio;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.personajes.Rockford;
 
@@ -19,6 +20,14 @@ public class Comportamiento {
 	
 	public static void Inicializar(){
 		Mapa.getInstancia();
+		//graficarMapa();
+		actualizarEstadoObjeto();
+		CoordinadorDeEventos.iniciarTemporizador();
+	}
+	
+	public static void Reinicializar(){
+		rockfordMuerto = false;
+		Mapa.getInstancia().reconstruirMapa2();
 		//graficarMapa();
 		actualizarEstadoObjeto();
 		CoordinadorDeEventos.iniciarTemporizador();
@@ -70,6 +79,14 @@ public class Comportamiento {
 		if (rockfordMuerto)
 		{
 			if (Mapa.getInstancia().getVidas() == 0) {
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Audio.hasMuerto();
+				Gui.getInstancia().hasMuerto();
 				CoordinadorDeEventos.detenerTemporizador();
 			}
 			else {
