@@ -37,7 +37,8 @@ public class Gui extends JFrame{
 		
 		JLabel labelTitulo = new JLabel(new ImageIcon("./Texturas/Titulo.png"));
 		JLabel labelTitulo2 = new JLabel(new ImageIcon("./Texturas/TituloBonfire.gif"));
-		JButton botonParaEmpezar;
+		JButton botonParaEmpezar = new JButton();
+		JCheckBox checkBoxMuerte = new JCheckBox();
 		String[] items = {"1","2","3","4","5","6","7","8","9","10"};
 		final JComboBox<String> nivelAElegir = new JComboBox<String>(items);
 		
@@ -48,8 +49,7 @@ public class Gui extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
 		panelTitulo.add(labelTitulo, BorderLayout.PAGE_START);
-		
-		botonParaEmpezar = new JButton();
+
 		botonParaEmpezar.setOpaque(false);
 		botonParaEmpezar.setContentAreaFilled(false);
 		botonParaEmpezar.setBorderPainted(false);
@@ -64,12 +64,23 @@ public class Gui extends JFrame{
 			}
 		});
 		
+		
+		checkBoxMuerte.addActionListener(new ActionListener() { //Determina si la muerte alternativa estara activada
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Comportamiento.setMuerteExtra(!Comportamiento.getMuerteExtra());
+			}
+		});
+		checkBoxMuerte.setText("Muerte alternativa");
+		
+		
 		panelTitulo.add(labelTitulo2, BorderLayout.CENTER);
 		
 		Container container = new Container();
 		container.setLayout(new FlowLayout());
 		container.add(botonParaEmpezar);
 		container.add(nivelAElegir);
+		container.add(checkBoxMuerte);
 		
 		panelTitulo.add(container, BorderLayout.PAGE_END);
 		
@@ -205,13 +216,17 @@ public class Gui extends JFrame{
 		add(panelTitulo);
 		Audio.musicaMenu();
 		
+		pack();
 		repaint();
 	}
 	
 	public void actualizarHud ()
 	{
+		
 		((JLabel)(panelHud.getComponent(0))).setText("Vidas: " + Mapa.getInstancia().getVidas()); //Actualiza Las Vidas
+		
 		((JLabel)(panelHud.getComponent(1))).setText("Diamantes restantes: " + Mapa.getDiamantesRestantes()); //Actualiza Los diamantes restantes
+		
 		
 	}
 	

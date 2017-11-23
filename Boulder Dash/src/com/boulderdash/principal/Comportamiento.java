@@ -11,7 +11,9 @@ public class Comportamiento {
 	 */
 	
 	private static boolean rockfordMuerto = false;
+	private static boolean muerteExtra = false; //Activa la muerte extra
 
+	
 	
 	public static void setRockfordMuerto (boolean bool)
 	{
@@ -95,6 +97,14 @@ public class Comportamiento {
 		if(!rockfordMuerto) {
 			Rockford.getInstancia().mover(donde);
 		}
+	}
+
+	public static boolean getMuerteExtra() {
+		return muerteExtra;
+	}
+
+	public static void setMuerteExtra(boolean muerteExtra) {
+		Comportamiento.muerteExtra = muerteExtra;
 	}
 	
 }

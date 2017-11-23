@@ -123,7 +123,7 @@ public class Audio {
 		}
 	}
 	
-	public static void muerte() //Solo para la muerte definitiva
+	public static void muerteExtra() 
 	{
 		try 
 		{
