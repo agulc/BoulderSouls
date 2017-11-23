@@ -172,7 +172,7 @@ public class Gui extends JFrame{
 		
 
 
-        fuente = fuente.deriveFont(Font.BOLD, 21);
+		fuente = fuente.deriveFont(Font.BOLD, 21);
 		JLabel regla1 = new JLabel(new ImageIcon("./Texturas/Rockford.gif"));
 		regla1.setText("Controlas a Rockford");
 		regla1.setFont(fuente);
@@ -234,7 +234,7 @@ public class Gui extends JFrame{
 		regla12.setForeground(Color.WHITE);
 		
 		JLabel regla13 = new JLabel(new ImageIcon("./Texturas/Amoeba.gif"));
-		regla13.setText("Las amebas estan programadas pero no aparecen en ningun nivel ( ͡° ͜ʖ ͡°)");
+		regla13.setText("Las amebas estan programadas pero no aparecen en ningun nivel (^-^)");
 		regla13.setFont(fuente);
 		regla13.setForeground(Color.WHITE);
 		
@@ -425,14 +425,11 @@ public class Gui extends JFrame{
 	{
 		panelHud = new JPanel(new GridLayout());
 		panelHud.setBackground(Color.BLACK);
-<<<<<<< HEAD
-        fuente = fuente.deriveFont(Font.BOLD, 18);
+
         
-=======
-		
-		Font fuente = new Font("Serif", Font.BOLD, 20);
-		
->>>>>>> 8f419b41b3076a890e24c984fdfc2fa2a904fd78
+        //Font fuente = new Font("Serif", Font.BOLD, 20);
+        fuente = fuente.deriveFont(Font.BOLD, 18);
+
 		JLabel vidas = new JLabel(new ImageIcon("./Texturas/heart.png"));
 		vidas.setText("Vidas: ");
 		vidas.setFont(fuente);
