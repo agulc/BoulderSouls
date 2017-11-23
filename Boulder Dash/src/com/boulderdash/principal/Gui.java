@@ -26,24 +26,6 @@ public class Gui extends JFrame{
 	public static JPanel panelJuego;//Contiene a la matriz del juego y su HUD correspondiente
 	public static JPanel panelMatriz;
 	public static JPanel panelHud;
-	/*Font fuente = null;	   
-	InputStream myStream = null;
-	{
-	try {
-		myStream = new BufferedInputStream(new FileInputStream("src/fuentes/OptimusPrinceps.ttf"));
-		fuente = Font.createFont(Font.TRUETYPE_FONT, myStream );
-        fuente = fuente.deriveFont(Font.BOLD, 20);
-	} catch (FileNotFoundException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (FontFormatException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	}*/
 	private static Gui instancia = null;
 	
 	private static MiTeclaEscucha teclaEscucha = new MiTeclaEscucha();
@@ -435,7 +417,7 @@ public class Gui extends JFrame{
 	private void menuReglas()
 	{
 		this.add(panelReglas);
-		this.setSize( (int)panelTitulo.getSize().getWidth(), 620);
+		this.setSize( (int)panelTitulo.getSize().getWidth(), 580);
 		
 		repaint();
 	}
