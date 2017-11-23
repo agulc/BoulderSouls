@@ -35,8 +35,14 @@ public class Roca extends ObjetoNewton{
 		}
 		else
 		{
-			this.mover(dir);
-			return true;
+			if (dir == ParaDonde.IZQUIERDA || dir == ParaDonde.DERECHA)
+			{
+				this.mover(dir);
+				return true;
+			}
+			else
+				return false;
+			
 		}
 	}
 	
