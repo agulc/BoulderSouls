@@ -41,8 +41,9 @@ public class Gui extends JFrame{
 		JButton botonOpciones = new JButton();
 		JCheckBox checkBoxMuerte = new JCheckBox();
 		JCheckBox musicaActivada = new JCheckBox();
-		String[] items = {"1","2","3","4","5","6","7","8","9","10"};
+		String[] items = {"Nivel 1","Nivel 2","Nivel 3","Nivel 4","Nivel 5","Nivel 6","Nivel 7","Nivel 8","Nivel 9","Nivel 10"};
 		final JComboBox<String> nivelAElegir = new JComboBox<String>(items);
+		
 		
 		panelTitulo.setBackground(Color.BLACK);
 
@@ -248,6 +249,7 @@ public class Gui extends JFrame{
 	
 	public void volverAlTitulo()
 	{
+		CoordinadorDeEventos.detenerTemporizador();
 		Audio.pararMusica();
 		remove(panelJuego);
 		add(panelTitulo);
