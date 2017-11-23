@@ -18,6 +18,7 @@ public class Gui extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private static JLabel labels[] = new JLabel[880];
 	public static JPanel panelTitulo = new JPanel(new BorderLayout());
+	public static JPanel panelOpciones = new JPanel(new BorderLayout());
 	public static JPanel panelJuego;//Contiene a la matriz del juego y su HUD correspondiente
 	public static JPanel panelMatriz;
 	public static JPanel panelHud;
@@ -34,11 +35,12 @@ public class Gui extends JFrame{
 	}
 	
 	private void inicializarGui(){
-		
+
 		JLabel labelTitulo = new JLabel(new ImageIcon("./Texturas/Titulo.png"));
 		JLabel labelTitulo2 = new JLabel(new ImageIcon("./Texturas/TituloBonfire.gif"));
 		JButton botonParaEmpezar = new JButton();
 		JButton botonOpciones = new JButton();
+		JButton botonRegresar = new JButton();
 		JCheckBox checkBoxMuerte = new JCheckBox();
 		JCheckBox musicaActivada = new JCheckBox();
 		String[] items = {"Nivel 1","Nivel 2","Nivel 3","Nivel 4","Nivel 5","Nivel 6","Nivel 7","Nivel 8","Nivel 9","Nivel 10"};
@@ -75,7 +77,23 @@ public class Gui extends JFrame{
 		botonOpciones.setRolloverIcon(new ImageIcon("./Texturas/Opciones.png"));
 		botonOpciones.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				remove(panelTitulo);
 				System.out.println("Opciones presionado");
+				menuOpciones();
+			}
+		});
+		
+		botonRegresar.setOpaque(false);
+		botonRegresar.setContentAreaFilled(false);
+		botonRegresar.setBorderPainted(false);
+		botonRegresar.setFocusPainted(false);
+		botonRegresar.setIcon(new ImageIcon("./Texturas/BackInerte.png"));
+		botonRegresar.setRolloverIcon(new ImageIcon("./Texturas/Back.png"));
+		botonRegresar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				 remove(panelOpciones);
+				 volverDeOpciones();
+				 System.out.println("Regresar presionado");
 			}
 		});
 		
@@ -113,11 +131,20 @@ public class Gui extends JFrame{
 		container.setLayout(new FlowLayout());
 		container.add(botonParaEmpezar);
 		container.add(botonOpciones);
-		container.add(nivelAElegir);
-		container.add(checkBoxMuerte);
-		container.add(musicaActivada);
-		
 		panelTitulo.add(container, BorderLayout.PAGE_END);
+		
+		Container containerOpciones = new Container();
+		Container containerOpciones2 = new Container();
+		containerOpciones.setLayout(new BorderLayout());
+		containerOpciones2.setLayout(new FlowLayout());
+		containerOpciones2.add(nivelAElegir);
+		containerOpciones2.add(checkBoxMuerte);
+		containerOpciones2.add(musicaActivada);
+		containerOpciones.add(containerOpciones2, BorderLayout.NORTH);
+		containerOpciones.add(botonRegresar, BorderLayout.SOUTH);
+		panelOpciones.setBackground(Color.BLACK);
+		panelOpciones.add(containerOpciones, BorderLayout.CENTER);
+		
 		
 		
 		this.add(panelTitulo);
@@ -126,6 +153,13 @@ public class Gui extends JFrame{
 		setVisible(true);
 		
 		
+	}
+
+	private void menuOpciones()
+	{
+		this.add(panelOpciones);
+		this.setSize(panelTitulo.getSize());
+		repaint();
 	}
 	
 	public static Gui getInstancia(){
@@ -255,7 +289,13 @@ public class Gui extends JFrame{
 		add(panelTitulo);
 		if (Audio.getMusicaActivada())
 			Audio.musicaMenu();
-		
+		pack();
+		repaint();
+	}
+	
+	public void volverDeOpciones()
+	{
+		add(panelTitulo);
 		pack();
 		repaint();
 	}

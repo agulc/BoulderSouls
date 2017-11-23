@@ -6,13 +6,12 @@ import java.util.TimerTask;
 
 public class CoordinadorDeEventos extends TimerTask {
 
-
 	
 	
 	public void run() {
 			Comportamiento.comportamientoNormal();
 	}
-	private static Timer reloj;
+	private static Timer reloj = new Timer();;
 	
 	private static CoordinadorDeEventos tarea;
 	
@@ -23,6 +22,7 @@ public class CoordinadorDeEventos extends TimerTask {
 	}
 	
 	public static void detenerTemporizador() {
+
 		reloj.cancel();
 	}
 	
