@@ -265,11 +265,13 @@ public class Gui extends JFrame{
 
 		Panel panelMuerte = new Panel();
 		panelMuerte.setLayout(new BorderLayout());
+		panelMuerte.setBackground(Color.BLACK);
 		
 		panelMuerte.add(etiqueta);
 		add(panelMuerte);
 		
 		pack();
+		setSize(panelJuego.getSize());
 		repaint();
 		
 		Audio.hasMuerto();
