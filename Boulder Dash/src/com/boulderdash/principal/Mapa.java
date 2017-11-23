@@ -122,6 +122,7 @@ public class Mapa {
 		Audio.pararMusica();
 		setNivelActual(this.getNivelActual() + 1);
 		Audio.musica();
+		this.setVidas(4);
 		reconstruirMapa();
 	}
 	

@@ -105,6 +105,7 @@ public class Audio {
 			   Clip clipAux = AudioSystem.getClip();
 			   clipAux.open(AudioSystem.getAudioInputStream(fileExp));
 			   clipAux.start();
+			   Thread.sleep(1000);
 		} 
 		catch (Exception e) 
 		{
