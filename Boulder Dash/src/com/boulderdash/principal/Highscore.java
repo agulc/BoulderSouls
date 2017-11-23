@@ -1,5 +1,12 @@
 package com.boulderdash.principal;
 
+import java.awt.Color;
+import java.awt.Font;
+
+import javax.swing.JTable;
+
+import fuentes.MiFuente;
+
 public class Highscore {
 	
 	private static Highscore[] arreglo = new Highscore[20];
@@ -62,6 +69,39 @@ public class Highscore {
 
 	public static void setCantidadAMostrar(int cantidadAMostrar) {
 		Highscore.cantidadAMostrar = cantidadAMostrar;
+	}
+	
+	public static JTable getTabla()
+	{
+		String[] columnas = {"", "", "", "", "", ""};
+		String[][] filas = {{"", "Posicion", "Nombre","Puntuacion", "Tiempo", ""}
+							, {"", "1", "Juan", "1500","4000",""}
+							, {"", "2", "Pedro", "1300","4500",""}
+							, {"", "3", "Rockford", "950","4500",""}
+							, {"", "", "", "","",""}};
+		
+		JTable tabla = new JTable(filas,columnas) 
+		{
+			private static final long serialVersionUID = 1L;
+
+			public boolean isCellEditable(int data,int columns)
+			{
+				return false;
+			}
+		};
+		
+		Font fuente = MiFuente.getFuente(18);
+		
+		tabla.setFont(fuente);
+		tabla.setForeground(Color.WHITE);
+		tabla.setBackground(Color.BLACK);
+		tabla.setGridColor(Color.BLACK);
+		tabla.setFocusable(false);
+		tabla.setRowSelectionAllowed(false);
+		tabla.setFillsViewportHeight(true);
+		tabla.setRowHeight(30);
+		
+		return tabla;
 	}
 	
 }

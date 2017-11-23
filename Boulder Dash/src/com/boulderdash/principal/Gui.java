@@ -3,12 +3,13 @@ package com.boulderdash.principal;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
 import javax.swing.*;
-import javax.swing.table.TableColumn;
+import javax.swing.border.Border;
 
 import com.boulderdash.audio.Audio;
 import com.boulderdash.teclaescucha.MiTeclaEscucha;
+
+import fuentes.MiFuente;
 
 public class Gui extends JFrame{
 	
@@ -25,7 +26,7 @@ public class Gui extends JFrame{
 	public static JPanel panelJuego;//Contiene a la matriz del juego y su HUD correspondiente
 	public static JPanel panelMatriz;
 	public static JPanel panelHud;
-	Font fuente = null;	   
+	/*Font fuente = null;	   
 	InputStream myStream = null;
 	{
 	try {
@@ -42,7 +43,7 @@ public class Gui extends JFrame{
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	}
+	}*/
 	private static Gui instancia = null;
 	
 	private static MiTeclaEscucha teclaEscucha = new MiTeclaEscucha();
@@ -172,8 +173,8 @@ public class Gui extends JFrame{
 		});
 		
 
-
-		fuente = fuente.deriveFont(Font.BOLD, 21);
+		Font fuente = MiFuente.getFuente(21);
+		
 		JLabel regla1 = new JLabel(new ImageIcon("./Texturas/Rockford.gif"));
 		regla1.setText("Controlas a Rockford");
 		regla1.setFont(fuente);
@@ -292,31 +293,8 @@ public class Gui extends JFrame{
 			}
 		});
 		
-
-		String[] columnas = {"", "", "", "", "", ""};
-		String[][] filas = {{"", "Posicion", "Nombre","Puntuacion", "Tiempo", ""}
-							, {"", "1", "Juan", "1500","4000",""}
-							, {"", "2", "Pedro", "1300","4500",""}
-							, {"", "3", "Rockford", "950","4500",""}
-							, {"", "", "", "","",""}};
 		
-		JTable tabla = new JTable(filas,columnas) 
-		{
-			public boolean isCellEditable(int data,int columns)
-			{
-				return false;
-			}
-		};
-		fuente = fuente.deriveFont(Font.BOLD, 20);
-		tabla.setFont(fuente);
-		tabla.setForeground(Color.WHITE);
-		tabla.setBackground(Color.BLACK);
-		tabla.setGridColor(Color.BLACK);
-		tabla.setFocusable(false);
-		tabla.setRowSelectionAllowed(false);
-		tabla.setFillsViewportHeight(true);
-		tabla.setRowHeight(30);
-		
+		JTable tabla = Highscore.getTabla();
 		
 		panelHighScores.setBackground(Color.BLACK);
 		panelHighScores.add(labelHighScores, BorderLayout.NORTH);
@@ -327,10 +305,41 @@ public class Gui extends JFrame{
 
 	private void inicializarOpciones()
 	{
+		Font fuente = MiFuente.getFuente(18);
 		
 		JCheckBox checkBoxMuerte = new JCheckBox();
-		JCheckBox checkBoxpiedrasConInercia = new JCheckBox();
+		checkBoxMuerte.setFont(fuente);
+		checkBoxMuerte.setBackground(Color.BLACK);
+		checkBoxMuerte.setForeground(Color.WHITE);
+		checkBoxMuerte.setBorderPainted(false);
+		checkBoxMuerte.setIcon(new ImageIcon("./Texturas/boxOff.png"));
+		checkBoxMuerte.setSelectedIcon(new ImageIcon("./Texturas/boxOn.png"));
+		checkBoxMuerte.setDisabledIcon(new ImageIcon("./Texturas/boxOff.png"));
+		checkBoxMuerte.setRolloverIcon(new ImageIcon("./Texturas/boxOffoff.png"));
+		checkBoxMuerte.setRolloverSelectedIcon(new ImageIcon("./Texturas/boxOnon.png"));
+
+	    JCheckBox checkBoxpiedrasConInercia = new JCheckBox();
+	    checkBoxpiedrasConInercia.setFont(fuente);
+	    checkBoxpiedrasConInercia.setBackground(Color.BLACK);
+	    checkBoxpiedrasConInercia.setForeground(Color.WHITE);
+	    checkBoxpiedrasConInercia.setBorderPainted(false);
+	    checkBoxpiedrasConInercia.setIcon(new ImageIcon("./Texturas/boxOff.png"));
+	    checkBoxpiedrasConInercia.setSelectedIcon(new ImageIcon("./Texturas/boxOn.png"));
+	    checkBoxpiedrasConInercia.setDisabledIcon(new ImageIcon("./Texturas/boxOff.png"));
+	    checkBoxpiedrasConInercia.setRolloverIcon(new ImageIcon("./Texturas/boxOffoff.png"));
+	    checkBoxpiedrasConInercia.setRolloverSelectedIcon(new ImageIcon("./Texturas/boxOnon.png"));
+		
 		JCheckBox musicaActivada = new JCheckBox();
+		musicaActivada.setFont(fuente);
+		musicaActivada.setBackground(Color.BLACK);
+		musicaActivada.setForeground(Color.WHITE);
+		musicaActivada.setBorderPainted(false);
+		musicaActivada.setIcon(new ImageIcon("./Texturas/boxOff.png"));
+		musicaActivada.setSelectedIcon(new ImageIcon("./Texturas/boxOn.png"));
+		musicaActivada.setDisabledIcon(new ImageIcon("./Texturas/boxOff.png"));
+		musicaActivada.setRolloverIcon(new ImageIcon("./Texturas/boxOffoff.png"));
+		musicaActivada.setRolloverSelectedIcon(new ImageIcon("./Texturas/boxOnon.png"));
+	    
 		String[] items = {"Nivel 1","Nivel 2","Nivel 3","Nivel 4","Nivel 5","Nivel 6","Nivel 7","Nivel 8","Nivel 9","Nivel 10"};
 		final JComboBox<String> nivelAElegir = new JComboBox<String>(items);
 		nivelAElegir.addActionListener(new ActionListener() {
@@ -340,6 +349,10 @@ public class Gui extends JFrame{
 					System.out.println("Nivel cambiado");
 			}
 		});
+		nivelAElegir.setFont(fuente);
+		nivelAElegir.setBackground(Color.BLACK);
+		nivelAElegir.setForeground(Color.WHITE);
+		
 		
 		JLabel labelOpciones = new JLabel(new ImageIcon("./Texturas/estus.gif"));
 		
@@ -451,8 +464,7 @@ public class Gui extends JFrame{
 		panelHud.setBackground(Color.BLACK);
 
         
-        //Font fuente = new Font("Serif", Font.BOLD, 20);
-		fuente = fuente.deriveFont(Font.BOLD, 18);
+		Font fuente = MiFuente.getFuente(18);
 	    
 		JLabel vidas = new JLabel(new ImageIcon("./Texturas/heart.png"));
 		vidas.setText("Vidas: ");
