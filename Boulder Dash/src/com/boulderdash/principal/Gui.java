@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import javax.swing.*;
+import javax.swing.table.TableColumn;
 
 import com.boulderdash.audio.Audio;
 import com.boulderdash.teclaescucha.MiTeclaEscucha;
@@ -291,15 +292,36 @@ public class Gui extends JFrame{
 			}
 		});
 		
-		Container containerHighScores = new Container();
-		Container containerHighScores2 = new Container();
-		containerHighScores.setLayout(new BorderLayout()); //Donde va la lista de highscores
-		containerHighScores2.setLayout(new BorderLayout());
-		containerHighScores2.add(labelHighScores, BorderLayout.CENTER);
-		containerHighScores2.add(botonRegresar2, BorderLayout.SOUTH);
+
+		String[] columnas = {"", "", "", "", "", ""};
+		String[][] filas = {{"", "Posicion", "Nombre","Puntuacion", "Tiempo", ""}
+							, {"", "1", "Juan", "1500","4000",""}
+							, {"", "2", "Pedro", "1300","4500",""}
+							, {"", "3", "Rockford", "950","4500",""}
+							, {"", "", "", "","",""}};
+		
+		JTable tabla = new JTable(filas,columnas) 
+		{
+			public boolean isCellEditable(int data,int columns)
+			{
+				return false;
+			}
+		};
+		fuente = fuente.deriveFont(Font.BOLD, 20);
+		tabla.setFont(fuente);
+		tabla.setForeground(Color.WHITE);
+		tabla.setBackground(Color.BLACK);
+		tabla.setGridColor(Color.BLACK);
+		tabla.setFocusable(false);
+		tabla.setRowSelectionAllowed(false);
+		tabla.setFillsViewportHeight(true);
+		tabla.setRowHeight(30);
+		
+		
 		panelHighScores.setBackground(Color.BLACK);
-		panelHighScores.add(containerHighScores);
-		panelHighScores.add(containerHighScores2);
+		panelHighScores.add(labelHighScores, BorderLayout.NORTH);
+		panelHighScores.add(tabla, BorderLayout.CENTER);
+		panelHighScores.add(botonRegresar2, BorderLayout.SOUTH);
 		
 	}
 
@@ -408,7 +430,9 @@ public class Gui extends JFrame{
 	private void menuHighScores()
 	{
 		this.add(panelHighScores);
-		this.setSize(panelTitulo.getSize());
+		pack();
+		this.setSize(panelTitulo.getSize().width, panelHighScores.getHeight());
+		//this.setSize(panelTitulo.getSize());
 		repaint();
 	}
 	
@@ -428,8 +452,8 @@ public class Gui extends JFrame{
 
         
         //Font fuente = new Font("Serif", Font.BOLD, 20);
-        fuente = fuente.deriveFont(Font.BOLD, 18);
-
+		fuente = fuente.deriveFont(Font.BOLD, 18);
+	    
 		JLabel vidas = new JLabel(new ImageIcon("./Texturas/heart.png"));
 		vidas.setText("Vidas: ");
 		vidas.setFont(fuente);
@@ -446,7 +470,7 @@ public class Gui extends JFrame{
 		tiempoRestante.setForeground(Color.WHITE);
 		
 		JLabel puntuacion = new JLabel();
-		puntuacion.setText("0");
+		puntuacion.setText("Puntos: 0");
 		puntuacion.setFont(fuente);
 		puntuacion.setForeground(Color.WHITE);
 		
@@ -586,7 +610,7 @@ public class Gui extends JFrame{
 		((JLabel)(panelHud.getComponent(2))).setText(((Integer)(Mapa.getInstancia().getTiempoRestante())).toString());
 		
 		Integer puntuacionTotal = (Mapa.getInstancia().getPuntuacionNivel() + Mapa.getPuntuacionAcumulada());
-		((JLabel)(panelHud.getComponent(3))).setText(puntuacionTotal.toString());
+		((JLabel)(panelHud.getComponent(3))).setText("Puntos: " + puntuacionTotal.toString());
 	}
 	
 }

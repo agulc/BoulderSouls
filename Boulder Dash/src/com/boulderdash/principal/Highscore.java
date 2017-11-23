@@ -4,6 +4,7 @@ public class Highscore {
 	
 	private static Highscore[] arreglo = new Highscore[20];
 	private static int dimensionLogica = 0;
+	private static int cantidadAMostrar = 5;
 
 	private String nombre;
 	private int puntos;
@@ -53,6 +54,14 @@ public class Highscore {
 	public static void leerArchivoTxt()
 	{
 		//Leera el archivo txt y llenara el arreglo con los valores obtenidos
+	}
+
+	public static int getCantidadAMostrar() {
+		return cantidadAMostrar;
+	}
+
+	public static void setCantidadAMostrar(int cantidadAMostrar) {
+		Highscore.cantidadAMostrar = cantidadAMostrar;
 	}
 	
 }
