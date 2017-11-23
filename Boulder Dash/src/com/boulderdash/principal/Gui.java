@@ -38,6 +38,7 @@ public class Gui extends JFrame{
 		JLabel labelTitulo = new JLabel(new ImageIcon("./Texturas/Titulo.png"));
 		JLabel labelTitulo2 = new JLabel(new ImageIcon("./Texturas/TituloBonfire.gif"));
 		JButton botonParaEmpezar = new JButton();
+		JButton botonOpciones = new JButton();
 		JCheckBox checkBoxMuerte = new JCheckBox();
 		JCheckBox musicaActivada = new JCheckBox();
 		String[] items = {"1","2","3","4","5","6","7","8","9","10"};
@@ -64,6 +65,19 @@ public class Gui extends JFrame{
 				empezarAJugar();
 			}
 		});
+		
+		botonOpciones.setOpaque(false);
+		botonOpciones.setContentAreaFilled(false);
+		botonOpciones.setBorderPainted(false);
+		botonOpciones.setFocusPainted(false);
+		botonOpciones.setIcon(new ImageIcon("./Texturas/OpcionesInerte.png"));
+		botonOpciones.setRolloverIcon(new ImageIcon("./Texturas/Opciones.png"));
+		botonOpciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println("Opciones presionado");
+			}
+		});
+		
 		
 		
 		checkBoxMuerte.addActionListener(new ActionListener() { //Determina si la muerte alternativa estara activada
@@ -97,6 +111,7 @@ public class Gui extends JFrame{
 		Container container = new Container();
 		container.setLayout(new FlowLayout());
 		container.add(botonParaEmpezar);
+		container.add(botonOpciones);
 		container.add(nivelAElegir);
 		container.add(checkBoxMuerte);
 		container.add(musicaActivada);
