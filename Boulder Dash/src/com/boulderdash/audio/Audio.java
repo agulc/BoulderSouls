@@ -22,7 +22,7 @@ public class Audio {
 				   File fileExp = new File("./Audio/Levels/Level " + Mapa.getInstancia().getNivelActual() + ".wav");
 				   clip = AudioSystem.getClip();
 				   clip.open(AudioSystem.getAudioInputStream(fileExp));
-				   clip.start();
+				   clip.loop(Clip.LOOP_CONTINUOUSLY);
 			} 
 			catch (Exception e) 
 			{
@@ -38,7 +38,7 @@ public class Audio {
 			   File fileExp = new File("./Audio/Theme_Song.wav");
 			   clip = AudioSystem.getClip();
 			   clip.open(AudioSystem.getAudioInputStream(fileExp));
-			   clip.start();
+			   clip.loop(Clip.LOOP_CONTINUOUSLY);
 		} 
 		catch (Exception e) 
 		{
