@@ -153,7 +153,7 @@ public class Gui extends JFrame{
 
 	private void inicializarReglas()
 	{
-		JLabel label = new JLabel(new ImageIcon("./Texturas/estus.gif"));
+		JLabel label = new JLabel(new ImageIcon("./Texturas/sid.gif"));
 		
 		JButton botonRegresar = new JButton();
 		botonRegresar.setOpaque(false);
@@ -319,7 +319,7 @@ public class Gui extends JFrame{
 			}
 		});
 		
-		JLabel labelOpciones = new JLabel(new ImageIcon("./Texturas/OpcionesWolf.gif"));
+		JLabel labelOpciones = new JLabel(new ImageIcon("./Texturas/estus.gif"));
 		
 		
 		JButton botonRegresar = new JButton();
@@ -400,7 +400,7 @@ public class Gui extends JFrame{
 	private void menuReglas()
 	{
 		this.add(panelReglas);
-		this.setSize( (int)panelTitulo.getSize().getWidth(), 740);
+		this.setSize( (int)panelTitulo.getSize().getWidth(), 620);
 		
 		repaint();
 	}
@@ -425,20 +425,32 @@ public class Gui extends JFrame{
 	{
 		panelHud = new JPanel(new GridLayout());
 		panelHud.setBackground(Color.BLACK);
+<<<<<<< HEAD
         fuente = fuente.deriveFont(Font.BOLD, 18);
         
+=======
+		
+		Font fuente = new Font("Serif", Font.BOLD, 20);
+		
+>>>>>>> 8f419b41b3076a890e24c984fdfc2fa2a904fd78
 		JLabel vidas = new JLabel(new ImageIcon("./Texturas/heart.png"));
 		vidas.setText("Vidas: ");
 		vidas.setFont(fuente);
 		vidas.setForeground(Color.WHITE);
 		
 		JLabel diamantesRestantes = new JLabel(new ImageIcon("./Texturas/diamond.gif"));
-		
-		diamantesRestantes.setText("Diamantes Restantes: ");
+		diamantesRestantes.setText("Diamantes: ");
 		diamantesRestantes.setFont(fuente);
 		diamantesRestantes.setForeground(Color.WHITE);
+		
+		JLabel tiempoRestante = new JLabel(new ImageIcon("./Texturas/clock.gif"));
+		tiempoRestante.setText("Timer: 120");
+		tiempoRestante.setFont(fuente);
+		tiempoRestante.setForeground(Color.WHITE);
+		
 		panelHud.add(vidas);
 		panelHud.add(diamantesRestantes);
+		panelHud.add(tiempoRestante);
 	}
 	
 	private void inicializarPanelMatriz()
@@ -566,7 +578,7 @@ public class Gui extends JFrame{
 		if (Mapa.getInstancia().getVidas() == 0 && Comportamiento.getMuerteExtra())
 			((JLabel)(panelHud.getComponent(0))).setText("Mou shindeiru");
 		
-		((JLabel)(panelHud.getComponent(1))).setText("Diamantes restantes: " + Mapa.getDiamantesRestantes()); //Actualiza Los diamantes restantes
+		((JLabel)(panelHud.getComponent(1))).setText("Diamantes: " + Mapa.getDiamantesRestantes()); //Actualiza Los diamantes restantes
 	}
 	
 }
