@@ -53,26 +53,31 @@ public class Luciernaga extends EnemigoMovil{
 		
 		}
 		
-		int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda
-		  int b = this.getPos().getY() - 1;
+		  int a = this.getPos().getX()-1; //Empieza en la esquina superior izquierda
+		  int b = this.getPos().getY()-1;
 		  Posicion posAux = new Posicion();
-		  int aAux = a+3;
-		  int bAux = b+3;
-		  
-		  for (int i = a; i < aAux; i++) //Recorre los personajes adyacentes
-		  {
-			   for (int j = b; j < bAux; j++)
+		  int aAux = a+2;
+		  int bAux = b+2;
+		  posAux.setX(a+1);
+		  for (int j = b; j <= bAux; j = j + 2)
 			   {
-				    posAux.setX(i);
-				    posAux.setY(j);
-				    if (Mapa.getInstancia().getPersonaje(posAux).chequearSiSoy(BDTile.PLAYER)){ //Si el jugador es adyacente, la luciernaga explota 
-				    	 Mapa.getInstancia().getPersonaje(posAux).recibeExplosion();;
-				    	 super.explotar();
-					     break;
+			  	posAux.setY(j);
+			    if (Mapa.getInstancia().getPersonaje(posAux).chequearSiSoy(BDTile.PLAYER)){ //Si el jugador es adyacente, la luciernaga explota 
+			    	 Mapa.getInstancia().getPersonaje(posAux).recibeExplosion();
+			    	 super.explotar();
+				     break;
 				    }
-		    
 			   }
-		  }
+		  posAux.setY(b+1);
+		  for (int j = a ; j <= aAux; j = j + 2) {
+			    posAux.setX(j);
+			    if (Mapa.getInstancia().getPersonaje(posAux).chequearSiSoy(BDTile.PLAYER)){ //Si el jugador es adyacente, la luciernaga explota 
+			    	 Mapa.getInstancia().getPersonaje(posAux).recibeExplosion();
+			    	 super.explotar();
+				     break;
+			    }
+		   }
+		
 		
 	}
 	
