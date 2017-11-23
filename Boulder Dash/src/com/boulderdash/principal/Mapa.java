@@ -17,8 +17,10 @@ import com.boulderdash.personajes.Vacio;
 public class Mapa {
 	
 	private static int nivelActual = 1;
-	private static int puntuacion = 0;
+	private static int puntuacionAcumulada = 0;
+	private int puntuacionNivel = 0; //Se reinicia cada vez que muero
 	private static int vidas = 4;
+	private int tiempoRestante;
 	private Personaje[][] mapa; 
 	private static int diamantesRestantes;
 	private static Mapa instancia = null; 
@@ -47,6 +49,7 @@ public class Mapa {
 		}
 		mapa = new Personaje[lectorNiveles.getWIDTH()][lectorNiveles.getHEIGHT()];
 		setDiamantesRestantes(lectorNiveles.getDiamondsNeeded());
+		Diamante.setValorDiamante(100);
 		for(int x=0;x<lectorNiveles.getWIDTH();x++){
 			for(int y=0;y<lectorNiveles.getHEIGHT();y++){
 				switch(lectorNiveles.getTile(x,y)){
@@ -107,6 +110,14 @@ public class Mapa {
 		}
 	}
 	
+	public void avanzarDeNivel()
+	{
+		setPuntuacionAcumulada(getInstancia().getPuntuacionNivel() + getPuntuacionAcumulada() + tiempoRestante);
+		
+		setNivelActual(this.getNivelActual() + 1);
+		reconstruirMapa();
+	}
+	
 	public Personaje getPersonaje(Posicion pos){
 		return this.mapa[pos.getX()][pos.getY()];
 	}
@@ -148,13 +159,6 @@ public class Mapa {
 		
 	}
 	
-	public static void incrementarPuntaje(){
-		Mapa.puntuacion = Mapa.puntuacion + 100;
-	}
-	
-	public static int getPuntaje(){
-		return Mapa.puntuacion;
-	}
 	
 	public Personaje[][] getMapa(){
 		return this.mapa;
@@ -168,5 +172,25 @@ public class Mapa {
 
 	public static void setDiamantesRestantes(int diamantesRestantes) {
 		Mapa.diamantesRestantes = diamantesRestantes;
+	}
+
+
+	public static int getPuntuacionAcumulada() {
+		return puntuacionAcumulada;
+	}
+
+
+	public static void setPuntuacionAcumulada(int puntuacionAcumulada) {
+		Mapa.puntuacionAcumulada = puntuacionAcumulada;
+	}
+
+
+	public int getPuntuacionNivel() {
+		return puntuacionNivel;
+	}
+
+
+	public void setPuntuacionNivel(int puntuacionNivel) {
+		this.puntuacionNivel = puntuacionNivel;
 	}
 }

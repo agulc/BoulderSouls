@@ -10,6 +10,8 @@ public class Diamante extends ObjetoNewton{
 	
 	private static ImageIcon icono = new ImageIcon("Texturas/diamond.gif");
 	
+	private static int valorDiamante = 100;
+	
 	public Diamante(boolean cae,int x,int y){
 		super(cae,x,y);
 	}
@@ -23,7 +25,11 @@ public class Diamante extends ObjetoNewton{
 		Audio.item();
 		if (Mapa.getDiamantesRestantes() > 0)
 			Mapa.setDiamantesRestantes(Mapa.getDiamantesRestantes() - 1);
-		Mapa.incrementarPuntaje();
+		else
+		{
+			setValorDiamante(150); //Aumenta el valor de los diamantes cuando ya se agarraron todos
+		}
+		Mapa.getInstancia().setPuntuacionNivel(Mapa.getInstancia().getPuntuacionNivel() + valorDiamante);
 		return true;
 	}
 	
@@ -40,5 +46,13 @@ public class Diamante extends ObjetoNewton{
 	public ImageIcon getIcono() {
 		// TODO Auto-generated method stub
 		return icono;
+	}
+
+	public static int getValorDiamante() {
+		return valorDiamante;
+	}
+
+	public static void setValorDiamante(int valorDiamante) {
+		Diamante.valorDiamante = valorDiamante;
 	}
 }

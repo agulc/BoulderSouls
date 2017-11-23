@@ -45,6 +45,8 @@ public class Comportamiento {
 		moverPersonajes();
 		actualizarEstadoObjeto();
 		
+		//System.out.println(Mapa.getInstancia().getPuntuacionNivel());
+		
 	}
 	
 	/**

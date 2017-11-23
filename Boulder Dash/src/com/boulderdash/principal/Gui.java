@@ -445,9 +445,15 @@ public class Gui extends JFrame{
 		tiempoRestante.setFont(fuente);
 		tiempoRestante.setForeground(Color.WHITE);
 		
+		JLabel puntuacion = new JLabel();
+		puntuacion.setText("0");
+		puntuacion.setFont(fuente);
+		puntuacion.setForeground(Color.WHITE);
+		
 		panelHud.add(vidas);
 		panelHud.add(diamantesRestantes);
 		panelHud.add(tiempoRestante);
+		panelHud.add(puntuacion);
 	}
 	
 	private void inicializarPanelMatriz()
@@ -576,6 +582,9 @@ public class Gui extends JFrame{
 			((JLabel)(panelHud.getComponent(0))).setText("Mou shindeiru");
 		
 		((JLabel)(panelHud.getComponent(1))).setText("Diamantes: " + Mapa.getDiamantesRestantes()); //Actualiza Los diamantes restantes
+		
+		Integer puntuacionTotal = (Mapa.getInstancia().getPuntuacionNivel() + Mapa.getPuntuacionAcumulada());
+		((JLabel)(panelHud.getComponent(3))).setText(puntuacionTotal.toString());
 	}
 	
 }
