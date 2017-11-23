@@ -8,7 +8,7 @@ import javax.swing.*;
 public class Roca extends ObjetoNewton{
 	
 	private static ImageIcon icono = new ImageIcon("Texturas/boulder.gif");
-	
+	private int inercia = 0;
 	public Roca(boolean cae,int x,int y){
 		super(cae,x,y);
 	}
@@ -18,13 +18,15 @@ public class Roca extends ObjetoNewton{
 	 */
 	public boolean rockfordCaminaSobreMi(ParaDonde dir){
 		
-		if (dir == ParaDonde.IZQUIERDA || dir == ParaDonde.DERECHA)
+		if (inercia >= 7 && (dir == ParaDonde.IZQUIERDA || dir == ParaDonde.DERECHA))
 		{
+			this.inercia = 0;
 			this.mover(dir);
 			return true;
 		}
 		else
 		{
+			this.inercia++;
 			return false;
 		}
 				
