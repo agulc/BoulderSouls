@@ -19,6 +19,7 @@ public class Gui extends JFrame{
 	private static JLabel labels[] = new JLabel[880];
 	public static JPanel panelTitulo = new JPanel(new BorderLayout());
 	public static JPanel panelOpciones = new JPanel(new BorderLayout());
+	public static JPanel panelHighScores = new JPanel(new BorderLayout());
 	public static JPanel panelJuego;//Contiene a la matriz del juego y su HUD correspondiente
 	public static JPanel panelMatriz;
 	public static JPanel panelHud;
@@ -38,10 +39,9 @@ public class Gui extends JFrame{
 
 		JLabel labelTitulo = new JLabel(new ImageIcon("./Texturas/Titulo.png"));
 		JLabel labelTitulo2 = new JLabel(new ImageIcon("./Texturas/TituloBonfire.gif"));
-		JLabel labelOpciones = new JLabel(new ImageIcon("./Texturas/OpcionesWolf.gif"));
 		JButton botonParaEmpezar = new JButton();
 		JButton botonOpciones = new JButton();
-		JButton botonRegresar = new JButton();
+		JButton botonHighScores = new JButton();
 		JCheckBox checkBoxMuerte = new JCheckBox();
 		JCheckBox musicaActivada = new JCheckBox();
 		String[] items = {"Nivel 1","Nivel 2","Nivel 3","Nivel 4","Nivel 5","Nivel 6","Nivel 7","Nivel 8","Nivel 9","Nivel 10"};
@@ -70,6 +70,7 @@ public class Gui extends JFrame{
 			}
 		});
 		
+		JLabel labelOpciones = new JLabel(new ImageIcon("./Texturas/OpcionesWolf.gif"));
 		botonOpciones.setOpaque(false);
 		botonOpciones.setContentAreaFilled(false);
 		botonOpciones.setBorderPainted(false);
@@ -84,6 +85,22 @@ public class Gui extends JFrame{
 			}
 		});
 		
+		JLabel labelHighScores = new JLabel(new ImageIcon("./Texturas/PraiseTheSun.gif"));
+		botonHighScores.setOpaque(false);
+		botonHighScores.setContentAreaFilled(false);
+		botonHighScores.setBorderPainted(false);
+		botonHighScores.setFocusPainted(false);
+		botonHighScores.setIcon(new ImageIcon("./Texturas/HighscoresInerte.png"));
+		botonHighScores.setRolloverIcon(new ImageIcon("./Texturas/Highscores.png"));
+		botonHighScores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				remove(panelTitulo);
+				System.out.println("HighScores presionado");
+				menuHighScores();
+			}
+		});
+		
+		JButton botonRegresar = new JButton();
 		botonRegresar.setOpaque(false);
 		botonRegresar.setContentAreaFilled(false);
 		botonRegresar.setBorderPainted(false);
@@ -93,6 +110,21 @@ public class Gui extends JFrame{
 		botonRegresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				 remove(panelOpciones);
+				 volverDeOpciones();
+				 System.out.println("Regresar presionado");
+			}
+		});
+		
+		JButton botonRegresar2 = new JButton();
+		botonRegresar2.setOpaque(false);
+		botonRegresar2.setContentAreaFilled(false);
+		botonRegresar2.setBorderPainted(false);
+		botonRegresar2.setFocusPainted(false);
+		botonRegresar2.setIcon(new ImageIcon("./Texturas/BackInerte.png"));
+		botonRegresar2.setRolloverIcon(new ImageIcon("./Texturas/Back.png"));
+		botonRegresar2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				 remove(panelHighScores);
 				 volverDeOpciones();
 				 System.out.println("Regresar presionado");
 			}
@@ -132,6 +164,7 @@ public class Gui extends JFrame{
 		container.setLayout(new FlowLayout());
 		container.add(botonParaEmpezar);
 		container.add(botonOpciones);
+		container.add(botonHighScores);
 		panelTitulo.add(container, BorderLayout.PAGE_END);
 		
 		Container containerOpciones = new Container();
@@ -150,6 +183,15 @@ public class Gui extends JFrame{
 		panelOpciones.setBackground(Color.BLACK);
 		panelOpciones.add(containerOpciones, BorderLayout.CENTER);
 		
+		Container containerHighScores = new Container();
+		Container containerHighScores2 = new Container();
+		containerHighScores.setLayout(new BorderLayout()); //Donde va la lista de highscores
+		containerHighScores2.setLayout(new BorderLayout());
+		containerHighScores2.add(labelHighScores, BorderLayout.CENTER);
+		containerHighScores2.add(botonRegresar2, BorderLayout.SOUTH);
+		panelHighScores.setBackground(Color.BLACK);
+		panelHighScores.add(containerHighScores);
+		panelHighScores.add(containerHighScores2);
 		
 		
 		this.add(panelTitulo);
@@ -166,6 +208,15 @@ public class Gui extends JFrame{
 		this.setSize(panelTitulo.getSize());
 		repaint();
 	}
+	
+	private void menuHighScores()
+	{
+		this.add(panelHighScores);
+		this.setSize(panelTitulo.getSize());
+		repaint();
+	}
+	
+	
 	
 	public static Gui getInstancia(){
 		if(instancia == null){
