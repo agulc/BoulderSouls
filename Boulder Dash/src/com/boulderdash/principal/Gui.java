@@ -38,6 +38,7 @@ public class Gui extends JFrame{
 
 		JLabel labelTitulo = new JLabel(new ImageIcon("./Texturas/Titulo.png"));
 		JLabel labelTitulo2 = new JLabel(new ImageIcon("./Texturas/TituloBonfire.gif"));
+		JLabel labelOpciones = new JLabel(new ImageIcon("./Texturas/OpcionesWolf.gif"));
 		JButton botonParaEmpezar = new JButton();
 		JButton botonOpciones = new JButton();
 		JButton botonRegresar = new JButton();
@@ -135,12 +136,16 @@ public class Gui extends JFrame{
 		
 		Container containerOpciones = new Container();
 		Container containerOpciones2 = new Container();
+		Container containerOpciones3 = new Container();
 		containerOpciones.setLayout(new BorderLayout());
 		containerOpciones2.setLayout(new FlowLayout());
+		containerOpciones3.setLayout(new BorderLayout());
 		containerOpciones2.add(nivelAElegir);
 		containerOpciones2.add(checkBoxMuerte);
 		containerOpciones2.add(musicaActivada);
-		containerOpciones.add(containerOpciones2, BorderLayout.NORTH);
+        containerOpciones3.add(labelOpciones);
+        containerOpciones.add(containerOpciones2, BorderLayout.NORTH);
+        containerOpciones.add(containerOpciones3, BorderLayout.CENTER);
 		containerOpciones.add(botonRegresar, BorderLayout.SOUTH);
 		panelOpciones.setBackground(Color.BLACK);
 		panelOpciones.add(containerOpciones, BorderLayout.CENTER);
