@@ -35,18 +35,15 @@ public class Gui extends JFrame{
 		inicializarGui();
 	}
 	
+	
 	private void inicializarGui(){
 
 		JLabel labelTitulo = new JLabel(new ImageIcon("./Texturas/Titulo.png"));
 		JLabel labelTitulo2 = new JLabel(new ImageIcon("./Texturas/TituloBonfire.gif"));
 		JButton botonParaEmpezar = new JButton();
-		JButton botonOpciones = new JButton();
-		JButton botonHighScores = new JButton();
-		JCheckBox checkBoxMuerte = new JCheckBox();
-		JCheckBox musicaActivada = new JCheckBox();
-		String[] items = {"Nivel 1","Nivel 2","Nivel 3","Nivel 4","Nivel 5","Nivel 6","Nivel 7","Nivel 8","Nivel 9","Nivel 10"};
-		final JComboBox<String> nivelAElegir = new JComboBox<String>(items);
 		
+		inicializarOpciones();
+		inicializarHighScores();
 		
 		panelTitulo.setBackground(Color.BLACK);
 
@@ -64,13 +61,14 @@ public class Gui extends JFrame{
 		botonParaEmpezar.setRolloverIcon(new ImageIcon("./Texturas/botonNewGameSeleccionado.gif"));
 		botonParaEmpezar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Mapa.getInstancia().setNivelActual(nivelAElegir.getSelectedIndex()+1);
+				//Mapa.getInstancia().setNivelActual(nivelAElegir.getSelectedIndex()+1);
 				remove(panelTitulo);
 				empezarAJugar();
 			}
 		});
 		
-		JLabel labelOpciones = new JLabel(new ImageIcon("./Texturas/OpcionesWolf.gif"));
+
+		JButton botonOpciones = new JButton();
 		botonOpciones.setOpaque(false);
 		botonOpciones.setContentAreaFilled(false);
 		botonOpciones.setBorderPainted(false);
@@ -85,7 +83,7 @@ public class Gui extends JFrame{
 			}
 		});
 		
-		JLabel labelHighScores = new JLabel(new ImageIcon("./Texturas/PraiseTheSun.gif"));
+		JButton botonHighScores = new JButton();
 		botonHighScores.setOpaque(false);
 		botonHighScores.setContentAreaFilled(false);
 		botonHighScores.setBorderPainted(false);
@@ -100,20 +98,25 @@ public class Gui extends JFrame{
 			}
 		});
 		
-		JButton botonRegresar = new JButton();
-		botonRegresar.setOpaque(false);
-		botonRegresar.setContentAreaFilled(false);
-		botonRegresar.setBorderPainted(false);
-		botonRegresar.setFocusPainted(false);
-		botonRegresar.setIcon(new ImageIcon("./Texturas/BackInerte.png"));
-		botonRegresar.setRolloverIcon(new ImageIcon("./Texturas/Back.png"));
-		botonRegresar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				 remove(panelOpciones);
-				 volverDeOpciones();
-				 System.out.println("Regresar presionado");
-			}
-		});
+		Container container = new Container();
+		container.setLayout(new FlowLayout());
+		container.add(botonParaEmpezar);
+		container.add(botonOpciones);
+		container.add(botonHighScores);
+		panelTitulo.add(container, BorderLayout.PAGE_END);
+		
+		panelTitulo.add(labelTitulo2, BorderLayout.CENTER);
+		this.add(panelTitulo);
+		pack();
+		
+		setVisible(true);
+		
+		
+	}
+	
+	private void inicializarHighScores()
+	{
+		JLabel labelHighScores = new JLabel(new ImageIcon("./Texturas/PraiseTheSun.gif"));
 		
 		JButton botonRegresar2 = new JButton();
 		botonRegresar2.setOpaque(false);
@@ -130,8 +133,52 @@ public class Gui extends JFrame{
 			}
 		});
 		
+		Container containerHighScores = new Container();
+		Container containerHighScores2 = new Container();
+		containerHighScores.setLayout(new BorderLayout()); //Donde va la lista de highscores
+		containerHighScores2.setLayout(new BorderLayout());
+		containerHighScores2.add(labelHighScores, BorderLayout.CENTER);
+		containerHighScores2.add(botonRegresar2, BorderLayout.SOUTH);
+		panelHighScores.setBackground(Color.BLACK);
+		panelHighScores.add(containerHighScores);
+		panelHighScores.add(containerHighScores2);
+		
+	}
+
+	private void inicializarOpciones()
+	{
+		
+		JCheckBox checkBoxMuerte = new JCheckBox();
+		JCheckBox musicaActivada = new JCheckBox();
+		String[] items = {"Nivel 1","Nivel 2","Nivel 3","Nivel 4","Nivel 5","Nivel 6","Nivel 7","Nivel 8","Nivel 9","Nivel 10"};
+		final JComboBox<String> nivelAElegir = new JComboBox<String>(items);
+		nivelAElegir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+					Mapa.getInstancia().setNivelActual(nivelAElegir.getSelectedIndex() + 1);
+					System.out.println("Nivel cambiado");
+			}
+		});
+		
+		JLabel labelOpciones = new JLabel(new ImageIcon("./Texturas/OpcionesWolf.gif"));
 		
 		
+		JButton botonRegresar = new JButton();
+		botonRegresar.setOpaque(false);
+		botonRegresar.setContentAreaFilled(false);
+		botonRegresar.setBorderPainted(false);
+		botonRegresar.setFocusPainted(false);
+		botonRegresar.setIcon(new ImageIcon("./Texturas/BackInerte.png"));
+		botonRegresar.setRolloverIcon(new ImageIcon("./Texturas/Back.png"));
+		botonRegresar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				 remove(panelOpciones);
+				 volverDeOpciones();
+				 System.out.println("Regresar presionado");
+			}
+		});
+		
+
 		checkBoxMuerte.addActionListener(new ActionListener() { //Determina si la muerte alternativa estara activada
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -157,16 +204,6 @@ public class Gui extends JFrame{
 		musicaActivada.setText("Musica");
 		musicaActivada.setSelected(true);
 		
-		
-		panelTitulo.add(labelTitulo2, BorderLayout.CENTER);
-		
-		Container container = new Container();
-		container.setLayout(new FlowLayout());
-		container.add(botonParaEmpezar);
-		container.add(botonOpciones);
-		container.add(botonHighScores);
-		panelTitulo.add(container, BorderLayout.PAGE_END);
-		
 		Container containerOpciones = new Container();
 		Container containerOpciones2 = new Container();
 		Container containerOpciones3 = new Container();
@@ -182,25 +219,8 @@ public class Gui extends JFrame{
 		containerOpciones.add(botonRegresar, BorderLayout.SOUTH);
 		panelOpciones.setBackground(Color.BLACK);
 		panelOpciones.add(containerOpciones, BorderLayout.CENTER);
-		
-		Container containerHighScores = new Container();
-		Container containerHighScores2 = new Container();
-		containerHighScores.setLayout(new BorderLayout()); //Donde va la lista de highscores
-		containerHighScores2.setLayout(new BorderLayout());
-		containerHighScores2.add(labelHighScores, BorderLayout.CENTER);
-		containerHighScores2.add(botonRegresar2, BorderLayout.SOUTH);
-		panelHighScores.setBackground(Color.BLACK);
-		panelHighScores.add(containerHighScores);
-		panelHighScores.add(containerHighScores2);
-		
-		
-		this.add(panelTitulo);
-		pack();
-		
-		setVisible(true);
-		
-		
 	}
+	
 
 	private void menuOpciones()
 	{
