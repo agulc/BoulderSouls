@@ -529,14 +529,15 @@ public class Gui extends JFrame{
 	
 	public void reconstruir() {
 		  Posicion pos = new Posicion();
+		  panelMatriz.removeAll();;
 		  for (int i = 0; i < 880; i++) 
 		  {
 			  pos.setX(i%40);
 			  pos.setY(i/40);
-			  labels[(i)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
-			  panelMatriz.remove(i);
-			  panelMatriz.add(labels[(i)], (i));
+			  labels[i] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
+			  panelMatriz.add(labels[i], i);
 		  }
+		  panelMatriz.validate();
 	}
 	
 	
@@ -583,6 +584,7 @@ public class Gui extends JFrame{
 			Audio.musicaMenu();
 		pack();
 		repaint();
+		CoordinadorDeEventos.detenerTemporizador();
 	}
 	
 	public void volverDeOpciones()
