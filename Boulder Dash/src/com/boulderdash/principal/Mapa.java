@@ -26,8 +26,8 @@ public class Mapa {
 	private static Mapa instancia = null; 
 	
 	private static int[] valorDiamante = {0,10,20,15,5,30,50,40,10,10,10};//Guarda el valor del diamante base por nivel
-	private static int[] valorDiamanteBonus = {0,15,50,0,20,0,90,60,20,20,0};//Guarda el valor del diamante base por nivel
-	
+	private static int[] valorDiamanteBonus = {0,15,50,0,20,0,90,60,20,20,0};//Guarda el valor del diamante bonus por nivel
+	private static int[] tiempo = {0,110,110,100,100,100,120,110,110,130,150};
 	
 	public static Mapa getInstancia(){
 		if(instancia == null){
@@ -53,6 +53,7 @@ public class Mapa {
 		}
 		mapa = new Personaje[lectorNiveles.getWIDTH()][lectorNiveles.getHEIGHT()];
 		setDiamantesRestantes(lectorNiveles.getDiamondsNeeded());
+		tiempoRestante = tiempo[this.getNivelActual()];
 		Diamante.setValorDiamante(valorDiamante[this.getNivelActual()]);
 		for(int x=0;x<lectorNiveles.getWIDTH();x++){
 			for(int y=0;y<lectorNiveles.getHEIGHT();y++){
@@ -207,4 +208,16 @@ public class Mapa {
 	public static void setValorDiamanteBonus(int[] valorDiamanteBonus) {
 		Mapa.valorDiamanteBonus = valorDiamanteBonus;
 	}
+	
+	public int getTiempoRestante() {
+		return tiempoRestante;
+	}
+
+
+	public void setTiempoRestante(int tiempoRestante) {
+		this.tiempoRestante = tiempoRestante;
+	}
+
+
+	
 }

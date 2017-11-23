@@ -583,6 +583,8 @@ public class Gui extends JFrame{
 		
 		((JLabel)(panelHud.getComponent(1))).setText("Diamantes: " + Mapa.getDiamantesRestantes()); //Actualiza Los diamantes restantes
 		
+		((JLabel)(panelHud.getComponent(2))).setText(((Integer)(Mapa.getInstancia().getTiempoRestante())).toString());
+		
 		Integer puntuacionTotal = (Mapa.getInstancia().getPuntuacionNivel() + Mapa.getPuntuacionAcumulada());
 		((JLabel)(panelHud.getComponent(3))).setText(puntuacionTotal.toString());
 	}
