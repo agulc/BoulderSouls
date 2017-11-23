@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.personajes.Rockford;
 import com.boulderdash.principal.Comportamiento;
+import com.boulderdash.principal.Gui;
 
 
 
@@ -69,6 +70,14 @@ public class MiTeclaEscucha extends KeyAdapter{
 			Rockford.getInstancia().explotar();
 		}
 		break;
+		
+		case KeyEvent.VK_ESCAPE:
+		{
+			Gui.getInstancia().volverAlTitulo();
+		}
+		break;
+		
+		
 		
 		}	
 	}

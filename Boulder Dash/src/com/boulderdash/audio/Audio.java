@@ -11,20 +11,24 @@ public class Audio {
 
 	private static Clip clip = null;
 	
+	private static boolean musicaActivada = true;
+	
 	public static void musica() 
     { 
-		try 
+		if (musicaActivada)
 		{
-			   File fileExp = new File("./Audio/Levels/Level " + Mapa.getInstancia().getNivelActual() + ".wav");
-			   clip = AudioSystem.getClip();
-			   clip.open(AudioSystem.getAudioInputStream(fileExp));
-			   clip.start();
-		} 
-		catch (Exception e) 
-		{
-			   System.err.println(e.getMessage());
+			try 
+			{
+				   File fileExp = new File("./Audio/Levels/Level " + Mapa.getInstancia().getNivelActual() + ".wav");
+				   clip = AudioSystem.getClip();
+				   clip.open(AudioSystem.getAudioInputStream(fileExp));
+				   clip.start();
+			} 
+			catch (Exception e) 
+			{
+				   System.err.println(e.getMessage());
+			}
 		}
-
     }
 	
 	public static void musicaMenu() 
@@ -154,5 +158,13 @@ public class Audio {
 		{
 			   System.err.println(e.getMessage());
 		}
+	}
+
+	public static boolean getMusicaActivada() {
+		return musicaActivada;
+	}
+
+	public static void setMusicaActivada(boolean musicaActivada) {
+		Audio.musicaActivada = musicaActivada;
 	}
 }

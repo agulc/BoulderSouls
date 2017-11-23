@@ -39,6 +39,7 @@ public class Gui extends JFrame{
 		JLabel labelTitulo2 = new JLabel(new ImageIcon("./Texturas/TituloBonfire.gif"));
 		JButton botonParaEmpezar = new JButton();
 		JCheckBox checkBoxMuerte = new JCheckBox();
+		JCheckBox musicaActivada = new JCheckBox();
 		String[] items = {"1","2","3","4","5","6","7","8","9","10"};
 		final JComboBox<String> nivelAElegir = new JComboBox<String>(items);
 		
@@ -73,6 +74,23 @@ public class Gui extends JFrame{
 		});
 		checkBoxMuerte.setText("Muerte alternativa");
 		
+		musicaActivada.addActionListener(new ActionListener() { //Determina si la musica estara activada
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Audio.setMusicaActivada(!Audio.getMusicaActivada());
+				if (!Audio.getMusicaActivada())
+				{
+					Audio.pararMusica(); //Para la musica del menu
+				}
+				else
+				{
+					Audio.musicaMenu();
+				}
+			}
+		});
+		musicaActivada.setText("Musica");
+		musicaActivada.setSelected(true);
+		
 		
 		panelTitulo.add(labelTitulo2, BorderLayout.CENTER);
 		
@@ -81,6 +99,7 @@ public class Gui extends JFrame{
 		container.add(botonParaEmpezar);
 		container.add(nivelAElegir);
 		container.add(checkBoxMuerte);
+		container.add(musicaActivada);
 		
 		panelTitulo.add(container, BorderLayout.PAGE_END);
 		
@@ -115,7 +134,8 @@ public class Gui extends JFrame{
 		vidas.setFont(fuente);
 		vidas.setForeground(Color.WHITE);
 		
-		JLabel diamantesRestantes = new JLabel();
+		JLabel diamantesRestantes = new JLabel(new ImageIcon("./Texturas/diamond.gif"));
+		
 		diamantesRestantes.setText("Diamantes Restantes: ");
 		diamantesRestantes.setFont(fuente);
 		diamantesRestantes.setForeground(Color.WHITE);
@@ -213,8 +233,11 @@ public class Gui extends JFrame{
 	
 	public void volverAlTitulo()
 	{
+		Audio.pararMusica();
+		remove(panelJuego);
 		add(panelTitulo);
-		Audio.musicaMenu();
+		if (Audio.getMusicaActivada())
+			Audio.musicaMenu();
 		
 		pack();
 		repaint();
@@ -224,6 +247,8 @@ public class Gui extends JFrame{
 	{
 		
 		((JLabel)(panelHud.getComponent(0))).setText("Vidas: " + Mapa.getInstancia().getVidas()); //Actualiza Las Vidas
+		if (Mapa.getInstancia().getVidas() == 0 && Comportamiento.getMuerteExtra())
+			((JLabel)(panelHud.getComponent(0))).setText("Mou shindeiru");
 		
 		((JLabel)(panelHud.getComponent(1))).setText("Diamantes restantes: " + Mapa.getDiamantesRestantes()); //Actualiza Los diamantes restantes
 		
