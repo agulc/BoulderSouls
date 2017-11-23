@@ -27,7 +27,7 @@ public class Diamante extends ObjetoNewton{
 			Mapa.setDiamantesRestantes(Mapa.getDiamantesRestantes() - 1);
 		else
 		{
-			setValorDiamante(150); //Aumenta el valor de los diamantes cuando ya se agarraron todos
+			setValorDiamante(Mapa.getValorDiamanteBonus()[Mapa.getInstancia().getNivelActual()]); //Cambia el valor de los diamantes cuando ya se agarraron todos
 		}
 		Mapa.getInstancia().setPuntuacionNivel(Mapa.getInstancia().getPuntuacionNivel() + valorDiamante);
 		return true;

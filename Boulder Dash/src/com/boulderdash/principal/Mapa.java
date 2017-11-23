@@ -24,7 +24,11 @@ public class Mapa {
 	private Personaje[][] mapa; 
 	private static int diamantesRestantes;
 	private static Mapa instancia = null; 
-
+	
+	private static int[] valorDiamante = {0,10,20,15,5,30,50,40,10,10,10};//Guarda el valor del diamante base por nivel
+	private static int[] valorDiamanteBonus = {0,15,50,0,20,0,90,60,20,20,0};//Guarda el valor del diamante base por nivel
+	
+	
 	public static Mapa getInstancia(){
 		if(instancia == null){
 			instancia = new Mapa();
@@ -49,7 +53,7 @@ public class Mapa {
 		}
 		mapa = new Personaje[lectorNiveles.getWIDTH()][lectorNiveles.getHEIGHT()];
 		setDiamantesRestantes(lectorNiveles.getDiamondsNeeded());
-		Diamante.setValorDiamante(100);
+		Diamante.setValorDiamante(valorDiamante[this.getNivelActual()]);
 		for(int x=0;x<lectorNiveles.getWIDTH();x++){
 			for(int y=0;y<lectorNiveles.getHEIGHT();y++){
 				switch(lectorNiveles.getTile(x,y)){
@@ -192,5 +196,15 @@ public class Mapa {
 
 	public void setPuntuacionNivel(int puntuacionNivel) {
 		this.puntuacionNivel = puntuacionNivel;
+	}
+
+
+	public static int[] getValorDiamanteBonus() {
+		return valorDiamanteBonus;
+	}
+
+
+	public static void setValorDiamanteBonus(int[] valorDiamanteBonus) {
+		Mapa.valorDiamanteBonus = valorDiamanteBonus;
 	}
 }
