@@ -3,7 +3,7 @@ package com.boulderdash.principal;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.io.*;
 import javax.swing.*;
 
 import com.boulderdash.audio.Audio;
@@ -24,7 +24,24 @@ public class Gui extends JFrame{
 	public static JPanel panelJuego;//Contiene a la matriz del juego y su HUD correspondiente
 	public static JPanel panelMatriz;
 	public static JPanel panelHud;
-	
+	Font fuente = null;	   
+	InputStream myStream = null;
+	{
+	try {
+		myStream = new BufferedInputStream(new FileInputStream("src/fuentes/OptimusPrinceps.ttf"));
+		fuente = Font.createFont(Font.TRUETYPE_FONT, myStream );
+        fuente = fuente.deriveFont(Font.BOLD, 20);
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (FontFormatException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	}
 	private static Gui instancia = null;
 	
 	private static MiTeclaEscucha teclaEscucha = new MiTeclaEscucha();
@@ -153,8 +170,9 @@ public class Gui extends JFrame{
 			}
 		});
 		
-		Font fuente = new Font("Serif", Font.BOLD, 20);
 
+
+        fuente = fuente.deriveFont(Font.BOLD, 21);
 		JLabel regla1 = new JLabel(new ImageIcon("./Texturas/Rockford.gif"));
 		regla1.setText("Controlas a Rockford");
 		regla1.setFont(fuente);
@@ -407,7 +425,8 @@ public class Gui extends JFrame{
 	{
 		panelHud = new JPanel(new GridLayout());
 		panelHud.setBackground(Color.BLACK);
-		Font fuente = new Font("Serif", Font.BOLD, 20);
+        fuente = fuente.deriveFont(Font.BOLD, 18);
+        
 		JLabel vidas = new JLabel(new ImageIcon("./Texturas/heart.png"));
 		vidas.setText("Vidas: ");
 		vidas.setFont(fuente);
