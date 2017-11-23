@@ -136,7 +136,7 @@ public class Gui extends JFrame{
 
 	private void inicializarReglas()
 	{
-		JLabel label = new JLabel(new ImageIcon("./Texturas/estus.gif"));
+		JLabel label = new JLabel(new ImageIcon("./Texturas/sid.gif"));
 		
 		JButton botonRegresar = new JButton();
 		botonRegresar.setOpaque(false);
@@ -301,7 +301,7 @@ public class Gui extends JFrame{
 			}
 		});
 		
-		JLabel labelOpciones = new JLabel(new ImageIcon("./Texturas/OpcionesWolf.gif"));
+		JLabel labelOpciones = new JLabel(new ImageIcon("./Texturas/estus.gif"));
 		
 		
 		JButton botonRegresar = new JButton();
@@ -382,7 +382,7 @@ public class Gui extends JFrame{
 	private void menuReglas()
 	{
 		this.add(panelReglas);
-		this.setSize( (int)panelTitulo.getSize().getWidth(), 740);
+		this.setSize( (int)panelTitulo.getSize().getWidth(), 620);
 		
 		repaint();
 	}
