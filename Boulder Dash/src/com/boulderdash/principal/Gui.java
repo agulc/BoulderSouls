@@ -166,6 +166,7 @@ public class Gui extends JFrame{
 	{
 		
 		JCheckBox checkBoxMuerte = new JCheckBox();
+		JCheckBox checkBoxpiedrasConInercia = new JCheckBox();
 		JCheckBox musicaActivada = new JCheckBox();
 		String[] items = {"Nivel 1","Nivel 2","Nivel 3","Nivel 4","Nivel 5","Nivel 6","Nivel 7","Nivel 8","Nivel 9","Nivel 10"};
 		final JComboBox<String> nivelAElegir = new JComboBox<String>(items);
@@ -204,6 +205,14 @@ public class Gui extends JFrame{
 		});
 		checkBoxMuerte.setText("Muerte alternativa");
 		
+		checkBoxpiedrasConInercia.addActionListener(new ActionListener() { //Determina si la muerte alternativa estara activada
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Comportamiento.setPiedrasConInercia(!Comportamiento.getPiedrasConInercia());
+			}
+		});
+		checkBoxpiedrasConInercia.setText("Piedras con inercia");
+		
 		musicaActivada.addActionListener(new ActionListener() { //Determina si la musica estara activada
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -229,6 +238,7 @@ public class Gui extends JFrame{
 		containerOpciones3.setLayout(new BorderLayout());
 		containerOpciones2.add(nivelAElegir);
 		containerOpciones2.add(checkBoxMuerte);
+		containerOpciones2.add(checkBoxpiedrasConInercia);
 		containerOpciones2.add(musicaActivada);
         containerOpciones3.add(labelOpciones);
         containerOpciones.add(containerOpciones2, BorderLayout.NORTH);

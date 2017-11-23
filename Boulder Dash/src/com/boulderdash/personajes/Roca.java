@@ -2,6 +2,7 @@ package com.boulderdash.personajes;
 
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
+import com.boulderdash.principal.Comportamiento;
 import com.boulderdash.principal.Mapa;
 import javax.swing.*;
 
@@ -18,18 +19,25 @@ public class Roca extends ObjetoNewton{
 	 */
 	public boolean rockfordCaminaSobreMi(ParaDonde dir){
 		
-		if (inercia >= 7 && (dir == ParaDonde.IZQUIERDA || dir == ParaDonde.DERECHA))
+		if (Comportamiento.getPiedrasConInercia())
 		{
-			this.inercia = 0;
-			this.mover(dir);
-			return true;
+			if (inercia >= 7 && (dir == ParaDonde.IZQUIERDA || dir == ParaDonde.DERECHA))
+			{
+				this.inercia = 0;
+				this.mover(dir);
+				return true;
+			}
+			else
+			{
+				this.inercia++;
+				return false;
+			}
 		}
 		else
 		{
-			this.inercia++;
-			return false;
+			this.mover(dir);
+			return true;
 		}
-				
 	}
 	
 	public boolean esTransitable(ParaDonde donde){

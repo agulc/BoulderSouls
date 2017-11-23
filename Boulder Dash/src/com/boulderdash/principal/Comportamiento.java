@@ -12,6 +12,8 @@ public class Comportamiento {
 	
 	private static boolean rockfordMuerto = false;
 	private static boolean muerteExtra = false; //Activa la muerte extra
+	private static boolean piedrasConInercia = false; //Activa la muerte extra
+	
 
 	
 	
@@ -105,6 +107,14 @@ public class Comportamiento {
 
 	public static void setMuerteExtra(boolean muerteExtra) {
 		Comportamiento.muerteExtra = muerteExtra;
+	}
+
+	public static boolean getPiedrasConInercia() {
+		return piedrasConInercia;
+	}
+
+	public static void setPiedrasConInercia(boolean piedrasConInercia) {
+		Comportamiento.piedrasConInercia = piedrasConInercia;
 	}
 	
 }
