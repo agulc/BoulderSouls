@@ -44,6 +44,7 @@ public class Gui extends JFrame{
 		
 		inicializarOpciones();
 		inicializarHighScores();
+		//inicializarReglas();
 		
 		panelTitulo.setBackground(Color.BLACK);
 
@@ -61,7 +62,6 @@ public class Gui extends JFrame{
 		botonParaEmpezar.setRolloverIcon(new ImageIcon("./Texturas/botonNewGameSeleccionado.gif"));
 		botonParaEmpezar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//Mapa.getInstancia().setNivelActual(nivelAElegir.getSelectedIndex()+1);
 				remove(panelTitulo);
 				empezarAJugar();
 			}
@@ -98,11 +98,28 @@ public class Gui extends JFrame{
 			}
 		});
 		
+		JButton botonReglas = new JButton();
+		botonReglas.setOpaque(false);
+		botonReglas.setContentAreaFilled(false);
+		botonReglas.setBorderPainted(false);
+		botonReglas.setFocusPainted(false);
+		botonReglas.setIcon(new ImageIcon("./Texturas/ReglasInerte.png"));
+		botonReglas.setRolloverIcon(new ImageIcon("./Texturas/Reglas.png"));
+		botonReglas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//remove(panelTitulo);
+				System.out.println("Reglas presionado");
+				//menuReglas();
+			}
+		});
+		
 		Container container = new Container();
 		container.setLayout(new FlowLayout());
 		container.add(botonParaEmpezar);
 		container.add(botonOpciones);
 		container.add(botonHighScores);
+		container.add(botonReglas);
+		
 		panelTitulo.add(container, BorderLayout.PAGE_END);
 		
 		panelTitulo.add(labelTitulo2, BorderLayout.CENTER);
@@ -245,13 +262,8 @@ public class Gui extends JFrame{
 		return instancia;
 	}
 
-	private void empezarAJugar(){
-		
-		panelJuego = new JPanel(new BorderLayout()); 
-		panelJuego.setBackground(Color.WHITE);
-		Comportamiento.setRockfordMuerto(false);
-		
-		//HUD
+	private void inicializarHUD()
+	{
 		panelHud = new JPanel(new GridLayout());
 		panelHud.setBackground(Color.BLACK);
 		Font fuente = new Font("Serif", Font.BOLD, 20);
@@ -267,10 +279,10 @@ public class Gui extends JFrame{
 		diamantesRestantes.setForeground(Color.WHITE);
 		panelHud.add(vidas);
 		panelHud.add(diamantesRestantes);
-		
-		//fin HUD
-
-		
+	}
+	
+	private void inicializarPanelMatriz()
+	{
 		panelMatriz = new JPanel(new GridLayout(22,40,0,0));
 		panelMatriz.addKeyListener(teclaEscucha);
 		panelMatriz.setBackground(Color.black);
@@ -285,11 +297,20 @@ public class Gui extends JFrame{
 			labels[(i)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
 			panelMatriz.add(labels[(i)], (i));
 		}
+	}
+	
+	private void empezarAJugar(){
 		
+		panelJuego = new JPanel(new BorderLayout()); 
+		panelJuego.setBackground(Color.WHITE);
+		Comportamiento.setRockfordMuerto(false);
+		
+		inicializarHUD();
+		inicializarPanelMatriz();
+
 		actualizarHud ();
 		panelJuego.add(panelHud, BorderLayout.NORTH);
 		panelJuego.add(panelMatriz, BorderLayout.SOUTH); //La matriz del juego va debajo
-		
 		
 		add(panelJuego); 		
 		
@@ -386,8 +407,6 @@ public class Gui extends JFrame{
 			((JLabel)(panelHud.getComponent(0))).setText("Mou shindeiru");
 		
 		((JLabel)(panelHud.getComponent(1))).setText("Diamantes restantes: " + Mapa.getDiamantesRestantes()); //Actualiza Los diamantes restantes
-		
-		
 	}
 	
 }
