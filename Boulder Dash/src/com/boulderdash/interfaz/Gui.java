@@ -19,6 +19,7 @@ public class Gui extends JFrame{
 	private GuiHUD hud;
 	private GuiMatriz matriz;
 	private GuiMuerte muerte;
+	private GuiNuevoHighscore nuevoHighscore;
 	
 	private JPanel juego;
 	
@@ -33,6 +34,7 @@ public class Gui extends JFrame{
 		opciones = new GuiOpciones();
 		highscores = new GuiHighscores();
 		reglas = new GuiReglas();
+		nuevoHighscore = new GuiNuevoHighscore();
 
 		setSize(1024, 720);
 	    setResizable(false);
@@ -78,13 +80,6 @@ public class Gui extends JFrame{
 		matriz.requestFocus(); //Se centra en el juego para responder al key listener
 	}
 	
-	/*
-	public void volverDeOpciones()
-	{
-		add(titulo);
-		pack();
-		repaint();
-	}*/
 	
 	public GuiTitulo getTitulo() {
 		return titulo;
@@ -101,7 +96,7 @@ public class Gui extends JFrame{
 	public void setOpciones(GuiOpciones opciones) {
 		this.opciones = opciones;
 	}
-
+	
 	public GuiHighscores getHighscores() {
 		return highscores;
 	}
@@ -148,6 +143,14 @@ public class Gui extends JFrame{
 
 	public void setJuego(JPanel juego) {
 		this.juego = juego;
+	}
+
+	public GuiNuevoHighscore getNuevoHighscore() {
+		return nuevoHighscore;
+	}
+
+	public void setNuevoHighscore(GuiNuevoHighscore nuevoHighscore) {
+		this.nuevoHighscore = nuevoHighscore;
 	}
 
 	

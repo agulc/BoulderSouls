@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.boulderdash.audio.Audio;
+import com.boulderdash.principal.Highscore;
+import com.boulderdash.principal.Mapa;
 
 @SuppressWarnings("serial")
 public class GuiMuerte extends JPanel
@@ -44,9 +46,20 @@ public class GuiMuerte extends JPanel
 		
 		Gui.getInstancia().remove(panelMuerte);
 		
-		Gui.getInstancia().getMatriz().reconstruir(); //Reconstruye el panel del mapa
+		Highscore high = new Highscore("",Mapa.getPuntuacionAcumulada(),Mapa.getTiempoAcumulado());
 		
-		Gui.getInstancia().getTitulo().volverAlTitulo();
+		if (Highscore.highscoreValido(high))
+		{
+			Gui.getInstancia().getNuevoHighscore().menuNuevoHighscore(high);
+		}
+		else
+		{
+			Gui.getInstancia().getTitulo().volverAlTitulo();
+		}
+		
+		
+		
+		
 	}
 
 }

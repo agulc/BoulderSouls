@@ -8,6 +8,9 @@ import com.boulderdash.personajes.Rockford;
 public class Contador extends TimerTask {
 
 	public void run() {
+		
+		Mapa.setTiempoAcumulado(Mapa.getTiempoAcumulado() + 1);
+		
 		//Decrementa el contador en 1
 		Mapa.getInstancia().decrementarTiempoRestante();
 		if(Mapa.getInstancia().getTiempoRestante() <= 0){

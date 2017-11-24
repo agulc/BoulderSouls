@@ -1,6 +1,20 @@
-1 Fede 170000 45
-2 asasd 16000 40
-3 Alfreasdasddo 16000 40
-4 Alfredjhuihaso 16000 40
-5 Alfredo 16000 40
-6 Alfredo 16000 40
+Nico 1100 50
+Juan 1000 111
+dinosaurio 1000 111
+BananaMan 1000 111
+Mina 1000 111
+Lopez 1000 111
+Batman 1000 111
+Hidetaka 324 142
+Miyazaki 319 55
+Dios 215 60
+- 0 0
+- 0 0
+- 0 0
+- 0 0
+- 0 0
+- 0 0
+- 0 0
+- 0 0
+- 0 0
+- 0 0

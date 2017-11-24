@@ -20,6 +20,7 @@ public class Mapa {
 	
 	private static int nivelActual = 1;
 	private static int puntuacionAcumulada = 0;
+	private static int tiempoAcumulado = 0;
 	private int puntuacionNivel = 0; //Se reinicia cada vez que muero
 	private static int vidas = 4;
 	private int tiempoRestante;
@@ -224,6 +225,16 @@ public class Mapa {
 	
 	public void setTiempoRestante(int tiempo) {
 		this.tiempoRestante = tiempo;
+	}
+
+
+	public static int getTiempoAcumulado() {
+		return tiempoAcumulado;
+	}
+
+
+	public static void setTiempoAcumulado(int tiempoAcumulado) {
+		Mapa.tiempoAcumulado = tiempoAcumulado;
 	}
 
 
