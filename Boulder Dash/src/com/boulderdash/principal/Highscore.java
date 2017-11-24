@@ -2,6 +2,9 @@ package com.boulderdash.principal;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 import javax.swing.JTable;
 
@@ -58,9 +61,34 @@ public class Highscore {
 		return 0;
 	}
 	
-	public static void leerArchivoTxt()
+	public static String[][] leerArchivoTxt()
 	{
 		//Leera el archivo txt y llenara el arreglo con los valores obtenidos
+		try{
+			BufferedReader br = new BufferedReader(new FileReader("./Highscores/Highscores.txt"));
+		    String line = br.readLine();
+		    int contador = 0;
+		    String[][] filas = new String[20][6];
+		    String[] aux;
+		    while (line != null) {
+		    	String[] linea = new String[6];
+		    	aux = line.split(" ");
+		    	linea[0] = " ";
+		    	for (int i=0;i<4;i++){
+		    		linea[i+1] = aux[i];
+		    	}
+		    	linea[5] = " ";
+		        line = br.readLine();
+		        filas[contador] = linea;
+		        contador++;
+		    }
+			br.close();
+			return filas;
+		}catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public static int getCantidadAMostrar() {
@@ -74,13 +102,13 @@ public class Highscore {
 	public static JTable getTabla()
 	{
 		String[] columnas = {"", "", "", "", "", ""};
-		String[][] filas = {{"", "Posicion", "Nombre","Puntuacion", "Tiempo", ""}
+		/*String[][] filas = {{"", "Posicion", "Nombre","Puntuacion", "Tiempo", ""}
 							, {"", "1", "Juan", "1500","4000",""}
 							, {"", "2", "Pedro", "1300","4500",""}
 							, {"", "3", "Rockford", "950","4500",""}
-							, {"", "", "", "","",""}};
+							, {"", "", "", "","",""}};*/
 		
-		JTable tabla = new JTable(filas,columnas) 
+		JTable tabla = new JTable(leerArchivoTxt(),columnas) 
 		{
 			private static final long serialVersionUID = 1L;
 
