@@ -3,7 +3,6 @@ package com.boulderdash.personajes;
 import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
-import com.boulderdash.interfaz.Gui;
 import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
 import javax.swing.ImageIcon;
@@ -29,9 +28,8 @@ public abstract class Personaje {
 	}
 	
 	public void setPos(Posicion posAux){
-		Gui.getInstancia().actualizarImagenes(pos);
+
 		this.pos = posAux;
-		Gui.getInstancia().actualizarImagenes(pos);
 	}
 	
 	public Posicion getPos(ParaDonde donde){
@@ -175,7 +173,6 @@ public abstract class Personaje {
 				pos.setY(j);
 				Mapa.getInstancia().getPersonaje(pos).recibeExplosion(); //Envia la explosion al personaje
 				
-			    Gui.getInstancia().actualizarImagenes(pos);
 			}
 		}
 		Audio.explosion();

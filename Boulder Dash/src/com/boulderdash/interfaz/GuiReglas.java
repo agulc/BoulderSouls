@@ -139,7 +139,8 @@ public class GuiReglas extends JPanel{
 		botonRegresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Gui.getInstancia().remove(Gui.getInstancia().getReglas());
-				Gui.getInstancia().volverDeOpciones();
+				Gui.getInstancia().add(Gui.getInstancia().getTitulo());
+				Gui.getInstancia().pack();
 				System.out.println("Regresar presionado");
 			}
 		});
@@ -151,8 +152,8 @@ public class GuiReglas extends JPanel{
 	public void menuReglas()
 	{
 		Gui.getInstancia().add(Gui.getInstancia().getReglas());
-		this.setSize( (int)Gui.getInstancia().getTitulo().getSize().getWidth(), 580);
-		
+		Gui.getInstancia().setSize((int)Gui.getInstancia().getTitulo().getSize().getWidth(), 580);
+		Gui.getInstancia().validate();
 		Gui.getInstancia().repaint();
 	}
 }

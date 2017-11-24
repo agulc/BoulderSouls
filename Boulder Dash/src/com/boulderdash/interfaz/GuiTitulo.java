@@ -53,8 +53,9 @@ public class GuiTitulo extends JPanel{
 		botonOpciones.setIcon(new ImageIcon("./Texturas/OpcionesInerte.png"));
 		botonOpciones.setRolloverIcon(new ImageIcon("./Texturas/Opciones.png"));
 		botonOpciones.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Gui.getInstancia().add(Gui.getInstancia().getTitulo());
+			public void actionPerformed(ActionEvent arg0)
+			{
+				Gui.getInstancia().remove(Gui.getInstancia().getTitulo());
 				System.out.println("Opciones presionado");
 				Gui.getInstancia().getOpciones().menuOpciones();
 			}

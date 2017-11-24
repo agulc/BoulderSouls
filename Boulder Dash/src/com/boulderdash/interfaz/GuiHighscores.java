@@ -42,7 +42,8 @@ public class GuiHighscores extends JPanel{
 		botonRegresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Gui.getInstancia().remove(Gui.getInstancia().getHighscores());
-				Gui.getInstancia().volverDeOpciones();
+				Gui.getInstancia().add(Gui.getInstancia().getTitulo());
+				Gui.getInstancia().pack();
 				System.out.println("Regresar presionado");
 			}
 		});

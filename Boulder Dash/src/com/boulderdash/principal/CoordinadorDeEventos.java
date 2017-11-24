@@ -6,13 +6,13 @@ import com.boulderdash.interfaz.Gui;
 
 
 
+
 public class CoordinadorDeEventos extends TimerTask {
 
-	
-	
 	public void run() {
 			Comportamiento.comportamientoNormal();
 			Gui.getInstancia().getMatriz().actualizarImagenes();
+			Gui.getInstancia().getHud().actualizarHud();
 	}
 	private static Timer reloj = new Timer();;
 	

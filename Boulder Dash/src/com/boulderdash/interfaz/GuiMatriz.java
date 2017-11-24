@@ -34,11 +34,11 @@ public class GuiMatriz extends JPanel{
 	}
 	
 	
-	public void actualizarImagenes(Posicion pos) 
+	public void actualizarImagenes() 
 	{
 		Gui.getInstancia().getHud().actualizarHud();
-		int i = pos.getY()*40 + pos.getX();
-		labels[(i)].setIcon(Mapa.getInstancia().getPersonaje(pos).getIcono());
+		//int i = pos.getY()*40 + pos.getX();
+		//labels[(i)].setIcon(Mapa.getInstancia().getPersonaje(pos).getIcono());
 		Gui.getInstancia().pack();
 		Gui.getInstancia().getMatriz().repaint();
 	}

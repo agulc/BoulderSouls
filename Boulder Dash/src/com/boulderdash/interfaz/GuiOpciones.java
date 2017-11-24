@@ -46,6 +46,7 @@ public class GuiOpciones extends JPanel{
         containerOpciones.add(containerOpciones3, BorderLayout.CENTER);
 		containerOpciones.add(crearBotonRegresar(), BorderLayout.SOUTH);
 		this.setBackground(Color.BLACK);
+		
 		this.add(containerOpciones, BorderLayout.CENTER);
 	
 	}
@@ -161,9 +162,11 @@ public class GuiOpciones extends JPanel{
 		botonRegresar.setRolloverIcon(new ImageIcon("./Texturas/Back.png"));
 		botonRegresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				 remove(Gui.getInstancia().getOpciones());
-				 Gui.getInstancia().volverDeOpciones();
-				 System.out.println("Regresar presionado");
+				Gui.getInstancia().remove(Gui.getInstancia().getOpciones());
+				Gui.getInstancia().add(Gui.getInstancia().getTitulo());
+				//Gui.getInstancia().volverDeOpciones();
+				Gui.getInstancia().repaint();
+				System.out.println("Regresar presionado");
 			}
 		});
 		
@@ -173,8 +176,9 @@ public class GuiOpciones extends JPanel{
 	public void menuOpciones()
 	{
 		Gui.getInstancia().add(Gui.getInstancia().getOpciones());
-		this.setSize(Gui.getInstancia().getTitulo().getSize());
-		Gui.getInstancia().repaint();
+		Gui.getInstancia().getOpciones().setSize(Gui.getInstancia().getTitulo().getSize());
+		Gui.getInstancia().validate();
+		this.repaint();
 	}
 	
 	

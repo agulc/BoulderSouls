@@ -139,7 +139,7 @@ public class Mapa {
 		
 		instancia = new Mapa();
 		System.out.println("El mapa se acaba de reconstruir");
-		Gui.getInstancia().reconstruir();
+		Gui.getInstancia().getMatriz().reconstruir();
 	}
 	
 	

@@ -29,10 +29,10 @@ public class Gui extends JFrame{
 	
 	private void inicializarGui()
 	{
-		//Se construye un GuiTitulo
-		//Se construye un GuiOpciones
-		//Se construye un GuiHighscores
-		//Se construye un GuiReglas
+		titulo = new GuiTitulo();
+		opciones = new GuiOpciones();
+		highscores = new GuiHighscores();
+		reglas = new GuiReglas();
 
 		setSize(1024, 720);
 	    setResizable(false);
@@ -53,6 +53,8 @@ public class Gui extends JFrame{
 
 	
 	public void empezarAJugar(){
+		
+		this.remove(titulo);
 		
 		juego = new JPanel(new BorderLayout()); 
 		juego.setBackground(Color.WHITE);
@@ -76,13 +78,13 @@ public class Gui extends JFrame{
 		matriz.requestFocus(); //Se centra en el juego para responder al key listener
 	}
 	
-	
+	/*
 	public void volverDeOpciones()
 	{
 		add(titulo);
 		pack();
 		repaint();
-	}
+	}*/
 	
 	public GuiTitulo getTitulo() {
 		return titulo;

@@ -73,7 +73,7 @@ public class MiTeclaEscucha extends KeyAdapter{
 		
 		case KeyEvent.VK_ESCAPE:
 		{
-			Gui.getInstancia().volverAlTitulo();
+			Gui.getInstancia().getTitulo().volverAlTitulo();
 		}
 		break;
 		

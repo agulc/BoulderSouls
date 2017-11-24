@@ -3,7 +3,6 @@ import java.util.Random;
 
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
-import com.boulderdash.interfaz.Gui;
 import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
 import javax.swing.*;

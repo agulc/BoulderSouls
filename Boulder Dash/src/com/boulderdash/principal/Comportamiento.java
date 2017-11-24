@@ -54,6 +54,7 @@ public class Comportamiento {
 	 * Se encarga de modificar la posición de cada objeto (salvo Rockford) del nivel en cada turno.
 	 * @throws Exception .
 	 */
+	@SuppressWarnings("static-access")
 	private static void moverPersonajes(){
 		Posicion pos = new Posicion();
 		for (int y = 21; y >= 0 && !rockfordMuerto; y--)  {
@@ -73,7 +74,7 @@ public class Comportamiento {
 					e.printStackTrace();
 				}
 				Audio.hasMuerto();
-				Gui.getInstancia().hasMuerto();
+				Gui.getInstancia().getMuerte().muerte();
 				CoordinadorDeEventos.detenerTemporizador();
 			}
 			else {
