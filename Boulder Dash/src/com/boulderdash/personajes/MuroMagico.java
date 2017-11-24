@@ -21,6 +21,4 @@ public class MuroMagico extends Muro{
 		return icono;
 	}
 	
-
-
 }

@@ -25,9 +25,7 @@ public class CoordinadorDeEventos extends TimerTask {
 	}
 	
 	public static void detenerTemporizador() {
-
 		reloj.cancel();
 	}
 	
-
 }

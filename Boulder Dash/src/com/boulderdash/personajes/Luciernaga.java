@@ -3,7 +3,6 @@ package com.boulderdash.personajes;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
-import com.boulderdash.principal.Posicion;
 import javax.swing.*;
 
 public class Luciernaga extends EnemigoMovil{
@@ -53,32 +52,8 @@ public class Luciernaga extends EnemigoMovil{
 		
 		}
 		
-		  int a = this.getPos().getX()-1; //Empieza en la esquina superior izquierda
-		  int b = this.getPos().getY()-1;
-		  Posicion posAux = new Posicion();
-		  int aAux = a+2;
-		  int bAux = b+2;
-		  posAux.setX(a+1);
-		  for (int j = b; j <= bAux; j = j + 2)
-			   {
-			  	posAux.setY(j);
-			    if (Mapa.getInstancia().getPersonaje(posAux).chequearSiSoy(BDTile.PLAYER)){ //Si el jugador es adyacente, la luciernaga explota 
-			    	 Mapa.getInstancia().getPersonaje(posAux).recibeExplosion();
-			    	 super.explotar();
-				     break;
-				    }
-			   }
-		  posAux.setY(b+1);
-		  for (int j = a ; j <= aAux; j = j + 2) {
-			    posAux.setX(j);
-			    if (Mapa.getInstancia().getPersonaje(posAux).chequearSiSoy(BDTile.PLAYER)){ //Si el jugador es adyacente, la luciernaga explota 
-			    	 Mapa.getInstancia().getPersonaje(posAux).recibeExplosion();
-			    	 super.explotar();
-				     break;
-			    }
-		   }
-		
-		
+		this.chequearSiExploto();
+		this.YaMeMoviEsteTurno = false;
 	}
 	
 	

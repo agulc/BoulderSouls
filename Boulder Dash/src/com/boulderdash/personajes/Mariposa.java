@@ -56,32 +56,8 @@ public class Mariposa extends EnemigoMovil{
 			break;
 		
 		}
-		
-		  int x = this.getPos().getX()-1; //Empieza en la esquina superior izquierda
-		  int y = this.getPos().getY()-1;
-		  Posicion posAux = new Posicion();
-		  int xAux = x + 3;
-		  int yAux = y + 3;
-		  posAux.setX(x+1);
-		  for (int j = y; j < yAux; j = j + 2)
-			   {
-			  	posAux.setY(j);
-			    if (Mapa.getInstancia().getPersonaje(posAux).chequearSiSoy(BDTile.PLAYER)){ //Si el jugador es adyacente en x, la luciernaga explota 
-			    	 Mapa.getInstancia().getPersonaje(posAux).recibeExplosion();
-			    	 super.explotar();
-				     break;
-				    }
-			   }
-		  posAux.setY(y+1);
-		  for (int j = x ; j < xAux; j = j + 2) {
-			    posAux.setX(j);
-			    if (Mapa.getInstancia().getPersonaje(posAux).chequearSiSoy(BDTile.PLAYER)){ //Si el jugador es adyacente en y, la luciernaga explota 
-			    	 Mapa.getInstancia().getPersonaje(posAux).recibeExplosion();
-			    	 super.explotar();
-				     break;
-			    }
-		   }
-		
+		this.chequearSiExploto();
+		this.YaMeMoviEsteTurno = false;
 		
 	}
 	
