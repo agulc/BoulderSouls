@@ -3,7 +3,7 @@ package com.boulderdash.personajes;
 import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
-import com.boulderdash.principal.Gui;
+import com.boulderdash.interfaz.Gui;
 import com.boulderdash.principal.Mapa;
 import javax.swing.*;
 

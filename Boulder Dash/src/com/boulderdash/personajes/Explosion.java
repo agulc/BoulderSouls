@@ -2,7 +2,7 @@ package com.boulderdash.personajes;
 
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
-import com.boulderdash.principal.Gui;
+import com.boulderdash.interfaz.Gui;
 import com.boulderdash.principal.Mapa;
 import javax.swing.*;
 
@@ -38,8 +38,6 @@ public class Explosion extends Personaje{
 		{
 			Mapa.getInstancia().setPersonaje(new Vacio(this.getPos()), this.getPos()); //Sobreescribo la explosion con un personaje vacio
 		}
-		
-		Gui.getInstancia().actualizarImagenes(this.getPos());
 		
 	}
 	

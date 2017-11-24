@@ -1,6 +1,7 @@
 package com.boulderdash.principal;
 
 import com.boulderdash.audio.Audio;
+import com.boulderdash.interfaz.Gui;
 
 public class Juego{
 	/**

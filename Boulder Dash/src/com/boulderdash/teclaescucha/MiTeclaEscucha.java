@@ -3,9 +3,9 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 import com.boulderdash.enumerativos.ParaDonde;
+import com.boulderdash.interfaz.Gui;
 import com.boulderdash.personajes.Rockford;
 import com.boulderdash.principal.Comportamiento;
-import com.boulderdash.principal.Gui;
 
 
 

@@ -2,6 +2,8 @@ package com.boulderdash.principal;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.boulderdash.interfaz.Gui;
+
 
 
 public class CoordinadorDeEventos extends TimerTask {
@@ -10,6 +12,7 @@ public class CoordinadorDeEventos extends TimerTask {
 	
 	public void run() {
 			Comportamiento.comportamientoNormal();
+			Gui.getInstancia().getMatriz().actualizarImagenes();
 	}
 	private static Timer reloj = new Timer();;
 	

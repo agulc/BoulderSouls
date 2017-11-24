@@ -3,7 +3,7 @@ package com.boulderdash.personajes;
 import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
-import com.boulderdash.principal.Gui;
+import com.boulderdash.interfaz.Gui;
 import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
 import javax.swing.*;
@@ -113,8 +113,6 @@ public class Mariposa extends EnemigoMovil{
 				  pos.setY(j);
 				  if (!Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.WALL) && !Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.PLAYER) && !Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.EXIT)) 
 					  Mapa.getInstancia().setPersonaje(new Diamante(false,pos.getX(),pos.getY()), pos);
-
-				  Gui.getInstancia().actualizarImagenes(pos);
 			  }
 		  }
 		  

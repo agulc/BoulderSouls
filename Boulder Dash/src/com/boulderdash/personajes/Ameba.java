@@ -3,7 +3,7 @@ import java.util.Random;
 
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
-import com.boulderdash.principal.Gui;
+import com.boulderdash.interfaz.Gui;
 import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
 import javax.swing.*;
@@ -50,7 +50,7 @@ public class Ameba extends Enemigo{
 		int adyacente = 1 + generador.nextInt(8); //Determina en que cuadro adyacente intentara expandirse
 	
 
-		Gui.getInstancia().actualizarImagenes(this.getPos());
+		//Gui.getInstancia().actualizarImagenes(this.getPos());
 		
 		if (expandirse == 30) //Tiene una probabilidad de 1 en 30 de intentar expandirse
 		{

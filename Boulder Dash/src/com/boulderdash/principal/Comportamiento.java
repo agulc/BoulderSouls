@@ -2,6 +2,7 @@ package com.boulderdash.principal;
 
 import com.boulderdash.audio.Audio;
 import com.boulderdash.enumerativos.ParaDonde;
+import com.boulderdash.interfaz.Gui;
 import com.boulderdash.personajes.Rockford;
 
 public class Comportamiento {
