@@ -32,7 +32,7 @@ public class CoordinadorDeEventos extends TimerTask {
 		reloj.cancel();
 		reloj.purge();
 		cuentaAtras.cancel();
-		reloj.purge();
+		cuentaAtras.purge();
 	}
 	
 }

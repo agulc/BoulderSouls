@@ -37,7 +37,6 @@ public class GuiMatriz extends JPanel{
 	{
 		  Posicion pos = new Posicion();
 		  Gui.getInstancia().getHud().actualizarHud();
-		  //Gui.getInstancia().getMatriz().removeAll();
 		  
 		  for (int i = 0; i < 880; i++) 
 		  {

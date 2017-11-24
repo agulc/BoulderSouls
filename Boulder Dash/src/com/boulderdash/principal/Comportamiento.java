@@ -3,6 +3,7 @@ package com.boulderdash.principal;
 import com.boulderdash.audio.Audio;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.interfaz.Gui;
+import com.boulderdash.interfaz.GuiMuerte;
 import com.boulderdash.personajes.Rockford;
 
 public class Comportamiento {
@@ -76,7 +77,7 @@ public class Comportamiento {
 
 				CoordinadorDeEventos.detenerTemporizador();
 				Audio.hasMuerto();
-				Gui.getInstancia().getMuerte().muerte();
+				GuiMuerte.muerte();
 			}
 			else {
 			Gui.getInstancia().getMatriz().reconstruir();

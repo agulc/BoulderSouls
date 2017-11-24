@@ -221,6 +221,10 @@ public class Mapa {
 	public void decrementarTiempoRestante() {
 		this.tiempoRestante--;
 	}
+	
+	public void setTiempoRestante(int tiempo) {
+		this.tiempoRestante = tiempo;
+	}
 
 
 	
