@@ -33,7 +33,7 @@ public class GuiMatriz extends JPanel{
 		}
 	}
 	
-	
+	/*
 	public void actualizarImagenes() 
 	{
 		Gui.getInstancia().getHud().actualizarHud();
@@ -42,19 +42,19 @@ public class GuiMatriz extends JPanel{
 		Gui.getInstancia().pack();
 		Gui.getInstancia().getMatriz().repaint();
 	}
-	
+	*/
 	
 	public void reconstruir() 
 	{
 		  Posicion pos = new Posicion();
-		  Gui.getInstancia().getMatriz().removeAll();
+		  Gui.getInstancia().getHud().actualizarHud();
+		  //Gui.getInstancia().getMatriz().removeAll();
 		  
 		  for (int i = 0; i < 880; i++) 
 		  {
 			  pos.setX(i%40);
 			  pos.setY(i/40);
-			  labels[i] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
-			  Gui.getInstancia().getMatriz().add(labels[i], i);
+			  labels[i].setIcon(Mapa.getInstancia().getPersonaje(pos).getIcono());
 		  }
 		  Gui.getInstancia().getMatriz().validate();
 	}
