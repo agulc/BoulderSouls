@@ -218,8 +218,8 @@ public class Mapa {
 	}
 
 
-	public void setTiempoRestante(int tiempoRestante) {
-		this.tiempoRestante = tiempoRestante;
+	public void decrementarTiempoRestante() {
+		this.tiempoRestante--;
 	}
 
 
