@@ -67,17 +67,24 @@ public class Comportamiento {
 		if (rockfordMuerto)
 		{
 			if (Mapa.getInstancia().getVidas() == 0) {
+				Gui.getInstancia().getMatriz().reconstruir();
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+
+				CoordinadorDeEventos.detenerTemporizador();
 				Audio.hasMuerto();
 				Gui.getInstancia().getMuerte().muerte();
-				CoordinadorDeEventos.detenerTemporizador();
 			}
 			else {
+			Gui.getInstancia().getMatriz().reconstruir();
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			Mapa.getInstancia().reconstruirMapa();
 			setRockfordMuerto(false);
 			}
