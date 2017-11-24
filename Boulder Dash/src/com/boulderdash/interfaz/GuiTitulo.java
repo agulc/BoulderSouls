@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 
 import com.boulderdash.audio.Audio;
 import com.boulderdash.principal.CoordinadorDeEventos;
+import com.boulderdash.principal.Mapa;
 
 @SuppressWarnings("serial")
 public class GuiTitulo extends JPanel{
@@ -127,6 +128,7 @@ public class GuiTitulo extends JPanel{
 	{
 		CoordinadorDeEventos.detenerTemporizador();
 		Audio.pararMusica();
+		Mapa.setPuntuacionAcumulada(0);
 		Gui.getInstancia().remove(Gui.getInstancia().getJuego());
 		Gui.getInstancia().add(Gui.getInstancia().getTitulo());
 		if (Audio.getMusicaActivada())
