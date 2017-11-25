@@ -67,7 +67,23 @@ public class GuiHighscores extends JPanel{
 		Gui.getInstancia().add(Gui.getInstancia().getHighscores());
 		
 		Gui.getInstancia().pack();
-		Gui.getInstancia().setSize(Gui.getInstancia().getTitulo().getSize().width, Gui.getInstancia().getHighscores().getHeight());
+		//Gui.getInstancia().setSize(Gui.getInstancia().getTitulo().getSize().width, Gui.getInstancia().getHighscores().getHeight());
+		
+		switch (Highscore.getCantidadAMostrar())
+		{
+		case 5: Gui.getInstancia().setSize(Gui.getInstancia().getTitulo().getSize().width, 510);
+		break;
+		
+		case 10: Gui.getInstancia().setSize(Gui.getInstancia().getTitulo().getSize().width, 660);
+		break;
+		
+		case 15: Gui.getInstancia().setSize(Gui.getInstancia().getTitulo().getSize().width, 820);
+		break;
+
+		case 20: Gui.getInstancia().setSize(Gui.getInstancia().getTitulo().getSize().width, 960);
+		break;
+		}
+		
 		Gui.getInstancia().repaint();
 	}
 

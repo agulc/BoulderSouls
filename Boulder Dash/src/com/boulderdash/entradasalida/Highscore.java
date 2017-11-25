@@ -1,6 +1,7 @@
 package com.boulderdash.entradasalida;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -10,6 +11,7 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 
 import fuentes.MiFuente;
 
@@ -21,6 +23,7 @@ public class Highscore {
 	private String nombre;
 	private int puntos;
 	private int tiempo;
+	
 	
 	public Highscore(String nombre, int puntos, int tiempo)
 	{
@@ -155,6 +158,7 @@ public class Highscore {
 		return filas;
 	}
 	
+	@SuppressWarnings("serial")
 	public static JTable getTabla()
 	{
 		//cargarArregloHighscores();
@@ -175,13 +179,41 @@ public class Highscore {
 		Font fuente = MiFuente.getFuente(20);
 		
 		tabla.setFont(fuente);
-		tabla.setForeground(Color.WHITE);
+		//tabla.setForeground(Color.WHITE);
 		tabla.setBackground(Color.BLACK);
 		tabla.setGridColor(Color.BLACK);
 		tabla.setFocusable(false);
 		tabla.setRowSelectionAllowed(false);
 		tabla.setFillsViewportHeight(true);
 		tabla.setRowHeight(30);
+		
+		tabla.setDefaultRenderer(Object.class, new DefaultTableCellRenderer(){
+		    @Override
+		    public Component getTableCellRendererComponent(JTable table,
+		            Object value, boolean isSelected, boolean hasFocus, int row, int col) {
+
+		        super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col);
+
+		        if (row == 0)
+		        {
+		        	setForeground(Color.WHITE);
+		        }
+		        else
+		        {
+		        	if (row > cantidadAMostrar)
+			        {
+			        	setForeground(Color.BLACK);
+			        }
+			        else
+			        {
+			        	setForeground(Color.GRAY);
+			        }
+		        }
+		        
+		        
+		        return this;
+		    }   
+		});
 		
 		return tabla;
 	}
@@ -240,5 +272,6 @@ public class Highscore {
 	public void setTiempo(int tiempo) {
 		this.tiempo = tiempo;
 	}
+
 	
 }
