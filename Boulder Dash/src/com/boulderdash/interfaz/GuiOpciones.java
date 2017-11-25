@@ -129,13 +129,11 @@ public class GuiOpciones extends JPanel{
 				
 				if (!Audio.getMusicaActivada())
 				{
-					System.out.println("Se intenta parar la musica, y el audio esta en: " + Audio.getMusicaActivada());
 					Audio.pararMusica(); //Para la musica del menu
 					OpcionesES.setMusica(false);
 				}
 				else
 				{
-					System.out.println("Se incicia la musica, y el audio esta en: " + Audio.getMusicaActivada());
 					Audio.musicaMenu();
 					OpcionesES.setMusica(true);
 				}
