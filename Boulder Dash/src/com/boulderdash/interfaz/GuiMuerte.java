@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.boulderdash.audio.Audio;
-import com.boulderdash.principal.Highscore;
+import com.boulderdash.entradasalida.Highscore;
 import com.boulderdash.principal.Mapa;
 
 @SuppressWarnings("serial")

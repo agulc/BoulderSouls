@@ -19,13 +19,15 @@ public class CoordinadorDeEventos extends TimerTask {
 	private static CoordinadorDeEventos tarea;
 	private static Contador tarea2;
 	
+	
 	public static void iniciarTemporizador() {
 		reloj = new Timer();
 		tarea = new CoordinadorDeEventos();
 		cuentaAtras = new Timer();
 		tarea2 = new Contador();
-		reloj.schedule(tarea, 1, 120);
+		reloj.schedule(tarea, 1, 90);
 		cuentaAtras.schedule(tarea2, 1, 1000);
+		
 	}
 	
 	public static void detenerTemporizador() {

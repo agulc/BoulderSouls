@@ -33,21 +33,25 @@ public class Audio {
 	
 	public static void musicaMenu() 
     {   
-		try 
+		if (musicaActivada)
 		{
-			   File fileExp = new File("./Audio/Theme_Song.wav");
-			   clip = AudioSystem.getClip();
-			   clip.open(AudioSystem.getAudioInputStream(fileExp));
-			   clip.loop(Clip.LOOP_CONTINUOUSLY);
-		} 
-		catch (Exception e) 
-		{
-			   System.err.println(e.getMessage());
+			try 
+			{
+				   File fileExp = new File("./Audio/Theme_Song.wav");
+				   clip = AudioSystem.getClip();
+				   clip.open(AudioSystem.getAudioInputStream(fileExp));
+				   clip.loop(Clip.LOOP_CONTINUOUSLY);
+			} 
+			catch (Exception e) 
+			{
+				   System.err.println(e.getMessage());
+			}
 		}
     }
 	
 	public static void pararMusica(){
-		clip.stop();
+		if (clip != null)
+			clip.stop();
 	}
 	
 	
@@ -166,7 +170,8 @@ public class Audio {
 		return musicaActivada;
 	}
 
-	public static void setMusicaActivada(boolean musicaActivada) {
-		Audio.musicaActivada = musicaActivada;
+	public static void setMusicaActivada(boolean bool) {
+		System.out.println("Audio: " + bool);
+		musicaActivada = bool;
 	}
 }

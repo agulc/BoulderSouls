@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
-import com.boulderdash.principal.Highscore;
+import com.boulderdash.entradasalida.Highscore;
 
 @SuppressWarnings("serial")
 public class GuiHighscores extends JPanel{

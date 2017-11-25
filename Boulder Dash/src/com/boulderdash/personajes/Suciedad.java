@@ -26,7 +26,7 @@ public class Suciedad extends Personaje {
 
 	@Override
 	public ImageIcon getIcono() {
-		// TODO Auto-generated method stub
+		
 		return icono;
 	}
 }

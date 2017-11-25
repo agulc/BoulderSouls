@@ -17,8 +17,6 @@ public class Comportamiento {
 	private static boolean piedrasConInercia = false; //Activa la muerte extra
 	
 
-	
-	
 	public static void setRockfordMuerto (boolean bool)
 	{
 		rockfordMuerto = bool; //Para dejar de actualizar objetos al morir
@@ -55,7 +53,6 @@ public class Comportamiento {
 	 * Se encarga de modificar la posición de cada objeto (salvo Rockford) del nivel en cada turno.
 	 * @throws Exception .
 	 */
-	@SuppressWarnings("static-access")
 	private static void moverPersonajes(){
 		Posicion pos = new Posicion();
 		for (int y = 21; y >= 0 && !rockfordMuerto; y--)  {

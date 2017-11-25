@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.boulderdash.audio.Audio;
+import com.boulderdash.entradasalida.OpcionesES;
 import com.boulderdash.principal.Comportamiento;
 import com.boulderdash.principal.Mapa;
 
@@ -69,9 +70,12 @@ public class GuiOpciones extends JPanel{
 			public void actionPerformed(ActionEvent arg0) {
 				
 				Comportamiento.setMuerteExtra(!Comportamiento.getMuerteExtra());
+				OpcionesES.setMuerteExtra(Comportamiento.getMuerteExtra());
 			}
 		});
 		checkBoxMuerte.setText("Muerte alternativa");
+		
+		checkBoxMuerte.setSelected(Comportamiento.getMuerteExtra());
 		
 		return checkBoxMuerte;
 	}
@@ -93,16 +97,19 @@ public class GuiOpciones extends JPanel{
 			public void actionPerformed(ActionEvent arg0) {
 				
 				Comportamiento.setPiedrasConInercia(!Comportamiento.getPiedrasConInercia());
+				OpcionesES.setPiedrasConInercia(Comportamiento.getPiedrasConInercia());
 			}
 		});
-		checkBoxpiedrasConInercia.setText("Piedras con inercia");
+	    checkBoxpiedrasConInercia.setText("Piedras con inercia");
+
+	    checkBoxpiedrasConInercia.setSelected(Comportamiento.getPiedrasConInercia());
 	    
 	    return checkBoxpiedrasConInercia;
 	}
 
 	private JCheckBox crearBoxMusicaActivada()
 	{
-		JCheckBox boxMusicaActivada = new JCheckBox();
+		final JCheckBox boxMusicaActivada = new JCheckBox();
 		boxMusicaActivada.setFont(MiFuente.getFuente(18));
 		boxMusicaActivada.setBackground(Color.BLACK);
 		boxMusicaActivada.setForeground(Color.WHITE);
@@ -117,18 +124,25 @@ public class GuiOpciones extends JPanel{
 			public void actionPerformed(ActionEvent arg0) {
 				
 				Audio.setMusicaActivada(!Audio.getMusicaActivada());
+				
 				if (!Audio.getMusicaActivada())
 				{
+					System.out.println("Se intenta parar la musica, y el audio esta en: " + Audio.getMusicaActivada());
 					Audio.pararMusica(); //Para la musica del menu
+					OpcionesES.setMusica(false);
 				}
 				else
 				{
+					System.out.println("Se incicia la musica, y el audio esta en: " + Audio.getMusicaActivada());
 					Audio.musicaMenu();
+					OpcionesES.setMusica(true);
 				}
+				
 			}
 		});
 		boxMusicaActivada.setText("Musica");
-		boxMusicaActivada.setSelected(true);
+
+		boxMusicaActivada.setSelected(Audio.getMusicaActivada());
 		
 		return boxMusicaActivada;
 	}
@@ -140,13 +154,15 @@ public class GuiOpciones extends JPanel{
 		nivelAElegir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-					Mapa.getInstancia().setNivelActual(nivelAElegir.getSelectedIndex() + 1);
-					System.out.println("Nivel cambiado");
+				Mapa.getInstancia().setNivelActual(nivelAElegir.getSelectedIndex() + 1);
+				OpcionesES.setNivel(nivelAElegir.getSelectedIndex() + 1);
+				System.out.println("Nivel cambiado");
 			}
 		});
 		nivelAElegir.setFont(MiFuente.getFuente(18));
 		nivelAElegir.setBackground(Color.BLACK);
 		nivelAElegir.setForeground(Color.WHITE);
+		nivelAElegir.setSelectedIndex(OpcionesES.getNivel() - 1);
 		
 		return nivelAElegir;
 	}

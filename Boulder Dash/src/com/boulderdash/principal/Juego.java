@@ -1,6 +1,7 @@
 package com.boulderdash.principal;
 
 import com.boulderdash.audio.Audio;
+import com.boulderdash.entradasalida.OpcionesES;
 import com.boulderdash.interfaz.Gui;
 
 public class Juego{
@@ -10,12 +11,11 @@ public class Juego{
 	 * @param args .
 	 */
 	public static void main(String args[]){
-		
+
+		OpcionesES.importarOpciones();
 		Gui.getInstancia();
 		Audio.titulo();
 		Audio.musicaMenu();
-		
-		
-		
+
 	}	
 }

@@ -1,4 +1,4 @@
-package com.boulderdash.principal;
+package com.boulderdash.entradasalida;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -104,7 +104,7 @@ public class Highscore {
 	{
 		try
 		{
-			BufferedReader buffReader = new BufferedReader(new FileReader("./Highscores/Highscores.txt"));
+			BufferedReader buffReader = new BufferedReader(new FileReader("./Archivos/Highscores.txt"));
 		    String linea;
 		    String[] lineaFragmentada;
 		    
@@ -190,7 +190,7 @@ public class Highscore {
 	{
 		try
 		{
-			PrintWriter writer = new PrintWriter("./Highscores/Highscores.txt", "UTF-8");
+			PrintWriter writer = new PrintWriter("./Archivos/Highscores.txt", "UTF-8");
 			
 			
 			writer.write(""); 
