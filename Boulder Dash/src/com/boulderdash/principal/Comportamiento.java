@@ -55,13 +55,18 @@ public class Comportamiento {
 	 */
 	private static void moverPersonajes(){
 		Posicion pos = new Posicion();
-		for (int y = 21; y >= 0 && !rockfordMuerto; y--)  {
-			for (int x = 39; x >= 0 && !rockfordMuerto; x--) {
+		
+		for (int y = 0; y < 22 && !rockfordMuerto; y++)  
+		{
+			for (int x = 0; x < 40 && !rockfordMuerto; x++)
+			{
 				pos.setX(x);
 				pos.setY(y);
 				Mapa.getInstancia().getPersonaje(pos).moverPersonajes();
 			}
 		}
+			
+		
 		if (rockfordMuerto)
 		{
 			if (Mapa.getInstancia().getVidas() == 0) {

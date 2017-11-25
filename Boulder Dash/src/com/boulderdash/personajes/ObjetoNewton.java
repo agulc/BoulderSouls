@@ -8,6 +8,8 @@ import com.boulderdash.principal.Mapa;
 public abstract class ObjetoNewton extends Personaje{
 	
 	private Estado stat;
+
+	private boolean YaMeMoviEsteTurno = false;
 	
 	/**
 	 * Constructor de la clase ObjetoNewton que también recibe si está cayendo o no.
@@ -25,9 +27,11 @@ public abstract class ObjetoNewton extends Personaje{
 		}
 	}
 	
+	@Override
 	public void moverPersonajes(){
-		if(stat == Estado.CAYENDO){
+		if(stat == Estado.CAYENDO && !YaMeMoviEsteTurno){
 			Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ABAJO)).meCaeAlgoEncima();//Le informo al de abajo mio que voy a caer encima de el, enviandole mi posicion
+			YaMeMoviEsteTurno = true;
 		}
 	}
 	
@@ -79,6 +83,14 @@ public abstract class ObjetoNewton extends Personaje{
 			 			this.stat = Estado.ESTACIONARIO;
 			 		}
 	 	}
+	}
+
+	public boolean getYaMeMoviEsteTurno() {
+		return YaMeMoviEsteTurno;
+	}
+
+	public void setYaMeMoviEsteTurno(boolean yaMeMoviEsteTurno) {
+		YaMeMoviEsteTurno = yaMeMoviEsteTurno;
 	}
 
 }

@@ -22,6 +22,10 @@ public class Luciernaga extends EnemigoMovil{
 	 */
 	public void actualizarEstadoObjeto(){	
 		
+		if (Mapa.getInstancia().getPersonaje(this.getPos(ParaDonde.ARRIBA)).chequearSiSoy(BDTile.ROCK)) {
+			this.meCaeAlgoEncima();
+		}
+		
 		switch (super.getDireccionActual()){
 		
 		case ABAJO:
@@ -53,7 +57,7 @@ public class Luciernaga extends EnemigoMovil{
 		}
 		
 		this.chequearSiExploto();
-		this.YaMeMoviEsteTurno = false;
+		super.setYaMeMoviEsteTurno(false);
 	}
 	
 	

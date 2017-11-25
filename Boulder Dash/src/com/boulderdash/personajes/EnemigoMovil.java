@@ -8,8 +8,8 @@ import com.boulderdash.principal.Posicion;
 public abstract class EnemigoMovil extends Enemigo {
 	
 	private ParaDonde direccionActual;
-	
-	boolean YaMeMoviEsteTurno = false;
+
+	private boolean YaMeMoviEsteTurno = false;
 	
 	EnemigoMovil(int x,int y){
 		super(x,y);
@@ -74,5 +74,15 @@ public abstract class EnemigoMovil extends Enemigo {
 			    }
 		   }
 	}
+
+	public boolean isYaMeMoviEsteTurno() {
+		return YaMeMoviEsteTurno;
+	}
+
+	public void setYaMeMoviEsteTurno(boolean yaMeMoviEsteTurno) {
+		YaMeMoviEsteTurno = yaMeMoviEsteTurno;
+	}
+	
+	
 	
 }

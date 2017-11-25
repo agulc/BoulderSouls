@@ -3,6 +3,7 @@ package com.boulderdash.personajes;
 import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
+import com.boulderdash.interfaz.Gui;
 import com.boulderdash.principal.Mapa;
 import javax.swing.*;
 
@@ -57,6 +58,7 @@ public class PuertaDeSalida extends Personaje{
 		else
 		{
 			//Mostrar pantalla de victoria/guardar highscore
+			
 		}
 		this.transitable = false;
 		

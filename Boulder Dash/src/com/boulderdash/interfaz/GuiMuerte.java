@@ -56,10 +56,6 @@ public class GuiMuerte extends JPanel
 		{
 			Gui.getInstancia().getTitulo().volverAlTitulo();
 		}
-		
-		
-		
-		
 	}
 
 }

@@ -70,4 +70,10 @@ public class Roca extends ObjetoNewton{
 		return icono;
 	}
 
+	@Override
+	public void actualizarEstadoObjeto(){
+		super.actualizarEstadoObjeto();
+		super.setYaMeMoviEsteTurno(false);
+	}
+
 }

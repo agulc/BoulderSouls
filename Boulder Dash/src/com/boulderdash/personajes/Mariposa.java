@@ -25,9 +25,12 @@ public class Mariposa extends EnemigoMovil{
 	 */
 	public void actualizarEstadoObjeto(){	
 		
+		if (Mapa.getInstancia().getPersonaje(this.getPos(ParaDonde.ARRIBA)).chequearSiSoy(BDTile.ROCK)) {
+			this.meCaeAlgoEncima();
+		}
+		
 		//IMPLEMENTAR MOVIMIENTO
 		switch (super.getDireccionActual()){
-		
 		case ABAJO:
 			if (!Mapa.getInstancia().getPersonaje(this.getPos(ParaDonde.ABAJO)).chequearSiSoy(BDTile.EMPTY)) {
 				this.setDireccionActual(ParaDonde.DERECHA);
@@ -38,8 +41,8 @@ public class Mariposa extends EnemigoMovil{
 			if (!Mapa.getInstancia().getPersonaje(this.getPos(ParaDonde.ARRIBA)).chequearSiSoy(BDTile.EMPTY)) {
 				this.setDireccionActual(ParaDonde.IZQUIERDA);
 			}
+
 			break;
-			
 			
 		case DERECHA:
 			if (!Mapa.getInstancia().getPersonaje(this.getPos(ParaDonde.DERECHA)).chequearSiSoy(BDTile.EMPTY)) {
@@ -56,7 +59,7 @@ public class Mariposa extends EnemigoMovil{
 		
 		}
 		this.chequearSiExploto();
-		this.YaMeMoviEsteTurno = false;
+		super.setYaMeMoviEsteTurno(false);
 		
 	}
 	

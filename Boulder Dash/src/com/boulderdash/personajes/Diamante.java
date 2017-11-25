@@ -55,4 +55,10 @@ public class Diamante extends ObjetoNewton{
 	public static void setValorDiamante(int valorDiamante) {
 		Diamante.valorDiamante = valorDiamante;
 	}
+	
+	@Override
+	public void actualizarEstadoObjeto(){
+		super.actualizarEstadoObjeto();
+		super.setYaMeMoviEsteTurno(false);
+	}
 }
