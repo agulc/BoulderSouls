@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.boulderdash.audio.Audio;
+import com.boulderdash.entradasalida.Highscore;
 import com.boulderdash.entradasalida.OpcionesES;
 import com.boulderdash.principal.Comportamiento;
 import com.boulderdash.principal.Mapa;
@@ -41,6 +42,7 @@ public class GuiOpciones extends JPanel{
 		containerOpciones2.add(crearBoxMuerte());
 		containerOpciones2.add(crearBoxPiedrasConInercia());
 		containerOpciones2.add(crearBoxMusicaActivada());
+		containerOpciones2.add(crearCantidadAMostrar());
 		
         containerOpciones3.add(labelOpciones);
         containerOpciones.add(containerOpciones2, BorderLayout.NORTH);
@@ -165,6 +167,26 @@ public class GuiOpciones extends JPanel{
 		nivelAElegir.setSelectedIndex(OpcionesES.getNivel() - 1);
 		
 		return nivelAElegir;
+	}
+	
+	private JComboBox<String> crearCantidadAMostrar()
+	{
+		String[] items = {"5 Elementos","10 Elementos","15 Elementos","20 Elementos"};
+		final JComboBox<String> cantidadAMostrar = new JComboBox<String>(items);
+		cantidadAMostrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Highscore.setCantidadAMostrar((cantidadAMostrar.getSelectedIndex() + 1) * 5);
+				OpcionesES.setElementosAMostrar((cantidadAMostrar.getSelectedIndex() + 1) * 5);
+			}
+		});
+		cantidadAMostrar.setFont(MiFuente.getFuente(18));
+		cantidadAMostrar.setBackground(Color.BLACK);
+		cantidadAMostrar.setForeground(Color.WHITE);
+		
+		cantidadAMostrar.setSelectedIndex(OpcionesES.getElementosAMostrar() / 5 - 1);
+		
+		return cantidadAMostrar;
 	}
 	
 	private JButton crearBotonRegresar()

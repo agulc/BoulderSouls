@@ -18,7 +18,7 @@ import fuentes.MiFuente;
 public class Highscore {
 	
 	private static Highscore[] arreglo = new Highscore[20];
-	private static int cantidadAMostrar = 5;
+	private static int cantidadAMostrar;
 
 	private String nombre;
 	private int puntos;

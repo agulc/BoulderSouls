@@ -80,7 +80,7 @@ public class GuiHighscores extends JPanel{
 		case 15: Gui.getInstancia().setSize(Gui.getInstancia().getTitulo().getSize().width, 820);
 		break;
 
-		case 20: Gui.getInstancia().setSize(Gui.getInstancia().getTitulo().getSize().width, 960);
+		default: Gui.getInstancia().setSize(Gui.getInstancia().getTitulo().getSize().width, 960);
 		break;
 		}
 		
