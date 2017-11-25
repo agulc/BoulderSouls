@@ -1,6 +1,7 @@
 package com.boulderdash.principal;
 
 import com.boulderdash.audio.Audio;
+import com.boulderdash.entradasalida.OpcionesES;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.interfaz.Gui;
 import com.boulderdash.interfaz.GuiMuerte;
@@ -24,6 +25,8 @@ public class Comportamiento {
 	
 	public static void Inicializar(){
 		Mapa.getInstancia();
+		Mapa.getInstancia().setNivelActual(OpcionesES.getNivel());
+		Mapa.getInstancia().construirMapa();
 		actualizarEstadoObjeto();
 		CoordinadorDeEventos.iniciarTemporizador();
 	}
