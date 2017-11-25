@@ -39,10 +39,10 @@ public class GuiOpciones extends JPanel{
 		containerOpciones2.setLayout(new FlowLayout());
 		containerOpciones3.setLayout(new BorderLayout());
 		containerOpciones2.add(crearNivelAElegir());
+		containerOpciones2.add(crearCantidadAMostrar());
+		containerOpciones2.add(crearBoxMusicaActivada());
 		containerOpciones2.add(crearBoxMuerte());
 		containerOpciones2.add(crearBoxPiedrasConInercia());
-		containerOpciones2.add(crearBoxMusicaActivada());
-		containerOpciones2.add(crearCantidadAMostrar());
 		
         containerOpciones3.add(labelOpciones);
         containerOpciones.add(containerOpciones2, BorderLayout.NORTH);
