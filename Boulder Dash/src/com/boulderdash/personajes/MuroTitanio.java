@@ -1,6 +1,5 @@
 package com.boulderdash.personajes;
 
-import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import javax.swing.*;
 

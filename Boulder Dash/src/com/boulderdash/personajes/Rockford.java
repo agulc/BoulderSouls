@@ -10,8 +10,6 @@ import javax.swing.*;
 public class Rockford extends Personaje{
 	
 	private static ImageIcon iconoActual = new ImageIcon("Texturas/RockfordStatic.gif");
-	private static ImageIcon iconoAbajo = new ImageIcon("Texturas/RockfordStatic.gif");
-	private static ImageIcon iconoArriba = new ImageIcon("Texturas/RockfordStatic.gif");
 	private static ImageIcon iconoIzquierda = new ImageIcon("Texturas/RockfordLeft.gif");
 	private static ImageIcon iconoDerecha = new ImageIcon("Texturas/RockfordRight.gif");
 	private static ImageIcon iconoParado = new ImageIcon("Texturas/RockfordStatic.gif");
@@ -109,14 +107,6 @@ public class Rockford extends Personaje{
 	public void actualizarGif(){
 		if(direccionActual!=null){
 			switch(direccionActual){
-				case ABAJO:{
-					iconoActual = iconoAbajo;
-					break;
-				}
-				case ARRIBA:{
-					iconoActual = iconoArriba;
-					break;
-				}
 				case IZQUIERDA:{
 					iconoActual = iconoIzquierda;
 					break;
@@ -124,6 +114,9 @@ public class Rockford extends Personaje{
 				case DERECHA:{
 					iconoActual = iconoDerecha;
 					break;
+				}
+				default:{
+				break;
 				}
 			}
 		}
