@@ -45,6 +45,7 @@ public class Comportamiento {
 	public static void comportamientoNormal(){
 		
 		moverPersonajes();
+		Gui.getInstancia().getMatriz().reconstruir();
 		actualizarEstadoObjeto();
 		
 		//System.out.println(Mapa.getInstancia().getPuntuacionNivel());

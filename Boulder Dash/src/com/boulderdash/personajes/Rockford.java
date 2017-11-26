@@ -9,7 +9,9 @@ import javax.swing.*;
 
 public class Rockford extends Personaje{
 	
-	private static ImageIcon icono = new ImageIcon("Texturas/rockford.gif");
+	private static ImageIcon iconoActual = new ImageIcon("Texturas/rockford.gif");
+	private static ImageIcon iconoMoviendome = new ImageIcon("Texturas/butterfly.gif");
+	private static ImageIcon iconoParado = new ImageIcon("Texturas/rockford.gif");
 	
 	private static Rockford rock = null;
 	
@@ -90,14 +92,21 @@ public class Rockford extends Personaje{
 				super.setPos(super.getPos(direccionActual)); //Actualizo mi posicion
 			}
 			direccionActual = null;
+			iconoActual = iconoMoviendome;
 		}
 			
+	}
+	
+	public void actualizarEstadoObjeto(){
+		if(iconoActual==iconoMoviendome){
+			iconoActual = iconoParado;
+		}
 	}
 
 	@Override
 	public ImageIcon getIcono() {
 		// TODO Auto-generated method stub
-		return icono;
+		return iconoActual;
 	}
 	
 	public static void setMovimiento(ParaDonde pos){

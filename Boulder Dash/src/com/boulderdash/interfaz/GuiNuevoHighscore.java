@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.Highscore;
 
+import com.boulderdash.principal.Mapa;
 import fuentes.MiFuente;
 
 @SuppressWarnings("serial")
@@ -33,7 +34,6 @@ public class GuiNuevoHighscore extends JPanel{
 
 		this.add(crearLabelHighscore(), BorderLayout.NORTH);
 		this.add(crearContainerHighscore(), BorderLayout.CENTER);
-		//this.add(crearBotonRegresar(), BorderLayout.SOUTH);
 		this.add(crearBotonAceptar(), BorderLayout.SOUTH);
 
 		
@@ -91,6 +91,7 @@ public class GuiNuevoHighscore extends JPanel{
 		
 		Gui.getInstancia().validate();
 		Gui.getInstancia().pack();
+		Mapa.setPuntuacionAcumulada(0);
 		this.repaint();
 	}
 	
@@ -129,8 +130,9 @@ public class GuiNuevoHighscore extends JPanel{
 					else
 					{
 						System.out.println("Nombre en uso");
-						
+	
 						JOptionPane.showMessageDialog(null, "Ingrese un nombre que no este en uso", "Nombre en uso", JOptionPane.PLAIN_MESSAGE);
+
 					}
 					
 				}
