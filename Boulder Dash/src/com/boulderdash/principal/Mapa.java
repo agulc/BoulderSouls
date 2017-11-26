@@ -133,6 +133,7 @@ public class Mapa {
 		else{
 			setPuntuacionAcumulada(getInstancia().getPuntuacionNivel() + getPuntuacionAcumulada() + tiempoRestante);
 			Audio.pararMusica();
+			Gui.getInstancia().remove(Gui.getInstancia().getJuego());
 			Highscore high = new Highscore("",Mapa.getPuntuacionAcumulada(),Mapa.getTiempoAcumulado());
 			
 			if (Highscore.highscoreValido(high))

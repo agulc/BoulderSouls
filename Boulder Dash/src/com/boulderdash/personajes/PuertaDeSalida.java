@@ -51,14 +51,7 @@ public class PuertaDeSalida extends Personaje{
 		//IMPLEMENTAR
 		//SI se llega a la salida y esta abierta, se aumenta el nivel, y se reconstruye el mapa
 		Audio.victoria();
-		
-		if (Mapa.getInstancia().getNivelActual() < 10)
-			Mapa.getInstancia().avanzarDeNivel();
-		else
-		{
-			//Mostrar pantalla de victoria/guardar highscore
-			
-		}
+		Mapa.getInstancia().avanzarDeNivel();
 		this.transitable = false;
 		
 		return this.transitable;
