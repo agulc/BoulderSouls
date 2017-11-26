@@ -5,6 +5,8 @@ import java.awt.event.KeyEvent;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.interfaz.Gui;
 import com.boulderdash.personajes.Rockford;
+import com.boulderdash.principal.Mapa;
+import com.boulderdash.principal.Posicion;
 
 
 
@@ -75,6 +77,18 @@ public class MiTeclaEscucha extends KeyAdapter{
 			Gui.getInstancia().getTitulo().volverAlTitulo();
 		}
 		break;
+		
+		case KeyEvent.VK_E:
+		{
+			Posicion pos = new Posicion ();
+					
+			pos.setX(5 + (int)(Math.random() * ((32 - 1) + 1)));
+			pos.setY(5 + (int)(Math.random() * ((14 - 1) + 1)));
+					
+			Mapa.getInstancia().getPersonaje(pos).explotar();
+		}
+		break;
+
 		
 		
 		
