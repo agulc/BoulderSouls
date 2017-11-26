@@ -5,7 +5,6 @@ import javax.swing.*;
 
 import com.boulderdash.audio.Audio;
 import com.boulderdash.principal.Comportamiento;
-import com.boulderdash.principal.Mapa;
 
 @SuppressWarnings("serial")
 public class Gui extends JFrame{

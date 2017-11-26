@@ -2,7 +2,9 @@ package com.boulderdash.principal;
 
 import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.BDLevelReader;
+import com.boulderdash.entradasalida.Highscore;
 import com.boulderdash.interfaz.Gui;
+import com.boulderdash.interfaz.GuiNuevoHighscore;
 import com.boulderdash.personajes.Ameba;
 import com.boulderdash.personajes.Diamante;
 import com.boulderdash.personajes.Luciernaga;
@@ -120,12 +122,28 @@ public class Mapa {
 	
 	public void avanzarDeNivel()
 	{
-		setPuntuacionAcumulada(getInstancia().getPuntuacionNivel() + getPuntuacionAcumulada() + tiempoRestante);
-		Audio.pararMusica();
-		setNivelActual(this.getNivelActual() + 1);
-		Audio.musica();
-		this.setVidas(4);
-		reconstruirMapa();
+		if(Mapa.nivelActual<10){
+			setPuntuacionAcumulada(getInstancia().getPuntuacionNivel() + getPuntuacionAcumulada() + tiempoRestante);
+			Audio.pararMusica();
+			setNivelActual(this.getNivelActual() + 1);
+			Audio.musica();
+			this.setVidas(4);
+			reconstruirMapa();
+		}
+		else{
+			setPuntuacionAcumulada(getInstancia().getPuntuacionNivel() + getPuntuacionAcumulada() + tiempoRestante);
+			Audio.pararMusica();
+			Highscore high = new Highscore("",Mapa.getPuntuacionAcumulada(),Mapa.getTiempoAcumulado());
+			
+			if (Highscore.highscoreValido(high))
+			{
+				Gui.getInstancia().getNuevoHighscore().menuNuevoHighscore(high);
+			}
+			else
+			{
+				Gui.getInstancia().getTitulo().volverAlTitulo();
+			}
+		}
 	}
 	
 	public Personaje getPersonaje(Posicion pos){

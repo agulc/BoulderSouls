@@ -2,7 +2,6 @@ package com.boulderdash.principal;
 
 import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.OpcionesES;
-import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.interfaz.Gui;
 import com.boulderdash.interfaz.GuiMuerte;
 import com.boulderdash.personajes.Rockford;
@@ -111,12 +110,6 @@ public class Comportamiento {
 			}
 		}
 	}
-	
-	/*public static void moverARockford(ParaDonde donde){
-		if(!rockfordMuerto) {
-			Rockford.getInstancia().mover(donde);
-		}
-	}*/
 
 	public static boolean getMuerteExtra() {
 		return muerteExtra;
