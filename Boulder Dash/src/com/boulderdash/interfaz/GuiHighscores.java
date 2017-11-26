@@ -32,6 +32,7 @@ public class GuiHighscores extends JPanel{
 		this.add(labelHighScores, BorderLayout.NORTH);
 		this.add(tabla, BorderLayout.CENTER);
 		this.add(crearBotonRegresar(), BorderLayout.SOUTH);
+		this.setBackground(Color.BLACK);
 		
 	}
 	
