@@ -8,7 +8,6 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -17,7 +16,6 @@ import javax.swing.JPanel;
 
 import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.Highscore;
-import com.boulderdash.personajes.Mariposa;
 
 import fuentes.MiFuente;
 
@@ -106,6 +104,7 @@ public class GuiNuevoHighscore extends JPanel{
 		botonRegresar.setIcon(new ImageIcon("./Texturas/AceptarInerte.png"));
 		botonRegresar.setRolloverIcon(new ImageIcon("./Texturas/Aceptar.png"));
 		botonRegresar.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent arg0) {
 				
 				String nombre = text.getText();
@@ -130,19 +129,16 @@ public class GuiNuevoHighscore extends JPanel{
 					else
 					{
 						System.out.println("Nombre en uso");
-						JOptionPane error = new JOptionPane();
-						Mariposa mari = new Mariposa(0,0);
-						error.showMessageDialog(null, "Error, usuario invalido");
-						error.showme
-						error.setBackground(Color.BLACK);
-						error.setForeground(Color.WHITE);
-						error.setMessage("Error, usuario invalido");
-						error.repaint();
+						
+						JOptionPane.showMessageDialog(null, "Ingrese un nombre que no este en uso", "Nombre en uso", JOptionPane.PLAIN_MESSAGE);
 					}
+					
 				}
 				else
 				{
-					System.out.println("Nombre no valido");
+					System.out.println("Nombre invalido");
+					
+					JOptionPane.showMessageDialog(null, "El nombre debe tener al menos 2 caracteres, y no puede contener espacios.", "Nombre invalido", JOptionPane.PLAIN_MESSAGE);
 				}
 			}
 		});
