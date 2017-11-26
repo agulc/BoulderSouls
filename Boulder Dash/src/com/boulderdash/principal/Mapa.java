@@ -77,7 +77,7 @@ public class Mapa {
 					}
 					case WALL:{
 						int random = (int)(Math.random() * (100));
-						if (random == 77) {
+						if (random == 77 && (y < 21) && (y > 0)) {
 							mapa[x][y]=new MuroMagico(x,y);
 						}
 						else {
