@@ -4,7 +4,6 @@ import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.BDLevelReader;
 import com.boulderdash.entradasalida.Highscore;
 import com.boulderdash.interfaz.Gui;
-import com.boulderdash.interfaz.GuiNuevoHighscore;
 import com.boulderdash.personajes.Ameba;
 import com.boulderdash.personajes.Diamante;
 import com.boulderdash.personajes.Luciernaga;

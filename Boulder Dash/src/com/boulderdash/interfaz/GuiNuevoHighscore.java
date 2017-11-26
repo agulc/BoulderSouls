@@ -8,16 +8,13 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.Highscore;
-import com.boulderdash.personajes.Mariposa;
 
 import fuentes.MiFuente;
 
@@ -130,14 +127,6 @@ public class GuiNuevoHighscore extends JPanel{
 					else
 					{
 						System.out.println("Nombre en uso");
-						JOptionPane error = new JOptionPane();
-						Mariposa mari = new Mariposa(0,0);
-						error.showMessageDialog(null, "Error, usuario invalido");
-						error.showme
-						error.setBackground(Color.BLACK);
-						error.setForeground(Color.WHITE);
-						error.setMessage("Error, usuario invalido");
-						error.repaint();
 					}
 				}
 				else
