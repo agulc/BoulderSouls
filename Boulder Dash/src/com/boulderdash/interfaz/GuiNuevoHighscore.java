@@ -79,6 +79,8 @@ public class GuiNuevoHighscore extends JPanel{
 	
 	public void menuNuevoHighscore(Highscore highscore)
 	{
+		this.text.setText("");
+		
 		this.highscore = highscore;
 		
 		Gui.getInstancia().remove(Gui.getInstancia().getTitulo());
