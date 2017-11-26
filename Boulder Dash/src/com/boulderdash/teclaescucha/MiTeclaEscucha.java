@@ -78,7 +78,7 @@ public class MiTeclaEscucha extends KeyAdapter{
 		}
 		break;
 		
-		case KeyEvent.VK_E:
+		case KeyEvent.VK_E: //Funcion Allahu akbar
 		{
 			Posicion pos = new Posicion ();
 					
