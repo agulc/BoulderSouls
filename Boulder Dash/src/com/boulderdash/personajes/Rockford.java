@@ -9,12 +9,12 @@ import javax.swing.*;
 
 public class Rockford extends Personaje{
 	
-	private static ImageIcon iconoActual = new ImageIcon("Texturas/rockford.gif");
-	private static ImageIcon iconoAbajo = new ImageIcon("Texturas/butterfly.gif");
-	private static ImageIcon iconoArriba = new ImageIcon("Texturas/butterfly.gif");
-	private static ImageIcon iconoIzquierda = new ImageIcon("Texturas/butterfly.gif");
-	private static ImageIcon iconoDerecha = new ImageIcon("Texturas/butterfly.gif");
-	private static ImageIcon iconoParado = new ImageIcon("Texturas/rockford.gif");
+	private static ImageIcon iconoActual = new ImageIcon("Texturas/RockfordStatic.gif");
+	private static ImageIcon iconoAbajo = new ImageIcon("Texturas/RockfordStatic.gif");
+	private static ImageIcon iconoArriba = new ImageIcon("Texturas/RockfordStatic.gif");
+	private static ImageIcon iconoIzquierda = new ImageIcon("Texturas/RockfordLeft.gif");
+	private static ImageIcon iconoDerecha = new ImageIcon("Texturas/RockfordRight.gif");
+	private static ImageIcon iconoParado = new ImageIcon("Texturas/RockfordStatic.gif");
 	
 	private static Rockford rock = null;
 	
