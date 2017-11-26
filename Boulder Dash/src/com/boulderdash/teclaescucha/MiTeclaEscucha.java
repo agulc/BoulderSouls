@@ -19,49 +19,49 @@ public class MiTeclaEscucha extends KeyAdapter{
 		{
 		case KeyEvent.VK_LEFT:
 		{
-			Comportamiento.moverARockford(ParaDonde.IZQUIERDA);
+			Rockford.setMovimiento(ParaDonde.IZQUIERDA);
 		}
 		break;
 		
 		case KeyEvent.VK_RIGHT:
 		{
-			Comportamiento.moverARockford(ParaDonde.DERECHA);
+			Rockford.setMovimiento(ParaDonde.DERECHA);
 		}
 		break;
 		
 		case KeyEvent.VK_DOWN:
 		{
-			Comportamiento.moverARockford(ParaDonde.ABAJO);
+			Rockford.setMovimiento(ParaDonde.ABAJO);
 		}
 		break;
 		
 		case KeyEvent.VK_UP:
 		{
-			Comportamiento.moverARockford(ParaDonde.ARRIBA);
+			Rockford.setMovimiento(ParaDonde.ARRIBA);
 		}
 		break;
 		
 		case KeyEvent.VK_A:
 		{
-			Comportamiento.moverARockford(ParaDonde.IZQUIERDA);
+			Rockford.setMovimiento(ParaDonde.IZQUIERDA);
 		}
 		break;
 		
 		case KeyEvent.VK_D:
 		{
-			Comportamiento.moverARockford(ParaDonde.DERECHA);
+			Rockford.setMovimiento(ParaDonde.DERECHA);
 		}
 		break;
 		
 		case KeyEvent.VK_S:
 		{
-			Comportamiento.moverARockford(ParaDonde.ABAJO);
+			Rockford.setMovimiento(ParaDonde.ABAJO);
 		}
 		break;
 		
 		case KeyEvent.VK_W:
 		{
-			Comportamiento.moverARockford(ParaDonde.ARRIBA);
+			Rockford.setMovimiento(ParaDonde.ARRIBA);
 		}
 		break;
 		

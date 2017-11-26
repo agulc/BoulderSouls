@@ -13,6 +13,8 @@ public class Rockford extends Personaje{
 	
 	private static Rockford rock = null;
 	
+	private static ParaDonde direccionActual = null;
+	
 	public static Rockford getInstancia(){
 		if(rock == null){
 			rock = new Rockford();
@@ -78,14 +80,16 @@ public class Rockford extends Personaje{
 		return (tile == BDTile.PLAYER);
 	}
 	
-	public void movimiento(ParaDonde dir){
+	public void moverPersonajes(){
 
-		if (Mapa.getInstancia().getPersonaje(super.getPos(dir)).rockfordCaminaSobreMi(dir) ){ //Si se pudo mover
+		if((direccionActual != null)&&(this.permitirMovimiento(direccionActual))){
+			if (Mapa.getInstancia().getPersonaje(super.getPos(direccionActual)).rockfordCaminaSobreMi(direccionActual) ){ //Si se pudo mover
 				
-			Mapa.getInstancia().setPersonaje(Rockford.getInstancia(),super.getPos(dir)); //Se mueve al siguiente casillero
-			Mapa.getInstancia().setPersonaje(new Vacio(this.getPos()), this.getPos()); //Vacia el cacillero anterior
-			super.setPos(super.getPos(dir)); //Actualizo mi posicion
-				
+				Mapa.getInstancia().setPersonaje(Rockford.getInstancia(),super.getPos(direccionActual)); //Se mueve al siguiente casillero
+				Mapa.getInstancia().setPersonaje(new Vacio(this.getPos()), this.getPos()); //Vacia el cacillero anterior
+				super.setPos(super.getPos(direccionActual)); //Actualizo mi posicion
+			}
+			direccionActual = null;
 		}
 			
 	}
@@ -94,6 +98,10 @@ public class Rockford extends Personaje{
 	public ImageIcon getIcono() {
 		// TODO Auto-generated method stub
 		return icono;
+	}
+	
+	public static void setMovimiento(ParaDonde pos){
+		direccionActual = pos;
 	}
 	
 }
