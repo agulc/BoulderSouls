@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 
 import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.Highscore;
+import com.boulderdash.principal.Mapa;
 
 import fuentes.MiFuente;
 
@@ -90,6 +91,7 @@ public class GuiNuevoHighscore extends JPanel{
 		
 		Gui.getInstancia().validate();
 		Gui.getInstancia().pack();
+		Mapa.setPuntuacionAcumulada(0);
 		this.repaint();
 	}
 	
