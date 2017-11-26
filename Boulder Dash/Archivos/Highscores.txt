@@ -1,7 +1,9 @@
-Solaire 5640 1164
+Solaire 5798 1367
+Ghigliazza 1645 560
 Dios 1502 338
 Karl 975 395
 Stalin 612 267
+Jose 606 187
 MrSandman 603 87
 Federicongo 577 388
 XxXFede_360NoScopeXx 483 198
@@ -16,5 +18,4 @@ Nico 238 138
 Gato 215 60
 Pepe 192 114
 YEAHBOIIIIIIII 182 45
-- 0 0
-- 0 0
+
