@@ -42,7 +42,7 @@ public class GuiReglas extends JPanel{
 	{
 		Font fuente = MiFuente.getFuente(21);
 		
-		JLabel regla1 = new JLabel(new ImageIcon("./Texturas/Rockford.gif"));
+		JLabel regla1 = new JLabel(new ImageIcon("./Texturas/RockfordStatic.gif"));
 		regla1.setText("Controlas a Rockford");
 		regla1.setFont(fuente);
 		regla1.setForeground(Color.WHITE);
@@ -132,9 +132,9 @@ public class GuiReglas extends JPanel{
 		containerReglas.add(regla10);
 		containerReglas.add(regla11);
 		containerReglas.add(regla12);
-		containerReglas.add(regla13);
 		containerReglas.add(regla14);
 		containerReglas.add(regla15);
+		containerReglas.add(regla13);
 		
 		return containerReglas;
 	}
