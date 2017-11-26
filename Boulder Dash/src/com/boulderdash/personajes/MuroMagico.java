@@ -35,6 +35,10 @@ public class MuroMagico extends Muro{
 		}
 	}
 	
+	public boolean soyMagico() {
+		return true;
+	}
+	
 	
 	
 }

@@ -181,5 +181,8 @@ public abstract class Personaje {
 	public void rensei() {
 	};
 	
+	public boolean soyMagico() {
+		return false;
+	}
 		
 }
