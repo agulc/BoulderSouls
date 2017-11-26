@@ -178,6 +178,8 @@ public abstract class Personaje {
 		Audio.explosion();
 	}
 
+	public void rensei() {
+	};
 	
 		
 }

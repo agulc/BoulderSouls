@@ -29,12 +29,12 @@ public class GuiHighscores extends JPanel{
 		JLabel labelHighScores = new JLabel(image);
 		tabla = Highscore.getTabla();
 		
-		this.setBackground(Color.BLACK);
 		this.add(labelHighScores, BorderLayout.NORTH);
 		this.add(tabla, BorderLayout.CENTER);
 		this.add(crearBotonRegresar(), BorderLayout.SOUTH);
 		
 	}
+	
 	
 	private JButton crearBotonRegresar()
 	{

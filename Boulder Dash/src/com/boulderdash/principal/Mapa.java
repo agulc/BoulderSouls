@@ -9,6 +9,7 @@ import com.boulderdash.personajes.Ameba;
 import com.boulderdash.personajes.Diamante;
 import com.boulderdash.personajes.Luciernaga;
 import com.boulderdash.personajes.Mariposa;
+import com.boulderdash.personajes.MuroComun;
 import com.boulderdash.personajes.MuroMagico;
 import com.boulderdash.personajes.MuroTitanio;
 import com.boulderdash.personajes.Personaje;
@@ -76,7 +77,13 @@ public class Mapa {
 						break;
 					}
 					case WALL:{
-						mapa[x][y]=new MuroMagico(x,y);
+						int random = (int)(Math.random() * (100));
+						if (random == 77) {
+							mapa[x][y]=new MuroMagico(x,y);
+						}
+						else {
+							mapa[x][y]=new MuroComun(x,y);
+						}
 						break;
 					}
 					case ROCK:{
