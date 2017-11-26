@@ -58,7 +58,7 @@ public class Comportamiento {
 	 */
 	private static void moverPersonajes(){
 		Posicion pos = new Posicion();
-		
+		Rockford.getInstancia().moverPersonajes();
 		for (int y = 0; y < 22 && !rockfordMuerto; y++)  
 		{
 			for (int x = 0; x < 40 && !rockfordMuerto; x++)
@@ -112,11 +112,11 @@ public class Comportamiento {
 		}
 	}
 	
-	public static void moverARockford(ParaDonde donde){
+	/*public static void moverARockford(ParaDonde donde){
 		if(!rockfordMuerto) {
 			Rockford.getInstancia().mover(donde);
 		}
-	}
+	}*/
 
 	public static boolean getMuerteExtra() {
 		return muerteExtra;
