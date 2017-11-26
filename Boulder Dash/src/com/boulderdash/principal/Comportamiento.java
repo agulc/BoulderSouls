@@ -1,6 +1,7 @@
 package com.boulderdash.principal;
 
 import com.boulderdash.audio.Audio;
+import com.boulderdash.entradasalida.Highscore;
 import com.boulderdash.entradasalida.OpcionesES;
 import com.boulderdash.interfaz.Gui;
 import com.boulderdash.interfaz.GuiMuerte;
@@ -108,6 +109,32 @@ public class Comportamiento {
 				pos.setX(x);
 				pos.setY(y);
 				Mapa.getInstancia().getPersonaje(pos).actualizarEstadoObjeto();
+			}
+		}
+	}
+	
+	public static void cambiarDeNivel(){
+		if(Mapa.getInstancia().getNivelActual()<10){
+			Mapa.setPuntuacionAcumulada(Mapa.getInstancia().getPuntuacionNivel() + Mapa.getPuntuacionAcumulada() + Mapa.getInstancia().getTiempoRestante());
+			Audio.pararMusica();
+			Mapa.getInstancia().setNivelActual(Mapa.getInstancia().getNivelActual() + 1);
+			Audio.musica();
+			Mapa.getInstancia().setVidas(4);
+			Mapa.getInstancia().reconstruirMapa();
+		}
+		else{
+			Mapa.setPuntuacionAcumulada(Mapa.getInstancia().getPuntuacionNivel() + Mapa.getPuntuacionAcumulada() + Mapa.getInstancia().getTiempoRestante());
+			Audio.pararMusica();
+			Gui.getInstancia().remove(Gui.getInstancia().getJuego());
+			Highscore high = new Highscore("",Mapa.getPuntuacionAcumulada(),Mapa.getTiempoAcumulado());
+			
+			if (Highscore.highscoreValido(high))
+			{
+				Gui.getInstancia().getNuevoHighscore().menuNuevoHighscore(high);
+			}
+			else
+			{
+				Gui.getInstancia().getTitulo().volverAlTitulo();
 			}
 		}
 	}

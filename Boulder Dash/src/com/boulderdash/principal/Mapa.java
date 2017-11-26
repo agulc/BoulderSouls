@@ -128,29 +128,7 @@ public class Mapa {
 	
 	public void avanzarDeNivel()
 	{
-		if(Mapa.nivelActual<10){
-			setPuntuacionAcumulada(getInstancia().getPuntuacionNivel() + getPuntuacionAcumulada() + tiempoRestante);
-			Audio.pararMusica();
-			setNivelActual(this.getNivelActual() + 1);
-			Audio.musica();
-			this.setVidas(4);
-			reconstruirMapa();
-		}
-		else{
-			setPuntuacionAcumulada(getInstancia().getPuntuacionNivel() + getPuntuacionAcumulada() + tiempoRestante);
-			Audio.pararMusica();
-			Gui.getInstancia().remove(Gui.getInstancia().getJuego());
-			Highscore high = new Highscore("",Mapa.getPuntuacionAcumulada(),Mapa.getTiempoAcumulado());
-			
-			if (Highscore.highscoreValido(high))
-			{
-				Gui.getInstancia().getNuevoHighscore().menuNuevoHighscore(high);
-			}
-			else
-			{
-				Gui.getInstancia().getTitulo().volverAlTitulo();
-			}
-		}
+		Comportamiento.cambiarDeNivel();
 	}
 	
 	public Personaje getPersonaje(Posicion pos){

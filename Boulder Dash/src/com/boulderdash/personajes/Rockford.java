@@ -10,7 +10,10 @@ import javax.swing.*;
 public class Rockford extends Personaje{
 	
 	private static ImageIcon iconoActual = new ImageIcon("Texturas/rockford.gif");
-	private static ImageIcon iconoMoviendome = new ImageIcon("Texturas/butterfly.gif");
+	private static ImageIcon iconoAbajo = new ImageIcon("Texturas/butterfly.gif");
+	private static ImageIcon iconoArriba = new ImageIcon("Texturas/butterfly.gif");
+	private static ImageIcon iconoIzquierda = new ImageIcon("Texturas/butterfly.gif");
+	private static ImageIcon iconoDerecha = new ImageIcon("Texturas/butterfly.gif");
 	private static ImageIcon iconoParado = new ImageIcon("Texturas/rockford.gif");
 	
 	private static Rockford rock = null;
@@ -91,15 +94,38 @@ public class Rockford extends Personaje{
 				Mapa.getInstancia().setPersonaje(new Vacio(this.getPos()), this.getPos()); //Vacia el cacillero anterior
 				super.setPos(super.getPos(direccionActual)); //Actualizo mi posicion
 			}
+			actualizarGif();
 			direccionActual = null;
-			iconoActual = iconoMoviendome;
 		}
 			
 	}
 	
 	public void actualizarEstadoObjeto(){
-		if(iconoActual==iconoMoviendome){
+		if(iconoActual!=iconoParado){
 			iconoActual = iconoParado;
+		}
+	}
+	
+	public void actualizarGif(){
+		if(direccionActual!=null){
+			switch(direccionActual){
+				case ABAJO:{
+					iconoActual = iconoAbajo;
+					break;
+				}
+				case ARRIBA:{
+					iconoActual = iconoArriba;
+					break;
+				}
+				case IZQUIERDA:{
+					iconoActual = iconoIzquierda;
+					break;
+				}
+				case DERECHA:{
+					iconoActual = iconoDerecha;
+					break;
+				}
+			}
 		}
 	}
 
