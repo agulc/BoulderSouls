@@ -94,7 +94,7 @@ public class Roca extends ObjetoNewton{
 		Mapa.getInstancia().setPersonaje(new Vacio(this.getPos()), this.getPos()); 
 		pos.setX(this.getPos().getX());
 		pos.setY(this.getPos().getY()+2);
-		Mapa.getInstancia().setPersonaje(new Diamante(false, pos), pos);
+		Mapa.getInstancia().setPersonaje(new Diamante(true, pos), pos);
 	}
 	
 	public void transmutarIzquierdaDerecha(){
