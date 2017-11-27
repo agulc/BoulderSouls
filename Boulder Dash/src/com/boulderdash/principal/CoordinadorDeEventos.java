@@ -2,9 +2,6 @@ package com.boulderdash.principal;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
-
-
 public class CoordinadorDeEventos extends TimerTask {
 
 	public void run() {
@@ -24,7 +21,6 @@ public class CoordinadorDeEventos extends TimerTask {
 		tarea2 = new Contador();
 		reloj.schedule(tarea, 1, 90);
 		cuentaAtras.schedule(tarea2, 1, 1000);
-		
 	}
 	
 	public static void detenerTemporizador() {

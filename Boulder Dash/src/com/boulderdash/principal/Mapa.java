@@ -1,7 +1,6 @@
 package com.boulderdash.principal;
 
 import com.boulderdash.entradasalida.BDLevelReader;
-import com.boulderdash.interfaz.GuiHUD;
 import com.boulderdash.personajes.Ameba;
 import com.boulderdash.personajes.Diamante;
 import com.boulderdash.personajes.Luciernaga;
@@ -237,7 +236,5 @@ public class Mapa {
 	public static void setTiempoAcumulado(int tiempoAcumulado) {
 		Mapa.tiempoAcumulado = tiempoAcumulado;
 	}
-
-
 	
 }
