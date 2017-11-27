@@ -98,7 +98,7 @@ public abstract class Personaje {
 		}
 	}
 	
-	public abstract ImageIcon getIcono();
+	public abstract ImageIcon getGraficos();
 	
 
 	/**

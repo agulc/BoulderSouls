@@ -37,7 +37,6 @@ public class Explosion extends Personaje{
 		{
 			Mapa.getInstancia().setPersonaje(new Vacio(this.getPos()), this.getPos()); //Sobreescribo la explosion con un personaje vacio
 		}
-		
 	}
 	
 	public boolean chequearSiSoy (BDTile tile){
@@ -46,7 +45,7 @@ public class Explosion extends Personaje{
 	}
 
 	@Override
-	public ImageIcon getIcono() {
+	public ImageIcon getGraficos() {
 		// TODO Auto-generated method stub
 		return icono;
 	}

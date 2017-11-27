@@ -4,6 +4,7 @@ import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.Highscore;
 import com.boulderdash.entradasalida.OpcionesES;
 import com.boulderdash.interfaz.Gui;
+import com.boulderdash.interfaz.GuiHUD;
 import com.boulderdash.interfaz.GuiMuerte;
 import com.boulderdash.personajes.Rockford;
 
@@ -51,6 +52,11 @@ public class Comportamiento {
 		
 		//System.out.println(Mapa.getInstancia().getPuntuacionNivel());
 		
+	}
+	
+	public static void reconstruir(){
+		Gui.getInstancia().getMatriz().reconstruir();
+		GuiHUD.setDiamantesNivel(Mapa.getDiamantesRestantes());
 	}
 	
 	/**

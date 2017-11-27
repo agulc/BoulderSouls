@@ -25,8 +25,7 @@ public class Suciedad extends Personaje {
 	}
 
 	@Override
-	public ImageIcon getIcono() {
-		
+	public ImageIcon getGraficos() {
 		return icono;
 	}
 }

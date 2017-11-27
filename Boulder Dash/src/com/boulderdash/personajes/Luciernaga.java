@@ -67,7 +67,7 @@ public class Luciernaga extends EnemigoMovil{
 	}
 
 	@Override
-	public ImageIcon getIcono() {
+	public ImageIcon getGraficos() {
 		// TODO Auto-generated method stub
 		return icono;
 	}

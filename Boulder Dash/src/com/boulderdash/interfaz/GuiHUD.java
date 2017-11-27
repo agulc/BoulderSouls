@@ -1,7 +1,12 @@
 package com.boulderdash.interfaz;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
@@ -16,9 +21,12 @@ import fuentes.MiFuente;
 @SuppressWarnings("serial")
 public class GuiHUD extends JPanel{
 
+	private static int diamantesNivel;
+	
 	public GuiHUD()
 	{
-		this.setLayout(new GridLayout());
+		GridLayout layout = new GridLayout();
+		this.setLayout(layout);
 		this.setBackground(Color.BLACK);
 
 		Font fuente = MiFuente.getFuente(18);
@@ -47,6 +55,7 @@ public class GuiHUD extends JPanel{
 		this.add(diamantesRestantes);
 		this.add(tiempoRestante);
 		this.add(puntuacion);
+		diamantesNivel = Mapa.getDiamantesRestantes();
 	}
 	
 	public void actualizarHud ()
@@ -55,12 +64,16 @@ public class GuiHUD extends JPanel{
 		if (Mapa.getInstancia().getVidas() == 0 && Comportamiento.getMuerteExtra())
 			((JLabel)(this.getComponent(0))).setText("Mou shindeiru");
 		
-		((JLabel)(this.getComponent(1))).setText("Diamantes: " + Mapa.getDiamantesRestantes()); //Actualiza Los diamantes restantes
+		((JLabel)(this.getComponent(1))).setText("Diamantes: " + (diamantesNivel-Mapa.getDiamantesRestantes()) + "/" + diamantesNivel); //Actualiza Los diamantes restantes
 		
 		((JLabel)(this.getComponent(2))).setText(((Integer)(Mapa.getInstancia().getTiempoRestante())).toString());
 		
 		Integer puntuacionTotal = (Mapa.getInstancia().getPuntuacionNivel() + Mapa.getPuntuacionAcumulada());
 		((JLabel)(this.getComponent(3))).setText("Puntos: " + puntuacionTotal.toString());
+	}
+	
+	public static void setDiamantesNivel(int valor){
+		diamantesNivel = valor;
 	}
 	
 }

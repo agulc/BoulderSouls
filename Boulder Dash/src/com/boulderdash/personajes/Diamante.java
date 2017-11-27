@@ -29,9 +29,8 @@ public class Diamante extends ObjetoNewton{
 	public boolean rockfordCaminaSobreMi (ParaDonde dir){
 		
 		Audio.item();
-		if (Mapa.getDiamantesRestantes() > 0)
-			Mapa.setDiamantesRestantes(Mapa.getDiamantesRestantes() - 1);
-		else
+		Mapa.setDiamantesRestantes(Mapa.getDiamantesRestantes() - 1);
+		if (Mapa.getDiamantesRestantes() <= 0)
 		{
 			setValorDiamante(Mapa.getValorDiamanteBonus()[Mapa.getInstancia().getNivelActual()]); //Cambia el valor de los diamantes cuando ya se agarraron todos
 		}
@@ -49,7 +48,7 @@ public class Diamante extends ObjetoNewton{
 	}
 
 	@Override
-	public ImageIcon getIcono() {
+	public ImageIcon getGraficos() {
 		// TODO Auto-generated method stub
 		return icono;
 	}

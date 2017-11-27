@@ -16,8 +16,8 @@ import javax.swing.JPanel;
 
 import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.Highscore;
-
 import com.boulderdash.principal.Mapa;
+
 import fuentes.MiFuente;
 
 @SuppressWarnings("serial")
