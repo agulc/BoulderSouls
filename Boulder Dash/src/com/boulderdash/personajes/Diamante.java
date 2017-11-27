@@ -66,7 +66,7 @@ public class Diamante extends ObjetoNewton{
 		super.actualizarEstadoObjeto();
 		super.setYaMeMoviEsteTurno(false);
 	}
-	public void rensei() {
+	public void transmutar() {
 		System.out.println("Roca" + " en la posicion x=" + super.getPos(ParaDonde.ARRIBA).getX() + " y=" + super.getPos(ParaDonde.ARRIBA).getY() + " Transmutación");
 		Posicion pos = new Posicion();
 		Mapa.getInstancia().setPersonaje(new Vacio(this.getPos()), this.getPos()); 
