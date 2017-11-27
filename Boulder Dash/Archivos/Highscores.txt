@@ -5,6 +5,7 @@ SandGuardian 1688 357
 Ghigliazza 1645 560
 Dios 1502 338
 Karl 975 395
+Ned 644 77
 Stalin 612 267
 Jose 606 187
 MrSandman 603 87
@@ -15,6 +16,5 @@ Hidetaka 324 142
 Timmy 323 133
 Macri 319 55
 Federicote 277 69
+Nico 270 159
 Federiquito 254 113
-Holis 254 94
-GhigliASCII 249 86
