@@ -18,3 +18,10 @@ Macri 319 55
 Federicote 277 69
 Nico 270 159
 Federiquito 254 113
+<<<<<<< HEAD
+=======
+Holis 254 94
+GhigliASCII 249 86
+Nico 238 138
+FedericoB 201 58
+>>>>>>> b55958553a3215ef892666e8222ce89050af6342
