@@ -59,6 +59,11 @@ public class Comportamiento {
 		GuiHUD.setDiamantesNivel(Mapa.getDiamantesRestantes());
 	}
 	
+	public static void refrescarDiamantesNivel(){
+		GuiHUD.setDiamantesNivel(Mapa.getDiamantesRestantes());
+	}
+	
+	
 	/**
 	 * Se encarga de modificar la posición de cada objeto (salvo Rockford) del nivel en cada turno.
 	 * @throws Exception .
