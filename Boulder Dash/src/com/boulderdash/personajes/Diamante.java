@@ -12,7 +12,7 @@ public class Diamante extends ObjetoNewton{
 	
 	private static ImageIcon icono = new ImageIcon("Texturas/diamond.gif");
 	
-	private static int valorDiamante = 100;
+	private static int valorDiamante = 0;
 	
 	public Diamante(boolean cae,int x,int y){
 		super(cae,x,y);
