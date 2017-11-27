@@ -43,8 +43,14 @@ public class Roca extends ObjetoNewton{
 		{
 			if (dir == ParaDonde.IZQUIERDA || dir == ParaDonde.DERECHA)
 			{
+				if (Mapa.getInstancia().getPersonaje(this.getPos(dir)).soyMagico()) {
+					Mapa.getInstancia().getPersonaje(this.getPos(dir)).meEmpujanUnaRocaDentro();;
+				}
 				this.mover(dir);
+
+
 				return true;
+	
 			}
 			else
 				return false;
@@ -53,7 +59,8 @@ public class Roca extends ObjetoNewton{
 	}
 	
 	public boolean esTransitable(ParaDonde donde){
-		if(Mapa.getInstancia().getPersonaje(this.getPos(donde)).chequearSiSoy(BDTile.EMPTY))
+		if(Mapa.getInstancia().getPersonaje(this.getPos(donde)).chequearSiSoy(BDTile.EMPTY) ||
+			((Mapa.getInstancia().getPersonaje(this.getPos(donde)).soyMagico() && Mapa.getInstancia().getPersonaje(this.getPos(donde)).lateralesLibres(donde))))
 		{
 			return true;
 		}
@@ -82,12 +89,26 @@ public class Roca extends ObjetoNewton{
 		super.setYaMeMoviEsteTurno(false);
 	}
 	
-	public void rensei() {
-		System.out.println("Roca" + " en la posicion x=" + super.getPos(ParaDonde.ARRIBA).getX() + " y=" + super.getPos(ParaDonde.ARRIBA).getY() + " Transmutación");
+	public void transmutar() {
 		Posicion pos = new Posicion();
 		Mapa.getInstancia().setPersonaje(new Vacio(this.getPos()), this.getPos()); 
 		pos.setX(this.getPos().getX());
 		pos.setY(this.getPos().getY()+2);
+		Mapa.getInstancia().setPersonaje(new Diamante(true, pos), pos);
+	}
+	
+	public void transmutarIzquierdaDerecha(){
+		Posicion pos = new Posicion();
+		Mapa.getInstancia().setPersonaje(new Vacio(this.getPos()), this.getPos()); 
+		pos.setX(this.getPos().getX()+2);
+		pos.setY(this.getPos().getY());
+		Mapa.getInstancia().setPersonaje(new Diamante(false, pos), pos);
+	}
+	public void transmutarDerechaIzquierda(){
+		Posicion pos = new Posicion();
+		Mapa.getInstancia().setPersonaje(new Vacio(this.getPos()), this.getPos()); 
+		pos.setX(this.getPos().getX()-2);
+		pos.setY(this.getPos().getY());
 		Mapa.getInstancia().setPersonaje(new Diamante(false, pos), pos);
 	}
 

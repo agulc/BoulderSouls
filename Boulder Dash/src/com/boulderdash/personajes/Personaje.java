@@ -178,11 +178,24 @@ public abstract class Personaje {
 		Audio.explosion();
 	}
 
-	public void rensei() {
-	};
+	public void transmutar() {
+	}
 	
+	public void transmutarDerechaIzquierda() {
+		
+	}
+	
+	public void transmutarIzquierdaDerecha() {
+		
+	}
+	public boolean lateralesLibres(ParaDonde donde) {
+		return false;
+	}
 	public boolean soyMagico() {
 		return false;
 	}
+	
+	public void meEmpujanUnaRocaDentro(){
 		
+	}
 }
