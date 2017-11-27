@@ -1,12 +1,12 @@
 package com.boulderdash.principal;
 
-import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.BDLevelReader;
-import com.boulderdash.interfaz.Gui;
+import com.boulderdash.interfaz.GuiHUD;
 import com.boulderdash.personajes.Ameba;
 import com.boulderdash.personajes.Diamante;
 import com.boulderdash.personajes.Luciernaga;
 import com.boulderdash.personajes.Mariposa;
+import com.boulderdash.personajes.MuroComun;
 import com.boulderdash.personajes.MuroMagico;
 import com.boulderdash.personajes.MuroTitanio;
 import com.boulderdash.personajes.Personaje;
@@ -74,7 +74,13 @@ public class Mapa {
 						break;
 					}
 					case WALL:{
-						mapa[x][y]=new MuroMagico(x,y);
+						int random = (int)(Math.random() * (100));
+						if (random == 77 && (y < 21) && (y > 0)) {
+							mapa[x][y]=new MuroMagico(x,y);
+						}
+						else {
+							mapa[x][y]=new MuroComun(x,y);
+						}
 						break;
 					}
 					case ROCK:{
@@ -120,12 +126,7 @@ public class Mapa {
 	
 	public void avanzarDeNivel()
 	{
-		setPuntuacionAcumulada(getInstancia().getPuntuacionNivel() + getPuntuacionAcumulada() + tiempoRestante);
-		Audio.pararMusica();
-		setNivelActual(this.getNivelActual() + 1);
-		Audio.musica();
-		this.setVidas(4);
-		reconstruirMapa();
+		Comportamiento.cambiarDeNivel();
 	}
 	
 	public Personaje getPersonaje(Posicion pos){
@@ -137,10 +138,9 @@ public class Mapa {
 	}
 	
 	public void reconstruirMapa (){
-		
 		instancia = new Mapa();
 		System.out.println("El mapa se acaba de reconstruir");
-		Gui.getInstancia().getMatriz().reconstruir();
+		Comportamiento.refrescarDiamantesNivel();
 	}
 	
 	
@@ -149,6 +149,7 @@ public class Mapa {
 		instancia = new Mapa();
 		vidas = 4; //Se restauran las vidas
 		System.out.println("El mapa se acaba de construir");
+		Comportamiento.refrescarDiamantesNivel();
 	}
 	
 	public void setNivelActual(int nivel){

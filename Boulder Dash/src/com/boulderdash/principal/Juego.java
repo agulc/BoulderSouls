@@ -1,5 +1,4 @@
 package com.boulderdash.principal;
-
 import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.OpcionesES;
 import com.boulderdash.interfaz.Gui;

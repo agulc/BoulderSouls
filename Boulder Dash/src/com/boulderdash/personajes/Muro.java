@@ -11,4 +11,6 @@ public abstract class Muro extends Personaje{
 
 		return (tile == BDTile.WALL);
 	}
+	
+
 }

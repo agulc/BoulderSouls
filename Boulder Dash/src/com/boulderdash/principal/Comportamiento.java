@@ -1,8 +1,10 @@
 package com.boulderdash.principal;
 
 import com.boulderdash.audio.Audio;
-import com.boulderdash.enumerativos.ParaDonde;
+import com.boulderdash.entradasalida.Highscore;
+import com.boulderdash.entradasalida.OpcionesES;
 import com.boulderdash.interfaz.Gui;
+import com.boulderdash.interfaz.GuiHUD;
 import com.boulderdash.interfaz.GuiMuerte;
 import com.boulderdash.personajes.Rockford;
 
@@ -24,6 +26,8 @@ public class Comportamiento {
 	
 	public static void Inicializar(){
 		Mapa.getInstancia();
+		Mapa.getInstancia().setNivelActual(OpcionesES.getNivel());
+		Mapa.getInstancia().construirMapa();
 		actualizarEstadoObjeto();
 		CoordinadorDeEventos.iniciarTemporizador();
 	}
@@ -43,11 +47,22 @@ public class Comportamiento {
 	public static void comportamientoNormal(){
 		
 		moverPersonajes();
+		Gui.getInstancia().getMatriz().reconstruir();
 		actualizarEstadoObjeto();
 		
 		//System.out.println(Mapa.getInstancia().getPuntuacionNivel());
 		
 	}
+	
+	public static void reconstruir(){
+		Gui.getInstancia().getMatriz().reconstruir();
+		GuiHUD.setDiamantesNivel(Mapa.getDiamantesRestantes());
+	}
+	
+	public static void refrescarDiamantesNivel(){
+		GuiHUD.setDiamantesNivel(Mapa.getDiamantesRestantes());
+	}
+	
 	
 	/**
 	 * Se encarga de modificar la posición de cada objeto (salvo Rockford) del nivel en cada turno.
@@ -55,7 +70,7 @@ public class Comportamiento {
 	 */
 	private static void moverPersonajes(){
 		Posicion pos = new Posicion();
-		
+		Rockford.getInstancia().moverPersonajes();
 		for (int y = 0; y < 22 && !rockfordMuerto; y++)  
 		{
 			for (int x = 0; x < 40 && !rockfordMuerto; x++)
@@ -109,9 +124,29 @@ public class Comportamiento {
 		}
 	}
 	
-	public static void moverARockford(ParaDonde donde){
-		if(!rockfordMuerto) {
-			Rockford.getInstancia().mover(donde);
+	public static void cambiarDeNivel(){
+		if(Mapa.getInstancia().getNivelActual()<10){
+			Mapa.setPuntuacionAcumulada(Mapa.getInstancia().getPuntuacionNivel() + Mapa.getPuntuacionAcumulada() + Mapa.getInstancia().getTiempoRestante());
+			Audio.pararMusica();
+			Mapa.getInstancia().setNivelActual(Mapa.getInstancia().getNivelActual() + 1);
+			Audio.musica();
+			Mapa.getInstancia().setVidas(4);
+			Mapa.getInstancia().reconstruirMapa();
+		}
+		else{
+			Mapa.setPuntuacionAcumulada(Mapa.getInstancia().getPuntuacionNivel() + Mapa.getPuntuacionAcumulada() + Mapa.getInstancia().getTiempoRestante());
+			Audio.pararMusica();
+			Gui.getInstancia().remove(Gui.getInstancia().getJuego());
+			Highscore high = new Highscore("",Mapa.getPuntuacionAcumulada(),Mapa.getTiempoAcumulado());
+			
+			if (Highscore.highscoreValido(high))
+			{
+				Gui.getInstancia().getNuevoHighscore().menuNuevoHighscore(high);
+			}
+			else
+			{
+				Gui.getInstancia().getTitulo().volverAlTitulo();
+			}
 		}
 	}
 

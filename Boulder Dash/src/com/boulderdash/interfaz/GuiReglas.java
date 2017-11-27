@@ -42,7 +42,7 @@ public class GuiReglas extends JPanel{
 	{
 		Font fuente = MiFuente.getFuente(21);
 		
-		JLabel regla1 = new JLabel(new ImageIcon("./Texturas/Rockford.gif"));
+		JLabel regla1 = new JLabel(new ImageIcon("./Texturas/RockfordStatic.gif"));
 		regla1.setText("Controlas a Rockford");
 		regla1.setFont(fuente);
 		regla1.setForeground(Color.WHITE);
@@ -107,6 +107,16 @@ public class GuiReglas extends JPanel{
 		regla13.setFont(fuente);
 		regla13.setForeground(Color.WHITE);
 		
+		JLabel regla14 = new JLabel(new ImageIcon("./Texturas/explosion.png"));
+		regla14.setText("Al pulsar espacio, explotas, util para salir de aprietos");
+		regla14.setFont(fuente);
+		regla14.setForeground(Color.WHITE);
+		
+		JLabel regla15 = new JLabel(new ImageIcon("./Texturas/magic2.gif"));
+		regla15.setText("Los muros magicos convierten rocas en diamantes y viceversa, se generan aleatoriamente");
+		regla15.setFont(fuente);
+		regla15.setForeground(Color.WHITE);
+		
 		Container containerReglas = new Container();
 
 		containerReglas.setLayout(new GridLayout(0,1));
@@ -122,6 +132,8 @@ public class GuiReglas extends JPanel{
 		containerReglas.add(regla10);
 		containerReglas.add(regla11);
 		containerReglas.add(regla12);
+		containerReglas.add(regla14);
+		containerReglas.add(regla15);
 		containerReglas.add(regla13);
 		
 		return containerReglas;
@@ -152,7 +164,7 @@ public class GuiReglas extends JPanel{
 	public void menuReglas()
 	{
 		Gui.getInstancia().add(Gui.getInstancia().getReglas());
-		Gui.getInstancia().setSize((int)Gui.getInstancia().getTitulo().getSize().getWidth(), 580);
+		Gui.getInstancia().setSize((int)Gui.getInstancia().getTitulo().getSize().getWidth(), 640);
 		Gui.getInstancia().validate();
 		Gui.getInstancia().repaint();
 	}

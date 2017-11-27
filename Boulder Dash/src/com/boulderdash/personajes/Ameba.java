@@ -96,7 +96,7 @@ public class Ameba extends Enemigo{
 	}
 
 	@Override
-	public ImageIcon getIcono() {
+	public ImageIcon getGraficos() {
 		return icono;
 	}
 

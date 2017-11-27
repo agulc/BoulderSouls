@@ -11,10 +11,12 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.Highscore;
+import com.boulderdash.principal.Mapa;
 
 import fuentes.MiFuente;
 
@@ -32,7 +34,6 @@ public class GuiNuevoHighscore extends JPanel{
 
 		this.add(crearLabelHighscore(), BorderLayout.NORTH);
 		this.add(crearContainerHighscore(), BorderLayout.CENTER);
-		//this.add(crearBotonRegresar(), BorderLayout.SOUTH);
 		this.add(crearBotonAceptar(), BorderLayout.SOUTH);
 
 		
@@ -79,6 +80,8 @@ public class GuiNuevoHighscore extends JPanel{
 	
 	public void menuNuevoHighscore(Highscore highscore)
 	{
+		this.text.setText("");
+		
 		this.highscore = highscore;
 		
 		Gui.getInstancia().remove(Gui.getInstancia().getTitulo());
@@ -88,6 +91,7 @@ public class GuiNuevoHighscore extends JPanel{
 		
 		Gui.getInstancia().validate();
 		Gui.getInstancia().pack();
+		Mapa.setPuntuacionAcumulada(0);
 		this.repaint();
 	}
 	
@@ -101,6 +105,7 @@ public class GuiNuevoHighscore extends JPanel{
 		botonRegresar.setIcon(new ImageIcon("./Texturas/AceptarInerte.png"));
 		botonRegresar.setRolloverIcon(new ImageIcon("./Texturas/Aceptar.png"));
 		botonRegresar.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent arg0) {
 				
 				String nombre = text.getText();
@@ -125,11 +130,17 @@ public class GuiNuevoHighscore extends JPanel{
 					else
 					{
 						System.out.println("Nombre en uso");
+	
+						JOptionPane.showMessageDialog(null, "Ingrese un nombre que no este en uso", "Nombre en uso", JOptionPane.PLAIN_MESSAGE);
+
 					}
+					
 				}
 				else
 				{
-					System.out.println("Nombre no valido");
+					System.out.println("Nombre invalido");
+					
+					JOptionPane.showMessageDialog(null, "El nombre debe tener al menos 2 caracteres, y no puede contener espacios.", "Nombre invalido", JOptionPane.PLAIN_MESSAGE);
 				}
 			}
 		});

@@ -70,7 +70,7 @@ public class Mariposa extends EnemigoMovil{
 	}
 
 	@Override
-	public ImageIcon getIcono() {
+	public ImageIcon getGraficos() {
 		// TODO Auto-generated method stub
 		return icono;
 	}

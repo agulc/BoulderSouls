@@ -61,6 +61,7 @@ public class Gui extends JFrame{
 		juego = new JPanel(new BorderLayout()); 
 		juego.setBackground(Color.WHITE);
 		Comportamiento.setRockfordMuerto(false);
+
 		
 		hud = new GuiHUD();
 		matriz = new GuiMatriz();
@@ -72,6 +73,7 @@ public class Gui extends JFrame{
 		add(juego); 		
 		pack();
 		repaint();
+		
 		
 		Comportamiento.Inicializar();
 		Audio.pararMusica();

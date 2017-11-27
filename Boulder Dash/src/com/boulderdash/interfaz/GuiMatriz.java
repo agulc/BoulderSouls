@@ -28,7 +28,7 @@ public class GuiMatriz extends JPanel{
 		{
 			pos.setX(i%40);
 			pos.setY(i/40);
-			labels[(i)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getIcono());
+			labels[(i)] = new JLabel(Mapa.getInstancia().getPersonaje(pos).getGraficos());
 			this.add(labels[(i)], (i));
 		}
 	}
@@ -42,7 +42,7 @@ public class GuiMatriz extends JPanel{
 		  {
 			  pos.setX(i%40);
 			  pos.setY(i/40);
-			  labels[i].setIcon(Mapa.getInstancia().getPersonaje(pos).getIcono());
+			  labels[i].setIcon(Mapa.getInstancia().getPersonaje(pos).getGraficos());
 		  }
 		  Gui.getInstancia().getMatriz().validate();
 	}

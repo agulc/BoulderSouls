@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.boulderdash.audio.Audio;
+import com.boulderdash.entradasalida.Highscore;
 import com.boulderdash.entradasalida.OpcionesES;
 import com.boulderdash.principal.Comportamiento;
 import com.boulderdash.principal.Mapa;
@@ -38,9 +39,10 @@ public class GuiOpciones extends JPanel{
 		containerOpciones2.setLayout(new FlowLayout());
 		containerOpciones3.setLayout(new BorderLayout());
 		containerOpciones2.add(crearNivelAElegir());
+		containerOpciones2.add(crearCantidadAMostrar());
+		containerOpciones2.add(crearBoxMusicaActivada());
 		containerOpciones2.add(crearBoxMuerte());
 		containerOpciones2.add(crearBoxPiedrasConInercia());
-		containerOpciones2.add(crearBoxMusicaActivada());
 		
         containerOpciones3.add(labelOpciones);
         containerOpciones.add(containerOpciones2, BorderLayout.NORTH);
@@ -127,13 +129,11 @@ public class GuiOpciones extends JPanel{
 				
 				if (!Audio.getMusicaActivada())
 				{
-					System.out.println("Se intenta parar la musica, y el audio esta en: " + Audio.getMusicaActivada());
 					Audio.pararMusica(); //Para la musica del menu
 					OpcionesES.setMusica(false);
 				}
 				else
 				{
-					System.out.println("Se incicia la musica, y el audio esta en: " + Audio.getMusicaActivada());
 					Audio.musicaMenu();
 					OpcionesES.setMusica(true);
 				}
@@ -165,6 +165,26 @@ public class GuiOpciones extends JPanel{
 		nivelAElegir.setSelectedIndex(OpcionesES.getNivel() - 1);
 		
 		return nivelAElegir;
+	}
+	
+	private JComboBox<String> crearCantidadAMostrar()
+	{
+		String[] items = {"5 Elementos","10 Elementos","15 Elementos","20 Elementos"};
+		final JComboBox<String> cantidadAMostrar = new JComboBox<String>(items);
+		cantidadAMostrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Highscore.setCantidadAMostrar((cantidadAMostrar.getSelectedIndex() + 1) * 5);
+				OpcionesES.setElementosAMostrar((cantidadAMostrar.getSelectedIndex() + 1) * 5);
+			}
+		});
+		cantidadAMostrar.setFont(MiFuente.getFuente(18));
+		cantidadAMostrar.setBackground(Color.BLACK);
+		cantidadAMostrar.setForeground(Color.WHITE);
+		
+		cantidadAMostrar.setSelectedIndex(OpcionesES.getElementosAMostrar() / 5 - 1);
+		
+		return cantidadAMostrar;
 	}
 	
 	private JButton crearBotonRegresar()
