@@ -58,7 +58,7 @@ public class PuertaDeSalida extends Personaje{
 	}
 
 	@Override
-	public ImageIcon getIcono() {
+	public ImageIcon getGraficos() {
 		if (this.abierta)
 		{
 			return iconoAbierta;
