@@ -1,4 +1,5 @@
 Solaire 5798 1367
+SandGuardian 1688 357
 Ghigliazza 1645 560
 Dios 1502 338
 Karl 975 395
@@ -17,5 +18,3 @@ GhigliASCII 249 86
 Nico 238 138
 Gato 215 60
 Pepe 192 114
-YEAHBOIIIIIIII 182 45
-
