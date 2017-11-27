@@ -1,6 +1,7 @@
 package com.boulderdash.principal;
 
 import com.boulderdash.entradasalida.BDLevelReader;
+import com.boulderdash.interfaz.GuiHUD;
 import com.boulderdash.personajes.Ameba;
 import com.boulderdash.personajes.Diamante;
 import com.boulderdash.personajes.Luciernaga;
@@ -139,7 +140,7 @@ public class Mapa {
 	public void reconstruirMapa (){
 		instancia = new Mapa();
 		System.out.println("El mapa se acaba de reconstruir");
-		Comportamiento.reconstruir();
+		Comportamiento.refrescarDiamantesNivel();
 	}
 	
 	
@@ -148,6 +149,7 @@ public class Mapa {
 		instancia = new Mapa();
 		vidas = 4; //Se restauran las vidas
 		System.out.println("El mapa se acaba de construir");
+		Comportamiento.refrescarDiamantesNivel();
 	}
 	
 	public void setNivelActual(int nivel){
