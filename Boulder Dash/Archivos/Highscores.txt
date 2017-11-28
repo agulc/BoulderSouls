@@ -3,6 +3,7 @@ Jesus 1823 364
 TheKing 1779 670
 SandGuardian 1688 357
 Ghigliazza 1645 560
+Coco 1525 669
 Dios 1502 338
 Karl 975 395
 Ned 644 77
@@ -17,11 +18,3 @@ Timmy 323 133
 Macri 319 55
 Federicote 277 69
 Nico 270 159
-Federiquito 254 113
-<<<<<<< HEAD
-=======
-Holis 254 94
-GhigliASCII 249 86
-Nico 238 138
-FedericoB 201 58
->>>>>>> b55958553a3215ef892666e8222ce89050af6342
