@@ -11,7 +11,8 @@ public class Ameba extends Enemigo{
 	
 	private static ImageIcon icono = new ImageIcon("Texturas/amoeba.gif");
 	
-	Random generador = new Random();
+	private Random generador = new Random();
+	private static int contador = 1;
 	
 	public Ameba(int x,int y){
 		super(x,y);
@@ -34,9 +35,9 @@ public class Ameba extends Enemigo{
 		if (Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.DIRT) || Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.EMPTY))
 		{
 			Ameba hijo = new Ameba(pos.getX(),pos.getY());
-			Mapa.getInstancia().setPersonaje(hijo, this.getPos());
+			Mapa.getInstancia().setPersonaje(hijo, pos);
 			
-			System.out.println("Una ameba se expande a ("+pos.getX()+","+pos.getY()+")"); //Notifica en consola
+			System.out.println("Hay "+(++contador)+" amebas");//Notifica en consola
 		}
 	}
 	/**
@@ -45,13 +46,13 @@ public class Ameba extends Enemigo{
 	 */
 	public void actualizarEstadoObjeto(){	
 		
-		int expandirse = 1 + generador.nextInt(30); //Genera un numero del 1 al 30
+		int expandirse = 1 + generador.nextInt(70); //Genera un numero del 1 al 70
 		int adyacente = 1 + generador.nextInt(8); //Determina en que cuadro adyacente intentara expandirse
 	
 
 		//Gui.getInstancia().actualizarImagenes(this.getPos());
 		
-		if (expandirse == 30) //Tiene una probabilidad de 1 en 30 de intentar expandirse
+		if (expandirse == 30) //Tiene una probabilidad de 1 en 70 de intentar expandirse
 		{
 			switch (adyacente)
 			{
