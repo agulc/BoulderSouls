@@ -138,11 +138,11 @@ public class Audio {
 		try 
 		{
 			   Audio.pararMusica();
-			   File fileExp = new File("./Audio/allahuAkbar.wav");
+			   File fileExp = new File("./Audio/OmaeWa.wav");
 			   Clip clipAux = AudioSystem.getClip();
 			   clipAux.open(AudioSystem.getAudioInputStream(fileExp));
 			   clipAux.start();
-			   Thread.sleep(1500);
+			   Thread.sleep(4500);
 		} 
 		catch (Exception e) 
 		{

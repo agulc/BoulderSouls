@@ -107,15 +107,10 @@ public class GuiReglas extends JPanel{
 		regla13.setFont(fuente);
 		regla13.setForeground(Color.WHITE);
 		
-		JLabel regla14 = new JLabel(new ImageIcon("./Texturas/explosion.png"));
-		regla14.setText("Al pulsar espacio, explotas, util para salir de aprietos");
+		JLabel regla14 = new JLabel(new ImageIcon("./Texturas/magic2.gif"));
+		regla14.setText("Los muros magicos convierten rocas en diamantes y viceversa, se generan aleatoriamente");
 		regla14.setFont(fuente);
 		regla14.setForeground(Color.WHITE);
-		
-		JLabel regla15 = new JLabel(new ImageIcon("./Texturas/magic2.gif"));
-		regla15.setText("Los muros magicos convierten rocas en diamantes y viceversa, se generan aleatoriamente");
-		regla15.setFont(fuente);
-		regla15.setForeground(Color.WHITE);
 		
 		Container containerReglas = new Container();
 
@@ -132,9 +127,8 @@ public class GuiReglas extends JPanel{
 		containerReglas.add(regla10);
 		containerReglas.add(regla11);
 		containerReglas.add(regla12);
-		containerReglas.add(regla14);
-		containerReglas.add(regla15);
 		containerReglas.add(regla13);
+		containerReglas.add(regla14);
 		
 		return containerReglas;
 	}
@@ -164,7 +158,7 @@ public class GuiReglas extends JPanel{
 	public void menuReglas()
 	{
 		Gui.getInstancia().add(Gui.getInstancia().getReglas());
-		Gui.getInstancia().setSize((int)Gui.getInstancia().getTitulo().getSize().getWidth(), 640);
+		Gui.getInstancia().setSize((int)Gui.getInstancia().getTitulo().getSize().getWidth(), 600);
 		Gui.getInstancia().validate();
 		Gui.getInstancia().repaint();
 	}
