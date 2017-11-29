@@ -262,28 +262,5 @@ public class Mapa {
 	public static void setTiempoAcumulado(int tiempoAcumulado) {
 		Mapa.tiempoAcumulado = tiempoAcumulado;
 	}
-<<<<<<< HEAD
-	
-	private void comunOMagico(int x, int y) {
-
-		if (generador.nextInt(100) == 77 && (y < 21) && (y > 0)) {
-			mapa[x][y]=new MuroMagico(x,y);
-		}
-		else {
-			mapa[x][y]=new MuroComun(x,y);
-		}
-	}
-	private void amebaOSuciedad(int x, int y) {
-		
-		if (generador.nextInt(11100) == 9 && !hayUnaAmeba) {
-			mapa[x][y]=new Ameba(x,y);
-			hayUnaAmeba=true;
-		}	
-		else {
-			mapa[x][y]= new Suciedad(x,y);
-		}
-	}
-	}
-=======
 }
->>>>>>> 1a4717b1d859807c8e25bce83b6a7c1eafa4eded
+
