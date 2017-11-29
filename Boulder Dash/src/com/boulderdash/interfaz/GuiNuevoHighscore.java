@@ -11,7 +11,6 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.boulderdash.audio.Audio;
@@ -25,18 +24,34 @@ public class GuiNuevoHighscore extends JPanel{
 	
 	private Highscore highscore;
 	private TextField text;
+	private JLabel mensaje;
+	
+	ImageIcon blank;
+	ImageIcon nombreEnUso;
+	ImageIcon nombreInvalido;
 
 	public GuiNuevoHighscore()
 	{
+		blank = new ImageIcon("./Texturas/Blank.png");
+		nombreEnUso = new ImageIcon("./Texturas/nombreEnUso.png");
+		nombreInvalido = new ImageIcon("./Texturas/nombreInvalido.png");
+		
+		mensaje = new JLabel();
+		mensaje.setIcon(blank);
+		mensaje.setHorizontalAlignment(JLabel.CENTER);
+		
 		this.setLayout(new BorderLayout());
 		this.setBackground(Color.BLACK);
 
-
-		this.add(crearLabelHighscore(), BorderLayout.NORTH);
-		this.add(crearContainerHighscore(), BorderLayout.CENTER);
+		Container containerNorte = new Container();
+		containerNorte.setLayout(new BorderLayout());
+		containerNorte.add(crearLabelHighscore(), BorderLayout.NORTH);
+		containerNorte.add(crearContainerHighscore(), BorderLayout.SOUTH);
+		
+		this.add(containerNorte, BorderLayout.NORTH);
+		this.add(mensaje, BorderLayout.CENTER);
 		this.add(crearBotonAceptar(), BorderLayout.SOUTH);
 
-		
 	}
 	
 	private JLabel crearLabelHighscore()
@@ -63,6 +78,7 @@ public class GuiNuevoHighscore extends JPanel{
 		text.setForeground(Color.WHITE);
 		text.setColumns(30);
 		
+		
 		JLabel label2 = new JLabel();
 		label.setBackground(Color.BLACK);
 		label.setForeground(Color.WHITE);
@@ -88,10 +104,10 @@ public class GuiNuevoHighscore extends JPanel{
 		Gui.getInstancia().add(Gui.getInstancia().getNuevoHighscore());
 		Gui.getInstancia().getNuevoHighscore().setSize(Gui.getInstancia().getTitulo().getSize());
 		
-		
 		Gui.getInstancia().validate();
 		Gui.getInstancia().pack();
 		Mapa.setPuntuacionAcumulada(0);
+		
 		this.repaint();
 	}
 	
@@ -121,6 +137,8 @@ public class GuiNuevoHighscore extends JPanel{
 						
 						Highscore.exportarHighscores();
 						
+						mensaje.setIcon(blank);
+						
 						//Regresa al menu
 						Audio.musicaMenu();
 						Gui.getInstancia().remove(Gui.getInstancia().getNuevoHighscore());
@@ -131,8 +149,8 @@ public class GuiNuevoHighscore extends JPanel{
 					{
 						System.out.println("Nombre en uso");
 	
-						JOptionPane.showMessageDialog(null, "Ingrese un nombre que no este en uso", "Nombre en uso", JOptionPane.PLAIN_MESSAGE);
-
+						mensaje.setIcon(nombreEnUso);
+					
 					}
 					
 				}
@@ -140,7 +158,7 @@ public class GuiNuevoHighscore extends JPanel{
 				{
 					System.out.println("Nombre invalido");
 					
-					JOptionPane.showMessageDialog(null, "El nombre debe tener al menos 2 caracteres, y no puede contener espacios.", "Nombre invalido", JOptionPane.PLAIN_MESSAGE);
+					mensaje.setIcon(nombreInvalido);
 				}
 			}
 		});

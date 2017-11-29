@@ -15,6 +15,6 @@ public class Juego{
 		Gui.getInstancia();
 		Audio.titulo();
 		Audio.musicaMenu();
-
+		
 	}	
 }
