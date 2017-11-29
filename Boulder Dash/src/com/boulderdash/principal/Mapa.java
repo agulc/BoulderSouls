@@ -247,7 +247,7 @@ public class Mapa {
 	}
 	private void amebaOSuciedad(int x, int y) {
 		
-		if (generador.nextInt(11100) == 77 && !hayUnaAmeba) {
+		if (generador.nextInt(11100) == 9 && !hayUnaAmeba) {
 			mapa[x][y]=new Ameba(x,y);
 			hayUnaAmeba=true;
 		}	
