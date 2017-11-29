@@ -14,6 +14,7 @@ import com.boulderdash.personajes.Roca;
 import com.boulderdash.personajes.Rockford;
 import com.boulderdash.personajes.Suciedad;
 import com.boulderdash.personajes.Vacio;
+import java.util.Random;
 
 public class Mapa {
 	
@@ -25,8 +26,9 @@ public class Mapa {
 	private int tiempoRestante;
 	private Personaje[][] mapa; 
 	private static int diamantesRestantes;
-	private static Mapa instancia = null; 
-	
+	private static Mapa instancia = null;
+	private Random generador = new Random();
+	private static boolean hayUnaAmeba = false;
 	private static int[] valorDiamante = {0,10,20,15,5,30,50,40,10,10,10};//Guarda el valor del diamante base por nivel
 	private static int[] valorDiamanteBonus = {0,15,50,0,20,0,90,60,20,20,0};//Guarda el valor del diamante bonus por nivel
 	private static int[] tiempo = {0,110,110,100,100,100,120,110,110,130,150};//Guarda el valor del timer por nivel
@@ -57,6 +59,7 @@ public class Mapa {
 		setDiamantesRestantes(lectorNiveles.getDiamondsNeeded());
 		tiempoRestante = tiempo[this.getNivelActual()];
 		Diamante.setValorDiamante(valorDiamante[this.getNivelActual()]);
+
 		for(int x=0;x<lectorNiveles.getWIDTH();x++){
 			for(int y=0;y<lectorNiveles.getHEIGHT();y++){
 				switch(lectorNiveles.getTile(x,y)){
@@ -65,7 +68,7 @@ public class Mapa {
 						break;
 					}
 					case DIRT:{
-						mapa[x][y]=new Suciedad(x,y);
+						amebaOSuciedad(x,y);				
 						break;
 					}
 					case TITANIUM:{
@@ -73,13 +76,7 @@ public class Mapa {
 						break;
 					}
 					case WALL:{
-						int random = (int)(Math.random() * (100));
-						if (random == 77 && (y < 21) && (y > 0)) {
-							mapa[x][y]=new MuroMagico(x,y);
-						}
-						else {
-							mapa[x][y]=new MuroComun(x,y);
-						}
+						comunOMagico(x,y);
 						break;
 					}
 					case ROCK:{
@@ -140,15 +137,17 @@ public class Mapa {
 		instancia = new Mapa();
 		System.out.println("El mapa se acaba de reconstruir");
 		Comportamiento.refrescarDiamantesNivel();
+		hayUnaAmeba = false;
 	}
 	
 	
 	public void construirMapa (){
 		
 		instancia = new Mapa();
-		vidas = 4; //Se restauran las vidas
+		vidas = 999; //Se restauran las vidas
 		System.out.println("El mapa se acaba de construir");
 		Comportamiento.refrescarDiamantesNivel();
+		hayUnaAmeba = false;
 	}
 	
 	public void setNivelActual(int nivel){
@@ -237,4 +236,23 @@ public class Mapa {
 		Mapa.tiempoAcumulado = tiempoAcumulado;
 	}
 	
-}
+	private void comunOMagico(int x, int y) {
+
+		if (generador.nextInt(100) == 77 && (y < 21) && (y > 0)) {
+			mapa[x][y]=new MuroMagico(x,y);
+		}
+		else {
+			mapa[x][y]=new MuroComun(x,y);
+		}
+	}
+	private void amebaOSuciedad(int x, int y) {
+		
+		if (generador.nextInt(11100) == 77 && !hayUnaAmeba) {
+			mapa[x][y]=new Ameba(x,y);
+			hayUnaAmeba=true;
+		}	
+		else {
+			mapa[x][y]= new Suciedad(x,y);
+		}
+	}
+	}
