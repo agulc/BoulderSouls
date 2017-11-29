@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.interfaz.Gui;
 import com.boulderdash.personajes.Rockford;
+import com.boulderdash.principal.Comportamiento;
 import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
 
@@ -15,6 +16,8 @@ public class MiTeclaEscucha extends KeyAdapter{
 	public void keyPressed(KeyEvent e)
 	{
 		
+		if(!Comportamiento.getRockfordMuerto()) {
+			
 		
 		switch (e.getKeyCode())
 		{
@@ -90,7 +93,7 @@ public class MiTeclaEscucha extends KeyAdapter{
 		break;
 
 		
-		
+		}
 		
 		}	
 	}
