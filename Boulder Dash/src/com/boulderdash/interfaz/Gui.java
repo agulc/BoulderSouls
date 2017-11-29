@@ -14,12 +14,12 @@ public class Gui extends JFrame{
 	
 	private GuiTitulo titulo;
 	private GuiOpciones opciones;
-	private GuiHighscores highscores;
+	private GuiMejorPuntuacion highscores;
 	private GuiReglas reglas;
 	private GuiHUD hud;
 	private GuiMatriz matriz;
 	private GuiMuerte muerte;
-	private GuiNuevoHighscore nuevoHighscore;
+	private GuiNuevaMejorPuntuacion nuevoMejorPuntuacion;
 	
 	private JPanel juego;
 	
@@ -32,9 +32,9 @@ public class Gui extends JFrame{
 	{
 		titulo = new GuiTitulo();
 		opciones = new GuiOpciones();
-		highscores = new GuiHighscores();
+		highscores = new GuiMejorPuntuacion();
 		reglas = new GuiReglas();
-		nuevoHighscore = new GuiNuevoHighscore();
+		nuevoMejorPuntuacion = new GuiNuevaMejorPuntuacion();
 
 		setSize(1024, 720);
 	    setResizable(false);
@@ -99,11 +99,11 @@ public class Gui extends JFrame{
 		this.opciones = opciones;
 	}
 	
-	public GuiHighscores getHighscores() {
+	public GuiMejorPuntuacion getMejorPuntuacion() {
 		return highscores;
 	}
 
-	public void setHighscores(GuiHighscores highscores) {
+	public void setMejorPuntuacion(GuiMejorPuntuacion highscores) {
 		this.highscores = highscores;
 	}
 
@@ -147,12 +147,12 @@ public class Gui extends JFrame{
 		this.juego = juego;
 	}
 
-	public GuiNuevoHighscore getNuevoHighscore() {
-		return nuevoHighscore;
+	public GuiNuevaMejorPuntuacion getNuevaMejorPuntuacion() {
+		return nuevoMejorPuntuacion;
 	}
 
-	public void setNuevoHighscore(GuiNuevoHighscore nuevoHighscore) {
-		this.nuevoHighscore = nuevoHighscore;
+	public void setNuevaMejorPuntuacion(GuiNuevaMejorPuntuacion nuevoMejorPuntuacion) {
+		this.nuevoMejorPuntuacion = nuevoMejorPuntuacion;
 	}
 
 	

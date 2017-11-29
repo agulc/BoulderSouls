@@ -14,15 +14,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.boulderdash.audio.Audio;
-import com.boulderdash.entradasalida.Highscore;
+import com.boulderdash.entradasalida.MejorPuntuacion;
 import com.boulderdash.principal.Mapa;
 
 import fuentes.MiFuente;
 
 @SuppressWarnings("serial")
-public class GuiNuevoHighscore extends JPanel{
+public class GuiNuevaMejorPuntuacion extends JPanel{
 	
-	private Highscore highscore;
+	private MejorPuntuacion highscore;
 	private TextField text;
 	private JLabel mensaje;
 	
@@ -30,7 +30,7 @@ public class GuiNuevoHighscore extends JPanel{
 	ImageIcon nombreEnUso;
 	ImageIcon nombreInvalido;
 
-	public GuiNuevoHighscore()
+	public GuiNuevaMejorPuntuacion()
 	{
 		blank = new ImageIcon("./Texturas/Blank.png");
 		nombreEnUso = new ImageIcon("./Texturas/nombreEnUso.png");
@@ -45,8 +45,8 @@ public class GuiNuevoHighscore extends JPanel{
 
 		Container containerNorte = new Container();
 		containerNorte.setLayout(new BorderLayout());
-		containerNorte.add(crearLabelHighscore(), BorderLayout.NORTH);
-		containerNorte.add(crearContainerHighscore(), BorderLayout.SOUTH);
+		containerNorte.add(crearLabelMejorPuntuacion(), BorderLayout.NORTH);
+		containerNorte.add(crearContainerMejorPuntuacion(), BorderLayout.SOUTH);
 		
 		this.add(containerNorte, BorderLayout.NORTH);
 		this.add(mensaje, BorderLayout.CENTER);
@@ -54,7 +54,7 @@ public class GuiNuevoHighscore extends JPanel{
 
 	}
 	
-	private JLabel crearLabelHighscore()
+	private JLabel crearLabelMejorPuntuacion()
 	{
 		JLabel label = new JLabel(new ImageIcon ("./Texturas/Nuevohighscore.png"));
 		label.setBackground(Color.BLACK);
@@ -64,7 +64,7 @@ public class GuiNuevoHighscore extends JPanel{
 		return label;
 	}
 	
-	private Container crearContainerHighscore()
+	private Container crearContainerMejorPuntuacion()
 	{
 		JLabel label = new JLabel();
 		label.setBackground(Color.BLACK);
@@ -94,15 +94,15 @@ public class GuiNuevoHighscore extends JPanel{
 		return container;
 	}
 	
-	public void menuNuevoHighscore(Highscore highscore)
+	public void menuNuevaMejorPuntuacion(MejorPuntuacion highscore)
 	{
 		this.text.setText("");
 		
 		this.highscore = highscore;
 		
 		Gui.getInstancia().remove(Gui.getInstancia().getTitulo());
-		Gui.getInstancia().add(Gui.getInstancia().getNuevoHighscore());
-		Gui.getInstancia().getNuevoHighscore().setSize(Gui.getInstancia().getTitulo().getSize());
+		Gui.getInstancia().add(Gui.getInstancia().getNuevaMejorPuntuacion());
+		Gui.getInstancia().getNuevaMejorPuntuacion().setSize(Gui.getInstancia().getTitulo().getSize());
 		
 		Gui.getInstancia().validate();
 		Gui.getInstancia().pack();
@@ -129,19 +129,19 @@ public class GuiNuevoHighscore extends JPanel{
 				System.out.println("Aceptar presionado");
 				
 				highscore.setNombre(nombre);
-				if (Highscore.nombreValido(highscore.getNombre())) 
+				if (MejorPuntuacion.nombreValido(highscore.getNombre())) 
 				{
-					if(!Highscore.nombreEnUso(nombre))
+					if(!MejorPuntuacion.nombreEnUso(nombre))
 					{
-						Highscore.introducirHighscore(highscore);
+						MejorPuntuacion.introducirMejorPuntuacion(highscore);
 						
-						Highscore.exportarHighscores();
+						MejorPuntuacion.exportarMejorPuntuacion();
 						
 						mensaje.setIcon(blank);
 						
 						//Regresa al menu
 						Audio.musicaMenu();
-						Gui.getInstancia().remove(Gui.getInstancia().getNuevoHighscore());
+						Gui.getInstancia().remove(Gui.getInstancia().getNuevaMejorPuntuacion());
 						Gui.getInstancia().add(Gui.getInstancia().getTitulo());
 						Gui.getInstancia().pack();
 					}

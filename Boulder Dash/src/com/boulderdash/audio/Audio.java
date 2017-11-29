@@ -7,12 +7,18 @@ import javax.sound.sampled.Clip;
 
 import com.boulderdash.principal.Mapa;
 
+/**
+ * Clase que contiene todos los metodos para la musica del juego y efectos.
+ */
 public class Audio {
 
 	private static Clip clip = null;
 	
 	private static boolean musicaActivada = true;
 	
+	/**
+	 * Utilizado para inicializar la musica del nivel, dependiendo del nivel elegido, y ponerla en loop.
+	 */
 	public static void musica() 
     { 
 		if (musicaActivada)
@@ -31,6 +37,9 @@ public class Audio {
 		}
     }
 	
+	/**
+	 * Utilizado para inicializar la musica del menu y ponerla en loop.
+	 */
 	public static void musicaMenu() 
     {   
 		if (musicaActivada)
@@ -49,13 +58,18 @@ public class Audio {
 		}
     }
 	
+	/**
+	 * Permite parar la musica, ya sea la del nivel o la del menu.
+	 */
 	public static void pararMusica(){
 		if (clip != null)
 			clip.stop();
 	}
 	
 	
-	
+	/**
+	 * Ejecuta el audio de la explosion 1 vez.
+	 */
 	public static void explosion()
 	{
 		try 
@@ -71,6 +85,9 @@ public class Audio {
 		}
 	}
 	
+	/**
+	 * Ejecuta el audio de juntar un diamante 1 vez.
+	 */
 	public static void item()
 	{
 		try 
@@ -86,6 +103,9 @@ public class Audio {
 		}
 	}
 	
+	/**
+	 * Ejecuta un audio al inicializar el juego, que dice boulder dash en japones, una unica vez.
+	 */
 	public static void titulo()
 	{
 		try 
@@ -101,6 +121,9 @@ public class Audio {
 		}
 	}
 	
+	/**
+	 * Ejecuta un audio de victoria, al entrar a la puerta de salida y pasar de nivel o ganar el juego.
+	 */
 	public static void victoria()
 	{
 		try 
@@ -117,6 +140,9 @@ public class Audio {
 		}
 	}
 	
+	/**
+	 * Ejecuta un audio cuando la puerta se abre, al juntar los diamantes necesarios.
+	 */
 	public static void puertaAbierta()
 	{
 		try 
@@ -132,7 +158,9 @@ public class Audio {
 		}
 	}
 	
-	
+	/**
+	 * Ejecuta un audio relacionado con la muerte especial.
+	 */
 	public static void muerteExtra() 
 	{
 		try 
@@ -150,6 +178,9 @@ public class Audio {
 		}
 	}
 	
+	/**
+	 * Ejecuta el audio de muerte de dark souls.
+	 */
 	public static void hasMuerto() //Para la ventana con el mensaje
 	{
 		try 
@@ -165,7 +196,10 @@ public class Audio {
 			   System.err.println(e.getMessage());
 		}
 	}
-
+	
+	/**
+	 * Devuelve si la musica esta sonando o no.
+	 */
 	public static boolean getMusicaActivada() {
 		return musicaActivada;
 	}
