@@ -144,7 +144,7 @@ public class Mapa {
 	public void construirMapa (){
 		
 		instancia = new Mapa();
-		vidas = 999; //Se restauran las vidas
+		vidas = 4 ; //Se restauran las vidas
 		System.out.println("El mapa se acaba de construir");
 		Comportamiento.refrescarDiamantesNivel();
 		hayUnaAmeba = false;
