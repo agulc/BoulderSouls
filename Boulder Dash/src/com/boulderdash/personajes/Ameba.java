@@ -1,11 +1,11 @@
 package com.boulderdash.personajes;
-import java.util.Random;
 
+import java.util.Random;
+import javax.swing.ImageIcon;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
-import javax.swing.*;
 
 public class Ameba extends Enemigo{
 	
@@ -46,13 +46,13 @@ public class Ameba extends Enemigo{
 	 */
 	public void actualizarEstadoObjeto(){	
 		
-		int expandirse = 1 + generador.nextInt(70); //Genera un numero del 1 al 70
+		int expandirse = 1 + generador.nextInt(100); //Genera un numero del 1 al 70
 		int adyacente = 1 + generador.nextInt(8); //Determina en que cuadro adyacente intentara expandirse
 	
 
 		//Gui.getInstancia().actualizarImagenes(this.getPos());
 		
-		if (expandirse == 30) //Tiene una probabilidad de 1 en 70 de intentar expandirse
+		if (expandirse == 1) //Tiene una probabilidad de 1 en 70 de intentar expandirse
 		{
 			switch (adyacente)
 			{

@@ -1,7 +1,8 @@
 package com.boulderdash.personajes;
 
+import javax.swing.ImageIcon;
+
 import com.boulderdash.enumerativos.ParaDonde;
-import javax.swing.*;
 
 public class MuroTitanio extends Muro {
 	
