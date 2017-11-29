@@ -103,7 +103,7 @@ public class GuiReglas extends JPanel{
 		regla12.setForeground(Color.WHITE);
 		
 		JLabel regla13 = new JLabel(new ImageIcon("./Texturas/Amoeba.gif"));
-		regla13.setText("Las amebas estan programadas pero no aparecen en ningun nivel (^-^)");
+		regla13.setText("Las amebas aparecen aleatoriamente, y se multiplican obstruyendo el camino");
 		regla13.setFont(fuente);
 		regla13.setForeground(Color.WHITE);
 		
