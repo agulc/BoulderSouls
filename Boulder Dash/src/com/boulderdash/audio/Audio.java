@@ -19,7 +19,12 @@ public class Audio {
 		{
 			try 
 			{
-				   File fileExp = new File("./Audio/Levels/Level " + Mapa.getInstancia().getNivelActual() + ".wav");
+				File fileExp;
+				if (Mapa.getInstancia().getNivelActual() < 6)
+					fileExp = new File("./Audio/Levels/Level " + Mapa.getInstancia().getNivelActual() + ".wav");
+				else
+					fileExp = new File("./Audio/Levels/Level " + (Mapa.getInstancia().getNivelActual()-5) + ".wav");
+				
 				   clip = AudioSystem.getClip();
 				   clip.open(AudioSystem.getAudioInputStream(fileExp));
 				   clip.loop(Clip.LOOP_CONTINUOUSLY);
