@@ -10,7 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.boulderdash.personajes.Diamante;
-import com.boulderdash.principal.Comportamiento;
 import com.boulderdash.principal.Mapa;
 
 import fuentes.MiFuente;
@@ -67,9 +66,6 @@ public class GuiHUD extends JPanel{
 	public void actualizarHud ()
 	{
 		((JLabel)(this.getComponent(0))).setText("" + Mapa.getInstancia().getVidas()); //Actualiza Las Vidas
-		if (Mapa.getInstancia().getVidas() == 0 && Comportamiento.getMuerteExtra())
-			((JLabel)(this.getComponent(0))).setText("Mou shindeiru");
-		
 
 		((JLabel)(this.getComponent(1))).setText("" + (diamantesNivel-Mapa.getDiamantesRestantes()) + "/" + diamantesNivel); //Actualiza Los diamantes restantes
 

@@ -6,8 +6,6 @@ import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.interfaz.Gui;
 import com.boulderdash.personajes.Rockford;
 import com.boulderdash.principal.Comportamiento;
-import com.boulderdash.principal.Mapa;
-import com.boulderdash.principal.Posicion;
 
 
 
@@ -69,11 +67,6 @@ public class MiTeclaEscucha extends KeyAdapter{
 		}
 		break;
 		
-		case KeyEvent.VK_SPACE:
-		{
-			Rockford.getInstancia().explotar();
-		}
-		break;
 		
 		case KeyEvent.VK_ESCAPE:
 		{
@@ -81,7 +74,14 @@ public class MiTeclaEscucha extends KeyAdapter{
 		}
 		break;
 		
-		case KeyEvent.VK_E: //Funcion Allahu akbar
+		/*						//Controles para Testeo
+		case KeyEvent.VK_SPACE: //Rockford explota
+		{
+			Rockford.getInstancia().explotar();
+		}
+		break;
+		
+		case KeyEvent.VK_E: //Explota un bloque aleatorio en la zona central del mapa
 		{
 			Posicion pos = new Posicion ();
 					
@@ -91,7 +91,7 @@ public class MiTeclaEscucha extends KeyAdapter{
 			Mapa.getInstancia().getPersonaje(pos).explotar();
 		}
 		break;
-
+		*/
 		
 		}
 		

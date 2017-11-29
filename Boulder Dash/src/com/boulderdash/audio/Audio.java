@@ -25,7 +25,7 @@ public class Audio {
 			try 
 			{
 				File fileExp;
-				if (Mapa.getInstancia().getNivelActual() < 6)
+				if (Mapa.getInstancia().getNivelActual() < 6) //Por cuestiones de peso de los archivos, las canciones se repiten a partir del nivel 6
 					fileExp = new File("./Audio/Levels/Level " + Mapa.getInstancia().getNivelActual() + ".wav");
 				else
 					fileExp = new File("./Audio/Levels/Level " + (Mapa.getInstancia().getNivelActual()-5) + ".wav");
