@@ -56,7 +56,7 @@ public class OpcionesES { //Se encarga de cargar y guardar las opciones de confi
 
 		Comportamiento.setPiedrasConInercia(getPiedrasConInercia());
 		
-		Highscore.setCantidadAMostrar(getElementosAMostrar());
+		MejorPuntuacion.setCantidadAMostrar(getElementosAMostrar());
 	}
 
 	

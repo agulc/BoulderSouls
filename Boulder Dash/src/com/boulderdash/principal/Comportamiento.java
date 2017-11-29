@@ -1,7 +1,7 @@
 package com.boulderdash.principal;
 
 import com.boulderdash.audio.Audio;
-import com.boulderdash.entradasalida.Highscore;
+import com.boulderdash.entradasalida.MejorPuntuacion;
 import com.boulderdash.entradasalida.OpcionesES;
 import com.boulderdash.interfaz.Gui;
 import com.boulderdash.interfaz.GuiHUD;
@@ -31,7 +31,6 @@ public class Comportamiento {
 	public static void Inicializar(){
 		Mapa.getInstancia();
 		Mapa.getInstancia().setNivelActual(OpcionesES.getNivel());
-		Mapa.getInstancia().construirMapa();
 		actualizarEstadoObjeto();
 		CoordinadorDeEventos.iniciarTemporizador();
 	}
@@ -141,11 +140,11 @@ public class Comportamiento {
 			Mapa.setPuntuacionAcumulada(Mapa.getInstancia().getPuntuacionNivel() + Mapa.getPuntuacionAcumulada() + Mapa.getInstancia().getTiempoRestante());
 			Audio.pararMusica();
 			Gui.getInstancia().remove(Gui.getInstancia().getJuego());
-			Highscore high = new Highscore("",Mapa.getPuntuacionAcumulada(),Mapa.getTiempoAcumulado());
+			MejorPuntuacion high = new MejorPuntuacion("",Mapa.getPuntuacionAcumulada(),Mapa.getTiempoAcumulado());
 			
-			if (Highscore.highscoreValido(high))
+			if (MejorPuntuacion.highscoreValido(high))
 			{
-				Gui.getInstancia().getNuevoHighscore().menuNuevoHighscore(high);
+				Gui.getInstancia().getNuevaMejorPuntuacion().menuNuevaMejorPuntuacion(high);
 			}
 			else
 			{

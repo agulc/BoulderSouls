@@ -15,9 +15,12 @@ import javax.swing.table.DefaultTableCellRenderer;
 
 import fuentes.MiFuente;
 
-public class Highscore {
+/**
+ * Clase que maneja las mejores puntuaciones.
+ */
+public class MejorPuntuacion {
 	
-	private static Highscore[] arreglo = new Highscore[20];
+	private static MejorPuntuacion[] arreglo = new MejorPuntuacion[20];
 	private static int cantidadAMostrar;
 
 	private String nombre;
@@ -25,7 +28,10 @@ public class Highscore {
 	private int tiempo;
 	
 	
-	public Highscore(String nombre, int puntos, int tiempo)
+	/**
+	 * Crea una mejor puntuacion, cortando el nombre en caso de que sea muy largo.
+	 */
+	public MejorPuntuacion(String nombre, int puntos, int tiempo)
 	{
 		if (nombre.length() > 20) //Si es muy largo, lo corta
 		{
@@ -40,7 +46,10 @@ public class Highscore {
 		this.tiempo = tiempo;
 	}
 	
-	public static void introducirHighscore(Highscore highscore)
+	/**
+	 * Guarda la puntuacion en el arreglo de puntuaciones.
+	 */
+	public static void introducirMejorPuntuacion(MejorPuntuacion highscore)
 	{
 		for (int i = 0; i < 20; i++)
 		{
@@ -54,13 +63,16 @@ public class Highscore {
 					
 					arreglo[i] = highscore;
 					
-					System.out.println("Highscore introducido");
+					System.out.println("MejorPuntuacion introducido");
 					
 					break;
 				}
 		}
 	}
 	
+	/**
+	 * Chequea si el nombre introducido es valido.
+	 */
 	public static boolean nombreValido(String nombre)
 	{
 		if (nombre.length() < 2)
@@ -75,6 +87,9 @@ public class Highscore {
 		return true;
 	}
 	
+	/**
+	 * Chequea si el nombre introducido esta en uso.
+	 */
 	public static boolean nombreEnUso(String nombre)
 	{
 		for (int i = 0; i < 20; i++)
@@ -86,7 +101,10 @@ public class Highscore {
 		return false;
 	}
 	
-	public static boolean highscoreValido(Highscore h)
+	/**
+	 * Chequea si el puntaje actual es valido para ser introducido en el arreglo de mejores puntajes.
+	 */
+	public static boolean highscoreValido(MejorPuntuacion h)
 	{
 		for (int i = 0; i < 20; i++)
 		{
@@ -97,17 +115,22 @@ public class Highscore {
 		return false;
 	}
 	
-	
-	public static Highscore getElemento(int puesto)
+	/**
+	 * Devuelve el elemento de la posicion seleccionada, empezando desde 1.
+	 */
+	public static MejorPuntuacion getElemento(int puesto)
 	{
 		return arreglo[puesto-1];
 	}
 	
-	public static void cargarArregloHighscores()
+	/**
+	 * Se encarga de leer el txt y cargar en el arreglo las mejores puntuaciones.
+	 */
+	public static void cargarArregloMejorPuntuacion()
 	{
 		try
 		{
-			BufferedReader buffReader = new BufferedReader(new FileReader("./Archivos/Highscores.txt"));
+			BufferedReader buffReader = new BufferedReader(new FileReader("./Archivos/MejorPuntuacion.txt"));
 		    String linea;
 		    String[] lineaFragmentada;
 		    
@@ -116,10 +139,7 @@ public class Highscore {
 		    	linea = buffReader.readLine();
 		    	lineaFragmentada = linea.split(" ");
 		    	
-		    	arreglo[i] = new Highscore(lineaFragmentada[0],(Integer.parseInt(lineaFragmentada[1])), (Integer.parseInt(lineaFragmentada[2])));
-		    	
-		    	//System.out.println(lineaFragmentada[0] + " " + (Integer.parseInt(lineaFragmentada[1])) + " " + (Integer.parseInt(lineaFragmentada[2])));
-		    	
+		    	arreglo[i] = new MejorPuntuacion(lineaFragmentada[0],(Integer.parseInt(lineaFragmentada[1])), (Integer.parseInt(lineaFragmentada[2])));
 		     }
 
 		    buffReader.close(); 
@@ -130,14 +150,23 @@ public class Highscore {
 		}
 	}
 
+	/**
+	 * Sirve para ver la cantidad de puntajes a mostrar, elegido en las opciones.
+	 */
 	public static int getCantidadAMostrar() {
 		return cantidadAMostrar;
 	}
-
+	
+	/**
+	 * Guarda la cantidad de puntajes a mostrar.
+	 */
 	public static void setCantidadAMostrar(int cantidadAMostrar) {
-		Highscore.cantidadAMostrar = cantidadAMostrar;
+		MejorPuntuacion.cantidadAMostrar = cantidadAMostrar;
 	}
 	
+	/**
+	 * Convierte el arreglo en una matriz, para que sea mas facil imprimir en pantalla.
+	 */
 	private static String[][] arregloAMatriz()
 	{
 		String[][] filas = new String [22][4];
@@ -159,10 +188,11 @@ public class Highscore {
 	}
 	
 	@SuppressWarnings("serial")
+	/**
+	 * Devuelve la JTable con los mejores puntajes.
+	 */
 	public static JTable getTabla()
 	{
-		//cargarArregloHighscores();
-		
 		String[] columnas = {"","","",""};
 		String[][] filas = arregloAMatriz();
 
@@ -179,7 +209,6 @@ public class Highscore {
 		Font fuente = MiFuente.getFuente(20);
 		
 		tabla.setFont(fuente);
-		//tabla.setForeground(Color.WHITE);
 		tabla.setBackground(Color.BLACK);
 		tabla.setGridColor(Color.BLACK);
 		tabla.setFocusable(false);
@@ -218,11 +247,14 @@ public class Highscore {
 		return tabla;
 	}
 	
-	public static void exportarHighscores ()
+	/**
+	 * Guarda las mejores puntuaciones en el txt, para que sea persistente.
+	 */
+	public static void exportarMejorPuntuacion ()
 	{
 		try
 		{
-			PrintWriter writer = new PrintWriter("./Archivos/Highscores.txt", "UTF-8");
+			PrintWriter writer = new PrintWriter("./Archivos/MejorPuntuacion.txt", "UTF-8");
 			
 			
 			writer.write(""); 
@@ -234,8 +266,6 @@ public class Highscore {
 				writer.println(((Integer)arreglo[i].getTiempo()).toString());
 			}
 			writer.close();
-			
-			//Highscore.cargarArregloHighscores();
 		
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -245,10 +275,13 @@ public class Highscore {
 		
 	}
 	
-	
+	/**
+	 * Devuelve el nombre del jugador.
+	 */
 	public String getNombre() {
 		return nombre;
 	}
+	
 	public void setNombre(String nombre) {
 		
 		if (nombre.length() > 20) //Si es muy largo, lo corta
@@ -260,12 +293,19 @@ public class Highscore {
 			this.nombre = nombre;
 		}
 	}
+	/**
+	 * Devuelve el puntaje que hizo el jugador.
+	 */
 	public int getPuntos() {
 		return puntos;
 	}
 	public void setPuntos(int puntos) {
 		this.puntos = puntos;
 	}
+	
+	/**
+	 * Devuelve el tiempo que tardo el jugador en llegar adonde murio.
+	 */
 	public int getTiempo() {
 		return tiempo;
 	}
