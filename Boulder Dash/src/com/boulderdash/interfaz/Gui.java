@@ -1,7 +1,11 @@
 package com.boulderdash.interfaz;
 
-import java.awt.*;
-import javax.swing.*;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import com.boulderdash.audio.Audio;
 import com.boulderdash.principal.Comportamiento;

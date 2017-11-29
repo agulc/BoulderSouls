@@ -1,11 +1,11 @@
 package com.boulderdash.personajes;
 
+import javax.swing.ImageIcon;
+
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
 
-
-import javax.swing.*;
 
 public class MuroMagico extends Muro{
 	

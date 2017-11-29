@@ -1,8 +1,9 @@
 package com.boulderdash.personajes;
 
+import javax.swing.ImageIcon;
+
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
-import javax.swing.*;
 
 public class Suciedad extends Personaje {
 	

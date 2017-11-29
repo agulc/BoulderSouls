@@ -1,7 +1,6 @@
 package com.boulderdash.audio;
 
-import java.io.*;
-
+import java.io.File;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
