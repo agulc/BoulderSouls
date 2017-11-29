@@ -13,6 +13,7 @@ public class Ameba extends Enemigo{
 	
 	private Random generador = new Random();
 	private static int contador = 1;
+	private boolean meExpando = true;
 	
 	public Ameba(int x,int y){
 		super(x,y);
@@ -21,6 +22,8 @@ public class Ameba extends Enemigo{
 	public boolean esTransitable(ParaDonde donde){
 		return false;
 	}
+	
+
 	/**
 	 * Crea una ameba en la posición con el offset recibido, si esta es Suciedad o Vacío.
 	 * @param offsetX Coordenada a expandirse en X.
@@ -32,10 +35,12 @@ public class Ameba extends Enemigo{
 		pos.setX(this.getPos().getX() + offsetX);
 		pos.setY(this.getPos().getY() + offsetY);
 		
-		if (Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.DIRT) || Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.EMPTY))
+		
+		if ((Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.DIRT) || Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.EMPTY)))
 		{
 			Ameba hijo = new Ameba(pos.getX(),pos.getY());
 			Mapa.getInstancia().setPersonaje(hijo, pos);
+			this.meExpando = mePuedoExpandir();
 			
 			System.out.println("Hay "+(++contador)+" amebas");//Notifica en consola
 		}
@@ -44,52 +49,71 @@ public class Ameba extends Enemigo{
 	 * Para la reproducción de la Ameba, se han utilizado valores aleatorios con el fin
 	 * de lograr el efecto solicitado.
 	 */
-	public void actualizarEstadoObjeto(){	
-		
-		int expandirse = 1 + generador.nextInt(100); //Genera un numero del 1 al 70
-		int adyacente = 1 + generador.nextInt(8); //Determina en que cuadro adyacente intentara expandirse
+	public void actualizarEstadoObjeto() {	
+		if (this.meExpando) {
+			int expandirse = 1 + generador.nextInt(100); //Genera un numero del 1 al 100
+			int adyacente = 1 + generador.nextInt(8); //Determina en que cuadro adyacente intentara expandirse
 	
 
 		//Gui.getInstancia().actualizarImagenes(this.getPos());
 		
-		if (expandirse == 1) //Tiene una probabilidad de 1 en 70 de intentar expandirse
-		{
-			switch (adyacente)
+			if (expandirse == 100) //Tiene una probabilidad de 1 en 100 de intentar expandirse
 			{
-			case 1: 
-				expandirse(-1,-1);
-				break;
-				
-			case 2: 
-				expandirse(-1,1);
-				break;
-				
-			case 3: 
-				expandirse(1,1);
-				break;
-				
-			case 4: 
-				expandirse(1,-1);
-				break;
-				
-			case 5: 
-				expandirse(0,1);
-				break;
-				
-			case 6: 
-				expandirse(0,-1);
-				break;				
-				
-			case 7: 
-				expandirse(1,0);
-				break;				
-				
-			default: 
-				expandirse(-1,0);
-				break;				
+				switch (adyacente)
+				{
+				case 1: 
+					expandirse(-1,-1);
+					break;
+					
+				case 2: 
+					expandirse(-1,1);
+					break;
+					
+				case 3: 
+					expandirse(1,1);
+					break;
+					
+				case 4: 
+					expandirse(1,-1);
+					break;
+					
+				case 5: 
+					expandirse(0,1);
+					break;
+					
+				case 6: 
+					expandirse(0,-1);
+					break;				
+					
+				case 7: 
+					expandirse(1,0);
+					break;				
+					
+				default: 
+					expandirse(-1,0);
+					break;				
+				}
 			}
 		}
+	}
 	
+	private boolean mePuedoExpandir() {
+		Posicion pos = new Posicion();
+		int x = this.getPos().getX()-1;
+		int y = this.getPos().getY()-1;
+		int finX = x+2;
+		int finY = y+2;
+		for(int a = x; a < finX; a++) {
+			for (int b = y; b < finY; b++) {
+				pos.setX(a);
+				pos.setY(b);
+				if ( Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.DIRT) || Mapa.getInstancia().getPersonaje(pos).chequearSiSoy(BDTile.EMPTY) ) {
+					return true;
+
+				}
+			}
+		}
+		return false;
 	}
  
 	public boolean chequearSiSoy (BDTile tile){

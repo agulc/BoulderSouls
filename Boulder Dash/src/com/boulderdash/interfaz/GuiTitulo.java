@@ -98,7 +98,7 @@ public class GuiTitulo extends JPanel{
 			public void actionPerformed(ActionEvent arg0) {
 				Gui.getInstancia().remove(Gui.getInstancia().getTitulo());
 				System.out.println("HighScores presionado");
-				Gui.getInstancia().getHighscores().menuHighScores();
+				Gui.getInstancia().getMejorPuntuacion().menuHighScores();
 			}
 		});
 		

@@ -33,6 +33,10 @@ public class Mapa {
 	private static int[] valorDiamanteBonus = {0,15,50,0,20,0,90,60,20,20,0};//Guarda el valor del diamante bonus por nivel
 	private static int[] tiempo = {0,110,110,100,100,100,120,110,110,130,150};//Guarda el valor del timer por nivel
 	
+	/**
+	 * Permite obtener la instancia del mapa, ya que este es singleton.
+	 * @return Instancia de mapa.
+	 */
 	public static Mapa getInstancia(){
 		if(instancia == null){
 			instancia = new Mapa();
@@ -120,6 +124,9 @@ public class Mapa {
 		}
 	}
 	
+	/**
+	 * Permite llamar al comportamiento para cambiar de nivel.
+	 */
 	public void avanzarDeNivel()
 	{
 		Comportamiento.cambiarDeNivel();
@@ -133,6 +140,9 @@ public class Mapa {
 		mapa[pos.getX()][pos.getY()] = pers;
 	}
 	
+	/**
+	 * Reconstruye el mapa dependiendo el nivel.
+	 */
 	public void reconstruirMapa (){
 		instancia = new Mapa();
 		System.out.println("El mapa se acaba de reconstruir");
@@ -140,14 +150,42 @@ public class Mapa {
 		hayUnaAmeba = false;
 	}
 	
-	
-	public void construirMapa (){
-		
+	/**
+	 * Se utiliza la primera vez que se construye el mapa, al inicializar el juego.
+	 */
+	public void construirMapa (){	
 		instancia = new Mapa();
 		vidas = 4 ; //Se restauran las vidas
 		System.out.println("El mapa se acaba de construir");
 		Comportamiento.refrescarDiamantesNivel();
 		hayUnaAmeba = false;
+	}
+	
+	/**
+	 * Metodo que se encarga de determinar aleatoriamente si el muro sera magico o comun.
+	 */
+	private void comunOMagico(int x, int y) {
+
+		if (generador.nextInt(100) == 77 && (y < 21) && (y > 0)) {
+			mapa[x][y]=new MuroMagico(x,y);
+		}
+		else {
+			mapa[x][y]=new MuroComun(x,y);
+		}
+	}
+	
+	/**
+	 * Metodo que se encarga de determinar aleatoriamente si se genera ameba o suciedad.
+	 */
+	private void amebaOSuciedad(int x, int y) {
+		
+		if (generador.nextInt(11100) == 77 && !hayUnaAmeba) {
+			mapa[x][y]=new Ameba(x,y);
+			hayUnaAmeba=true;
+		}	
+		else {
+			mapa[x][y]= new Suciedad(x,y);
+		}
 	}
 	
 	public void setNivelActual(int nivel){
@@ -160,14 +198,12 @@ public class Mapa {
 	
 	public void setVidas(int vidas){
 		Mapa.vidas = vidas;
-		
 	}
 	
 	public int getVidas(){
 		return Mapa.vidas;
 		
 	}
-	
 	
 	public Personaje[][] getMapa(){
 		return this.mapa;
@@ -207,11 +243,6 @@ public class Mapa {
 	public static int[] getValorDiamanteBonus() {
 		return valorDiamanteBonus;
 	}
-
-
-	public static void setValorDiamanteBonus(int[] valorDiamanteBonus) {
-		Mapa.valorDiamanteBonus = valorDiamanteBonus;
-	}
 	
 	public int getTiempoRestante() {
 		return tiempoRestante;
@@ -220,10 +251,6 @@ public class Mapa {
 
 	public void decrementarTiempoRestante() {
 		this.tiempoRestante--;
-	}
-	
-	public void setTiempoRestante(int tiempo) {
-		this.tiempoRestante = tiempo;
 	}
 
 
@@ -235,24 +262,5 @@ public class Mapa {
 	public static void setTiempoAcumulado(int tiempoAcumulado) {
 		Mapa.tiempoAcumulado = tiempoAcumulado;
 	}
-	
-	private void comunOMagico(int x, int y) {
+}
 
-		if (generador.nextInt(100) == 77 && (y < 21) && (y > 0)) {
-			mapa[x][y]=new MuroMagico(x,y);
-		}
-		else {
-			mapa[x][y]=new MuroComun(x,y);
-		}
-	}
-	private void amebaOSuciedad(int x, int y) {
-		
-		if (generador.nextInt(11100) == 77 && !hayUnaAmeba) {
-			mapa[x][y]=new Ameba(x,y);
-			hayUnaAmeba=true;
-		}	
-		else {
-			mapa[x][y]= new Suciedad(x,y);
-		}
-	}
-	}

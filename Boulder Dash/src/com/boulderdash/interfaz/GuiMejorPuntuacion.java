@@ -12,22 +12,22 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
-import com.boulderdash.entradasalida.Highscore;
+import com.boulderdash.entradasalida.MejorPuntuacion;
 
 @SuppressWarnings("serial")
-public class GuiHighscores extends JPanel{
+public class GuiMejorPuntuacion extends JPanel{
 	
 	private JTable tabla;
 	
-	public GuiHighscores()
+	public GuiMejorPuntuacion()
 	{
 		this.setLayout(new BorderLayout());
-		Highscore.cargarArregloHighscores();
+		MejorPuntuacion.cargarArregloMejorPuntuacion();
 		
 		ImageIcon image = new ImageIcon ("./Texturas/PraiseTheSun.gif");
 		image.setImage(image.getImage().getScaledInstance(250, 250, Image.SCALE_DEFAULT));
 		JLabel labelHighScores = new JLabel(image);
-		tabla = Highscore.getTabla();
+		tabla = MejorPuntuacion.getTabla();
 		
 		this.add(labelHighScores, BorderLayout.NORTH);
 		this.add(tabla, BorderLayout.CENTER);
@@ -48,7 +48,7 @@ public class GuiHighscores extends JPanel{
 		botonRegresar.setRolloverIcon(new ImageIcon("./Texturas/Back.png"));
 		botonRegresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Gui.getInstancia().remove(Gui.getInstancia().getHighscores());
+				Gui.getInstancia().remove(Gui.getInstancia().getMejorPuntuacion());
 				Gui.getInstancia().add(Gui.getInstancia().getTitulo());
 				Gui.getInstancia().pack();
 				System.out.println("Regresar presionado");
@@ -62,15 +62,15 @@ public class GuiHighscores extends JPanel{
 	public void menuHighScores()
 	{
 		this.remove(tabla);
-		tabla = Highscore.getTabla();
+		tabla = MejorPuntuacion.getTabla();
 		this.add(tabla, BorderLayout.CENTER);
 		
-		Gui.getInstancia().add(Gui.getInstancia().getHighscores());
+		Gui.getInstancia().add(Gui.getInstancia().getMejorPuntuacion());
 		
 		Gui.getInstancia().pack();
-		//Gui.getInstancia().setSize(Gui.getInstancia().getTitulo().getSize().width, Gui.getInstancia().getHighscores().getHeight());
+		//Gui.getInstancia().setSize(Gui.getInstancia().getTitulo().getSize().width, Gui.getInstancia().getMejorPuntuacion().getHeight());
 		
-		switch (Highscore.getCantidadAMostrar())
+		switch (MejorPuntuacion.getCantidadAMostrar())
 		{
 		case 5: Gui.getInstancia().setSize(Gui.getInstancia().getTitulo().getSize().width, 510);
 		break;

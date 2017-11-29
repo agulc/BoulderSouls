@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.boulderdash.audio.Audio;
-import com.boulderdash.entradasalida.Highscore;
+import com.boulderdash.entradasalida.MejorPuntuacion;
 import com.boulderdash.entradasalida.OpcionesES;
 import com.boulderdash.principal.Comportamiento;
 import com.boulderdash.principal.Mapa;
@@ -174,7 +174,7 @@ public class GuiOpciones extends JPanel{
 		cantidadAMostrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				Highscore.setCantidadAMostrar((cantidadAMostrar.getSelectedIndex() + 1) * 5);
+				MejorPuntuacion.setCantidadAMostrar((cantidadAMostrar.getSelectedIndex() + 1) * 5);
 				OpcionesES.setElementosAMostrar((cantidadAMostrar.getSelectedIndex() + 1) * 5);
 			}
 		});
