@@ -53,9 +53,6 @@ public class Ameba extends Enemigo{
 		if (this.meExpando) {
 			int expandirse = 1 + generador.nextInt(100); //Genera un numero del 1 al 100
 			int adyacente = 1 + generador.nextInt(8); //Determina en que cuadro adyacente intentara expandirse
-	
-
-		//Gui.getInstancia().actualizarImagenes(this.getPos());
 		
 			if (expandirse == 100) //Tiene una probabilidad de 1 en 100 de intentar expandirse
 			{

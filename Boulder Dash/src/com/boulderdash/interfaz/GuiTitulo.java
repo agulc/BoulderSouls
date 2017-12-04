@@ -17,8 +17,14 @@ import com.boulderdash.principal.CoordinadorDeEventos;
 import com.boulderdash.principal.Mapa;
 
 @SuppressWarnings("serial")
+/**
+ * Clase utilizada para crear el panel del titulo
+ */
 public class GuiTitulo extends JPanel{
 
+	/**
+	 * Constructor de la clase
+	 */
 	public GuiTitulo()
 	{
 		super();
@@ -42,8 +48,9 @@ public class GuiTitulo extends JPanel{
 		this.add(labelTitulo2, BorderLayout.CENTER);
 	}
 	
-	
-	
+	/**
+	 * Crea el boton de opciones, con su icono a mostrar cuando le pase por encima el cursor
+	 */
 	private JButton crearBotonOpciones()
 	{
 		JButton botonOpciones = new JButton();
@@ -65,6 +72,9 @@ public class GuiTitulo extends JPanel{
 		return botonOpciones;
 	}
 	
+	/**
+	 * Crea el boton de reglas, con su icono a mostrar cuando le pase por encima el cursor
+	 */
 	private JButton crearBotonReglas()
 	{
 		JButton botonReglas = new JButton();
@@ -85,6 +95,9 @@ public class GuiTitulo extends JPanel{
 		return botonReglas;
 	}
 	
+	/**
+	 * Crea el boton de highscores, con su icono a mostrar cuando le pase por encima el cursor
+	 */
 	private JButton crearBotonHighScores()
 	{
 		JButton botonHighScores = new JButton();
@@ -105,6 +118,9 @@ public class GuiTitulo extends JPanel{
 		return botonHighScores;
 	}
 	
+	/**
+	 * Crea el boton para empezar, con su icono a mostrar cuando le pase por encima el cursor
+	 */
 	private JButton crearBotonEmpezar()
 	{
 		JButton botonParaEmpezar = new JButton();
@@ -124,6 +140,9 @@ public class GuiTitulo extends JPanel{
 		return botonParaEmpezar;
 	}
 
+	/**
+	 * Metodo para volver al titulo principal, cuando se vuelve del juego
+	 */
 	public void volverAlTitulo()
 	{
 		CoordinadorDeEventos.detenerTemporizador();

@@ -18,10 +18,6 @@ public class MiFuente {
 	
 	public static Font getFuente(int size)
 	{
-		
-		//fuente = fuente.deriveFont(Font.BOLD, 12);
-		
-		
 		try {
 			myStream = new BufferedInputStream(new FileInputStream("src/fuentes/OptimusPrinceps.ttf"));
 			fuente = Font.createFont(Font.TRUETYPE_FONT, myStream );
@@ -38,8 +34,6 @@ public class MiFuente {
 		}
 		
 		return fuente;
-		
-		//return new Font("Serif",Font.BOLD,10);
 	}
 
 }

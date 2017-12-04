@@ -16,9 +16,14 @@ import javax.swing.JPanel;
 import fuentes.MiFuente;
 
 @SuppressWarnings("serial")
+/**
+ * Clase utilizada para crear el panel de reglas
+ */
 public class GuiReglas extends JPanel{
 
-	
+	/**
+	 * Constructor de la clase
+	 */
 	public GuiReglas()
 	{
 		this.setLayout(new BorderLayout());
@@ -38,6 +43,9 @@ public class GuiReglas extends JPanel{
 		this.add(container2, BorderLayout.SOUTH);
 	}
 	
+	/**
+	 * Crea una el container con todas las reglas, con sus correspondientes gif
+	 */
 	private Container crearContainerReglas()
 	{
 		Font fuente = MiFuente.getFuente(21);
@@ -133,6 +141,9 @@ public class GuiReglas extends JPanel{
 		return containerReglas;
 	}
 
+	/**
+	 * Crea el boton regresar, con su propio action listener, el cual permite volver al titulo principal
+	 */
 	private JButton crearBotonRegresar()
 	{
 		JButton botonRegresar = new JButton();
@@ -154,7 +165,9 @@ public class GuiReglas extends JPanel{
 		return botonRegresar;
 	}
 	
-	
+	/**
+	 * Grafica el menu de reglas
+	 */
 	public void menuReglas()
 	{
 		Gui.getInstancia().add(Gui.getInstancia().getReglas());

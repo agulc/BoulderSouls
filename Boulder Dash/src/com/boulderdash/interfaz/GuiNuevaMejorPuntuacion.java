@@ -20,6 +20,9 @@ import com.boulderdash.principal.Mapa;
 import fuentes.MiFuente;
 
 @SuppressWarnings("serial")
+/**
+ * Clase utilizada para crear el panel que aparece al hacer una nueva mejor puntuacion
+ */
 public class GuiNuevaMejorPuntuacion extends JPanel{
 	
 	private MejorPuntuacion highscore;
@@ -30,6 +33,9 @@ public class GuiNuevaMejorPuntuacion extends JPanel{
 	ImageIcon nombreEnUso;
 	ImageIcon nombreInvalido;
 
+	/**
+	 * Constructor de la clase
+	 */
 	public GuiNuevaMejorPuntuacion()
 	{
 		blank = new ImageIcon("./Texturas/Blank.png");
@@ -54,6 +60,9 @@ public class GuiNuevaMejorPuntuacion extends JPanel{
 
 	}
 	
+	/**
+	 * Metodo utilizado para crear un label, con la icono Nuevohighscore
+	 */
 	private JLabel crearLabelMejorPuntuacion()
 	{
 		JLabel label = new JLabel(new ImageIcon ("./Texturas/Nuevohighscore.png"));
@@ -64,6 +73,9 @@ public class GuiNuevaMejorPuntuacion extends JPanel{
 		return label;
 	}
 	
+	/**
+	 * Genera el container, con el campo para introducir el nombre del jugador
+	 */
 	private Container crearContainerMejorPuntuacion()
 	{
 		JLabel label = new JLabel();
@@ -94,6 +106,9 @@ public class GuiNuevaMejorPuntuacion extends JPanel{
 		return container;
 	}
 	
+	/**
+	 * Metodo utilizado para crear el menu para ingresar tu nombre
+	 */
 	public void menuNuevaMejorPuntuacion(MejorPuntuacion highscore)
 	{
 		this.text.setText("");
@@ -111,6 +126,9 @@ public class GuiNuevaMejorPuntuacion extends JPanel{
 		this.repaint();
 	}
 	
+	/**
+	 * Crea el boton de aceptar, el cual permitira volver al menu principal si el nombre es valido, en caso contrario informa por pantalla el error
+	 */
 	private JButton crearBotonAceptar()
 	{
 		JButton botonRegresar = new JButton();

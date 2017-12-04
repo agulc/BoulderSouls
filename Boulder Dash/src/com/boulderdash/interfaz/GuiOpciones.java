@@ -23,9 +23,14 @@ import com.boulderdash.principal.Mapa;
 import fuentes.MiFuente;
 
 @SuppressWarnings("serial")
+/**
+ * Clase utilizada para crear el panel de opciones
+ */
 public class GuiOpciones extends JPanel{
 
-
+	/**
+	 * Constructor de la clase
+	 */
 	public GuiOpciones()
 	{
 		this.setLayout(new BorderLayout());
@@ -54,7 +59,9 @@ public class GuiOpciones extends JPanel{
 	
 	}
 	
-	
+	/**
+	 * Crea el check box para ver si esta activada o no la muerte alternativa en el juego
+	 */
 	private JCheckBox crearBoxMuerte()
 	{
 		JCheckBox checkBoxMuerte = new JCheckBox();
@@ -82,6 +89,9 @@ public class GuiOpciones extends JPanel{
 		return checkBoxMuerte;
 	}
 	
+	/**
+	 * Crea el check box para ver si esta activadas o no las piedras con inercia en el juego
+	 */
 	private JCheckBox crearBoxPiedrasConInercia()
 	{
 		JCheckBox checkBoxpiedrasConInercia = new JCheckBox();
@@ -109,6 +119,9 @@ public class GuiOpciones extends JPanel{
 	    return checkBoxpiedrasConInercia;
 	}
 
+	/**
+	 * Crea el check box para ver si esta activada o no la musica en el juego
+	 */
 	private JCheckBox crearBoxMusicaActivada()
 	{
 		final JCheckBox boxMusicaActivada = new JCheckBox();
@@ -147,6 +160,9 @@ public class GuiOpciones extends JPanel{
 		return boxMusicaActivada;
 	}
 	
+	/**
+	 * Crea una combo box con todos los niveles que se pueden elegir, del 1 al 10
+	 */
 	private JComboBox<String> crearNivelAElegir()
 	{
 		String[] items = {"Nivel 1","Nivel 2","Nivel 3","Nivel 4","Nivel 5","Nivel 6","Nivel 7","Nivel 8","Nivel 9","Nivel 10"};
@@ -167,6 +183,9 @@ public class GuiOpciones extends JPanel{
 		return nivelAElegir;
 	}
 	
+	/**
+	 * Crea una combo box con la cantidad de puntajes a mostrar: 5, 10, 15 o 20
+	 */
 	private JComboBox<String> crearCantidadAMostrar()
 	{
 		String[] items = {"5 Elementos","10 Elementos","15 Elementos","20 Elementos"};
@@ -187,6 +206,9 @@ public class GuiOpciones extends JPanel{
 		return cantidadAMostrar;
 	}
 	
+	/**
+	 * Crea el boton para regresar al menu principal
+	 */
 	private JButton crearBotonRegresar()
 	{
 		JButton botonRegresar = new JButton();
@@ -200,7 +222,6 @@ public class GuiOpciones extends JPanel{
 			public void actionPerformed(ActionEvent arg0) {
 				Gui.getInstancia().remove(Gui.getInstancia().getOpciones());
 				Gui.getInstancia().add(Gui.getInstancia().getTitulo());
-				//Gui.getInstancia().volverDeOpciones();
 				Gui.getInstancia().repaint();
 				System.out.println("Regresar presionado");
 			}
@@ -209,6 +230,9 @@ public class GuiOpciones extends JPanel{
 		return botonRegresar;
 	}
 	
+	/**
+	 * Grafica el menu de opciones
+	 */
 	public void menuOpciones()
 	{
 		Gui.getInstancia().add(Gui.getInstancia().getOpciones());

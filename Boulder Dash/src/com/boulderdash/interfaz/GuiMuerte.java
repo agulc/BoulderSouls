@@ -13,10 +13,16 @@ import com.boulderdash.entradasalida.MejorPuntuacion;
 import com.boulderdash.principal.Mapa;
 
 @SuppressWarnings("serial")
+/**
+ * Clase utilizada para crear el panel de la muerte
+ */
 public class GuiMuerte extends JPanel
 {
 
 	@SuppressWarnings("static-access")
+	/**
+	 * Metodo para mostrar en pantalla el video de has muerto
+	 */
 	public static void muerte()
 	{
 		Gui.getInstancia().getMatriz().removeKeyListener(Gui.getInstancia().getMatriz().getTeclaEscucha());

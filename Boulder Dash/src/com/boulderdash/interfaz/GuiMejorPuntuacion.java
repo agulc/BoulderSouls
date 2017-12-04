@@ -66,7 +66,9 @@ public class GuiMejorPuntuacion extends JPanel{
 		return botonRegresar;
 	}
 	
-	
+	/**
+	 * Setea la las puntuaciones dependiendo los elementos a mostrar
+	 */
 	public void menuHighScores()
 	{
 		this.remove(tabla);
