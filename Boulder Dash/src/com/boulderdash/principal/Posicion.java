@@ -2,6 +2,9 @@ package com.boulderdash.principal;
 
 import com.boulderdash.enumerativos.ParaDonde;
 
+/**
+ * Clase utilizada para modelizar la posicion de cada uno de los personajes en la grilla de juego
+ */
 public class Posicion {
 	private int coordX;
 	private int coordY;

@@ -8,6 +8,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * Clase utilizada para modelizar la fuente del texto usado en el juego
+ */
 public class MiFuente {
 	
 	private static Font fuente = null;	   

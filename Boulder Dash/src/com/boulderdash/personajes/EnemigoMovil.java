@@ -5,12 +5,18 @@ import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
 
+/**
+ * Clase abstracta utilizada para los enemigos que tienen un movimiento definido
+ */
 public abstract class EnemigoMovil extends Enemigo {
 	
 	private ParaDonde direccionActual;
 
 	private boolean yaMeMoviEsteTurno = false;
 	
+	/**
+	 * Constructor de la clase
+	 */
 	EnemigoMovil(int x,int y){
 		super(x,y);
 		this.direccionActual = ParaDonde.ARRIBA; //Por defecto empieza hacia arriba aunque despues se chequea para donde debe ir al inicializar el juego
@@ -45,6 +51,9 @@ public abstract class EnemigoMovil extends Enemigo {
 		}
 	}
 	
+	/**
+	 * Chequea si el enemigo movil tiene que explotar, haciendolo si rockford se encuentra cerca
+	 */
 	public void chequearSiExploto(){
 		int a = this.getPos().getX()-1; //Empieza en la esquina superior izquierda
 		  int b = this.getPos().getY()-1;

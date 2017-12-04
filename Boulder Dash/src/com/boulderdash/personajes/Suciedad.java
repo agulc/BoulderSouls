@@ -5,6 +5,9 @@ import javax.swing.ImageIcon;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 
+/**
+ * Clase utilizada para modelizar a la suciedad
+ */
 public class Suciedad extends Personaje {
 	
 	private static ImageIcon icono = new ImageIcon("Texturas/dirt.gif");

@@ -4,6 +4,9 @@ import javax.swing.ImageIcon;
 
 import com.boulderdash.enumerativos.ParaDonde;
 
+/**
+ * Clase que modeliza al muro de titanio, con sus atributos y comportamientos propios
+ */
 public class MuroTitanio extends Muro {
 	
 	private static ImageIcon icono = new ImageIcon("Texturas/steel.gif");

@@ -8,6 +8,9 @@ import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
 
+/**
+ * Clase que modeliza a la mariposa, con sus atributos y comportamientos propios
+ */
 public class Mariposa extends EnemigoMovil{
 	
 	private static ImageIcon icono = new ImageIcon("Texturas/butterfly.gif");
@@ -76,6 +79,9 @@ public class Mariposa extends EnemigoMovil{
 		return icono;
 	}
 	
+	/**
+	 * Metodo utilizado para convertir la mariposa en 9 diamantes, cuando le cae un ObjetoNewton encima
+	 */
 	public void explotarDiamantes()
 	{
 		  int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda

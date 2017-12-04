@@ -7,6 +7,9 @@ import com.boulderdash.principal.Comportamiento;
 import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
 
+/**
+ * Clase utilizada para modelizar la roca
+ */
 public class Roca extends ObjetoNewton{
 	
 	private static ImageIcon icono = new ImageIcon("Texturas/boulder.gif");

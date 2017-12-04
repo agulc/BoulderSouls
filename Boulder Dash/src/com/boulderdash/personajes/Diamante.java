@@ -8,16 +8,25 @@ import com.boulderdash.principal.Posicion;
 
 import javax.swing.*;
 
+/**
+ * Clase que modeliza al diamante, con sus atributos y comportamientos propios, extiende a ObjetoNewton ya que puede caer al igual que las rocas
+ */
 public class Diamante extends ObjetoNewton{
 	
 	private static ImageIcon icono = new ImageIcon("Texturas/diamond.gif");
 	
 	private static int valorDiamante = 0;
 	
+	/**
+	 * Constructor de la clase
+	 */
 	public Diamante(boolean cae,int x,int y){
 		super(cae,x,y);
 	}
 	
+	/**
+	 * Constructor de la clase, utilizando Posicion en vez de x e y
+	 */
 	public Diamante(boolean cae, Posicion pos){
 		super(cae,pos.getX(),pos.getY());
 	}
