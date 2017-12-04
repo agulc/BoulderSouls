@@ -11,11 +11,17 @@ import com.boulderdash.principal.Posicion;
 import com.boulderdash.teclaescucha.MiTeclaEscucha;
 
 @SuppressWarnings("serial")
+/**
+ * Clase utilizada para crear el panel del entorno del juego en si, el mapa
+ */
 public class GuiMatriz extends JPanel{
 	
 	private static MiTeclaEscucha teclaEscucha = new MiTeclaEscucha();
 	private static JLabel labels[] = new JLabel[880];
 	
+	/**
+	 * Constructor del panel utilizado para el juego en si
+	 */
 	public GuiMatriz()
 	{
 		this.setLayout(new GridLayout(22,40,0,0));
@@ -33,6 +39,9 @@ public class GuiMatriz extends JPanel{
 		}
 	}
 	
+	/**
+	 * Metodo utilizado cuando rockford muere, o cuando se pasa de nivel para reconstruir el entorno
+	 */
 	public void reconstruir() 
 	{
 		  Posicion pos = new Posicion();

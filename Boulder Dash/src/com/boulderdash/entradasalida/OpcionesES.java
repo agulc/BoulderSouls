@@ -10,9 +10,15 @@ import java.io.UnsupportedEncodingException;
 import com.boulderdash.audio.Audio;
 import com.boulderdash.principal.Comportamiento;
 
-public class OpcionesES { //Se encarga de cargar y guardar las opciones de configuracion a archivos de texto
+/**
+ * Se encarga de cargar y guardar las opciones de configuracion a archivos de texto
+ */
+public class OpcionesES {
 
-	private static String leer(String nombreArchivo) //devuelve la primera linea del archivo con el nombre recibido
+	/**
+	 * Devuelve la primera linea del archivo con el nombre recibido
+	 */
+	private static String leer(String nombreArchivo) 
 	{
 		try
 		{
@@ -30,8 +36,10 @@ public class OpcionesES { //Se encarga de cargar y guardar las opciones de confi
 		}
 	}
 	
-	
-	private static void escribir(String nombreArchivo, String mensaje) //Escribe el string recibido en el archivo con el nombre recibido
+	/**
+	 * Escribe el string recibido en el archivo con el nombre recibido
+	 */
+	private static void escribir(String nombreArchivo, String mensaje)
 	{
 		try
 		{
@@ -47,7 +55,9 @@ public class OpcionesES { //Se encarga de cargar y guardar las opciones de confi
 		}
 	}
 	
-	
+	/**
+	 * Chequea los archivos ya que las opciones son persistentes
+	 */
 	public static void importarOpciones()
 	{
 		Comportamiento.setMuerteExtra(getMuerteExtra());
@@ -59,58 +69,65 @@ public class OpcionesES { //Se encarga de cargar y guardar las opciones de confi
 		MejorPuntuacion.setCantidadAMostrar(getElementosAMostrar());
 	}
 
-	
-	
-	
-	
-	
-	
-
-	//Piedras
+	/**
+	 * Chequea el archivo de piedras con inercia, y devuelve si debe activarlo o no
+	 */
 	public static boolean getPiedrasConInercia ()
 	{
 		return (leer("PiedrasConInercia").compareToIgnoreCase("true") == 0);
 	}
 	
+	/**
+	 * Guarda en el archivo si la opcion esta activada o no
+	 */
 	public static void setPiedrasConInercia (boolean bool)
 	{
 		escribir("PiedrasConInercia", ((Boolean)bool).toString());
 	}
 	
-	
-	
-	//Muerte
+	/**
+	 * Chequea el archivo de muerte, y devuelve si debe activarlo o no
+	 */
 	public static boolean getMuerteExtra ()
 	{
 		return (leer("MuerteExtra").compareToIgnoreCase("true") == 0);
 	}
 	
+	/**
+	 * Guarda en el archivo si la opcion esta activada o no
+	 */
 	public static void setMuerteExtra (boolean bool)
 	{
 		escribir("MuerteExtra", ((Boolean)bool).toString());
 	}
 	
-	
-	
-	//Nivel
+	/**
+	 * Chequea el archivo de nivel, y devuelve si debe activarlo o no
+	 */
 	public static int getNivel ()
 	{
 		return Integer.parseInt(leer("Nivel"));
 	}
 	
+	/**
+	 * Guarda en el archivo el nivel elegido
+	 */
 	public static void setNivel (int nivel)
 	{
 		escribir("Nivel", ((Integer)nivel).toString());
 	}
 	
-	
-	 
-	//Musica
+	/**
+	 * Chequea el archivo de musica, y devuelve si debe activarlo o no
+	 */
 	public static boolean getMusica ()
 	{
 		return (leer("Musica").compareToIgnoreCase("true") == 0);
 	}
 	
+	/**
+	 * Guarda en el archivo si la opcion esta activada o no
+	 */
 	public static void setMusica (boolean bool)
 	{
 		escribir("Musica", ((Boolean)bool).toString());
@@ -118,13 +135,18 @@ public class OpcionesES { //Se encarga de cargar y guardar las opciones de confi
 	
 	
 	
-	///Elementos
+	/**
+	 * Chequea el archivo de elementos a mostrar, y devuelve si debe activarlo o no
+	 */
 	public static int getElementosAMostrar ()
 	{
 		return Integer.parseInt(leer("Elementos"));
 	}
 	
 	
+	/**
+	 * Guarda en el archivo la cantidad de elementos a mostrar
+	 */
 	public static void setElementosAMostrar (int elementos)
 	{
 		System.out.println("Se introduce " + elementos + " elementos");

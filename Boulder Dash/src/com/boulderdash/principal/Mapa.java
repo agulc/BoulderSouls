@@ -47,7 +47,6 @@ public class Mapa {
 	
 	/**
 	 * Esencia del juego. Crea el nivel solicitado.
-	 * @throws Exception .
 	 */
 	private Mapa ()
 	{
@@ -163,9 +162,10 @@ public class Mapa {
 	
 	/**
 	 * Metodo que se encarga de determinar aleatoriamente si el muro sera magico o comun.
+	 * @param x Posicion en x del objeto
+	 * @param y Posicion en y del objeto
 	 */
 	private void comunOMagico(int x, int y) {
-
 		if (generador.nextInt(100) == 77 && (y < 21) && (y > 0)) {
 			mapa[x][y]=new MuroMagico(x,y);
 		}
@@ -176,9 +176,10 @@ public class Mapa {
 	
 	/**
 	 * Metodo que se encarga de determinar aleatoriamente si se genera ameba o suciedad.
+	 * @param x Posicion en x del objeto
+	 * @param y Posicion en y del objeto
 	 */
-	private void amebaOSuciedad(int x, int y) {
-		
+	private void amebaOSuciedad(int x, int y) {		
 		if (generador.nextInt(11100) == 77 && !hayUnaAmeba) {
 			mapa[x][y]=new Ameba(x,y);
 			hayUnaAmeba=true;

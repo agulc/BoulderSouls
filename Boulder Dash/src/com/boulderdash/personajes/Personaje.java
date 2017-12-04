@@ -40,7 +40,6 @@ public abstract class Personaje {
 	 * intenta pasar sobre su posición.
 	 * @param donde Dirección.
 	 * @return Si caminará o no.
-	 * @throws Exception .
 	 */
 	public boolean rockfordCaminaSobreMi (ParaDonde donde){
 		
@@ -66,7 +65,6 @@ public abstract class Personaje {
 	/**
 	 * Permite seleccionar al objeto la dirección hacia donde debe desplazarse.
 	 * @param donde Dirección.
-	 * @throws Exception .
 	 */
 	public void mover(ParaDonde donde){
 
@@ -106,7 +104,6 @@ public abstract class Personaje {
 	 * donde el personaje desea moverse es transitable.
 	 * @param donde Dirección de movimiento.
 	 * @return Si es transitable o no.
-	 * @throws Exception .
 	 */
 	public boolean permitirMovimiento(ParaDonde donde){
 		try {
@@ -132,7 +129,6 @@ public abstract class Personaje {
 	/**
 	 * Define, dependiendo de la subclase del objeto, el comportamiento que debe realizar.
 	 * al caerle un ObjetoNewton encima.
-	 * @throws Exception .
 	 */
 	public void meCaeAlgoEncima(){
 		//No hago nada por defecto
@@ -140,7 +136,6 @@ public abstract class Personaje {
 	
 	/**
 	 * El personaje es reemplazado por una explosión.
-	 * @throws Exception .
 	 */
 	public void recibeExplosion(){ 
 		

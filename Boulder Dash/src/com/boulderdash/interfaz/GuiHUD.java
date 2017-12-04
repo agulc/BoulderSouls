@@ -15,10 +15,16 @@ import com.boulderdash.principal.Mapa;
 import fuentes.MiFuente;
 
 @SuppressWarnings("serial")
+/**
+ * Clase utilizada para crear el panel del HUD
+ */
 public class GuiHUD extends JPanel{
 
 	private static int diamantesNivel;
 	
+	/**
+	 * Constructor del panel utilizado para el HUD del juego
+	 */
 	public GuiHUD()
 	{
 		GridLayout layout = new GridLayout();
@@ -63,6 +69,9 @@ public class GuiHUD extends JPanel{
 		diamantesNivel = Mapa.getDiamantesRestantes();
 	}
 	
+	/**
+	 * Metodo utilizado para actualizar los valores a mostrar
+	 */
 	public void actualizarHud ()
 	{
 		((JLabel)(this.getComponent(0))).setText("" + Mapa.getInstancia().getVidas()); //Actualiza Las Vidas

@@ -9,7 +9,7 @@ public abstract class EnemigoMovil extends Enemigo {
 	
 	private ParaDonde direccionActual;
 
-	private boolean YaMeMoviEsteTurno = false;
+	private boolean yaMeMoviEsteTurno = false;
 	
 	EnemigoMovil(int x,int y){
 		super(x,y);
@@ -35,16 +35,13 @@ public abstract class EnemigoMovil extends Enemigo {
 	}
 	
 	/**
-	 * Forma en la que se expande una explosión al ocurrir dentro del mapa.
-	 * @throws Exception . 
+	 * Forma en la que se expande una explosión al ocurrir dentro del mapa 
 	 */
-	
-	
 	@Override
 	public void moverPersonajes(){
-		if(!YaMeMoviEsteTurno){
+		if(!yaMeMoviEsteTurno){
 			this.mover(getDireccionActual());
-			YaMeMoviEsteTurno = true;
+			yaMeMoviEsteTurno = true;
 		}
 	}
 	
@@ -75,12 +72,12 @@ public abstract class EnemigoMovil extends Enemigo {
 		   }
 	}
 
-	public boolean isYaMeMoviEsteTurno() {
-		return YaMeMoviEsteTurno;
+	public boolean isyaMeMoviEsteTurno() {
+		return yaMeMoviEsteTurno;
 	}
 
-	public void setYaMeMoviEsteTurno(boolean yaMeMoviEsteTurno) {
-		YaMeMoviEsteTurno = yaMeMoviEsteTurno;
+	public void setyaMeMoviEsteTurno(boolean yaMeMoviEsteTurno) {
+		this.yaMeMoviEsteTurno = yaMeMoviEsteTurno;
 	}
 	
 	

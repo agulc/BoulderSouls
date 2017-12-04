@@ -85,7 +85,7 @@ public class Roca extends ObjetoNewton{
 	@Override
 	public void actualizarEstadoObjeto(){
 		super.actualizarEstadoObjeto();
-		super.setYaMeMoviEsteTurno(false);
+		super.setyaMeMoviEsteTurno(false);
 	}
 	
 	public void transmutar() {

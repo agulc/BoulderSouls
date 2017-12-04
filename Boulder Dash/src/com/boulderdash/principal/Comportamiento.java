@@ -11,7 +11,6 @@ import com.boulderdash.personajes.Rockford;
 public class Comportamiento {
 	/**
 	 * Crea el mapa del nivel seleccionado.
-	 * @throws Exception .
 	 */
 	
 	private static boolean rockfordMuerto = false;
@@ -44,8 +43,6 @@ public class Comportamiento {
 	/**
 	 * Ciclo normal del juego una vez que fue inicializado.
 	 * Solo se actualiza al graficar, ya que en esta etapa el juego funciona por "turnos".
-	 * @param donde Dirección
-	 * @throws Exception .
 	 */
 	public static void comportamientoNormal(){
 		
@@ -69,7 +66,6 @@ public class Comportamiento {
 	
 	/**
 	 * Se encarga de modificar la posición de cada objeto (salvo Rockford) del nivel en cada turno.
-	 * @throws Exception .
 	 */
 	private static void moverPersonajes(){
 		Posicion pos = new Posicion();
@@ -114,7 +110,6 @@ public class Comportamiento {
 	/**
 	 * Actualiza el estado de cada objeto respecto a que debe realizar en ese turno. 
 	 * El resultado final dependerá del objeto que se esté actualizando.
-	 * @throws Exception .
 	 */
 	private static void actualizarEstadoObjeto(){
 		Posicion pos = new Posicion();

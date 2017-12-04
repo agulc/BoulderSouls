@@ -208,6 +208,9 @@ public class Audio {
 		return musicaActivada;
 	}
 
+	/**
+	 * Devuelve si la musica esta sonando o no.
+	 */
 	public static void setMusicaActivada(boolean bool) {
 		System.out.println("Audio: " + bool);
 		musicaActivada = bool;

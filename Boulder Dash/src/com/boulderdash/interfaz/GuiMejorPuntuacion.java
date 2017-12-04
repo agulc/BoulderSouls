@@ -15,10 +15,16 @@ import javax.swing.JTable;
 import com.boulderdash.entradasalida.MejorPuntuacion;
 
 @SuppressWarnings("serial")
+/**
+ * Clase utilizada para crear el panel de las mejores puntuaciones
+ */
 public class GuiMejorPuntuacion extends JPanel{
 	
 	private JTable tabla;
 	
+	/**
+	 * Constructor de la clase
+	 */
 	public GuiMejorPuntuacion()
 	{
 		this.setLayout(new BorderLayout());
@@ -36,7 +42,9 @@ public class GuiMejorPuntuacion extends JPanel{
 		
 	}
 	
-	
+	/**
+	 * Crea el boton de regreso al menu principal
+	 */
 	private JButton crearBotonRegresar()
 	{
 		JButton botonRegresar = new JButton();
@@ -68,7 +76,6 @@ public class GuiMejorPuntuacion extends JPanel{
 		Gui.getInstancia().add(Gui.getInstancia().getMejorPuntuacion());
 		
 		Gui.getInstancia().pack();
-		//Gui.getInstancia().setSize(Gui.getInstancia().getTitulo().getSize().width, Gui.getInstancia().getMejorPuntuacion().getHeight());
 		
 		switch (MejorPuntuacion.getCantidadAMostrar())
 		{

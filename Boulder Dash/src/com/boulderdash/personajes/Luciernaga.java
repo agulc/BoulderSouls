@@ -58,7 +58,7 @@ public class Luciernaga extends EnemigoMovil{
 		}
 		
 		this.chequearSiExploto();
-		super.setYaMeMoviEsteTurno(false);
+		super.setyaMeMoviEsteTurno(false);
 	}
 	
 	

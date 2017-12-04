@@ -23,10 +23,6 @@ public class Vacio extends Personaje{
 		return true;
 	}
 	
-	public void activarIA(){	
-	}
-
-	
 	@Override
 	public void meCaeAlgoEncima(){
 		Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).mover(ParaDonde.ABAJO);

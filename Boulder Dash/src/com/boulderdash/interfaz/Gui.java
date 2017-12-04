@@ -11,11 +11,13 @@ import com.boulderdash.audio.Audio;
 import com.boulderdash.principal.Comportamiento;
 
 @SuppressWarnings("serial")
+/**
+ * Clase que se utiliza para manejar toda la grafica en general
+ */
 public class Gui extends JFrame{
 
 
 	private static Gui instancia = null;
-	
 	private GuiTitulo titulo;
 	private GuiOpciones opciones;
 	private GuiMejorPuntuacion highscores;
@@ -24,14 +26,19 @@ public class Gui extends JFrame{
 	private GuiMatriz matriz;
 	private GuiMuerte muerte;
 	private GuiNuevaMejorPuntuacion nuevoMejorPuntuacion;
-	
 	private JPanel juego;
 	
+	/**
+	 * Constructor de la clase, el cual llama al superconstructor de JFrame
+	 */
 	private Gui(){
 		super("Boulder Dash");
 		inicializarGui();
 	}
 	
+	/**
+	 * Metodo utilizado para modularizar la inicializacion de la interfaz grafica
+	 */
 	private void inicializarGui()
 	{
 		titulo = new GuiTitulo();
@@ -50,6 +57,9 @@ public class Gui extends JFrame{
 		setVisible(true);
 	}
 	
+	/**
+	 * Metodo que se utiliza para obtener la unica instancia de Gui
+	 */
 	public static Gui getInstancia(){
 		if(instancia == null){
 			instancia = new Gui();
@@ -57,7 +67,9 @@ public class Gui extends JFrame{
 		return instancia;
 	}
 
-	
+	/**
+	 * Metodo utilizado para inicializar el entorno grafico del juego
+	 */
 	public void empezarAJugar(){
 		
 		this.remove(titulo);
@@ -157,9 +169,5 @@ public class Gui extends JFrame{
 
 	public void setNuevaMejorPuntuacion(GuiNuevaMejorPuntuacion nuevoMejorPuntuacion) {
 		this.nuevoMejorPuntuacion = nuevoMejorPuntuacion;
-	}
-
-	
-	
-	
+	}	
 }

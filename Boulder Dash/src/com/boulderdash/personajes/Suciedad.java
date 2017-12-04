@@ -16,9 +16,6 @@ public class Suciedad extends Personaje {
 	public boolean esTransitable(ParaDonde donde){
 		return true;
 	}
-	
-	public void activarIA(){	
-	}
 
 	public boolean chequearSiSoy (BDTile tile){
 

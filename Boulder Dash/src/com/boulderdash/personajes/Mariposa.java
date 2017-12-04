@@ -60,7 +60,7 @@ public class Mariposa extends EnemigoMovil{
 		
 		}
 		this.chequearSiExploto();
-		super.setYaMeMoviEsteTurno(false);
+		super.setyaMeMoviEsteTurno(false);
 		
 	}
 	

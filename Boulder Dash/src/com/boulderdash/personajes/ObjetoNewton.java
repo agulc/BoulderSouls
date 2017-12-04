@@ -9,7 +9,7 @@ public abstract class ObjetoNewton extends Personaje{
 	
 	private Estado stat;
 
-	private boolean YaMeMoviEsteTurno = false;
+	private boolean yaMeMoviEsteTurno = false;
 	
 	/**
 	 * Constructor de la clase ObjetoNewton que también recibe si está cayendo o no.
@@ -29,9 +29,9 @@ public abstract class ObjetoNewton extends Personaje{
 	
 	@Override
 	public void moverPersonajes(){
-		if(stat == Estado.CAYENDO && !YaMeMoviEsteTurno){
+		if(stat == Estado.CAYENDO && !yaMeMoviEsteTurno){
 			Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ABAJO)).meCaeAlgoEncima();//Le informo al de abajo mio que voy a caer encima de el, enviandole mi posicion
-			YaMeMoviEsteTurno = true;
+			yaMeMoviEsteTurno = true;
 		}
 	}
 	
@@ -85,12 +85,12 @@ public abstract class ObjetoNewton extends Personaje{
 	 	}
 	}
 
-	public boolean getYaMeMoviEsteTurno() {
-		return YaMeMoviEsteTurno;
+	public boolean getyaMeMoviEsteTurno() {
+		return yaMeMoviEsteTurno;
 	}
 
-	public void setYaMeMoviEsteTurno(boolean yaMeMoviEsteTurno) {
-		YaMeMoviEsteTurno = yaMeMoviEsteTurno;
+	public void setyaMeMoviEsteTurno(boolean yaMeMoviEsteTurno) {
+		this.yaMeMoviEsteTurno = yaMeMoviEsteTurno;
 	}
 
 }
