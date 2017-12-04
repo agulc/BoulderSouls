@@ -6,7 +6,9 @@ import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
-
+/**
+ * Clase que modeliza la ameba, con sus atributos y comportamientos propios
+ */
 public class Ameba extends Enemigo{
 	
 	private static ImageIcon icono = new ImageIcon("Texturas/amoeba.gif");
@@ -15,6 +17,9 @@ public class Ameba extends Enemigo{
 	private static int contador = 1;
 	private boolean meExpando = true;
 	
+	/**
+	 * Constructor de la clase
+	 */
 	public Ameba(int x,int y){
 		super(x,y);
 	}
@@ -94,6 +99,9 @@ public class Ameba extends Enemigo{
 		}
 	}
 	
+	/**
+	 * Chequea si la ameba puede expandirse
+	 */
 	private boolean mePuedoExpandir() {
 		Posicion pos = new Posicion();
 		int x = this.getPos().getX()-1;

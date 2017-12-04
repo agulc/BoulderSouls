@@ -7,6 +7,9 @@ import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
 
+/**
+ * Clase utilizada para modelizar la puerta de salida
+ */
 public class PuertaDeSalida extends Personaje{
 	
 	private static ImageIcon iconoAbierta = new ImageIcon("Texturas/exit.gif");

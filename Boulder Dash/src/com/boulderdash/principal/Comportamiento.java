@@ -8,25 +8,18 @@ import com.boulderdash.interfaz.GuiHUD;
 import com.boulderdash.interfaz.GuiMuerte;
 import com.boulderdash.personajes.Rockford;
 
+/**
+ * Clase utilizada para manejar el comportamiento en general del juego
+ */
 public class Comportamiento {
-	/**
-	 * Crea el mapa del nivel seleccionado.
-	 */
 	
 	private static boolean rockfordMuerto = false;
 	private static boolean muerteExtra = false; //Activa la muerte extra
 	private static boolean piedrasConInercia = false; //Activa la muerte extra
 	
-
-	public static void setRockfordMuerto (boolean bool)
-	{
-		rockfordMuerto = bool; //Para dejar de actualizar objetos al morir
-	}
-	
-	public static boolean getRockfordMuerto () {
-		return rockfordMuerto;
-	}
-	
+	/**
+	 * Inicializa el juego por primera vez, seteando su nivel e inicializando el temporizador
+	 */
 	public static void Inicializar(){
 		Mapa.getInstancia();
 		Mapa.getInstancia().setNivelActual(OpcionesES.getNivel());
@@ -34,6 +27,9 @@ public class Comportamiento {
 		CoordinadorDeEventos.iniciarTemporizador();
 	}
 	
+	/**
+	 * Inicializa el juego nuevamente, luego de haber muerto
+	 */
 	public static void Reinicializar(){
 		rockfordMuerto = false;
 		Mapa.getInstancia().construirMapa();
@@ -50,15 +46,19 @@ public class Comportamiento {
 		Gui.getInstancia().getMatriz().reconstruir();
 		actualizarEstadoObjeto();
 		
-		//System.out.println(Mapa.getInstancia().getPuntuacionNivel());
-		
 	}
 	
+	/**
+	 * Reconstruye la interfaz grafica del mapa
+	 */
 	public static void reconstruir(){
 		Gui.getInstancia().getMatriz().reconstruir();
 		GuiHUD.setDiamantesNivel(Mapa.getDiamantesRestantes());
 	}
 	
+	/**
+	 * Refresca los diamantes del nivel en el hud del juego
+	 */
 	public static void refrescarDiamantesNivel(){
 		GuiHUD.setDiamantesNivel(Mapa.getDiamantesRestantes());
 	}
@@ -122,6 +122,9 @@ public class Comportamiento {
 		}
 	}
 	
+	/**
+	 * Se encarga de cambiar de nivel al llegar a la puerta de salida
+	 */
 	public static void cambiarDeNivel(){
 		if(Mapa.getInstancia().getNivelActual()<10){
 			Mapa.setPuntuacionAcumulada(Mapa.getInstancia().getPuntuacionNivel() + Mapa.getPuntuacionAcumulada() + Mapa.getInstancia().getTiempoRestante());
@@ -162,6 +165,15 @@ public class Comportamiento {
 
 	public static void setPiedrasConInercia(boolean piedrasConInercia) {
 		Comportamiento.piedrasConInercia = piedrasConInercia;
+	}
+	
+	public static void setRockfordMuerto (boolean bool)
+	{
+		rockfordMuerto = bool; //Para dejar de actualizar objetos al morir
+	}
+	
+	public static boolean getRockfordMuerto () {
+		return rockfordMuerto;
 	}
 	
 }

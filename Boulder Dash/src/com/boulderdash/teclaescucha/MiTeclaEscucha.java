@@ -14,6 +14,9 @@ import com.boulderdash.principal.Posicion;
  */
 public class MiTeclaEscucha extends KeyAdapter{
 
+	/**
+	 * Responde a las teclas presionadas
+	 */
 	public void keyPressed(KeyEvent e)
 	{
 		
@@ -77,7 +80,7 @@ public class MiTeclaEscucha extends KeyAdapter{
 		}
 		break;
 		
-		case KeyEvent.VK_SPACE: //Rockford explota
+		/*case KeyEvent.VK_SPACE: //Rockford explota
 		{
 			Rockford.getInstancia().explotar();
 		}
@@ -92,7 +95,7 @@ public class MiTeclaEscucha extends KeyAdapter{
 					
 			Mapa.getInstancia().getPersonaje(pos).explotar();
 		}
-		break;
+		break;*/
 		
 		}
 		}	

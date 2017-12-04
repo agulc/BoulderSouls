@@ -5,6 +5,9 @@ import com.boulderdash.enumerativos.Estado;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
 
+/**
+ * Clase abstracta utilizada para modelizar a los objetos que pueden caer por su propio peso
+ */
 public abstract class ObjetoNewton extends Personaje{
 	
 	private Estado stat;
@@ -35,6 +38,9 @@ public abstract class ObjetoNewton extends Personaje{
 		}
 	}
 	
+	/**
+	 * Utilizado para ver si el objeto newton debe resbalar, ya sea por tener un muro, roca, o diamante debajo
+	 */
 	private boolean chequearSiResbalo(ParaDonde donde, int x, int y)
 	{
 		if (donde == ParaDonde.IZQUIERDA)

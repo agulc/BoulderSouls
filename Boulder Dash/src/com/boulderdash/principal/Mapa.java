@@ -17,6 +17,9 @@ import com.boulderdash.personajes.Suciedad;
 import com.boulderdash.personajes.Vacio;
 import java.util.Random;
 
+/**
+ * Clase utilizada para modelizar el mapa, es un singleton ya que habra una sola instancia del mismo
+ */
 public class Mapa {
 	
 	private static int nivelActual = OpcionesES.getNivel();

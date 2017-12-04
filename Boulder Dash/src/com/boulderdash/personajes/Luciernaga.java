@@ -6,10 +6,16 @@ import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
 
+/**
+ * Clase que modeliza a la luciernaga, con sus atributos y comportamientos propios
+ */
 public class Luciernaga extends EnemigoMovil{
 	
 	private static ImageIcon icono = new ImageIcon("Texturas/firefly.gif");
 	
+	/**
+	 * Constructor de la clase
+	 */
 	public Luciernaga(int x,int y){
 		super(x,y);
 	}

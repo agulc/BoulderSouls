@@ -3,6 +3,9 @@ import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.OpcionesES;
 import com.boulderdash.interfaz.Gui;
 
+/**
+ * Clase principal, con ella se inicializa el juego
+ */
 public class Juego{
 	/**
 	 * Programa principal con los movimientos que Rockford

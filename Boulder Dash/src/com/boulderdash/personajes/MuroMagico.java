@@ -7,7 +7,9 @@ import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
 
-
+/**
+ * Clase que modeliza al muro magico, con sus atributos y comportamientos propios
+ */
 public class MuroMagico extends Muro{
 	
 	
@@ -58,6 +60,10 @@ public class MuroMagico extends Muro{
 		}
 		
 	}
+	
+	/**
+	 * Si le empujan una roca encima, la convierte en diamante
+	 */
 	public void meEmpujanUnaRocaDentro() 
 	{
 

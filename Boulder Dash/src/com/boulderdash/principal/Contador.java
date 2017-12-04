@@ -5,6 +5,9 @@ import com.boulderdash.interfaz.Gui;
 import com.boulderdash.interfaz.GuiMuerte;
 import com.boulderdash.personajes.Rockford;
 
+/**
+ * Clase que define un timer con comportamiento definido para decrementar el contador del hud
+ */
 public class Contador extends TimerTask {
 
 	public void run() {

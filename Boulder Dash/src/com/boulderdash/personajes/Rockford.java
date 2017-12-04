@@ -8,6 +8,9 @@ import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Comportamiento;
 import com.boulderdash.principal.Mapa;
 
+/**
+ * Clase utilizada para modelizar a rockford, el cual es singleton, ya que se accede a el todo el tiempo
+ */
 public class Rockford extends Personaje{
 	
 	private static ImageIcon iconoActual = new ImageIcon("Texturas/RockfordStatic.gif");
@@ -42,6 +45,9 @@ public class Rockford extends Personaje{
 		return false;
 	}
 	
+	/**
+	 * Utilizado para modelizar la muerte de rockford, bajando una vida, o muriendo definitivamente
+	 */
 	public void muerte(){
 		
 		Mapa.getInstancia().setVidas(Mapa.getInstancia().getVidas() - 1); //Bajo las vidas
@@ -105,6 +111,9 @@ public class Rockford extends Personaje{
 		}
 	}
 	
+	/**
+	 * Utilizado para mostrar el gif correspondiente a donde me estoy moviendo
+	 */
 	public void actualizarGif(){
 		if(direccionActual!=null){
 			switch(direccionActual){

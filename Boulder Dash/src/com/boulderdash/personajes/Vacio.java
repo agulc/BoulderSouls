@@ -7,6 +7,9 @@ import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
 
+/**
+ * Clase utilizada para modelizar el vacio
+ */
 public class Vacio extends Personaje{
 	
 	private static ImageIcon icono = new ImageIcon("Texturas/empty.gif");

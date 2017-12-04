@@ -6,10 +6,16 @@ import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
 
+/**
+ * Clase que modeliza a la explosion, con sus atributos y comportamientos propios
+ */
 public class Explosion extends Personaje{
 	
 	private static ImageIcon icono = new ImageIcon("Texturas/explosion.png");
 	
+	/**
+	 * Constructor de la clase
+	 */
 	Explosion(int x,int y){
 		super(x,y);
 		tiempo = 3;

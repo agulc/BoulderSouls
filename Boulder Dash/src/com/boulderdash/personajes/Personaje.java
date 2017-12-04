@@ -7,6 +7,9 @@ import com.boulderdash.principal.Mapa;
 import com.boulderdash.principal.Posicion;
 import javax.swing.ImageIcon;
 
+/**
+ * Clase abstracta utilizada para modelizar a todos los personajes
+ */
 public abstract class Personaje {
 	private Posicion pos;
 	
@@ -96,6 +99,9 @@ public abstract class Personaje {
 		}
 	}
 	
+	/**
+	 * Devuelve el icono del personaje en cuestion
+	 */
 	public abstract ImageIcon getGraficos();
 	
 
@@ -115,14 +121,21 @@ public abstract class Personaje {
 		}
 	}
 	
-	//public abstract String getGrafico();
-	
+	/**
+	 * Utilizado para saber si rockford puede transitar sobre el objeto o no
+	 */
 	public abstract boolean esTransitable(ParaDonde donde);
 	
+	/**
+	 * Utilizado para mover al personaje, dependiendo de su comportamiento
+	 */
 	public void moverPersonajes(){
 		//No hago nada por defecto
 	}
 	
+	/**
+	 * Utilizado para actualizar el estado del objeto (por ejemplo si un objeto newton esta cayendo o no), dependiendo de su comportamiento
+	 */
 	public void actualizarEstadoObjeto(){
 		//No hago nada por defecto
 	}
@@ -152,6 +165,9 @@ public abstract class Personaje {
 	 */
 	public abstract boolean chequearSiSoy(BDTile tile);
 	
+	/**
+	 * Crea una explosion de 3x3
+	 */
 	public void explotar(){
 		int a = this.getPos().getX() - 1; //Empieza en la esquina superior izquierda
 		int b = this.getPos().getY() - 1;
@@ -173,13 +189,42 @@ public abstract class Personaje {
 		Audio.explosion();
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * Utilizado para convertir rocas en diamantes, y diamantes en rocas
+	 */
+	public void transmutar() {
+	}
+	
+	/**
+	 * Utilizado para convertir rocas en diamantes de derecha a izquierda cuando se empuja una sobre el muro
+	 */
+	public void transmutarDerechaIzquierda() {
+		
+	}
+	
+	/**
+	 * Utilizado para convertir rocas en diamantes de izquierda a derecha cuando se empuja una sobre el muro
+	 */
+	public void transmutarIzquierdaDerecha() {
+		
+	}
+>>>>>>> 14c65311e14b88e4d0bd7798a724fef2dcac613a
 	public boolean lateralesLibres(ParaDonde donde) {
 		return false;
 	}
+	
+	/**
+	 * Utilizado para convertir rocas en diamantes de derecha a izquierda cuando se empuja una sobre el muro
+	 */
 	public boolean soyMagico() {
 		return false;
 	}
 	
+	/**
+	 * Por defecto no hace nada
+	 */
 	public void meEmpujanUnaRocaDentro(){
 		
 	}
