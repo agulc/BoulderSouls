@@ -189,28 +189,7 @@ public abstract class Personaje {
 		Audio.explosion();
 	}
 
-<<<<<<< HEAD
-=======
-	/**
-	 * Utilizado para convertir rocas en diamantes, y diamantes en rocas
-	 */
-	public void transmutar() {
-	}
-	
-	/**
-	 * Utilizado para convertir rocas en diamantes de derecha a izquierda cuando se empuja una sobre el muro
-	 */
-	public void transmutarDerechaIzquierda() {
-		
-	}
-	
-	/**
-	 * Utilizado para convertir rocas en diamantes de izquierda a derecha cuando se empuja una sobre el muro
-	 */
-	public void transmutarIzquierdaDerecha() {
-		
-	}
->>>>>>> 14c65311e14b88e4d0bd7798a724fef2dcac613a
+
 	public boolean lateralesLibres(ParaDonde donde) {
 		return false;
 	}
@@ -223,7 +202,7 @@ public abstract class Personaje {
 	}
 	
 	/**
-	 * Por defecto no hace nada
+	 * El muro magico detecta si una roca es empujada dentro de el para transformarla en diamante.
 	 */
 	public void meEmpujanUnaRocaDentro(){
 		

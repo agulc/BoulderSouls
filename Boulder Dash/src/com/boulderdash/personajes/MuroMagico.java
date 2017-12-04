@@ -5,7 +5,7 @@ import javax.swing.ImageIcon;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
-import com.boulderdash.principal.Posicion;
+
 
 /**
  * Clase que modeliza al muro magico, con sus atributos y comportamientos propios
