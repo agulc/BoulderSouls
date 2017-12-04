@@ -5,6 +5,7 @@ import javax.swing.ImageIcon;
 import com.boulderdash.entradasalida.BDTile;
 import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.principal.Mapa;
+import com.boulderdash.principal.Posicion;
 
 
 public class MuroMagico extends Muro{
@@ -30,8 +31,18 @@ public class MuroMagico extends Muro{
 	
 	public void meCaeAlgoEncima(){
 		
-		if((Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ABAJO)).chequearSiSoy(BDTile.EMPTY)) && (Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).chequearSiSoy(BDTile.ROCK)||Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).chequearSiSoy(BDTile.DIAMOND))){			
-			Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).transmutar();
+		if((Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ABAJO)).chequearSiSoy(BDTile.EMPTY))) {
+			if (Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).chequearSiSoy(BDTile.ROCK))
+			{
+				Mapa.getInstancia().setPersonaje(new Diamante(true,super.getPos(ParaDonde.ABAJO)), super.getPos(ParaDonde.ABAJO)); 
+			}
+			else
+				if(Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).chequearSiSoy(BDTile.DIAMOND)) 
+				{
+					Mapa.getInstancia().setPersonaje(new Roca(true,super.getPos(ParaDonde.ABAJO)), super.getPos(ParaDonde.ABAJO)); 
+				}
+			Mapa.getInstancia().setPersonaje(new Vacio(super.getPos(ParaDonde.ARRIBA)), super.getPos(ParaDonde.ARRIBA));
+						
 		}
 	}
 	
@@ -52,21 +63,22 @@ public class MuroMagico extends Muro{
 
 		if((Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.DERECHA)).chequearSiSoy(BDTile.ROCK))) 
 		{
-			Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.DERECHA)).transmutarDerechaIzquierda();
+			Mapa.getInstancia().setPersonaje(new Vacio(super.getPos(ParaDonde.DERECHA)), super.getPos(ParaDonde.DERECHA)); 
+			Mapa.getInstancia().setPersonaje(new Diamante(true,super.getPos(ParaDonde.IZQUIERDA)), super.getPos(ParaDonde.IZQUIERDA)); 
+			
 		}
 
 		else
-		{
-			if((Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.IZQUIERDA)).chequearSiSoy(BDTile.ROCK))) 
+			if((Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.IZQUIERDA)).chequearSiSoy(BDTile.ROCK)))
 			{
-				Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.IZQUIERDA)).transmutarIzquierdaDerecha();
+				Mapa.getInstancia().setPersonaje(new Vacio(super.getPos(ParaDonde.IZQUIERDA)), super.getPos(ParaDonde.IZQUIERDA)); 
+				Mapa.getInstancia().setPersonaje(new Diamante(true,super.getPos(ParaDonde.DERECHA)), super.getPos(ParaDonde.DERECHA)); 
 			
 			}
 		
-		}
 		
 	}
-	
+
 	public boolean soyMagico() {
 		return true;
 	}

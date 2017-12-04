@@ -173,16 +173,6 @@ public abstract class Personaje {
 		Audio.explosion();
 	}
 
-	public void transmutar() {
-	}
-	
-	public void transmutarDerechaIzquierda() {
-		
-	}
-	
-	public void transmutarIzquierdaDerecha() {
-		
-	}
 	public boolean lateralesLibres(ParaDonde donde) {
 		return false;
 	}
