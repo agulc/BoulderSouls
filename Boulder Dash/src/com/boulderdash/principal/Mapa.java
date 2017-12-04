@@ -1,6 +1,7 @@
 package com.boulderdash.principal;
 
 import com.boulderdash.entradasalida.BDLevelReader;
+import com.boulderdash.entradasalida.OpcionesES;
 import com.boulderdash.personajes.Ameba;
 import com.boulderdash.personajes.Diamante;
 import com.boulderdash.personajes.Luciernaga;
@@ -18,7 +19,7 @@ import java.util.Random;
 
 public class Mapa {
 	
-	private static int nivelActual = 1;
+	private static int nivelActual = OpcionesES.getNivel();
 	private static int puntuacionAcumulada = 0;
 	private static int tiempoAcumulado = 0;
 	private int puntuacionNivel = 0; //Se reinicia cada vez que muero
@@ -153,6 +154,7 @@ public class Mapa {
 	 * Se utiliza la primera vez que se construye el mapa, al inicializar el juego.
 	 */
 	public void construirMapa (){	
+		Mapa.getInstancia().setNivelActual(OpcionesES.getNivel());
 		instancia = new Mapa();
 		vidas = 4 ; //Se restauran las vidas
 		System.out.println("El mapa se acaba de construir");
