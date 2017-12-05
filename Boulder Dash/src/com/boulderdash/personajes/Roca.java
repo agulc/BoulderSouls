@@ -45,14 +45,17 @@ public class Roca extends ObjetoNewton{
 		{
 			if (dir == ParaDonde.IZQUIERDA || dir == ParaDonde.DERECHA)
 			{
-				if (Mapa.getInstancia().getPersonaje(this.getPos(dir)).soyMagico()) {
-					Mapa.getInstancia().getPersonaje(this.getPos(dir)).meEmpujanUnaRocaDentro();;
+				if(Mapa.getInstancia().getPersonaje(this.getPos(dir)).chequearSiSoy(BDTile.WALL)){
+					if (((Muro)Mapa.getInstancia().getPersonaje(this.getPos(dir))).soyMagico()) {
+						((Muro)Mapa.getInstancia().getPersonaje(this.getPos(dir))).meEmpujanUnaRocaDentro();;
+					}
+					this.mover(dir);
+
+
+					return true;
 				}
 				this.mover(dir);
-
-
 				return true;
-	
 			}
 			else
 				return false;
@@ -61,13 +64,22 @@ public class Roca extends ObjetoNewton{
 	}
 	
 	public boolean esTransitable(ParaDonde donde){
-		if(Mapa.getInstancia().getPersonaje(this.getPos(donde)).chequearSiSoy(BDTile.EMPTY) ||
-			((Mapa.getInstancia().getPersonaje(this.getPos(donde)).soyMagico() && Mapa.getInstancia().getPersonaje(this.getPos(donde)).lateralesLibres(donde))))
+		if(Mapa.getInstancia().getPersonaje(this.getPos(donde)).chequearSiSoy(BDTile.EMPTY))
 		{
 			return true;
 		}
 		else
-			return false;
+			if(Mapa.getInstancia().getPersonaje(this.getPos(donde)).chequearSiSoy(BDTile.WALL)){
+				if(((((Muro)Mapa.getInstancia().getPersonaje(this.getPos(donde))).soyMagico() && ((Muro)Mapa.getInstancia().getPersonaje(this.getPos(donde))).lateralesLibres(donde)))){
+					return true;
+				}
+				else{
+					return false;
+				}
+			}
+			else{
+				return false;
+			}
 	}
 	
 	public void moverPersonajes(){	

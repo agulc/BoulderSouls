@@ -187,21 +187,4 @@ public abstract class Personaje {
 		Audio.explosion();
 	}
 
-
-	public boolean lateralesLibres(ParaDonde donde) {
-		return false;
-	}
-	
-	/**
-	 * Chequea si el muro es magico o no
-	 */
-	public boolean soyMagico() {
-		return false;
-	}
-	
-	/**
-	 * El muro magico detecta si una roca es empujada dentro de el para transformarla en diamante.
-	 */
-	public void meEmpujanUnaRocaDentro(){
-	}
 }
