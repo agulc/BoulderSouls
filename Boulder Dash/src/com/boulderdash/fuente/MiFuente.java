@@ -22,7 +22,7 @@ public class MiFuente {
 	public static Font getFuente(int size)
 	{
 		try {
-			myStream = new BufferedInputStream(new FileInputStream("src/fuentes/OptimusPrinceps.ttf"));
+			myStream = new BufferedInputStream(new FileInputStream("src/com/boulderdash/fuente/OptimusPrinceps.ttf"));
 			fuente = Font.createFont(Font.TRUETYPE_FONT, myStream );
 	        fuente = fuente.deriveFont(Font.BOLD, size);
 		} catch (FileNotFoundException e) {
