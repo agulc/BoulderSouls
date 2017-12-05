@@ -61,12 +61,11 @@ public abstract class ObjetoNewton extends Personaje{
 
 		int x = this.getPos().getX();
 		int y = this.getPos().getY();
-		if((Mapa.getInstancia().getMapa()[x][y+1]).chequearSiSoy(BDTile.WALL)){
-			if((((Muro)Mapa.getInstancia().getMapa()[x][y+1]).soyMagico() && Mapa.getInstancia().getMapa()[x][y+2].chequearSiSoy(BDTile.EMPTY))){
+		if((Mapa.getInstancia().getMapa()[x][y+1]).chequearSiSoy(BDTile.WALL) && ((Muro)Mapa.getInstancia().getMapa()[x][y+1]).soyMagico() && Mapa.getInstancia().getMapa()[x][y+2].chequearSiSoy(BDTile.EMPTY)){
 				this.stat = Estado.CAYENDO;
 			}
-		}
-		else{
+		
+		else {
 		if((Mapa.getInstancia().getMapa()[x][y+1].chequearSiSoy(BDTile.EMPTY))) /*Podriamos reemplazarlo por el chequear objeto debajo y actualizar dependiendo de eso*/
 		{
 			this.stat = Estado.CAYENDO;
