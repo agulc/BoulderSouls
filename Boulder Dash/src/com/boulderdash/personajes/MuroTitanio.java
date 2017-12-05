@@ -24,12 +24,10 @@ public class MuroTitanio extends Muro {
 	 */
 	@Override
 	public void recibeExplosion(){ 
-		//Si recibe una explosion, No hace nada (A diferencia del resto de personajes)
 	}
 
 	@Override
 	public ImageIcon getGraficos() {
-		// TODO Auto-generated method stub
 		return icono;
 	}
 	

@@ -22,9 +22,6 @@ import com.boulderdash.principal.Mapa;
  */
 public class GuiTitulo extends JPanel{
 
-	/**
-	 * Constructor de la clase
-	 */
 	public GuiTitulo()
 	{
 		super();
@@ -156,7 +153,4 @@ public class GuiTitulo extends JPanel{
 		Gui.getInstancia().repaint();
 		CoordinadorDeEventos.detenerTemporizador();
 	}
-	
-	
-	
 }

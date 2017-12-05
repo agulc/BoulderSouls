@@ -39,7 +39,6 @@ public class Vacio extends Personaje{
 
 	@Override
 	public ImageIcon getGraficos() {
-		// TODO Auto-generated method stub
 		return icono;
 	}
 }

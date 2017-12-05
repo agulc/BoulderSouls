@@ -58,7 +58,7 @@ public class Gui extends JFrame{
 	}
 	
 	/**
-	 * Metodo que se utiliza para obtener la unica instancia de Gui
+	 * Metodo que se utiliza para obtener la unica instancia de Gui, ya que el mismo es singleton
 	 */
 	public static Gui getInstancia(){
 		if(instancia == null){

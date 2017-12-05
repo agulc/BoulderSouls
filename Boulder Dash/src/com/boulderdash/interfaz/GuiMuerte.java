@@ -21,7 +21,7 @@ public class GuiMuerte extends JPanel
 
 	@SuppressWarnings("static-access")
 	/**
-	 * Metodo para mostrar en pantalla el video de has muerto
+	 * Metodo para mostrar en pantalla el gif de has muerto
 	 */
 	public static void muerte()
 	{

@@ -17,9 +17,6 @@ public class Ameba extends Enemigo{
 	private static int contador = 1;
 	private boolean meExpando = true;
 	
-	/**
-	 * Constructor de la clase
-	 */
 	public Ameba(int x,int y){
 		super(x,y);
 	}

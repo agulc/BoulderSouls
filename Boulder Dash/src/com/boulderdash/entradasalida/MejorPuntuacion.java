@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import fuentes.MiFuente;
 
 /**
- * Clase que maneja las mejores puntuaciones.
+ * Clase que permite instanciar y almacenar una MejorPuntuacion.
  */
 public class MejorPuntuacion {
 	
@@ -116,7 +116,7 @@ public class MejorPuntuacion {
 	}
 	
 	/**
-	 * Devuelve el elemento de la posicion seleccionada, empezando desde 1.
+	 * Devuelve el elemento de la posicion seleccionada, empezando desde el puesto numero 1.
 	 */
 	public static MejorPuntuacion getElemento(int puesto)
 	{
@@ -150,22 +150,9 @@ public class MejorPuntuacion {
 		}
 	}
 
-	/**
-	 * Sirve para ver la cantidad de puntajes a mostrar, elegido en las opciones.
-	 */
-	public static int getCantidadAMostrar() {
-		return cantidadAMostrar;
-	}
 	
 	/**
-	 * Guarda la cantidad de puntajes a mostrar.
-	 */
-	public static void setCantidadAMostrar(int cantidadAMostrar) {
-		MejorPuntuacion.cantidadAMostrar = cantidadAMostrar;
-	}
-	
-	/**
-	 * Convierte el arreglo en una matriz, para que sea mas facil imprimir en pantalla.
+	 * Convierte el arreglo en una matriz, para que lo acepte la clase JTable.
 	 */
 	private static String[][] arregloAMatriz()
 	{
@@ -275,9 +262,6 @@ public class MejorPuntuacion {
 		
 	}
 	
-	/**
-	 * Devuelve el nombre del jugador.
-	 */
 	public String getNombre() {
 		return nombre;
 	}
@@ -293,9 +277,7 @@ public class MejorPuntuacion {
 			this.nombre = nombre;
 		}
 	}
-	/**
-	 * Devuelve el puntaje que hizo el jugador.
-	 */
+	
 	public int getPuntos() {
 		return puntos;
 	}
@@ -303,14 +285,19 @@ public class MejorPuntuacion {
 		this.puntos = puntos;
 	}
 	
-	/**
-	 * Devuelve el tiempo que tardo el jugador en llegar adonde murio.
-	 */
 	public int getTiempo() {
 		return tiempo;
 	}
 	public void setTiempo(int tiempo) {
 		this.tiempo = tiempo;
+	}
+	
+	public static int getCantidadAMostrar() {
+		return cantidadAMostrar;
+	}
+	
+	public static void setCantidadAMostrar(int cantidadAMostrar) {
+		MejorPuntuacion.cantidadAMostrar = cantidadAMostrar;
 	}
 
 	

@@ -81,7 +81,6 @@ public class Roca extends ObjetoNewton{
 
 	@Override
 	public ImageIcon getGraficos() {
-		// TODO Auto-generated method stub
 		return icono;
 	}
 

@@ -28,9 +28,6 @@ import fuentes.MiFuente;
  */
 public class GuiOpciones extends JPanel{
 
-	/**
-	 * Constructor de la clase
-	 */
 	public GuiOpciones()
 	{
 		this.setLayout(new BorderLayout());
@@ -90,7 +87,7 @@ public class GuiOpciones extends JPanel{
 	}
 	
 	/**
-	 * Crea el check box para ver si esta activadas o no las piedras con inercia en el juego
+	 * Crea el check box para ver si estan activadas o no las piedras con inercia en el juego
 	 */
 	private JCheckBox crearBoxPiedrasConInercia()
 	{

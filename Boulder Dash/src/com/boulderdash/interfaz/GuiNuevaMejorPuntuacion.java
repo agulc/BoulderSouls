@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.FlowLayout;
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.MejorPuntuacion;
@@ -26,16 +26,14 @@ import fuentes.MiFuente;
 public class GuiNuevaMejorPuntuacion extends JPanel{
 	
 	private MejorPuntuacion highscore;
-	private TextField text;
+	private JTextField text;
 	private JLabel mensaje;
+	private JLabel mensajeDeCantidadDePuntos;
 	
-	ImageIcon blank;
-	ImageIcon nombreEnUso;
-	ImageIcon nombreInvalido;
+	private ImageIcon blank;
+	private ImageIcon nombreEnUso;
+	private ImageIcon nombreInvalido;
 
-	/**
-	 * Constructor de la clase
-	 */
 	public GuiNuevaMejorPuntuacion()
 	{
 		blank = new ImageIcon("./Texturas/Blank.png");
@@ -61,7 +59,7 @@ public class GuiNuevaMejorPuntuacion extends JPanel{
 	}
 	
 	/**
-	 * Metodo utilizado para crear un label, con la icono Nuevohighscore
+	 * Metodo utilizado para crear un label, con el icono Nuevohighscore
 	 */
 	private JLabel crearLabelMejorPuntuacion()
 	{
@@ -82,14 +80,36 @@ public class GuiNuevaMejorPuntuacion extends JPanel{
 		label.setBackground(Color.BLACK);
 		label.setForeground(Color.WHITE);
 		label.setFont(MiFuente.getFuente(30));
-		label.setText("        Introduce un nombre: ");
+		label.setText("introduce un nombre: ");
 		
-		this.text = new TextField();
+		mensajeDeCantidadDePuntos = new JLabel();
+		mensajeDeCantidadDePuntos.setBackground(Color.BLACK);
+		mensajeDeCantidadDePuntos.setForeground(Color.WHITE);
+		mensajeDeCantidadDePuntos.setFont(MiFuente.getFuente(30));
+		mensajeDeCantidadDePuntos.setText("Su puntaje es: 1000000000");
+		
+		Container container2 = new Container();
+		container2.setLayout(new FlowLayout());
+		container2.add(label);
+		
+		Container container2b = new Container();
+		container2b.setLayout(new FlowLayout());
+		container2b.add(mensajeDeCantidadDePuntos);
+		
+		Container container2c = new Container();
+		container2c.setLayout(new BorderLayout());
+		container2c.add(container2,BorderLayout.SOUTH);
+		container2c.add(container2b,BorderLayout.NORTH);
+		
+		this.text = new JTextField();
 		text.setFont(MiFuente.getFuente(18));
 		text.setBackground(Color.BLACK);
 		text.setForeground(Color.WHITE);
 		text.setColumns(30);
 		
+		Container container3 = new Container();
+		container3.setLayout(new FlowLayout());
+		container3.add(text);
 		
 		JLabel label2 = new JLabel();
 		label.setBackground(Color.BLACK);
@@ -97,11 +117,11 @@ public class GuiNuevaMejorPuntuacion extends JPanel{
 		label.setFont(MiFuente.getFuente(30));
 		
 		Container container = new Container();
-		container.setLayout(new FlowLayout());
+		container.setLayout(new BorderLayout());
 		
-		container.add(label);
-		container.add(text);
-		container.add(label2);
+		container.add(container2c,BorderLayout.NORTH);
+		container.add(container3, BorderLayout.CENTER);
+		container.add(label2,BorderLayout.SOUTH);
 		
 		return container;
 	}
@@ -112,6 +132,8 @@ public class GuiNuevaMejorPuntuacion extends JPanel{
 	public void menuNuevaMejorPuntuacion(MejorPuntuacion highscore)
 	{
 		this.text.setText("");
+		
+		this.mensajeDeCantidadDePuntos.setText("Su puntaje es: " + highscore.getPuntos());
 		
 		this.highscore = highscore;
 		

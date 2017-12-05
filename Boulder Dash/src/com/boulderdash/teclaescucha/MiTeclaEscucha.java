@@ -6,11 +6,10 @@ import com.boulderdash.enumerativos.ParaDonde;
 import com.boulderdash.interfaz.Gui;
 import com.boulderdash.personajes.Rockford;
 import com.boulderdash.principal.Comportamiento;
-import com.boulderdash.principal.Mapa;
-import com.boulderdash.principal.Posicion;
 
 /**
- * Clase para crear un key listener, que responda al movimiento de rockford con las flechas y wasd, que se pueda volver al menu principal con escape, y puedas suicidarte con espacio
+ * Clase para crear un key listener, que responda al movimiento de rockford con 
+ * las flechas y wasd, que se pueda volver al menu principal con escape.
  */
 public class MiTeclaEscucha extends KeyAdapter{
 
@@ -80,6 +79,7 @@ public class MiTeclaEscucha extends KeyAdapter{
 		}
 		break;
 		
+		//Opciones usadas para testeo, pueden ser activadas, funcionan perfectamente
 		/*case KeyEvent.VK_SPACE: //Rockford explota
 		{
 			Rockford.getInstancia().explotar();

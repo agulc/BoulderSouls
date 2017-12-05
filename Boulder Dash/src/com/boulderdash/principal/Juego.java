@@ -4,12 +4,11 @@ import com.boulderdash.entradasalida.OpcionesES;
 import com.boulderdash.interfaz.Gui;
 
 /**
- * Clase principal, con ella se inicializa el juego
+ * Clase principal, con ella se cargan las opciones y se inicializan los paneles del gui
  */
 public class Juego{
 	/**
-	 * Programa principal con los movimientos que Rockford
-	 * realizará en los niveles 1 y 2.
+	 * Programa principal
 	 * @param args .
 	 */
 	public static void main(String args[]){

@@ -34,8 +34,8 @@ public class Posicion {
 	}
 
 	/**
-	 * Determina el comportamiento que el objeto debe tomar
-	 * dependiendo de la dirección de desplazamiento seleccionada.
+	 * Devuelve una posicion adyacente al objeto, dependiendo del enumerativo
+	 * que reciba por parametro
 	 * @param donde Dirección.
 	 * @return Nueva posición,
 	 */

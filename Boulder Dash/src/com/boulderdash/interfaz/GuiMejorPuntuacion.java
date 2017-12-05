@@ -22,9 +22,6 @@ public class GuiMejorPuntuacion extends JPanel{
 	
 	private JTable tabla;
 	
-	/**
-	 * Constructor de la clase
-	 */
 	public GuiMejorPuntuacion()
 	{
 		this.setLayout(new BorderLayout());

@@ -62,8 +62,6 @@ public abstract class Personaje {
 			setPos(getPos(dir)); //Actualizo mi posicion
 			
 		}
-		
-		
 	}
 	/**
 	 * Permite seleccionar al objeto la dirección hacia donde debe desplazarse.
@@ -195,7 +193,7 @@ public abstract class Personaje {
 	}
 	
 	/**
-	 * Utilizado para convertir rocas en diamantes de derecha a izquierda cuando se empuja una sobre el muro
+	 * Chequea si el muro es magico o no
 	 */
 	public boolean soyMagico() {
 		return false;
@@ -205,6 +203,5 @@ public abstract class Personaje {
 	 * El muro magico detecta si una roca es empujada dentro de el para transformarla en diamante.
 	 */
 	public void meEmpujanUnaRocaDentro(){
-		
 	}
 }

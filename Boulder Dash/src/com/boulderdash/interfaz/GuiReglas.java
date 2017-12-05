@@ -21,9 +21,6 @@ import fuentes.MiFuente;
  */
 public class GuiReglas extends JPanel{
 
-	/**
-	 * Constructor de la clase
-	 */
 	public GuiReglas()
 	{
 		this.setLayout(new BorderLayout());
@@ -44,7 +41,7 @@ public class GuiReglas extends JPanel{
 	}
 	
 	/**
-	 * Crea una el container con todas las reglas, con sus correspondientes gif
+	 * Crea el container con todas las reglas, con sus correspondientes gif
 	 */
 	private Container crearContainerReglas()
 	{

@@ -14,23 +14,11 @@ public abstract class EnemigoMovil extends Enemigo {
 
 	private boolean yaMeMoviEsteTurno = false;
 	
-	/**
-	 * Constructor de la clase
-	 */
 	EnemigoMovil(int x,int y){
 		super(x,y);
 		this.direccionActual = ParaDonde.ARRIBA; //Por defecto empieza hacia arriba aunque despues se chequea para donde debe ir al inicializar el juego
 	}
 	
-	public ParaDonde getDireccionActual(){
-		
-		return this.direccionActual;
-	}
-	
-	public void setDireccionActual(ParaDonde dir){
-		
-		this.direccionActual = dir;
-	}
 	
 	public void meCaeAlgoEncima(){
 		if(Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).chequearSiSoy(BDTile.ROCK)||Mapa.getInstancia().getPersonaje(super.getPos(ParaDonde.ARRIBA)).chequearSiSoy(BDTile.DIAMOND)){
@@ -40,9 +28,6 @@ public abstract class EnemigoMovil extends Enemigo {
 		}
 	}
 	
-	/**
-	 * Forma en la que se expande una explosión al ocurrir dentro del mapa 
-	 */
 	@Override
 	public void moverPersonajes(){
 		if(!yaMeMoviEsteTurno){
@@ -87,6 +72,16 @@ public abstract class EnemigoMovil extends Enemigo {
 
 	public void setyaMeMoviEsteTurno(boolean yaMeMoviEsteTurno) {
 		this.yaMeMoviEsteTurno = yaMeMoviEsteTurno;
+	}
+	
+	public ParaDonde getDireccionActual(){
+		
+		return this.direccionActual;
+	}
+	
+	public void setDireccionActual(ParaDonde dir){
+		
+		this.direccionActual = dir;
 	}
 	
 	

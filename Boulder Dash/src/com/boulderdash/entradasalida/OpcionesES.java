@@ -37,7 +37,7 @@ public class OpcionesES {
 	}
 	
 	/**
-	 * Escribe el string recibido en el archivo con el nombre recibido
+	 * Sobreescribe el string recibido en el archivo con el nombre recibido
 	 */
 	private static void escribir(String nombreArchivo, String mensaje)
 	{
@@ -102,7 +102,7 @@ public class OpcionesES {
 	}
 	
 	/**
-	 * Chequea el archivo de nivel, y devuelve si debe activarlo o no
+	 * Chequea el archivo de nivel, y devuelve el nivel actual
 	 */
 	public static int getNivel ()
 	{
@@ -134,9 +134,8 @@ public class OpcionesES {
 	}
 	
 	
-	
 	/**
-	 * Chequea el archivo de elementos a mostrar, y devuelve si debe activarlo o no
+	 * Chequea el archivo de elementos a mostrar, y devuelve la cantidad a mostrar
 	 */
 	public static int getElementosAMostrar ()
 	{

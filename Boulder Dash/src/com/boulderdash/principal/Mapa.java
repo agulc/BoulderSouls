@@ -135,13 +135,6 @@ public class Mapa {
 		Comportamiento.cambiarDeNivel();
 	}
 	
-	public Personaje getPersonaje(Posicion pos){
-		return this.mapa[pos.getX()][pos.getY()];
-	}
-
-	public void setPersonaje(Personaje pers, Posicion pos){
-		mapa[pos.getX()][pos.getY()] = pers;
-	}
 	
 	/**
 	 * Reconstruye el mapa dependiendo el nivel.
@@ -267,6 +260,14 @@ public class Mapa {
 
 	public static void setTiempoAcumulado(int tiempoAcumulado) {
 		Mapa.tiempoAcumulado = tiempoAcumulado;
+	}
+	
+	public Personaje getPersonaje(Posicion pos){
+		return this.mapa[pos.getX()][pos.getY()];
+	}
+
+	public void setPersonaje(Personaje pers, Posicion pos){
+		mapa[pos.getX()][pos.getY()] = pers;
 	}
 }
 

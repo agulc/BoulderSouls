@@ -3,7 +3,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * Clase que define un timer con comportamiento definido para coordinar los cuadros por segundo del juego
+ * Clase que define un timer con comportamiento definido para coordinar los cuadros por segundo del juego, asi como tambien
+ * decrementar el tiempo en el contador
  */
 public class CoordinadorDeEventos extends TimerTask {
 

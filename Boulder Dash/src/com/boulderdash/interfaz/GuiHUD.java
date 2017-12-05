@@ -22,9 +22,6 @@ public class GuiHUD extends JPanel{
 
 	private static int diamantesNivel;
 	
-	/**
-	 * Constructor del panel utilizado para el HUD del juego
-	 */
 	public GuiHUD()
 	{
 		GridLayout layout = new GridLayout();

@@ -19,9 +19,6 @@ public class GuiMatriz extends JPanel{
 	private static MiTeclaEscucha teclaEscucha = new MiTeclaEscucha();
 	private static JLabel labels[] = new JLabel[880];
 	
-	/**
-	 * Constructor del panel utilizado para el juego en si
-	 */
 	public GuiMatriz()
 	{
 		this.setLayout(new GridLayout(22,40,0,0));

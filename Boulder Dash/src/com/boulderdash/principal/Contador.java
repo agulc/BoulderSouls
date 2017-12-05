@@ -6,7 +6,7 @@ import com.boulderdash.interfaz.GuiMuerte;
 import com.boulderdash.personajes.Rockford;
 
 /**
- * Clase que define un timer con comportamiento definido para decrementar el contador del hud
+ * Clase que define un timer task con comportamiento definido para decrementar el contador del hud
  */
 public class Contador extends TimerTask {
 
@@ -26,7 +26,6 @@ public class Contador extends TimerTask {
 				try {
 					Thread.sleep(200); //Para que se grafique la explosion
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				GuiMuerte.muerte();

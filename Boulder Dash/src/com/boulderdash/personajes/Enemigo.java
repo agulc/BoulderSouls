@@ -5,9 +5,6 @@ package com.boulderdash.personajes;
  * */
 public abstract class Enemigo extends Personaje{
 	
-	/**
-	 * Constructor de la clase
-	 */
 	Enemigo(int x,int y){
 		super(x,y);
 	}

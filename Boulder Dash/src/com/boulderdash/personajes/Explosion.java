@@ -13,9 +13,6 @@ public class Explosion extends Personaje{
 	
 	private static ImageIcon icono = new ImageIcon("Texturas/explosion.png");
 	
-	/**
-	 * Constructor de la clase
-	 */
 	Explosion(int x,int y){
 		super(x,y);
 		tiempo = 3;
@@ -53,7 +50,6 @@ public class Explosion extends Personaje{
 
 	@Override
 	public ImageIcon getGraficos() {
-		// TODO Auto-generated method stub
 		return icono;
 	}
 	

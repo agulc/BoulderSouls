@@ -26,13 +26,10 @@ public class MiFuente {
 			fuente = Font.createFont(Font.TRUETYPE_FONT, myStream );
 	        fuente = fuente.deriveFont(Font.BOLD, size);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (FontFormatException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

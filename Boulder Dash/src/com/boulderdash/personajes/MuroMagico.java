@@ -25,7 +25,6 @@ public class MuroMagico extends Muro{
 
 	@Override
 	public ImageIcon getGraficos() {
-		// TODO Auto-generated method stub
 		return icono;
 	}
 	

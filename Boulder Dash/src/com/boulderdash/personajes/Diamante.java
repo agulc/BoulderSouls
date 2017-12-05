@@ -17,9 +17,6 @@ public class Diamante extends ObjetoNewton{
 	
 	private static int valorDiamante = 0;
 	
-	/**
-	 * Constructor de la clase
-	 */
 	public Diamante(boolean cae,int x,int y){
 		super(cae,x,y);
 	}

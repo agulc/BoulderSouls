@@ -38,7 +38,6 @@ public class Comportamiento {
 	}
 	/**
 	 * Ciclo normal del juego una vez que fue inicializado.
-	 * Solo se actualiza al graficar, ya que en esta etapa el juego funciona por "turnos".
 	 */
 	public static void comportamientoNormal(){
 		
@@ -65,7 +64,7 @@ public class Comportamiento {
 	
 	
 	/**
-	 * Se encarga de modificar la posición de cada objeto (salvo Rockford) del nivel en cada turno.
+	 * Se encarga de modificar la posición de cada objeto del nivel en cada turno.
 	 */
 	private static void moverPersonajes(){
 		Posicion pos = new Posicion();
