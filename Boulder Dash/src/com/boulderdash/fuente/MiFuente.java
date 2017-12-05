@@ -1,4 +1,4 @@
-package fuentes;
+package com.boulderdash.fuente;
 
 import java.awt.Font;
 import java.awt.FontFormatException;

@@ -13,7 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import fuentes.MiFuente;
+import com.boulderdash.fuente.MiFuente;
 
 @SuppressWarnings("serial")
 /**

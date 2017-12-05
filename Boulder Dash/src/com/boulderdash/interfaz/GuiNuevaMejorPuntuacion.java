@@ -15,9 +15,8 @@ import javax.swing.JTextField;
 
 import com.boulderdash.audio.Audio;
 import com.boulderdash.entradasalida.MejorPuntuacion;
+import com.boulderdash.fuente.MiFuente;
 import com.boulderdash.principal.Mapa;
-
-import fuentes.MiFuente;
 
 @SuppressWarnings("serial")
 /**

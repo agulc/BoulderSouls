@@ -9,10 +9,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.boulderdash.fuente.MiFuente;
 import com.boulderdash.personajes.Diamante;
 import com.boulderdash.principal.Mapa;
-
-import fuentes.MiFuente;
 
 @SuppressWarnings("serial")
 /**

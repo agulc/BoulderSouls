@@ -13,7 +13,7 @@ import java.io.UnsupportedEncodingException;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
-import fuentes.MiFuente;
+import com.boulderdash.fuente.MiFuente;
 
 /**
  * Clase que permite instanciar y almacenar una MejorPuntuacion.
